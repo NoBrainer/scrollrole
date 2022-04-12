@@ -1,26 +1,19 @@
-import {Paper} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
-import {PAPER_STYLES} from "common/Defaults";
-import React from "react";
-import {useSelector} from "react-redux";
-
-const useStyles = makeStyles((theme) => ({
-	paper: PAPER_STYLES,
-}));
+import BasicCard from 'components/scaffolding/BasicCard';
+import PageWrapper from 'components/scaffolding/PageWrapper';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 function RulesIntroduction() {
-	const classes = useStyles();
-	const rulesList = useSelector((state) => state.rules.rulesList);
+  const rulesList = useSelector((state) => state.rules.rulesList);
 
-	//TODO: Use these rules
-	console.log(rulesList);
+  //TODO: Use these rules
+  console.log(rulesList);
 
-	const renderPaperContent = () => {
-		if (!rulesList) return `[Loading...]`;
-		return `[Rules Customizer - Introduction - UNDER CONSTRUCTION]`;
-	};
+  const renderIntroduction = () => {
+    return <BasicCard>{rulesList ? `[UNDER CONSTRUCTION]` : `[Loading...]`}</BasicCard>;
+  };
 
-	return (<Paper className={classes.paper}>{renderPaperContent()}</Paper>);
+  return <PageWrapper title='Rules Customizer - Introduction'>{renderIntroduction()}</PageWrapper>;
 }
 
-export default RulesIntroduction
+export default RulesIntroduction;

@@ -1,72 +1,73 @@
-import {AppBar, IconButton, Toolbar} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
-import {Menu} from "@material-ui/icons";
-import logo from "assets/logo.svg";
-import clsx from "clsx";
-import {APP_BAR_HEIGHT, APP_DRAWER_WIDTH} from "common/Constants";
-import {openDrawer} from "common/redux/ducks/drawer";
-import React from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import { Menu } from '@mui/icons-material';
+import { AppBar, IconButton, Toolbar } from '@mui/material';
+import logo from 'assets/logo.svg';
+import { APP_BAR_HEIGHT, APP_DRAWER_WIDTH } from 'common/constants';
+import { openDrawer, selectIsDrawerOpen } from 'common/redux/slices/drawerSlice';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
-	appBar: {
-		height: `${APP_BAR_HEIGHT}px`,
-		transition: theme.transitions.create(['margin', 'width'], {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.leavingScreen,
-		}),
-	},
-	appBarShift: {
-		marginLeft: APP_DRAWER_WIDTH,
-		transition: theme.transitions.create(['margin', 'width'], {
-			easing: theme.transitions.easing.easeOut,
-			duration: theme.transitions.duration.enteringScreen,
-		}),
-		width: `calc(100% - ${APP_DRAWER_WIDTH}px)`,
-	},
-	menuButton: {
-		marginRight: theme.spacing(2),
-	},
-	logo: {
-		flexBasis: '215px',
-		flexDirection: 'column',
-		flexGrow: 0,
-		flexShrink: 0,
-		justifyContent: 'center',
-		margin: 'auto 0',
-		padding: '0 10px',
-		'img': {
-			height: '70px',
-		},
-	},
-	hide: {
-		display: 'none',
-	},
-}));
+const transitionOpen = (theme) =>
+  theme.transitions.create(['margin', 'width'], {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  });
+
+const transitionClose = (theme) =>
+  theme.transitions.create(['margin', 'width'], {
+    easing: theme.transitions.easing.easeOut,
+    duration: theme.transitions.duration.enteringScreen,
+  });
 
 function AppHeader() {
-	const classes = useStyles();
-	const dispatch = useDispatch();
-	const isDrawerOpen = useSelector((state) => state.drawer.isOpen);
+  const dispatch = useDispatch();
+  const isDrawerOpen = useSelector(selectIsDrawerOpen);
 
-	const handleDrawerOpen = () => {
-		dispatch(openDrawer());
-	};
+  const handleDrawerOpen = () => {
+    dispatch(openDrawer());
+  };
 
-	return (
-		<AppBar position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: isDrawerOpen,})}>
-			<Toolbar>
-				<IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerOpen} edge="start"
-							className={clsx(classes.menuButton, isDrawerOpen && classes.hide)}>
-					<Menu/>
-				</IconButton>
-				<Link className={classes.logo} to="/">
-					<img src={logo} alt="ScrollRole logo"/>
-				</Link>
-			</Toolbar>
-		</AppBar>
-	);
+  return (
+    <AppBar
+      position='fixed'
+      sx={{
+        height: `${APP_BAR_HEIGHT}px`,
+        marginLeft: isDrawerOpen ? `${APP_DRAWER_WIDTH}px` : null,
+        width: isDrawerOpen ? `calc(100% - ${APP_DRAWER_WIDTH}px)` : null,
+        transition: isDrawerOpen ? transitionClose : transitionOpen
+      }}
+    >
+      <Toolbar>
+        <IconButton
+          color='inherit'
+          aria-label='open drawer'
+          onClick={handleDrawerOpen}
+          edge='start'
+          sx={{
+            marginRight: 2,
+            display: isDrawerOpen ? 'none' : null,
+            transition: isDrawerOpen ? transitionOpen : transitionClose,
+          }}
+        >
+          <Menu />
+        </IconButton>
+        <Link
+          sx={{
+            flexBasis: '215px',
+            flexDirection: 'column',
+            flexGrow: 0,
+            flexShrink: 0,
+            justifyContent: 'center',
+            margin: 'auto 0',
+            padding: '0 10px',
+          }}
+          to='/'
+        >
+          <img src={logo} alt='ScrollRole logo' style={{ height: `70px` }} />
+        </Link>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
-export default AppHeader
+export default AppHeader;

@@ -1,23 +1,21 @@
-import {Paper} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
-import {PAPER_STYLES} from "common/Defaults";
-import {usePageState} from "common/PageState";
-import React from "react";
-
-const useStyles = makeStyles((theme) => ({
-	paper: PAPER_STYLES,
-}));
+import { usePageState } from 'common/pageState';
+import BasicCard from 'components/scaffolding/BasicCard';
+import PageWrapper from 'components/scaffolding/PageWrapper';
+import React from 'react';
 
 function CharactersContent() {
-	const classes = useStyles();
-	const [pageState] = usePageState();
+  const [pageState] = usePageState();
 
-	const renderPaperContent = () => {
-		if (pageState.sectionId) return `[Character Builder - ${pageState.sectionId} - UNDER CONSTRUCTION]`;
-		return `[Character Builder - UNDER CONSTRUCTION]`;
-	};
+  const renderContent = () => {
+    if (pageState.sectionId) return `[Character Builder - ${pageState.sectionId} - UNDER CONSTRUCTION]`;
+    return `[UNDER CONSTRUCTION]`;
+  };
 
-	return (<Paper className={classes.paper}>{renderPaperContent()}</Paper>);
+  return (
+    <PageWrapper title='Character Builder'>
+      <BasicCard>{renderContent()}</BasicCard>
+    </PageWrapper>
+  );
 }
 
-export default CharactersContent
+export default CharactersContent;

@@ -1,42 +1,22 @@
-import {Grid, Paper, Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
-import {PAPER_STYLES} from "common/Defaults";
-import BasicWrapper from "components/rules/BasicWrapper";
-import Race from "components/rules/Race";
-import React from "react";
-import {useSelector} from "react-redux";
-
-const useStyles = makeStyles((theme) => ({
-	paper: PAPER_STYLES,
-}));
+import Race from 'components/rules/Race';
+import PageWrapper from 'components/scaffolding/PageWrapper';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 function RulesForRaces() {
-	const classes = useStyles();
-	const rulesList = useSelector((state) => state.rules.rulesList);
-	const currentRules = rulesList.length > 0 ? rulesList[0] : {};
-	const {races: currentRaces} = currentRules;
+  const rulesList = useSelector((state) => state.rules.rulesList);
+  const currentRules = rulesList.length > 0 ? rulesList[0] : {};
+  const { races: currentRaces } = currentRules;
 
-	const renderRaces = () => {
-		if (!currentRaces) return renderLoadingPlaceholder();
-		return currentRaces.map(renderRace);
-	};
-	const renderRace = (race, i) => {
-		return (<Race key={i} race={race} summaryId={`race-panel-header-${i}`}/>);
-	};
-	const renderLoadingPlaceholder = () => {
-		return (<Paper className={classes.paper}>[Loading Races...]</Paper>);
-	};
+  const renderRaces = () => {
+    if (!currentRaces) return `[Loading Races...]`;
+    return currentRaces.map(renderRace);
+  };
+  const renderRace = (race, i) => {
+    return <Race key={i} race={race} summaryId={`race-panel-header-${i}`} />;
+  };
 
-	return (
-		<Grid container direction="column">
-			<Paper className={classes.paper}>
-				<Typography component="h1" variant="h1" display="block">Races</Typography>
-			</Paper>
-			<BasicWrapper margin="bottom">
-				{renderRaces()}
-			</BasicWrapper>
-		</Grid>
-	);
+  return <PageWrapper title='Rules Customizer - Races'>{renderRaces()}</PageWrapper>;
 }
 
-export default RulesForRaces
+export default RulesForRaces;
