@@ -16,7 +16,9 @@ function Description(props) {
 	);
 }
 
-export const DescriptionPropType = PropTypes.arrayOf(PropTypes.string);
+export const DescriptionPropType = PropTypes.arrayOf(
+	PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+);
 
 Description.defaultProps = {
 	headerText: "Description",

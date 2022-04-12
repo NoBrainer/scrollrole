@@ -65,7 +65,7 @@ function Choice(props) {
 	);
 }
 
-export const CHOICE_TYPES = ['abilityScoreAdjustment', 'equipment', 'feature', 'proficiency'];
+export const CHOICE_TYPES = ['abilityScoreAdjustment', 'equipment', 'feature', 'proficiency', 'spell'];
 
 export const ChoicePropType = PropTypes.shape({
 	name: PropTypes.string.isRequired,

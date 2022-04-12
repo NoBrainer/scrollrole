@@ -469,7 +469,7 @@ classes:
           - diplomat's pack
           - entertainer's pack
       - name: Equipment
-        type: tool
+        type: equipment
         pick: 1
         from: { name: tools, tags: [ musical instrument ] }
       - name: Cantrips

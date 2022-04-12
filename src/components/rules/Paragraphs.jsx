@@ -14,7 +14,9 @@ function Paragraphs(props) {
 }
 
 Paragraphs.propTypes = {
-	paragraphs: PropTypes.arrayOf(PropTypes.string),
+	paragraphs: PropTypes.arrayOf(
+		PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+	),
 };
 
 export default Paragraphs
