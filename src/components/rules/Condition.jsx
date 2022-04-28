@@ -1,6 +1,6 @@
-import Paragraphs from 'components/rules/Paragraphs';
 import { ProficiencyPropType } from 'components/rules/Proficiencies';
-import RulesSection from 'components/rules/RulesSection';
+import Paragraphs from 'components/scaffolding/Paragraphs';
+import RulesSection from 'components/scaffolding/RulesSection';
 import PropTypes from 'prop-types';
 import React from 'react';
 

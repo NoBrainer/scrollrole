@@ -1,7 +1,7 @@
 import { AbilityScoreAdjustmentsPropType } from 'components/rules/AbilityScoreAdjustments';
 import { FeaturesPropType } from 'components/rules/Features';
-import Paragraphs from 'components/rules/Paragraphs';
 import { ProficienciesPropType } from 'components/rules/Proficiencies';
+import Paragraphs from 'components/scaffolding/Paragraphs';
 import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';

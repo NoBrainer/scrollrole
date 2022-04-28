@@ -3,8 +3,8 @@ import Choices, { ChoicesPropType } from 'components/rules/Choices';
 import Description, { DescriptionPropType } from 'components/rules/Description';
 import Features, { FeaturesPropType } from 'components/rules/Features';
 import Proficiencies, { ProficienciesPropType } from 'components/rules/Proficiencies';
-import RulesSection from 'components/rules/RulesSection';
 import BasicWrapper from 'components/scaffolding/BasicWrapper';
+import RulesSection from 'components/scaffolding/RulesSection';
 import PropTypes from 'prop-types';
 import React from 'react';
 

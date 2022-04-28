@@ -1,6 +1,6 @@
 import { HEADER_COMPONENTS } from 'common/constants';
-import BasicList from 'components/rules/BasicList';
-import RulesSection from 'components/rules/RulesSection';
+import BasicList from 'components/scaffolding/BasicList';
+import RulesSection from 'components/scaffolding/RulesSection';
 import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';

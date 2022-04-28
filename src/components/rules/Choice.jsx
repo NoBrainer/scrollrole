@@ -4,9 +4,9 @@ import { AbilityScoreAdjustmentsPropType } from 'components/rules/AbilityScoreAd
 import ChoiceList from 'components/rules/ChoiceList';
 import { EquipmentsPropType } from 'components/rules/Equipment';
 import { FeaturesPropType } from 'components/rules/Features';
-import Paragraphs from 'components/rules/Paragraphs';
 import { ProficienciesPropType } from 'components/rules/Proficiencies';
-import RulesSection from 'components/rules/RulesSection';
+import Paragraphs from 'components/scaffolding/Paragraphs';
+import RulesSection from 'components/scaffolding/RulesSection';
 import { chain, includes, isEmpty, isObject, uniq } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
