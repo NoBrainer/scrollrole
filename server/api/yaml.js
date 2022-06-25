@@ -6,34 +6,34 @@ const router = express.Router();
 
 /* POST JSON string to serialize into YAML */
 router.get('/serialize', (req, res, next) => {
-  //TODO: change from GET to POST
-  //TODO: check for bad requests and such
+  // TODO: change from GET to POST
+  // TODO: check for bad requests and such
   serialize(req.body)
-    .then((response) => {
-      res.status(200).send(response);
-    })
-    .catch((error) => {
-      logger.error(error.message);
-      res.status(500).json({
-        error: error.message,
+      .then((response) => {
+        res.status(200).send(response);
+      })
+      .catch((error) => {
+        logger.error(error.message);
+        res.status(500).json({
+          error: error.message
+        });
       });
-    });
 });
 
 /* POST YAML string to deserialize into JSON */
 router.get('/deserialize', (req, res, next) => {
-  //TODO: change from GET to POST
-  //TODO: check for bad requests and such
+  // TODO: change from GET to POST
+  // TODO: check for bad requests and such
   deserialize(req.body)
-    .then((response) => {
-      res.status(200).send(response);
-    })
-    .catch((error) => {
-      logger.error(error.message);
-      res.status(500).json({
-        error: error.message,
+      .then((response) => {
+        res.status(200).send(response);
+      })
+      .catch((error) => {
+        logger.error(error.message);
+        res.status(500).json({
+          error: error.message
+        });
       });
-    });
 });
 
 function serialize(json) {

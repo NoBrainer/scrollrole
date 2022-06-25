@@ -20,9 +20,9 @@ function getTransports() {
 
   if (process.env.NODE_ENV !== 'production') {
     transportsArray.push(
-      new transports.Console({
-        format: format.combine(format.timestamp(), customFormat),
-      })
+        new transports.Console({
+          format: format.combine(format.timestamp(), customFormat)
+        })
     );
   }
   return transportsArray;

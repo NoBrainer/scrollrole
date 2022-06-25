@@ -29,21 +29,20 @@
   },
   "devDependencies": {
     "concurrently": "^7.2.2",
+    "eslint": "^8.18.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-react": "^7.30.1",
     "react-scripts": "^5.0.1"
   },
   "scripts": {
     "build": "react-scripts build",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
     "postinstall": "cd server && npm install",
     "start": "concurrently \"npm run start-client\" \"npm run start-server\"",
     "start-client": "react-scripts start",
     "start-server": "cd server && npm start",
     "test": "react-scripts test"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
