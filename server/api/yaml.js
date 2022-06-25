@@ -39,7 +39,7 @@ router.get('/deserialize', (req, res, next) => {
 function serialize(json) {
   return new Promise((resolve, reject) => {
     try {
-      const text = yaml.safeDump(json);
+      const text = yaml.dump(json);
       resolve(text);
     } catch (e) {
       reject(e);

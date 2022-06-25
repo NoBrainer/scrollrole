@@ -1,13 +1,17 @@
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
-const createError = require('http-errors');
 const express = require('express');
-const favicon = require('serve-favicon');
+const helmet = require('helmet');
+const createError = require('http-errors');
 const path = require('path');
+const favicon = require('serve-favicon');
 const { httpLogger } = require('./common/logger');
+
+const isDev = process.env.NODE_ENV === 'development';
 
 // Configure the Express app
 const app = express();
+app.use(helmet());
 app.use(favicon(path.join(__dirname, '..', 'public', 'favicon.png')));
 app.use(httpLogger);
 app.use(express.json());
@@ -16,7 +20,7 @@ app.use(cookieParser());
 app.use(compression());
 
 // On production, host the front-end build
-if (process.env.NODE_ENV !== 'development') {
+if (!isDev) {
   app.use(express.static(path.join(__dirname, '..', 'build')));
 }
 
@@ -37,7 +41,7 @@ app.use(function (err, req, res, next) {
   res.locals.error = process.env.NODE_ENV === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  res.status(err.status);
   res.send(err.message);
 });
 
