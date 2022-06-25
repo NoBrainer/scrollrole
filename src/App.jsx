@@ -7,6 +7,13 @@ import AppHeader from 'components/AppHeader';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+//TODO: add a11y
+
+//TODO: Figure out an a11y menu
+// - Menubar Example: https://www.w3.org/TR/wai-aria-practices-1.1/examples/menubar/menubar-1/menubar-1.html
+// - More in depth discussion for Menubar: https://www.evinced.com/blog/a11y-nav-menus/
+// - General Navigation Guidance: https://usability.yale.edu/web-accessibility/articles/navigation
+
 const transitionClose = (theme) =>
   theme.transitions.create('margin', {
     easing: theme.transitions.easing.easeOut,

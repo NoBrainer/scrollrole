@@ -1,40 +1,35 @@
-import { ChevronLeft, Home, MenuBook, People } from '@mui/icons-material';
-import { Box, Collapse, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Home, MenuBook, People } from '@mui/icons-material';
+import { Box, Collapse, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
 import { APP_BAR_HEIGHT, APP_DRAWER_WIDTH } from 'common/constants';
 import { buildUrl, usePageState } from 'common/pageState';
-import { closeDrawer, selectIsDrawerOpen } from 'common/redux/slices/drawerSlice';
+import { selectIsDrawerOpen } from 'common/redux/slices/drawerSlice';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 function AppDrawer() {
-  const dispatch = useDispatch();
   const isDrawerOpen = useSelector(selectIsDrawerOpen);
   const [pageState] = usePageState();
-
-  const handleDrawerClose = () => {
-    dispatch(closeDrawer());
-  };
 
   const renderListItem = (text, pageId, IconEle) => {
     const url = buildUrl(pageId);
     const isSelected = pageState.pageId === pageId;
     return (
-      <ListItem button key={pageId} component={Link} to={url} selected={isSelected}>
+      <ListItemButton key={pageId} component={Link} to={url} selected={isSelected} aria-label={`${text} page nav`}>
         <ListItemIcon>
           <IconEle />
         </ListItemIcon>
         <ListItemText primary={text} />
-      </ListItem>
+      </ListItemButton>
     );
   };
   const renderSubListItem = (text, pageId, sectionId, isDefault) => {
     const url = buildUrl(pageId, sectionId);
     const isSelected = pageState.sectionId === sectionId || (isDefault && !sectionId);
     return (
-      <ListItem button key={url} component={Link} to={url} selected={isSelected}>
+      <ListItemButton key={url} component={Link} to={url} selected={isSelected}>
         <ListItemText inset primary={text} />
-      </ListItem>
+      </ListItemButton>
     );
   };
   const renderSubListForCharacters = () => {
@@ -75,11 +70,7 @@ function AppDrawer() {
           justifyContent: 'flex-start',
           padding: (theme) => theme.spacing(0, 1)
         }}
-      >
-        <IconButton onClick={handleDrawerClose}>
-          <ChevronLeft />
-        </IconButton>
-      </Box>
+      />
       <Divider />
       <List>
         {renderListItem('Home', 'home', Home)}

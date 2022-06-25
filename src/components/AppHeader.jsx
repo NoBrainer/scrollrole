@@ -1,8 +1,8 @@
-import { Menu } from '@mui/icons-material';
+import { ChevronLeft, Menu } from '@mui/icons-material';
 import { AppBar, IconButton, Toolbar } from '@mui/material';
 import logo from 'assets/logo.svg';
 import { APP_BAR_HEIGHT, APP_DRAWER_WIDTH } from 'common/constants';
-import { openDrawer, selectIsDrawerOpen } from 'common/redux/slices/drawerSlice';
+import { closeDrawer, openDrawer, selectIsDrawerOpen } from 'common/redux/slices/drawerSlice';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -23,8 +23,8 @@ function AppHeader() {
   const dispatch = useDispatch();
   const isDrawerOpen = useSelector(selectIsDrawerOpen);
 
-  const handleDrawerOpen = () => {
-    dispatch(openDrawer());
+  const handleDrawerToggle = () => {
+    dispatch(isDrawerOpen ? closeDrawer() : openDrawer());
   };
 
   return (
@@ -41,15 +41,11 @@ function AppHeader() {
         <IconButton
           color='inherit'
           aria-label='open drawer'
-          onClick={handleDrawerOpen}
+          onClick={handleDrawerToggle}
           edge='start'
-          sx={{
-            marginRight: 2,
-            display: isDrawerOpen ? 'none' : null,
-            transition: isDrawerOpen ? transitionOpen : transitionClose,
-          }}
+          sx={{ marginRight: 2 }}
         >
-          <Menu />
+          {isDrawerOpen ? <ChevronLeft/> : <Menu />}
         </IconButton>
         <Link
           sx={{
