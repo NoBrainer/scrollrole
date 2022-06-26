@@ -50,7 +50,7 @@ function serialize(json) {
 function deserialize(text) {
   return new Promise((resolve, reject) => {
     try {
-      const json = yaml.safeLoad(text);
+      const json = yaml.load(text);
       resolve(json);
     } catch (e) {
       reject(e);

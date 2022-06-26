@@ -99,7 +99,7 @@ function loadDefaultRules() {
       fetch(defaultConfig)
         .then((r) => r.text())
         .then((yamlText) => {
-          const json = yaml.safeLoad(yamlText);
+          const json = yaml.load(yamlText);
           resolve(json);
         })
         .catch(reject);
