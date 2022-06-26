@@ -68,7 +68,7 @@ function AppDrawer() {
           display: 'flex',
           height: `${APP_BAR_HEIGHT}px`,
           justifyContent: 'flex-start',
-          padding: (theme) => theme.spacing(0, 1)
+          padding: (theme) => theme.spacing(0, 1),
         }}
       />
       <Divider />

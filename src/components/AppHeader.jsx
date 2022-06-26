@@ -34,7 +34,7 @@ function AppHeader() {
         height: `${APP_BAR_HEIGHT}px`,
         marginLeft: isDrawerOpen ? `${APP_DRAWER_WIDTH}px` : null,
         width: isDrawerOpen ? `calc(100% - ${APP_DRAWER_WIDTH}px)` : null,
-        transition: isDrawerOpen ? transitionClose : transitionOpen
+        transition: isDrawerOpen ? transitionClose : transitionOpen,
       }}
     >
       <Toolbar>
@@ -45,7 +45,7 @@ function AppHeader() {
           edge='start'
           sx={{ marginRight: 2 }}
         >
-          {isDrawerOpen ? <ChevronLeft/> : <Menu />}
+          {isDrawerOpen ? <ChevronLeft /> : <Menu />}
         </IconButton>
         <Link
           sx={{

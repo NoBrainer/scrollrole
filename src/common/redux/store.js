@@ -5,8 +5,8 @@ import rulesReducer, { loadRules } from 'common/redux/slices/rulesSlice';
 const store = configureStore({
   reducer: {
     drawer: drawerReducer,
-    rules: rulesReducer
-  }
+    rules: rulesReducer,
+  },
 });
 
 export const initializeStore = () => {

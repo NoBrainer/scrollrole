@@ -3,21 +3,16 @@ module.exports = {
   env: {
     commonjs: true,
     es2021: true,
-    node: true
+    node: true,
   },
-  extends: ['google'],
+  extends: ['google', 'prettier'],
   parserOptions: {
-    ecmaVersion: 'latest'
+    ecmaVersion: 'latest',
   },
   rules: {
-    'arrow-spacing': ['error'],
-    'comma-dangle': ['error', 'only-multiline'],
     'max-len': ['warn', 120],
     'new-cap': ['error', { capIsNewExceptions: ['Router'] }],
-    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
-    'object-curly-spacing': ['error', 'always'],
     'require-jsdoc': 'off',
-    'space-before-function-paren': ['error', { asyncArrow: 'always', anonymous: 'always', named: 'never' }]
   },
   ignorePatterns: ['src/**/*.js', 'src/**/*.jsx'],
   overrides: [
@@ -26,17 +21,17 @@ module.exports = {
       files: ['src/**/*.js', 'src/**/*.jsx'],
       env: {
         browser: true,
-        es2021: true
+        es2021: true,
       },
-      extends: ['plugin:react/recommended', 'google'],
+      extends: ['plugin:react/recommended', 'google', 'prettier'],
       parserOptions: {
         ecmaFeatures: {
-          jsx: true
+          jsx: true,
         },
         ecmaVersion: 'latest',
-        sourceType: 'module'
+        sourceType: 'module',
       },
-      plugins: ['react']
-    }
-  ]
+      plugins: ['react'],
+    },
+  ],
 };

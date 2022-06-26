@@ -7,7 +7,7 @@ import { isEmpty } from 'lodash';
 export const rulesSlice = createSlice({
   name: 'rules',
   initialState: {
-    rulesList: []
+    rulesList: [],
   },
   reducers: {
     // Create
@@ -26,8 +26,8 @@ export const rulesSlice = createSlice({
     },
     resetRules: (state, { payload: rulesList = [] }) => {
       state.rulesList = rulesList;
-    }
-  }
+    },
+  },
 });
 
 // Actions

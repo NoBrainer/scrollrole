@@ -5,22 +5,22 @@ import { deleteCookie, getCookie, setCookie } from 'common/cookies';
 export const drawerSlice = createSlice({
   name: 'drawer',
   initialState: {
-    isOpen: getCookie(COOKIES.DRAWER) === 'o'
+    isOpen: getCookie(COOKIES.DRAWER) === 'o',
   },
   reducers: {
-    closeDrawer: state => {
+    closeDrawer: (state) => {
       if (state.isOpen) {
         deleteCookie(COOKIES.DRAWER);
         state.isOpen = false;
       }
     },
-    openDrawer: state => {
+    openDrawer: (state) => {
       if (!state.isOpen) {
         setCookie(COOKIES.DRAWER, 'o');
         state.isOpen = true;
       }
-    }
-  }
+    },
+  },
 });
 
 // Actions
