@@ -33,7 +33,7 @@ function AppDrawer() {
     );
   };
   const renderSubListForCharacters = () => {
-    //TODO: under construction
+    // TODO: under construction
     return <Collapse in={pageState.pageId === 'characters'} />;
   };
   const renderSubListForRules = () => {

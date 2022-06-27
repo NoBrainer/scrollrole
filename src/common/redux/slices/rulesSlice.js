@@ -37,7 +37,7 @@ export const { addRules, removeRules, resetRules, modifyRules } = rulesSlice.act
 export const selectRules = (state) => state.rules.rulesList;
 
 // Thunks
-//TODO: Figure out a way for it to be less confusing about these names vs reducer names
+// TODO: Figure out a way for it to be less confusing about these names vs reducer names
 // These should be called to make sure we consider the Dexie db state.
 export const createNewRules = (name) => {
   return (dispatch) => {

@@ -14,7 +14,7 @@ export function usePageState() {
   const reducer = (state, updates) => {
     let hasChanged = false;
     const newState = clone(state);
-    for (let key in updates) {
+    for (const key in updates) {
       if (state[key] !== updates[key]) {
         hasChanged = true;
         newState[key] = updates[key];

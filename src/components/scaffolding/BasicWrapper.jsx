@@ -41,7 +41,7 @@ const buildStyles = ({ margin, padding }) => {
   return styles;
 };
 
-const SPACING = '20px'; //TODO: maybe use 3?
+const SPACING = '20px'; // TODO: maybe use 3?
 
 function BasicWrapper({ children, margin, padding } = {}) {
   const styles = useMemo(() => buildStyles({ margin, padding }), [margin, padding]);

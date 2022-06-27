@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 function RulesIntroduction() {
   const rulesList = useSelector((state) => state.rules.rulesList);
 
-  //TODO: Use these rules
+  // TODO: Use these rules
   console.log(rulesList);
 
   const renderIntroduction = () => {

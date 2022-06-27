@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 function Condition({ level, feature, proficiency } = {}) {
-  //TODO: implement
+  // TODO: implement
   return (
     <RulesSection headerText='Condition'>
       <Paragraphs paragraphs='[Condition Placeholder]' />

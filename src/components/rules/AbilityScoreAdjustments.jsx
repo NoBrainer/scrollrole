@@ -30,6 +30,7 @@ export const AbilityScoreAdjustmentsPropType = PropTypes.arrayOf(AbilityScoreAdj
 
 AbilityScoreAdjustments.propTypes = {
   abilityScoreAdjustments: AbilityScoreAdjustmentsPropType,
+  headerComponent: PropTypes.oneOf(HEADER_COMPONENTS),
 };
 
 export default AbilityScoreAdjustments;

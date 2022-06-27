@@ -10,13 +10,9 @@ function Choices({ choices, headerComponent } = {}) {
 
   return (
     <BasicWrapper
-      children={choices.map((choice, i) => {
-        return Choice({
-          ...choice,
-          key: `Choice-${i}`,
-          headerComponent,
-        });
-      })}
+      children={choices.map((choice, i) => (
+        <Choice key={`Choice-${i}`} headerComponent={headerComponent} {...choice} />
+      ))}
     />
   );
 }

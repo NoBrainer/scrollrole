@@ -1,21 +1,56 @@
 module.exports = {
-  // Back-end Configuration
+  // General configuration
   env: {
+    browser: true,
     commonjs: true,
     es2021: true,
     node: true,
   },
-  extends: ['google', 'prettier'],
+  extends: ['prettier'],
   parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
     ecmaVersion: 'latest',
   },
+  plugins: ['react', 'import'],
   rules: {
-    'max-len': ['warn', 120],
-    'new-cap': ['error', { capIsNewExceptions: ['Router'] }],
-    'require-jsdoc': 'off',
+    'import/order': [
+      'error',
+      {
+        alphabetize: { order: 'asc' },
+        groups: [
+          ['builtin', 'external'],
+          ['index', 'internal', 'parent', 'sibling'],
+        ],
+        'newlines-between': 'never',
+      },
+    ],
   },
-  ignorePatterns: ['src/**/*.js', 'src/**/*.jsx'],
+  ignorePatterns: ['build/**/*'],
+  settings: {
+    'import/extensions': ['.js', '.jsx'],
+  },
+
   overrides: [
+    // Back-end configuration
+    {
+      files: ['server/**/*'],
+      env: {
+        commonjs: true,
+        es2021: true,
+        node: true,
+      },
+      extends: ['google', 'prettier'],
+      parserOptions: {
+        ecmaVersion: 'latest',
+      },
+      rules: {
+        'max-len': ['warn', 120],
+        'new-cap': ['error', { capIsNewExceptions: ['Router'] }],
+        'require-jsdoc': 'off',
+      },
+    },
     // Front-end configuration
     {
       files: ['src/**/*.js', 'src/**/*.jsx'],
@@ -32,6 +67,9 @@ module.exports = {
         sourceType: 'module',
       },
       plugins: ['react'],
+      rules: {
+        'require-jsdoc': 'off',
+      },
     },
   ],
 };
