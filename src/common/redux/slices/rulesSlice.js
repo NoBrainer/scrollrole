@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import defaultConfig from 'assets/config/default.yaml';
-import db from 'common/db';
 import yaml from 'js-yaml';
 import { isEmpty } from 'lodash';
+import defaultConfig from 'assets/config/default.yaml';
+import db from 'common/db';
 
 export const rulesSlice = createSlice({
   name: 'rules',

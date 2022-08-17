@@ -1,11 +1,11 @@
 import { ChevronLeft, Menu } from '@mui/icons-material';
 import { AppBar, IconButton, Toolbar } from '@mui/material';
-import logo from 'assets/logo.svg';
-import { APP_BAR_HEIGHT, APP_DRAWER_WIDTH } from 'common/constants';
-import { closeDrawer, openDrawer, selectIsDrawerOpen } from 'common/redux/slices/drawerSlice';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import logo from 'assets/logo.svg';
+import { APP_BAR_HEIGHT, APP_DRAWER_WIDTH } from 'common/constants';
+import { closeDrawer, openDrawer, selectIsDrawerOpen } from 'common/redux/slices/drawerSlice';
 
 const transitionOpen = (theme) =>
   theme.transitions.create(['margin', 'width'], {

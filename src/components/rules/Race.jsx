@@ -1,5 +1,7 @@
 import { ExpandMore } from '@mui/icons-material';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+import React from 'react';
 import AbilityScoreAdjustments, { AbilityScoreAdjustmentsPropType } from 'components/rules/AbilityScoreAdjustments';
 import Choices, { ChoicesPropType } from 'components/rules/Choices';
 import Description, { DescriptionPropType } from 'components/rules/Description';
@@ -8,8 +10,6 @@ import Features, { FeaturesPropType } from 'components/rules/Features';
 import Proficiencies, { ProficienciesPropType } from 'components/rules/Proficiencies';
 import Subraces, { SubracesPropType } from 'components/rules/Subraces';
 import SuggestedCharacteristics from 'components/rules/SuggestedCharacteristics';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 function Race({
   race: {

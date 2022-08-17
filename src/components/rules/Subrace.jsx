@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import React from 'react';
 import AbilityScoreAdjustments, { AbilityScoreAdjustmentsPropType } from 'components/rules/AbilityScoreAdjustments';
 import Choices, { ChoicesPropType } from 'components/rules/Choices';
 import Description, { DescriptionPropType } from 'components/rules/Description';
@@ -5,9 +7,9 @@ import Features, { FeaturesPropType } from 'components/rules/Features';
 import Proficiencies, { ProficienciesPropType } from 'components/rules/Proficiencies';
 import BasicWrapper from 'components/scaffolding/BasicWrapper';
 import RulesSection from 'components/scaffolding/RulesSection';
-import PropTypes from 'prop-types';
-import React from 'react';
 
+// TODO: fix
+// eslint-disable-next-line react/prop-types
 function Subrace({ name, description, abilityScoreAdjustments, features, proficiencies, choices, key } = {}) {
   return (
     <RulesSection headerText={`Subrace Option: ${name}`} key={key}>

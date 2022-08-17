@@ -8,9 +8,9 @@ function BasicList({ items, ordered } = {}) {
   const renderItems = () => items.map((item, i) => <li key={i}>{item}</li>);
 
   if (ordered) {
-    return <ol children={renderItems()} />;
+    return <ol>{renderItems()}</ol>;
   } else {
-    return <ul children={renderItems()} />;
+    return <ul>{renderItems()}</ul>;
   }
 }
 

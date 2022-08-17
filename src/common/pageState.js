@@ -1,7 +1,7 @@
-import { PAGE_IDS, SECTION_IDS } from 'common/constants';
 import { clone, find } from 'lodash';
 import { useEffect, useReducer } from 'react';
 import { useLocation } from 'react-router-dom';
+import { PAGE_IDS, SECTION_IDS } from 'common/constants';
 
 // Helper function to build the URL based on pageId and sectionId
 export const buildUrl = (pageId, sectionId) => {

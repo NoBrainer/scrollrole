@@ -1,7 +1,7 @@
-import Background from 'components/rules/Background';
-import PageWrapper from 'components/scaffolding/PageWrapper';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Background from 'components/rules/Background';
+import PageWrapper from 'components/scaffolding/PageWrapper';
 
 function RulesForBackgrounds() {
   const rulesList = useSelector((state) => state.rules.rulesList);

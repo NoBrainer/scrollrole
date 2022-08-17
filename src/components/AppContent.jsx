@@ -1,12 +1,12 @@
 import { Grid } from '@mui/material';
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import CharactersContent from 'components/pages/CharactersContent';
 import HomeContent from 'components/pages/HomeContent';
 import RulesForBackgrounds from 'components/pages/RulesForBackgrounds';
 import RulesForClasses from 'components/pages/RulesForClasses';
 import RulesForRaces from 'components/pages/RulesForRaces';
 import RulesIntroduction from 'components/pages/RulesIntroduction';
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
 
 function AppContent() {
   return (

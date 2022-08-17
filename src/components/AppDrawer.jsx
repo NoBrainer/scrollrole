@@ -1,11 +1,11 @@
 import { Home, MenuBook, People } from '@mui/icons-material';
 import { Box, Collapse, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import { APP_BAR_HEIGHT, APP_DRAWER_WIDTH } from 'common/constants';
-import { buildUrl, usePageState } from 'common/pageState';
-import { selectIsDrawerOpen } from 'common/redux/slices/drawerSlice';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { APP_BAR_HEIGHT, APP_DRAWER_WIDTH } from 'common/constants';
+import { buildUrl, usePageState } from 'common/pageState';
+import { selectIsDrawerOpen } from 'common/redux/slices/drawerSlice';
 
 function AppDrawer() {
   const isDrawerOpen = useSelector(selectIsDrawerOpen);

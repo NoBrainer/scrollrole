@@ -2,7 +2,11 @@ import { Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+// TODO: fix
+// eslint-disable-next-line react/prop-types
 function StatVariable({ variable, value, perLevel, perVariable } = {}) {
+  // TODO: fix
+  // eslint-disable-next-line react/prop-types
   variable = variable.toUpperCase();
 
   // const otherProps = {headerComponent, key};

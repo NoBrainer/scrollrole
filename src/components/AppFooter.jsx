@@ -1,7 +1,7 @@
 import { Grid, Link, List, ListItem, Typography } from '@mui/material';
-import BasicWrapper from 'components/scaffolding/BasicWrapper';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import BasicWrapper from 'components/scaffolding/BasicWrapper';
 
 const defaultFooterSections = [
   {

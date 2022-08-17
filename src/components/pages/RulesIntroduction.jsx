@@ -1,7 +1,7 @@
-import BasicCard from 'components/scaffolding/BasicCard';
-import PageWrapper from 'components/scaffolding/PageWrapper';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import BasicCard from 'components/scaffolding/BasicCard';
+import PageWrapper from 'components/scaffolding/PageWrapper';
 
 function RulesIntroduction() {
   const rulesList = useSelector((state) => state.rules.rulesList);

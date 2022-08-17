@@ -1,10 +1,12 @@
+import PropTypes from 'prop-types';
+import React from 'react';
 import { HEADER_COMPONENTS } from 'common/constants';
 import { DescriptionPropType } from 'components/rules/Description';
 import Paragraphs from 'components/scaffolding/Paragraphs';
 import RulesSection from 'components/scaffolding/RulesSection';
-import PropTypes from 'prop-types';
-import React from 'react';
 
+// TODO: fix
+// eslint-disable-next-line react/prop-types
 function Feature({ name, description, headerComponent, key } = {}) {
   return (
     <RulesSection headerText={name} headerComponent={headerComponent} key={key}>

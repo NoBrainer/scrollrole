@@ -1,21 +1,18 @@
-import Subrace, { SubracePropType } from 'components/rules/Subrace';
-import BasicWrapper from 'components/scaffolding/BasicWrapper';
 import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Subrace, { SubracePropType } from 'components/rules/Subrace';
+import BasicWrapper from 'components/scaffolding/BasicWrapper';
 
 function Subraces({ subraces } = {}) {
   if (isEmpty(subraces)) return null;
 
   return (
-    <BasicWrapper
-      children={subraces.map((subrace, i) => {
-        return Subrace({
-          ...subrace,
-          key: `Subrace-${i}`,
-        });
-      })}
-    />
+    <BasicWrapper>
+      {subraces.map((subrace, i) => (
+        <Subrace {...subrace} key={`Subrace-${i}`} />
+      ))}
+    </BasicWrapper>
   );
 }
 

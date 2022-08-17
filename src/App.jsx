@@ -1,11 +1,11 @@
 import { Box } from '@mui/material';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { APP_BAR_HEIGHT, APP_DRAWER_WIDTH } from 'common/constants';
 import AppContent from 'components/AppContent';
 import AppDrawer from 'components/AppDrawer';
 import AppFooter from 'components/AppFooter';
 import AppHeader from 'components/AppHeader';
-import React from 'react';
-import { useSelector } from 'react-redux';
 
 // TODO: add a11y
 

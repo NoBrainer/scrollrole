@@ -1,12 +1,12 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import App from 'App';
-import store, { initializeStore } from 'common/redux/store';
-import 'fontsource-roboto';
-import 'index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import App from 'App';
+import 'fontsource-roboto';
+import store, { initializeStore } from 'common/redux/store';
+import 'index.css';
 import reportWebVitals from 'reportWebVitals';
 import theme from 'theme';
 

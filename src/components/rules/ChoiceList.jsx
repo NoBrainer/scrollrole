@@ -1,10 +1,10 @@
+import { isEmpty } from 'lodash';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { AbilityScoreAdjustmentsPropType } from 'components/rules/AbilityScoreAdjustments';
 import { FeaturesPropType } from 'components/rules/Features';
 import { ProficienciesPropType } from 'components/rules/Proficiencies';
 import Paragraphs from 'components/scaffolding/Paragraphs';
-import { isEmpty } from 'lodash';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 function ChoiceList({ items, ordered } = {}) {
   if (isEmpty(items)) return null;
@@ -46,9 +46,9 @@ function ChoiceList({ items, ordered } = {}) {
   const renderItems = () => items.map((item, i) => renderItem(item, i));
 
   if (ordered) {
-    return <ol children={renderItems()} />;
+    return <ol>{renderItems()}</ol>;
   } else {
-    return <ul children={renderItems()} />;
+    return <ul>{renderItems()}</ul>;
   }
 }
 

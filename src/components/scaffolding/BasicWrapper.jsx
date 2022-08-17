@@ -45,7 +45,7 @@ const SPACING = '20px'; // TODO: maybe use 3?
 
 function BasicWrapper({ children, margin, padding } = {}) {
   const styles = useMemo(() => buildStyles({ margin, padding }), [margin, padding]);
-  return <Box sx={styles} children={children} />;
+  return <Box sx={styles}>{children}</Box>;
 }
 
 BasicWrapper.propTypes = {

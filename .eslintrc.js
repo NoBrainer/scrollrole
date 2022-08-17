@@ -50,6 +50,15 @@ module.exports = {
         'new-cap': ['error', { capIsNewExceptions: ['Router'] }],
         'require-jsdoc': 'off',
       },
+      settings: {
+        'import/resolver': {
+          node: {
+            moduleDirectory: ['server/node_modules'],
+            paths: ['server'],
+            extensions: ['.js'],
+          },
+        },
+      },
     },
     // Front-end configuration
     {
@@ -69,6 +78,15 @@ module.exports = {
       plugins: ['react'],
       rules: {
         'require-jsdoc': 'off',
+      },
+      settings: {
+        'import/resolver': {
+          node: {
+            moduleDirectory: ['node_modules'],
+            paths: ['src'],
+            extensions: ['.js', '.jsx'],
+          },
+        },
       },
     },
   ],

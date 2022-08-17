@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material';
+import { isEmpty } from 'lodash';
+import PropTypes from 'prop-types';
+import React from 'react';
 import BasicList from 'components/scaffolding/BasicList';
 import BasicWrapper from 'components/scaffolding/BasicWrapper';
 import Paragraphs from 'components/scaffolding/Paragraphs';
 import RulesSection from 'components/scaffolding/RulesSection';
-import { isEmpty } from 'lodash';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 function SuggestedCharacteristics({ suggestedCharacteristics } = {}) {
   if (isEmpty(suggestedCharacteristics)) return null;

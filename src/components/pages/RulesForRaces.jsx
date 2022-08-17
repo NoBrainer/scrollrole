@@ -1,7 +1,7 @@
-import Race from 'components/rules/Race';
-import PageWrapper from 'components/scaffolding/PageWrapper';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Race from 'components/rules/Race';
+import PageWrapper from 'components/scaffolding/PageWrapper';
 
 function RulesForRaces() {
   const rulesList = useSelector((state) => state.rules.rulesList);

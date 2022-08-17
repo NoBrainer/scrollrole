@@ -1,4 +1,8 @@
 import { Typography } from '@mui/material';
+import { chain, includes, isEmpty, isObject, uniq } from 'lodash';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { HEADER_COMPONENTS } from 'common/constants';
 import { AbilityScoreAdjustmentsPropType } from 'components/rules/AbilityScoreAdjustments';
 import ChoiceList from 'components/rules/ChoiceList';
@@ -7,11 +11,9 @@ import { FeaturesPropType } from 'components/rules/Features';
 import { ProficienciesPropType } from 'components/rules/Proficiencies';
 import Paragraphs from 'components/scaffolding/Paragraphs';
 import RulesSection from 'components/scaffolding/RulesSection';
-import { chain, includes, isEmpty, isObject, uniq } from 'lodash';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { useSelector } from 'react-redux';
 
+// TODO:fix
+// eslint-disable-next-line react/prop-types
 function Choice({ name, description, type, pick, options, from, allowDuplicates, headerComponent, key } = {}) {
   const rulesList = useSelector((state) => state.rules.rulesList);
   const currentRules = rulesList.length > 0 ? rulesList[0] : {};
@@ -31,6 +33,8 @@ function Choice({ name, description, type, pick, options, from, allowDuplicates,
     let items = options;
     if (items && !isEmpty(items)) return items;
 
+    // TODO:fix
+    // eslint-disable-next-line react/prop-types
     const { name, levels, types } = from;
     const filterByType = (item) => includes(types, item.type);
     const filterByLevel = (item) => includes(levels, item.level);

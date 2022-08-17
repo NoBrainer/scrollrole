@@ -1,23 +1,19 @@
-import { HEADER_COMPONENTS } from 'common/constants';
-import Feature, { FeaturePropType } from 'components/rules/Feature';
-import BasicWrapper from 'components/scaffolding/BasicWrapper';
 import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { HEADER_COMPONENTS } from 'common/constants';
+import Feature, { FeaturePropType } from 'components/rules/Feature';
+import BasicWrapper from 'components/scaffolding/BasicWrapper';
 
 function Features({ features, headerComponent } = {}) {
   if (isEmpty(features)) return null;
 
   return (
-    <BasicWrapper
-      children={features.map((feature, i) => {
-        return Feature({
-          ...feature,
-          key: `Feature-${i}`,
-          headerComponent,
-        });
-      })}
-    />
+    <BasicWrapper>
+      {features.map((feature, i) => (
+        <Feature {...feature} key={`Feature-${i}`} headerComponent={headerComponent}></Feature>
+      ))}
+    </BasicWrapper>
   );
 }
 

@@ -1,9 +1,9 @@
-import { HEADER_COMPONENTS } from 'common/constants';
-import BasicList from 'components/scaffolding/BasicList';
-import RulesSection from 'components/scaffolding/RulesSection';
 import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { HEADER_COMPONENTS } from 'common/constants';
+import BasicList from 'components/scaffolding/BasicList';
+import RulesSection from 'components/scaffolding/RulesSection';
 
 function Equipment({ equipment, headerComponent } = {}) {
   if (isEmpty(equipment)) return null;

@@ -1,9 +1,11 @@
+import PropTypes from 'prop-types';
+import React from 'react';
 import { ProficiencyPropType } from 'components/rules/Proficiencies';
 import Paragraphs from 'components/scaffolding/Paragraphs';
 import RulesSection from 'components/scaffolding/RulesSection';
-import PropTypes from 'prop-types';
-import React from 'react';
 
+// TODO: fix
+// eslint-disable-next-line react/prop-types
 function Condition({ level, feature, proficiency } = {}) {
   // TODO: implement
   return (

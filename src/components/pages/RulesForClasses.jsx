@@ -1,7 +1,7 @@
-import Class from 'components/rules/Class';
-import PageWrapper from 'components/scaffolding/PageWrapper';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Class from 'components/rules/Class';
+import PageWrapper from 'components/scaffolding/PageWrapper';
 
 function RulesForClasses() {
   const rulesList = useSelector((state) => state.rules.rulesList);

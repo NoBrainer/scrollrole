@@ -1,12 +1,12 @@
 import { ExpandMore } from '@mui/icons-material';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Choices from 'components/rules/Choices';
 import Description from 'components/rules/Description';
 import Equipment from 'components/rules/Equipment';
 import Features from 'components/rules/Features';
 import Proficiencies from 'components/rules/Proficiencies';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 function Class({
   clazz: {

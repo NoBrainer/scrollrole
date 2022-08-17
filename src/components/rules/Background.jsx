@@ -1,13 +1,13 @@
 import { ExpandMore } from '@mui/icons-material';
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Choices, { ChoicesPropType } from 'components/rules/Choices';
 import Description from 'components/rules/Description';
 import Equipment, { EquipmentsPropType } from 'components/rules/Equipment';
 import Features, { FeaturesPropType } from 'components/rules/Features';
 import Proficiencies, { ProficiencyPropType } from 'components/rules/Proficiencies';
 import SuggestedCharacteristics, { SuggestedCharacteristicsPropType } from 'components/rules/SuggestedCharacteristics';
-import PropTypes from 'prop-types';
-import React from 'react';
 
 function Background({
   background: { name, description, features, suggestedCharacteristics, equipment, proficiencies, choices } = {},

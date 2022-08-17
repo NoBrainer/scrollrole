@@ -1,8 +1,8 @@
 import { Link, Typography } from '@mui/material';
-import BasicCard from 'components/scaffolding/BasicCard';
-import PageWrapper from 'components/scaffolding/PageWrapper';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import BasicCard from 'components/scaffolding/BasicCard';
+import PageWrapper from 'components/scaffolding/PageWrapper';
 
 function HomeContent() {
   return (

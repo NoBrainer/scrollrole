@@ -1,8 +1,8 @@
 import { Grid, Typography } from '@mui/material';
-import { HEADER_COMPONENTS } from 'common/constants';
-import BasicWrapper from 'components/scaffolding/BasicWrapper';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { HEADER_COMPONENTS } from 'common/constants';
+import BasicWrapper from 'components/scaffolding/BasicWrapper';
 
 function RulesSection({ headerText, children, headerComponent } = {}) {
   return (
@@ -13,7 +13,9 @@ function RulesSection({ headerText, children, headerComponent } = {}) {
             {headerText}
           </Typography>
         </Grid>
-        <Grid item xs={12} children={children} />
+        <Grid item xs={12}>
+          {children}
+        </Grid>
       </Grid>
     </BasicWrapper>
   );
