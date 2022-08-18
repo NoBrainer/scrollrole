@@ -2,11 +2,7 @@ import { Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-// TODO: fix
-// eslint-disable-next-line react/prop-types
 function StatVariable({ variable, value, perLevel, perVariable } = {}) {
-  // TODO: fix
-  // eslint-disable-next-line react/prop-types
   variable = variable.toUpperCase();
 
   // const otherProps = {headerComponent, key};
@@ -49,18 +45,18 @@ function StatVariable({ variable, value, perLevel, perVariable } = {}) {
   return <Typography>[UNDER CONSTRUCTION]</Typography>;
 }
 
-export const StatVariablePropType = PropTypes.shape({
+StatVariable.propTypes = {
   variable: PropTypes.string.isRequired,
   value: PropTypes.oneOf([PropTypes.number, PropTypes.string]).isRequired,
   perLevel: PropTypes.bool,
   perVariable: PropTypes.string,
-});
+};
+
+export const StatVariablePropType = PropTypes.shape(StatVariable.propTypes);
 
 StatVariable.defaultProps = {
   perLevel: false,
   perVariable: null,
 };
-
-StatVariable.propTypes = StatVariablePropType;
 
 export default StatVariable;

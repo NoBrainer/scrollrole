@@ -12,9 +12,7 @@ import { ProficienciesPropType } from 'components/rules/Proficiencies';
 import Paragraphs from 'components/scaffolding/Paragraphs';
 import RulesSection from 'components/scaffolding/RulesSection';
 
-// TODO:fix
-// eslint-disable-next-line react/prop-types
-function Choice({ name, description, type, pick, options, from, allowDuplicates, headerComponent, key } = {}) {
+function Choice({ name, description, type, pick, options, from, allowDuplicates, headerComponent } = {}) {
   const rulesList = useSelector((state) => state.rules.rulesList);
   const currentRules = rulesList.length > 0 ? rulesList[0] : {};
   const { lists } = currentRules;
@@ -27,14 +25,12 @@ function Choice({ name, description, type, pick, options, from, allowDuplicates,
     return null;
   }
 
-  const otherProps = { headerComponent, key };
+  const otherProps = { headerComponent };
 
   const generateItems = () => {
     let items = options;
     if (items && !isEmpty(items)) return items;
 
-    // TODO:fix
-    // eslint-disable-next-line react/prop-types
     const { name, levels, types } = from;
     const filterByType = (item) => includes(types, item.type);
     const filterByLevel = (item) => includes(levels, item.level);
@@ -70,7 +66,7 @@ function Choice({ name, description, type, pick, options, from, allowDuplicates,
 
 export const CHOICE_TYPES = ['abilityScoreAdjustment', 'equipment', 'feature', 'proficiency', 'spell'];
 
-export const ChoicePropType = PropTypes.shape({
+Choice.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.arrayOf(PropTypes.string),
   type: PropTypes.oneOf(CHOICE_TYPES).isRequired,
@@ -86,15 +82,14 @@ export const ChoicePropType = PropTypes.shape({
     levels: PropTypes.arrayOf(PropTypes.number),
     types: PropTypes.arrayOf(PropTypes.string),
   }),
-  allowDuplicate: PropTypes.bool,
+  allowDuplicates: PropTypes.bool,
   headerComponent: PropTypes.oneOf(HEADER_COMPONENTS),
-  key: PropTypes.string,
-});
+};
+
+export const ChoicePropType = PropTypes.shape(Choice.propTypes);
 
 Choice.defaultProps = {
   allowDuplicate: false,
 };
-
-Choice.propTypes = ChoicePropType;
 
 export default Choice;

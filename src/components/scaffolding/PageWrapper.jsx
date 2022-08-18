@@ -1,10 +1,9 @@
 import { Grid, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
 import React from 'react';
 import BasicCard from 'components/scaffolding/BasicCard';
 import BasicWrapper from 'components/scaffolding/BasicWrapper';
 
-// TODO: fix
-// eslint-disable-next-line react/prop-types
 function PageWrapper({ children, title } = {}) {
   return (
     <Grid container direction='column'>
@@ -17,5 +16,10 @@ function PageWrapper({ children, title } = {}) {
     </Grid>
   );
 }
+
+PageWrapper.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default PageWrapper;

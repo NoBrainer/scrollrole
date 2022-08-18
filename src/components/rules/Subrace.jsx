@@ -8,9 +8,9 @@ import Proficiencies, { ProficienciesPropType } from 'components/rules/Proficien
 import BasicWrapper from 'components/scaffolding/BasicWrapper';
 import RulesSection from 'components/scaffolding/RulesSection';
 
-// TODO: fix
-// eslint-disable-next-line react/prop-types
-function Subrace({ name, description, abilityScoreAdjustments, features, proficiencies, choices, key } = {}) {
+// TODO: fix and/or remove
+function Subrace({ subrace, key } = {}) {
+  const { name, description, abilityScoreAdjustments, features, proficiencies, choices } = subrace;
   return (
     <RulesSection headerText={`Subrace Option: ${name}`} key={key}>
       <BasicWrapper margin='left'>
@@ -31,10 +31,10 @@ export const SubracePropType = PropTypes.shape({
   features: FeaturesPropType,
   proficiencies: ProficienciesPropType,
   choices: ChoicesPropType,
-  key: PropTypes.string,
 });
 
 Subrace.propTypes = {
+  key: PropTypes.string,
   subrace: SubracePropType,
   summaryId: PropTypes.string.isRequired,
 };

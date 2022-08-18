@@ -17,14 +17,14 @@ function Description({ headerText, description, headerComponent } = {}) {
 
 export const DescriptionPropType = PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string]));
 
-Description.defaultProps = {
-  headerText: 'Description',
-};
-
 Description.propTypes = {
   headerText: PropTypes.string,
   description: DescriptionPropType,
   headerComponent: PropTypes.oneOf(HEADER_COMPONENTS),
+};
+
+Description.defaultProps = {
+  headerText: 'Description',
 };
 
 export default Description;

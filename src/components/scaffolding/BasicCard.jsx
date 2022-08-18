@@ -1,8 +1,7 @@
 import { Card, CardContent } from '@mui/material';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-// TODO: fix
-// eslint-disable-next-line react/prop-types
 function BasicCard({ children, sx } = {}) {
   return (
     <Card>
@@ -10,5 +9,10 @@ function BasicCard({ children, sx } = {}) {
     </Card>
   );
 }
+
+BasicCard.propTypes = {
+  children: PropTypes.node.isRequired,
+  sx: PropTypes.object,
+};
 
 export default BasicCard;

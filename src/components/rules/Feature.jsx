@@ -5,25 +5,22 @@ import { DescriptionPropType } from 'components/rules/Description';
 import Paragraphs from 'components/scaffolding/Paragraphs';
 import RulesSection from 'components/scaffolding/RulesSection';
 
-// TODO: fix
-// eslint-disable-next-line react/prop-types
-function Feature({ name, description, headerComponent, key } = {}) {
+function Feature({ name, description, headerComponent } = {}) {
   return (
-    <RulesSection headerText={name} headerComponent={headerComponent} key={key}>
+    <RulesSection headerText={name} headerComponent={headerComponent}>
       <Paragraphs paragraphs={description} />
     </RulesSection>
   );
 }
 
 // TODO: support {stat, modifier, per} attributes, like Hill Dwarf's Dwarven Toughness
-export const FeaturePropType = PropTypes.shape({
+Feature.propTypes = {
   name: PropTypes.string.isRequired,
   description: DescriptionPropType,
   shortDescription: PropTypes.string,
   headerComponent: PropTypes.oneOf(HEADER_COMPONENTS),
-  key: PropTypes.string,
-});
+};
 
-Feature.propTypes = FeaturePropType;
+export const FeaturePropType = PropTypes.shape(Feature.propTypes);
 
 export default Feature;
