@@ -1,9 +1,6 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { APP_BAR_HEIGHT, APP_DRAWER_WIDTH } from 'common/constants';
 import AppContent from 'components/AppContent';
-import AppDrawer from 'components/AppDrawer';
 import AppFooter from 'components/AppFooter';
 import AppHeader from 'components/AppHeader';
 
@@ -14,36 +11,12 @@ import AppHeader from 'components/AppHeader';
 // - More in depth discussion for Menubar: https://www.evinced.com/blog/a11y-nav-menus/
 // - General Navigation Guidance: https://usability.yale.edu/web-accessibility/articles/navigation
 
-const transitionClose = (theme) =>
-  theme.transitions.create('margin', {
-    easing: theme.transitions.easing.easeOut,
-    duration: theme.transitions.duration.enteringScreen,
-  });
-const transitionOpen = (theme) =>
-  theme.transitions.create('margin', {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  });
-
 function App() {
-  const isDrawerOpen = useSelector((state) => state.drawer.isOpen);
-
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
       <AppHeader />
-      <AppDrawer />
-      <Box
-        sx={{
-          flexGrow: 1,
-          marginLeft: isDrawerOpen ? '0px' : `-${APP_DRAWER_WIDTH}px`,
-          marginTop: `${APP_BAR_HEIGHT}px`,
-          padding: 3,
-          transition: isDrawerOpen ? transitionClose : transitionOpen,
-        }}
-      >
-        <AppContent />
-        <AppFooter />
-      </Box>
+      <AppContent />
+      <AppFooter />
     </Box>
   );
 }

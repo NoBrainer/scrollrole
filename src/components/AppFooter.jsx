@@ -2,6 +2,7 @@ import { Grid, Link, List, ListItem, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import BasicWrapper from 'components/scaffolding/BasicWrapper';
+import PagePadder from 'components/scaffolding/PagePadder';
 
 const defaultFooterSections = [
   {
@@ -36,7 +37,7 @@ function AppFooter(props) {
   };
   const renderSection = (section, i) => {
     return (
-      <Grid item xs={12} sm={6} md={4} key={i} sx={{ p: '0 20px' }}>
+      <Grid item xs={12} sm={6} md={4} key={i} sx={{ py: 0, px: 2 }}>
         <Typography>{section.title}</Typography>
         <List>{renderLinks(section.links)}</List>
       </Grid>
@@ -58,13 +59,7 @@ function AppFooter(props) {
   return (
     <footer>
       <BasicWrapper margin='top'>
-        <Grid container direction='row'>
-          <Grid item xs={false} sm={1} md={2} />
-          <Grid container item xs={12} sm={10} md={8}>
-            {renderContent()}
-          </Grid>
-          <Grid item xs={false} sm={1} md={2} />
-        </Grid>
+        <PagePadder>{renderContent()}</PagePadder>
       </BasicWrapper>
     </footer>
   );
