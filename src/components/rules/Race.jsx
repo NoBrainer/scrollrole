@@ -8,7 +8,6 @@ import Description, { DescriptionPropType } from 'components/rules/Description';
 import Equipment from 'components/rules/Equipment';
 import Features, { FeaturesPropType } from 'components/rules/Features';
 import Proficiencies, { ProficienciesPropType } from 'components/rules/Proficiencies';
-import Subraces, { SubracesPropType } from 'components/rules/Subraces';
 import SuggestedCharacteristics from 'components/rules/SuggestedCharacteristics';
 
 function Race({
@@ -22,7 +21,6 @@ function Race({
     equipment,
     proficiencies,
     choices,
-    subraces,
   } = {},
   summaryId,
 } = {}) {
@@ -42,7 +40,6 @@ function Race({
         <Equipment equipment={equipment} />
         <Proficiencies proficiencies={proficiencies} />
         <Choices choices={choices} />
-        <Subraces subraces={subraces} />
       </AccordionDetails>
     </Accordion>
   );
@@ -56,7 +53,6 @@ export const RacePropType = PropTypes.shape({
   features: FeaturesPropType,
   proficiencies: ProficienciesPropType,
   choices: ChoicesPropType,
-  subraces: SubracesPropType,
 });
 
 Race.propTypes = {

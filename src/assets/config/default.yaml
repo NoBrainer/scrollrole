@@ -824,7 +824,7 @@ races:
           - { type: tool, name: smith's tools }
           - { type: tool, name: brewer's supplies }
           - { type: tool, name: mason's tools }
-    subraces:
+    subraces: #TODO: rework
       - name: Hill Dwarf
         description:
           - As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.
@@ -878,7 +878,7 @@ races:
       - { type: language, name: Common }
       - { type: language, name: Elvish }
       - { type: skill,    name: perception }
-    subraces:
+    subraces: #TODO: rework
       - name: High Elf
         description:
           - >
@@ -955,7 +955,7 @@ races:
     proficiencies:
       - { type: language, name: Common }
       - { type: language, name: Halfling }
-    subraces:
+    subraces: #TODO: rework
       - name: Lightfoot
         description:
           - >
@@ -1145,7 +1145,7 @@ races:
     proficiencies:
       - { type: language, name: Common }
       - { type: language, name: Gnomish }
-    subraces:
+    subraces: #TODO: rework
       - name: Rock Gnome
         description:
           - As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.
