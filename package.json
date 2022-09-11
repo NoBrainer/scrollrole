@@ -37,9 +37,9 @@
   },
   "scripts": {
     "build": "react-scripts build",
+    "install-all": "npm ci && cd server && npm ci",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "postinstall": "cd server && npm ci",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "start": "concurrently \"npm run start-client\" \"npm run start-server\"",
