@@ -48,6 +48,7 @@ module.exports = {
       rules: {
         'max-len': ['warn', 120],
         'new-cap': ['error', { capIsNewExceptions: ['Router'] }],
+        'no-unused-vars': 'warn',
         'require-jsdoc': 'off',
       },
       settings: {
@@ -67,7 +68,7 @@ module.exports = {
         browser: true,
         es2021: true,
       },
-      extends: ['plugin:react/recommended', 'google', 'prettier'],
+      extends: ['plugin:react/recommended', 'google', 'plugin:jsx-a11y/recommended', 'prettier'],
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -75,8 +76,9 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module',
       },
-      plugins: ['react'],
+      plugins: ['jsx-a11y', 'react'],
       rules: {
+        'no-unused-vars': 'warn',
         'require-jsdoc': 'off',
       },
       settings: {
@@ -86,6 +88,9 @@ module.exports = {
             paths: ['src'],
             extensions: ['.js', '.jsx'],
           },
+        },
+        react: {
+          version: 'detect',
         },
       },
     },
