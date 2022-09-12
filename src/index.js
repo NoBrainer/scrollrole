@@ -12,6 +12,14 @@ import theme from 'theme';
 
 initializeStore();
 
+// Debug a11y issues in the browser console
+// Note: This does not currently work with react-router-dom Routes, so we can only test after initial page load.
+// TODO: Keep tabs on: https://github.com/dequelabs/react-axe/issues/122
+if (process.env.NODE_ENV !== 'production') {
+  const axe = require('@axe-core/react');
+  axe(React, ReactDOM, 1e3);
+}
+
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 root.render(
