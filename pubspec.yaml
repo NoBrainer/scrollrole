@@ -31,9 +31,48 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Separate presentation and business logic/data retrieval
+  # See: https://bloclibrary.dev/#/architecture
+  bloc: ^9.0.0
+  flutter_bloc: ^9.1.1
+  # Persist state
+  hydrated_bloc: ^10.0.0
+  # Platform-agnostic access to file system
+  path_provider: ^2.1.4
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+
+  # Automatically overrides `==` and `hashCode` based on `props`
+  equatable: ^2.0.5
+
+  # SVG support
+  flutter_svg: ^2.0.10+1
+
+  # Font Awesome icons
+  font_awesome_flutter: ^10.10.0
+
+  # Handle routing and deep-linking
+  go_router: ^16.2.5
+
+  google_fonts: ^6.2.1
+
+  # Transform streams for things like throttling
+  stream_transform: ^2.1.0
+
+  # Annotations
+  json_annotation: ^4.9.0
+
+  # Provides access to the app version
+  package_info_plus: ^9.0.0
+
+  # Provide cross-platform way to access file system
+  file_picker: ^10.2.0
+
+  # Provide yaml serialization/deserialization
+  yaml: ^3.1.2
+  yaml_writer: ^2.0.0
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +84,11 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+
+  # After updating objects with json converters, you may want to update the associated generated code.
+  # To do so, run this script from the project base: `dart run build_runner build`
+  build_runner: ^2.0.0
+  json_serializable: ^6.8.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
