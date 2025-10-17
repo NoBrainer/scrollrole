@@ -61,6 +61,16 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/
+    - assets/config/
+    - assets/icons/
+    - assets/icons/ability/
+    - assets/icons/background/
+    - assets/icons/class/
+    - assets/icons/miscellaneous/
+    - assets/icons/race/
+    - assets/icons/skill/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
