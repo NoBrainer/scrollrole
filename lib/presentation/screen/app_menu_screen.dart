@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scrollrole/presentation/common/orientated_list.dart';
 import 'package:scrollrole/presentation/common/styled_app_bar.dart';
@@ -7,6 +8,7 @@ import 'package:scrollrole/presentation/screen/app_bugs_screen.dart';
 import 'package:scrollrole/presentation/screen/app_credits_screen.dart';
 import 'package:scrollrole/presentation/screen/app_settings_screen.dart';
 import 'package:scrollrole/presentation/screen/color_scheme_preview_screen.dart';
+import 'package:scrollrole/util/snackbar_util.dart';
 
 class AppMenuScreen extends StatelessWidget {
   static const String path = '/';
@@ -28,9 +30,19 @@ class AppMenuScreen extends StatelessWidget {
       canPop: false,
       child: Scaffold(
         appBar: StyledAppBar(
-          titleText: "ScrollRole",
+          titleText: "",
           automaticallyImplyLeading: false,
           actions: [
+            IconButton(
+              tooltip: "Report Issues and Bugs",
+              icon: const Icon(Icons.bug_report_outlined),
+              onPressed: () => context.push(AppBugsScreen.path),
+            ),
+            IconButton(
+              tooltip: "Credits",
+              icon: const Icon(Icons.receipt_long_outlined),
+              onPressed: () => context.push(AppCreditsScreen.path),
+            ),
             IconButton(
               tooltip: "App Settings",
               icon: const Icon(Icons.settings),
@@ -45,44 +57,52 @@ class AppMenuScreen extends StatelessWidget {
           ],
         ),
         body: Center(
-          child: OrientatedList(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
             children: [
+              SvgPicture.asset(
+                "assets/logo.svg",
+                semanticsLabel: "App Logo",
+                height: 100,
+              ),
               Expanded(
                 child: OrientatedList(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Expanded(flex: 1, child: SizedBox.shrink()),
-                    const Tooltip(
-                      message: "Walking Character",
-                      child: Text("[UNDER CONSTRUCTION]"),
+                    Tooltip(
+                      message: "Rules Screen",
+                      child: TextButton(
+                        onPressed: () => {
+                          SnackbarUtil.showMessage(
+                            context,
+                            "Rules Screen under construction.",
+                          ),
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Text("Rules"),
+                        ),
+                      ),
                     ),
                     const Expanded(flex: 1, child: SizedBox.shrink()),
-                    IconButton(
-                      tooltip: "Play",
-                      icon: const Icon(Icons.play_circle),
-                      iconSize: 180,
-                      // TODO: implement
-                      // onPressed: () => context.push(ExampleScreen.path),
-                      onPressed: () => {},
+                    Tooltip(
+                      message: "Characters Screen",
+                      child: TextButton(
+                        onPressed: () => {
+                          SnackbarUtil.showMessage(
+                            context,
+                            "Characters Screen under construction.",
+                          ),
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Text("Characters"),
+                        ),
+                      ),
                     ),
+                    const Expanded(flex: 1, child: SizedBox.shrink()),
                   ],
                 ),
-              ),
-              OrientatedList(
-                children: [
-                  IconButton(
-                    tooltip: "Report Issues and Bugs",
-                    icon: const Icon(Icons.bug_report_outlined),
-                    onPressed: () => context.push(AppBugsScreen.path),
-                  ),
-                  IconButton(
-                    tooltip: "Credits",
-                    icon: const Icon(Icons.receipt_long_outlined),
-                    onPressed: () => context.push(AppCreditsScreen.path),
-                  ),
-                  const SizedBox(height: 20),
-                ],
               ),
             ],
           ),

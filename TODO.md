@@ -2,12 +2,10 @@
 
 # Prioritized Backlog
 
-1. Rework the home screen
-    - Use the app logo
-2. Use the dice icon for loading spinner
-3. Implement viewing the default rules config
-4. Implement modifying the default rules config
-5. Implement import/export rules config
+1. Use the dice icon for loading spinner
+2. Implement viewing the default rules config
+3. Implement modifying the default rules config
+4. Implement import/export rules config
 
 # Unprioritized Backlog
 
