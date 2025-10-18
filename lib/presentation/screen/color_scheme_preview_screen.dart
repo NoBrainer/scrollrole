@@ -194,7 +194,7 @@ class _ColorRow extends StatelessWidget {
       children: [
         SizedBox(height: 20, width: 20, child: ColoredBox(color: color)),
         SizedBox(width: 10),
-        SizedBox(width: 90, child: Text(_toHexString(color))),
+        SizedBox(width: 100, child: Text(_toHexString(color))),
         Text(name),
       ],
     );
