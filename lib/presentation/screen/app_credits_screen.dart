@@ -37,8 +37,6 @@ class AppCreditsScreen extends StatelessWidget {
                             TextSpan(
                               text: "Vincent Incarvite - Developer, Designer",
                             ),
-                            TextSpan(text: "\n"),
-                            TextSpan(text: "Destinie Carbone - Logo Engineer"),
                           ],
                         ),
                       ),
@@ -55,10 +53,14 @@ class AppCreditsScreen extends StatelessWidget {
                         TextSpan(
                           children: [
                             TextSpan(
-                              text: "Bloc - State Management - bloclibrary.dev",
+                              text:
+                                  "1. Bloc - State Management - "
+                                  "bloclibrary.dev",
                             ),
                             TextSpan(text: "\n"),
-                            TextSpan(text: "Flutter - Framework - flutter.dev"),
+                            TextSpan(
+                              text: "2. Flutter - Framework - flutter.dev",
+                            ),
                           ],
                         ),
                       ),
@@ -76,11 +78,19 @@ class AppCreditsScreen extends StatelessWidget {
                           children: [
                             TextSpan(
                               text:
-                                  "Font Awesome Flutter\n - "
+                                  "1. App Logo - Destinie Carbone \n"
+                                  "- rainleaf.studio",
+                            ),
+                            TextSpan(text: "\n"),
+                            TextSpan(text: "2. D&D 5e SRD - dndbeyond.com/srd"),
+                            TextSpan(text: "\n"),
+                            TextSpan(
+                              text:
+                                  "3. Font Awesome Flutter\n - "
                                   "fontawesome.com/icons",
                             ),
                             TextSpan(text: "\n"),
-                            TextSpan(text: "Game Icons - game-icons.net"),
+                            TextSpan(text: "4. Game Icons - game-icons.net"),
                           ],
                         ),
                       ),
