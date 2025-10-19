@@ -2,10 +2,9 @@
 
 # Prioritized Backlog
 
-1. Use the dice icon for loading spinner
-2. Implement viewing the default rules config
-3. Implement modifying the default rules config
-4. Implement import/export rules config
+1. Implement viewing the default rules config
+2. Implement modifying the default rules config
+3. Implement import/export rules config
 
 # Unprioritized Backlog
 
