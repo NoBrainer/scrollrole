@@ -70,6 +70,8 @@ dependencies:
   # Provide cross-platform way to access file system
   file_picker: ^10.2.0
 
+  url_launcher: ^6.3.2
+
   # Provide yaml serialization/deserialization
   yaml: ^3.1.2
   yaml_writer: ^2.0.0

@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scrollrole/presentation/common/basic_card.dart';
 import 'package:scrollrole/presentation/common/styled_app_bar.dart';
+import 'package:scrollrole/util/snackbar_util.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AppBugsScreen extends StatelessWidget {
   static const String path = '/bugs';
+  static const String issuesUrl =
+      "https://github.com/NoBrainer/scrollrole/issues";
 
   static GoRoute route() {
     return GoRoute(
@@ -19,6 +23,8 @@ class AppBugsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var borderColor = Theme.of(context).splashColor;
+
     return PopScope(
       canPop: true,
       child: Scaffold(
@@ -26,19 +32,48 @@ class AppBugsScreen extends StatelessWidget {
         body: Center(
           child: ListView(
             children: [
-              const BasicCard(
+              BasicCard(
                 children: [
-                  //TODO: implement bugs screen
-                  BasicCardTitle(text: "Under Construction"),
                   BasicCardSection(
                     children: [
-                      Row(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.construction),
-                          SizedBox(width: 10),
-                          Icon(Icons.construction),
-                          SizedBox(width: 10),
-                          Icon(Icons.construction),
+                          const Text("Report issues in GitHub:"),
+                          const SizedBox(height: 10),
+                          Tooltip(
+                            message: issuesUrl,
+                            child: TextButton(
+                              style: ButtonStyle(
+                                shape:
+                                    WidgetStateProperty.all<
+                                      RoundedRectangleBorder
+                                    >(
+                                      RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(18),
+                                        side: BorderSide(color: borderColor),
+                                      ),
+                                    ),
+                              ),
+                              onPressed: () {
+                                try {
+                                  launchUrl(Uri.parse(issuesUrl));
+                                } catch (e) {
+                                  SnackbarUtil.showMessage(
+                                    context,
+                                    "Unable to open issues link in browser.",
+                                  );
+                                }
+                              },
+                              child: const Row(
+                                children: [
+                                  Text("Open in Browser"),
+                                  SizedBox(width: 4),
+                                  Icon(Icons.open_in_new),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ],
