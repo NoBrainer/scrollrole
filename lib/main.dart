@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -14,9 +15,12 @@ Future<void> main() async {
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   // Setup file access
-  var appDocumentsDirectory = await getApplicationDocumentsDirectory();
   HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: HydratedStorageDirectory(appDocumentsDirectory.path),
+    storageDirectory: kIsWeb
+        ? HydratedStorageDirectory.web
+        : HydratedStorageDirectory(
+            (await getApplicationDocumentsDirectory()).path,
+          ),
   );
 
   await PackageInfo.fromPlatform().then((info) {
