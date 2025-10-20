@@ -63,6 +63,7 @@ dependencies:
 
   # Annotations
   json_annotation: ^4.9.0
+  meta: ^1.16.0
 
   # Provides access to the app version
   package_info_plus: ^9.0.0

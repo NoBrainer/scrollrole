@@ -2,9 +2,17 @@
 
 # Prioritized Backlog
 
-1. Implement viewing the default rules config
-2. Implement modifying the default rules config
-3. Implement import/export rules config
+1. Create data model
+    - YAML Config: https://github.com/NoBrainer/scrollrole/blob/main/assets/config/default.yaml
+    - Data Model Attempt: https://github.com/NoBrainer/scrollrole-old/tree/main/public/js/model/rules/parts
+    - Missing: armor, condition, equipment pack, feat, gear, language, list selector, spellcasting, spell, spell slot,
+      tool, unlockable, weapon
+2. Enhance data model
+    - Share most fields across background, race, species for complete flexibility
+    - Rework Race to Species (alias?)
+3. Implement viewing the default rules config
+4. Implement modifying the default rules config
+5. Implement import/export rules config
 
 # Unprioritized Backlog
 
