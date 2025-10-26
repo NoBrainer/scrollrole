@@ -5,13 +5,13 @@ part 'armorType.g.dart';
 @JsonEnum(alwaysCreate: true)
 enum ArmorType {
   @JsonValue("light")
-  light("light armor"),
+  light("Light Armor"),
   @JsonValue("medium")
-  medium("medium armor"),
+  medium("Medium Armor"),
   @JsonValue("heavy")
-  heavy("heavy armor"),
+  heavy("Heavy Armor"),
   @JsonValue("shield")
-  shield("shield");
+  shield("Shield");
 
   final String display;
 
