@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
-import 'package:scrollrole/data/model/rules/parts/spellCasting.dart';
+import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/unlockable.dart';
 

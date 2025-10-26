@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
-import 'package:scrollrole/data/model/rules/parts/suggestedCharacteristics.dart';
+import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 
 part 'background.g.dart';

@@ -4,10 +4,10 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
-import 'package:scrollrole/data/model/rules/parts/abilityScoreAdjustment.dart';
+import 'package:scrollrole/data/model/rules/parts/ability_score_adjustment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
-import 'package:scrollrole/data/model/rules/parts/suggestedCharacteristics.dart';
+import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 
 part 'race.g.dart';

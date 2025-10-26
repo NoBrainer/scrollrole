@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:scrollrole/data/model/rules/parts/abilityScoreAdjustment.dart';
+import 'package:scrollrole/data/model/rules/parts/ability_score_adjustment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
-import 'package:scrollrole/data/model/rules/parts/spellCasting.dart';
+import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/condition.dart';
 

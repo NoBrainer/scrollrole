@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'suggestedCharacteristics.g.dart';
+part 'suggested_characteristics.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)

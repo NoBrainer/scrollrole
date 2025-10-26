@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
 
-part 'equipmentPack.g.dart';
+part 'equipment_pack.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)

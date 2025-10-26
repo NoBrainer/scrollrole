@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'choiceType.g.dart';
+part 'choice_type.g.dart';
 
 @JsonEnum(alwaysCreate: true)
 enum ChoiceType {

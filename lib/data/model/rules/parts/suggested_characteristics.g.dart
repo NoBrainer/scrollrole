@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'suggestedCharacteristics.dart';
+part of 'suggested_characteristics.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

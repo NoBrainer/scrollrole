@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'proficiencyType.dart';
+part of 'proficiency_type.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

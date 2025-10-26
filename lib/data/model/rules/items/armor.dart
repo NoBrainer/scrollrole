@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
-import 'package:scrollrole/data/model/enum/armorType.dart';
+import 'package:scrollrole/data/model/enum/armor_type.dart';
 
 part 'armor.g.dart';
 

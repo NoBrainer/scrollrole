@@ -6,7 +6,7 @@ import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
 import 'package:scrollrole/data/model/rules/parts/spell.dart';
 
-part 'spellCasting.g.dart';
+part 'spell_casting.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)

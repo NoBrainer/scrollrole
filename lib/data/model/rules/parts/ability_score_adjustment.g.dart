@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'abilityScoreAdjustment.dart';
+part of 'ability_score_adjustment.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

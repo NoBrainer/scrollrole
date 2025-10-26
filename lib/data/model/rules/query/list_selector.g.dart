@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'listSelector.dart';
+part of 'list_selector.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

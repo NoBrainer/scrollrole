@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'spellCasting.dart';
+part of 'spell_casting.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

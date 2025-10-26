@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'choiceType.dart';
+part of 'choice_type.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

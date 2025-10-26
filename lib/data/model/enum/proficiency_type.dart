@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'proficiencyType.g.dart';
+part 'proficiency_type.g.dart';
 
 @JsonEnum(alwaysCreate: true)
 enum ProficiencyType {

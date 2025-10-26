@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 
-part 'listSelector.g.dart';
+part 'list_selector.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)

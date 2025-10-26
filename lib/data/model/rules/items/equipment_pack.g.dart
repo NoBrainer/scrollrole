@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'equipmentPack.dart';
+part of 'equipment_pack.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

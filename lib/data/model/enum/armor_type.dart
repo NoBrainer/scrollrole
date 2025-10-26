@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'armorType.g.dart';
+part 'armor_type.g.dart';
 
 @JsonEnum(alwaysCreate: true)
 enum ArmorType {

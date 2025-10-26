@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
 
-part 'abilityScoreAdjustment.g.dart';
+part 'ability_score_adjustment.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)

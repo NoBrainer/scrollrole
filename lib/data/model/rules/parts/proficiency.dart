@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:scrollrole/data/model/enum/proficiencyType.dart';
+import 'package:scrollrole/data/model/enum/proficiency_type.dart';
 
 part 'proficiency.g.dart';
 
