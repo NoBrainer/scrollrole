@@ -9,7 +9,7 @@ part of 'gear.dart';
 Gear _$GearFromJson(Map<String, dynamic> json) => Gear(
   cost: json['cost'] as String? ?? "",
   name: json['name'] as String,
-  per: (json['per'] as num?)?.toInt() ?? 1,
+  per: json['per'] as String? ?? "1",
   weight: json['weight'] as String? ?? "",
 );
 

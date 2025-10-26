@@ -3,13 +3,14 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/enum/ability.dart';
 
 part 'abilityScoreAdjustment.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)
 class AbilityScoreAdjustment extends Equatable {
-  final String ability;
+  final Ability ability;
   final int modifier;
 
   const AbilityScoreAdjustment({required this.ability, required this.modifier});

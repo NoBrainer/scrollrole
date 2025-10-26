@@ -12,7 +12,7 @@ class Feature extends Equatable {
   final List<String> description;
   final String name;
   final String shortDescription;
-  final String value;
+  final String value; //TODO: Rename to quantity or amount
 
   const Feature({
     this.description = const [],

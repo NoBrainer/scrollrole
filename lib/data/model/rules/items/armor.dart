@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/enum/ability.dart';
+import 'package:scrollrole/data/model/enum/armorType.dart';
 
 part 'armor.g.dart';
 
@@ -12,22 +14,22 @@ class Armor extends Equatable {
   final int baseAC; //TODO: rename to baseAc (camelCase)
   final String cost;
   final int? maxModifier;
-  final String modifier; //TODO: update type to enum, rename to modifierAbility
+  final Ability modifier; //TODO: rename to modifierAbility
   final String name;
   final bool stealthDisadv; //TODO: rename without abbreviation
   final int? strengthReq; //TODO: rename without abbreviation
-  final String type; //TODO: update type to enum (light, medium, heavy, shield)
+  final ArmorType type;
   final String weight;
 
   const Armor({
     this.baseAC = 10,
     this.cost = "",
     this.maxModifier,
-    this.modifier = "DEX",
+    this.modifier = Ability.dex,
     required this.name,
     this.stealthDisadv = false,
     this.strengthReq,
-    this.type = "",
+    required this.type,
     this.weight = "",
   });
 

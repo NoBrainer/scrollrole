@@ -10,11 +10,13 @@ Armor _$ArmorFromJson(Map<String, dynamic> json) => Armor(
   baseAC: (json['baseAC'] as num?)?.toInt() ?? 10,
   cost: json['cost'] as String? ?? "",
   maxModifier: (json['maxModifier'] as num?)?.toInt(),
-  modifier: json['modifier'] as String? ?? "DEX",
+  modifier: json['modifier'] == null
+      ? Ability.dex
+      : Ability.fromJson(json['modifier'] as String),
   name: json['name'] as String,
   stealthDisadv: json['stealthDisadv'] as bool? ?? false,
   strengthReq: (json['strengthReq'] as num?)?.toInt(),
-  type: json['type'] as String? ?? "",
+  type: ArmorType.fromJson(json['type'] as String),
   weight: json['weight'] as String? ?? "",
 );
 
@@ -22,10 +24,10 @@ Map<String, dynamic> _$ArmorToJson(Armor instance) => <String, dynamic>{
   'baseAC': instance.baseAC,
   'cost': instance.cost,
   'maxModifier': instance.maxModifier,
-  'modifier': instance.modifier,
+  'modifier': instance.modifier.toJson(),
   'name': instance.name,
   'stealthDisadv': instance.stealthDisadv,
   'strengthReq': instance.strengthReq,
-  'type': instance.type,
+  'type': instance.type.toJson(),
   'weight': instance.weight,
 };

@@ -11,7 +11,7 @@ part 'feat.g.dart';
 class Feat extends Equatable {
   final List<String> description;
   final String name;
-  final List<String> prerequisites;
+  final List<String> prerequisites; //TODO: use Condition or similar
 
   const Feat({
     this.description = const [],

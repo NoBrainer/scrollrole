@@ -9,13 +9,13 @@ part of 'abilityScoreAdjustment.dart';
 AbilityScoreAdjustment _$AbilityScoreAdjustmentFromJson(
   Map<String, dynamic> json,
 ) => AbilityScoreAdjustment(
-  ability: json['ability'] as String,
+  ability: Ability.fromJson(json['ability'] as String),
   modifier: (json['modifier'] as num).toInt(),
 );
 
 Map<String, dynamic> _$AbilityScoreAdjustmentToJson(
   AbilityScoreAdjustment instance,
 ) => <String, dynamic>{
-  'ability': instance.ability,
+  'ability': instance.ability.toJson(),
   'modifier': instance.modifier,
 };

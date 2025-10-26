@@ -19,6 +19,8 @@ class Weapon extends Equatable {
   final String weight;
 
   //TODO: Update cost to be int (number of copper)
+  //TODO: Update range to be int
+  //TODO: Add rangeUnits as string with default "ft"
   const Weapon({
     this.cost = "",
     this.damage = 1,

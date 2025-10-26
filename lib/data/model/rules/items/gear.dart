@@ -11,14 +11,14 @@ part 'gear.g.dart';
 class Gear extends Equatable {
   final String cost;
   final String name;
-  final int per;
+  final String per;
   final String weight;
 
   //TODO: Update cost to be int (number of copper)
   const Gear({
     this.cost = "",
     required this.name,
-    this.per = 1,
+    this.per = "1",
     this.weight = "",
   });
 

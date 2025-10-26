@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/enum/ability.dart';
 import 'package:scrollrole/data/model/rules/parts/spell.dart';
 
 part 'spellCasting.g.dart';
@@ -10,7 +11,7 @@ part 'spellCasting.g.dart';
 @immutable
 @JsonSerializable(explicitToJson: true)
 class SpellCasting extends Equatable {
-  final String ability;
+  final Ability ability;
   final int cantripsKnown;
   final List<String> description;
   final String focus;
@@ -19,10 +20,13 @@ class SpellCasting extends Equatable {
   final int spellsKnown;
   final Map<int, int> spellSlots;
 
-  static const SpellCasting blank = SpellCasting(name: "Spell Casting");
+  static const SpellCasting blank = SpellCasting(
+    ability: Ability.int,
+    name: "Spell Casting",
+  );
 
   const SpellCasting({
-    this.ability = "",
+    required this.ability,
     this.cantripsKnown = 0,
     this.description = const [],
     this.focus = "",

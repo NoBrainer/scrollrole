@@ -7,7 +7,7 @@ part of 'spellCasting.dart';
 // **************************************************************************
 
 SpellCasting _$SpellCastingFromJson(Map<String, dynamic> json) => SpellCasting(
-  ability: json['ability'] as String? ?? "",
+  ability: Ability.fromJson(json['ability'] as String),
   cantripsKnown: (json['cantripsKnown'] as num?)?.toInt() ?? 0,
   description:
       (json['description'] as List<dynamic>?)
@@ -32,7 +32,7 @@ SpellCasting _$SpellCastingFromJson(Map<String, dynamic> json) => SpellCasting(
 Map<String, dynamic> _$SpellCastingToJson(
   SpellCasting instance,
 ) => <String, dynamic>{
-  'ability': instance.ability,
+  'ability': instance.ability.toJson(),
   'cantripsKnown': instance.cantripsKnown,
   'description': instance.description,
   'focus': instance.focus,

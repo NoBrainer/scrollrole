@@ -15,7 +15,7 @@ class Choice extends Equatable {
   final String name;
   final Map? options; //TODO: update type to object
   final int? pick;
-  final String type; //TODO: update type to enum
+  final String type;
   final Map? use; //TODO: update type to object
 
   const Choice({

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/enum/proficiencyType.dart';
 
 part 'proficiency.g.dart';
 
@@ -11,7 +12,7 @@ part 'proficiency.g.dart';
 class Proficiency extends Equatable {
   final String name;
   final List<String> tags;
-  final String type;
+  final ProficiencyType type;
 
   const Proficiency({
     required this.name,
