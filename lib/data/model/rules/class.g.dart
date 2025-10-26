@@ -7,7 +7,6 @@ part of 'class.dart';
 // **************************************************************************
 
 Class _$ClassFromJson(Map<String, dynamic> json) => Class(
-  name: json['name'] as String,
   abilityScoreImprovementLevels:
       (json['abilityScoreImprovementLevels'] as List<dynamic>?)
           ?.map((e) => (e as num).toInt())
@@ -35,18 +34,24 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           .toList() ??
       const [],
   hitDice: json['hitDice'] as String? ?? "D8",
+  name: json['name'] as String,
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
   proficiencyBonus: (json['proficiencyBonus'] as num?)?.toInt() ?? 2,
-  spellCasting: json['spellCasting'] as Map<String, dynamic>? ?? const {},
-  unlockables: json['unlockables'] as Map<String, dynamic>? ?? const {},
+  spellCasting: json['spellCasting'] == null
+      ? SpellCasting.blank
+      : SpellCasting.fromJson(json['spellCasting'] as Map<String, dynamic>),
+  unlockables:
+      (json['unlockables'] as List<dynamic>?)
+          ?.map((e) => Unlockable.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
 );
 
 Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
-  'name': instance.name,
   'abilityScoreImprovementLevels': instance.abilityScoreImprovementLevels,
   'baseHitPoints': instance.baseHitPoints,
   'choices': instance.choices.map((e) => e.toJson()).toList(),
@@ -54,8 +59,9 @@ Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
   'equipment': instance.equipment.map((e) => e.toJson()).toList(),
   'features': instance.features.map((e) => e.toJson()).toList(),
   'hitDice': instance.hitDice,
+  'name': instance.name,
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'proficiencyBonus': instance.proficiencyBonus,
-  'spellCasting': instance.spellCasting,
-  'unlockables': instance.unlockables,
+  'spellCasting': instance.spellCasting.toJson(),
+  'unlockables': instance.unlockables.map((e) => e.toJson()).toList(),
 };

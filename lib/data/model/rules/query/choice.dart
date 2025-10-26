@@ -9,22 +9,24 @@ part 'choice.g.dart';
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Choice extends Equatable {
-  final String name;
-  final String type; //TODO: update type to enum
   final bool allowDuplicate;
   final List<String> description;
   final Map? from; //TODO: update type to object
+  final String name;
   final Map? options; //TODO: update type to object
   final int? pick;
+  final String type; //TODO: update type to enum
+  final Map? use; //TODO: update type to object
 
   const Choice({
-    required this.name,
-    required this.type,
     this.allowDuplicate = false,
     this.description = const [],
     this.from,
+    required this.name,
     this.options,
     this.pick,
+    required this.type,
+    this.use,
   });
 
   @override
@@ -36,6 +38,7 @@ class Choice extends Equatable {
     options,
     pick,
     type,
+    use,
   ];
 
   factory Choice.fromJson(Map<String, dynamic> json) {

@@ -1,23 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'feature.dart';
+part of 'feat.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Feature _$FeatureFromJson(Map<String, dynamic> json) => Feature(
-  name: json['name'] as String,
+Feat _$FeatFromJson(Map<String, dynamic> json) => Feat(
   description:
       (json['description'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList() ??
       const [],
-  shortDescription: json['shortDescription'] as String? ?? "",
+  name: json['name'] as String,
+  prerequisites:
+      (json['prerequisites'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList() ??
+      const [],
 );
 
-Map<String, dynamic> _$FeatureToJson(Feature instance) => <String, dynamic>{
-  'name': instance.name,
+Map<String, dynamic> _$FeatToJson(Feat instance) => <String, dynamic>{
   'description': instance.description,
-  'shortDescription': instance.shortDescription,
+  'name': instance.name,
+  'prerequisites': instance.prerequisites,
 };

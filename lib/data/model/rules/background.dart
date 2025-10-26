@@ -3,34 +3,34 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:scrollrole/data/model/rules/choice.dart';
-import 'package:scrollrole/data/model/rules/equipment.dart';
-import 'package:scrollrole/data/model/rules/feature.dart';
-import 'package:scrollrole/data/model/rules/proficiency.dart';
-import 'package:scrollrole/data/model/rules/suggestedCharacteristics.dart';
+import 'package:scrollrole/data/model/rules/items/equipment.dart';
+import 'package:scrollrole/data/model/rules/parts/feature.dart';
+import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
+import 'package:scrollrole/data/model/rules/parts/suggestedCharacteristics.dart';
+import 'package:scrollrole/data/model/rules/query/choice.dart';
 
 part 'background.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Background extends Equatable {
-  final String name;
   final List<Choice> choices;
   final List<String> description;
   final List<Equipment> equipment;
   final List<Feature> features;
+  final String name;
   final List<Proficiency> proficiencies;
   final SuggestedCharacteristics suggestedCharacteristics;
 
   // TODO: Verify that this works instead of having all-args constructor where order matters
   const Background({
-    required this.name,
     this.choices = const [],
     this.description = const [],
     this.equipment = const [],
     this.features = const [],
+    required this.name,
     this.proficiencies = const [],
-    this.suggestedCharacteristics = const SuggestedCharacteristics(),
+    this.suggestedCharacteristics = SuggestedCharacteristics.blank,
   });
 
   @override

@@ -7,8 +7,6 @@ part of 'choice.dart';
 // **************************************************************************
 
 Choice _$ChoiceFromJson(Map<String, dynamic> json) => Choice(
-  name: json['name'] as String,
-  type: json['type'] as String,
   allowDuplicate: json['allowDuplicate'] as bool? ?? false,
   description:
       (json['description'] as List<dynamic>?)
@@ -16,16 +14,20 @@ Choice _$ChoiceFromJson(Map<String, dynamic> json) => Choice(
           .toList() ??
       const [],
   from: json['from'] as Map<String, dynamic>?,
+  name: json['name'] as String,
   options: json['options'] as Map<String, dynamic>?,
   pick: (json['pick'] as num?)?.toInt(),
+  type: json['type'] as String,
+  use: json['use'] as Map<String, dynamic>?,
 );
 
 Map<String, dynamic> _$ChoiceToJson(Choice instance) => <String, dynamic>{
-  'name': instance.name,
-  'type': instance.type,
   'allowDuplicate': instance.allowDuplicate,
   'description': instance.description,
   'from': instance.from,
+  'name': instance.name,
   'options': instance.options,
   'pick': instance.pick,
+  'type': instance.type,
+  'use': instance.use,
 };

@@ -7,7 +7,6 @@ part of 'background.dart';
 // **************************************************************************
 
 Background _$BackgroundFromJson(Map<String, dynamic> json) => Background(
-  name: json['name'] as String,
   choices:
       (json['choices'] as List<dynamic>?)
           ?.map((e) => Choice.fromJson(e as Map<String, dynamic>))
@@ -28,13 +27,14 @@ Background _$BackgroundFromJson(Map<String, dynamic> json) => Background(
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  name: json['name'] as String,
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
   suggestedCharacteristics: json['suggestedCharacteristics'] == null
-      ? const SuggestedCharacteristics()
+      ? SuggestedCharacteristics.blank
       : SuggestedCharacteristics.fromJson(
           json['suggestedCharacteristics'] as Map<String, dynamic>,
         ),
@@ -42,11 +42,11 @@ Background _$BackgroundFromJson(Map<String, dynamic> json) => Background(
 
 Map<String, dynamic> _$BackgroundToJson(Background instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'choices': instance.choices.map((e) => e.toJson()).toList(),
       'description': instance.description,
       'equipment': instance.equipment.map((e) => e.toJson()).toList(),
       'features': instance.features.map((e) => e.toJson()).toList(),
+      'name': instance.name,
       'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
       'suggestedCharacteristics': instance.suggestedCharacteristics.toJson(),
     };

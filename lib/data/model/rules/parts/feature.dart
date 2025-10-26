@@ -9,18 +9,20 @@ part 'feature.g.dart';
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Feature extends Equatable {
-  final String name;
   final List<String> description;
+  final String name;
   final String shortDescription;
+  final String value;
 
   const Feature({
-    required this.name,
     this.description = const [],
+    required this.name,
     this.shortDescription = "",
+    this.value = "",
   });
 
   @override
-  List<Object?> get props => [description, name, shortDescription];
+  List<Object?> get props => [description, name, shortDescription, value];
 
   factory Feature.fromJson(Map<String, dynamic> json) {
     try {

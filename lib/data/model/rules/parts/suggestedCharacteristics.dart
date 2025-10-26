@@ -15,6 +15,8 @@ class SuggestedCharacteristics extends Equatable {
   final List<String> ideals;
   final List<String> personalityTraits;
 
+  static const blank = SuggestedCharacteristics();
+
   const SuggestedCharacteristics({
     this.bonds = const [],
     this.description = const [],

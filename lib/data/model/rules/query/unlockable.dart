@@ -3,63 +3,60 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/abilityScoreAdjustment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
-import 'package:scrollrole/data/model/rules/parts/suggestedCharacteristics.dart';
+import 'package:scrollrole/data/model/rules/parts/spellCasting.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
+import 'package:scrollrole/data/model/rules/query/condition.dart';
 
-part 'race.g.dart';
+part 'unlockable.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)
-class Race extends Equatable {
+class Unlockable extends Equatable {
   final List<AbilityScoreAdjustment> abilityScoreAdjustments;
   final List<Choice> choices;
-  final List<String> description;
-  final List<Equipment> equipment;
+  final Condition condition;
   final List<Feature> features;
-  final String name;
+  final int proficiencyBonus;
   final List<Proficiency> proficiencies;
-  final int speed;
-  final SuggestedCharacteristics suggestedCharacteristics;
+  final int speed; //TODO: rename to speedModifier
+  final SpellCasting spellCasting;
 
-  // TODO: Verify that this works instead of having all-args constructor where order matters
-  const Race({
+  const Unlockable({
     this.abilityScoreAdjustments = const [],
     this.choices = const [],
-    this.description = const [],
-    this.equipment = const [],
+    required this.condition,
     this.features = const [],
-    required this.name,
+    this.proficiencyBonus = 0,
     this.proficiencies = const [],
-    this.speed = 30,
-    this.suggestedCharacteristics = SuggestedCharacteristics.blank,
+    this.speed = 0,
+    this.spellCasting = SpellCasting.blank,
   });
 
   @override
   List<Object?> get props => [
+    abilityScoreAdjustments,
     choices,
-    description,
-    equipment,
+    condition,
     features,
-    name,
+    proficiencyBonus,
     proficiencies,
     speed,
-    suggestedCharacteristics,
+    spellCasting,
   ];
 
-  factory Race.fromJson(Map<String, dynamic> json) {
+  factory Unlockable.fromJson(Map<String, dynamic> json) {
     try {
-      return _$RaceFromJson(json);
+      return _$UnlockableFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Race!\n- Error: '$e'\n- Input: $json");
+      // debug("Failed to parse Unlockable!\n- Error: '$e'\n- Input: $json");
       rethrow;
     }
   }
 
-  Map<String, dynamic> toJson() => _$RaceToJson(this);
+  Map<String, dynamic> toJson() => _$UnlockableToJson(this);
 
   String toJsonString() {
     return jsonEncode(toJson());

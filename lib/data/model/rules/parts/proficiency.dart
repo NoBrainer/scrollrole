@@ -10,12 +10,17 @@ part 'proficiency.g.dart';
 @JsonSerializable(explicitToJson: true)
 class Proficiency extends Equatable {
   final String name;
+  final List<String> tags;
   final String type;
 
-  const Proficiency({required this.name, required this.type});
+  const Proficiency({
+    required this.name,
+    this.tags = const [],
+    required this.type,
+  });
 
   @override
-  List<Object?> get props => [name, type];
+  List<Object?> get props => [name, tags, type];
 
   factory Proficiency.fromJson(Map<String, dynamic> json) {
     try {
