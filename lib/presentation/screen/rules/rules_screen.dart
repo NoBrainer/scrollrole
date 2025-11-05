@@ -20,6 +20,11 @@ class RulesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Show loading spinner while parsing
+    // TODO: Load default config
+    // TODO: Display default config
+    // TODO: Save state in blocs
+    // TODO: Gracefully handle parsing issues
     return PopScope(
       canPop: true,
       child: Scaffold(
