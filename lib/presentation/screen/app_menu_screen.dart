@@ -8,6 +8,7 @@ import 'package:scrollrole/presentation/screen/app_bugs_screen.dart';
 import 'package:scrollrole/presentation/screen/app_credits_screen.dart';
 import 'package:scrollrole/presentation/screen/app_settings_screen.dart';
 import 'package:scrollrole/presentation/screen/color_scheme_preview_screen.dart';
+import 'package:scrollrole/presentation/screen/rules/rules_screen.dart';
 import 'package:scrollrole/util/snackbar_util.dart';
 
 class AppMenuScreen extends StatelessWidget {
@@ -72,12 +73,7 @@ class AppMenuScreen extends StatelessWidget {
                     Tooltip(
                       message: "Rules Screen",
                       child: TextButton(
-                        onPressed: () => {
-                          SnackbarUtil.showMessage(
-                            context,
-                            "Rules Screen under construction.",
-                          ),
-                        },
+                        onPressed: () => context.push(RulesScreen.path),
                         child: Padding(
                           padding: const EdgeInsets.all(8),
                           child: Text("Rules"),
