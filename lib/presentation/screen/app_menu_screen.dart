@@ -84,11 +84,11 @@ class AppMenuScreen extends StatelessWidget {
                     Tooltip(
                       message: "Characters Screen",
                       child: TextButton(
-                        onPressed: () => {
+                        onPressed: () {
                           SnackbarUtil.showMessage(
                             context,
                             "Characters Screen under construction.",
-                          ),
+                          );
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8),

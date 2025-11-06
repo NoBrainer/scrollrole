@@ -37,7 +37,7 @@ class LoadingSpinnerState extends State<LoadingSpinner>
         RotationTransition(
           turns: _animation,
           child: SvgPicture.asset(
-            "assets/d20.svg",
+            "assets/d20-solid.svg",
             semanticsLabel: "D20 Loading Spinner",
           ),
         ),

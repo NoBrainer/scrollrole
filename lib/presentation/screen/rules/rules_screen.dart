@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scrollrole/presentation/common/basic_card.dart';
 import 'package:scrollrole/presentation/common/styled_app_bar.dart';
+import 'package:scrollrole/util/dialog_util.dart';
 import 'package:scrollrole/util/snackbar_util.dart';
 
 class RulesScreen extends StatelessWidget {
@@ -34,11 +35,12 @@ class RulesScreen extends StatelessWidget {
             IconButton(
               tooltip: "Edit",
               icon: const Icon(Icons.edit),
-              onPressed: () => {
+              onPressed: () {
+                DialogUtil.showLoadingSpinner(context, text: "Loading...");
                 SnackbarUtil.showMessage(
                   context,
                   "Edit Rules under construction.",
-                ),
+                );
               },
             ),
           ],
