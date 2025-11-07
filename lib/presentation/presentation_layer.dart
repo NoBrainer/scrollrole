@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:scrollrole/bloc/config/config_bloc.dart';
 import 'package:scrollrole/presentation/app_theme.dart';
 import 'package:scrollrole/presentation/screen/app_bugs_screen.dart';
 import 'package:scrollrole/presentation/screen/app_credits_screen.dart';
@@ -23,8 +25,20 @@ class PresentationLayer extends StatelessWidget {
     router.replace(defaultPath);
   }
 
+  static void loadDefaultConfig(BuildContext context) {
+    ConfigState configState = context.read<ConfigBloc>().state;
+    if ([
+      ConfigStatus.initial,
+      ConfigStatus.loadedFailure,
+    ].contains(configState.status)) {
+      context.read<ConfigBloc>().add(LoadDefaultConfigRequested());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    loadDefaultConfig(context);
+
     // Keep this MaterialApp consistent with SimpleAppWrapper
     return MaterialApp.router(
       debugShowCheckedModeBanner: debugMode,

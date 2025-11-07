@@ -16,9 +16,8 @@ class ConfigBloc extends HydratedBloc<ConfigEvent, ConfigState> {
   static const defaultConfigFile = "assets/config/default.yaml";
 
   ConfigBloc() : super(ConfigState.initial()) {
-    LogUtil.print("Constructor for ConfigBloc");
     on<LoadDefaultConfigRequested>((event, emit) async {
-      LogUtil.print("on LoadDefaultConfigRequested: $state");
+      LogUtil.print("on LoadDefaultConfigRequested");
       String yamlString = await rootBundle.loadString(defaultConfigFile);
       //TODO: save/cache this ConfigState
       // LogUtil.print("YAML:\n---\n$yamlString\n---\n");
