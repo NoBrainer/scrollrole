@@ -23,7 +23,6 @@ class Background extends Equatable {
   final List<Proficiency> proficiencies;
   final SuggestedCharacteristics suggestedCharacteristics;
 
-  // TODO: Verify that this works instead of having all-args constructor where order matters
   const Background({
     this.choices = const [],
     this.description = const [],

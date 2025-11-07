@@ -26,7 +26,6 @@ class Race extends Equatable {
   final int speed;
   final SuggestedCharacteristics suggestedCharacteristics;
 
-  // TODO: Verify that this works instead of having all-args constructor where order matters
   const Race({
     this.abilityScoreAdjustments = const [],
     this.choices = const [],

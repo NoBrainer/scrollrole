@@ -29,7 +29,6 @@ class Class extends Equatable {
   final SpellCasting spellCasting;
   final List<Unlockable> unlockables;
 
-  // TODO: Verify that this works instead of having all-args constructor where order matters
   const Class({
     //TODO: replace ASI levels with unlockables
     this.abilityScoreImprovementLevels = const [],

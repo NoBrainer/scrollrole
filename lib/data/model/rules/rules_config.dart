@@ -15,7 +15,6 @@ part 'rules_config.g.dart';
 class RulesConfig extends Equatable {
   final List<Background> backgrounds;
 
-  // TODO: Verify that this works instead of having all-args constructor where order matters
   const RulesConfig({this.backgrounds = const []});
 
   const RulesConfig.blank() : this();
