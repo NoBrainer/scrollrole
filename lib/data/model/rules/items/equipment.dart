@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'equipment.g.dart';
 
@@ -21,7 +22,9 @@ class Equipment extends Equatable {
     try {
       return _$EquipmentFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Equipment!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print(
+        "Failed to parse Equipment!\n- Error: '$e'\n- Input: $json",
+      );
       rethrow;
     }
   }

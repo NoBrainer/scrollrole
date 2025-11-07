@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/proficiency_type.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'proficiency.g.dart';
 
@@ -27,7 +28,9 @@ class Proficiency extends Equatable {
     try {
       return _$ProficiencyFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Proficiency!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print(
+        "Failed to parse Proficiency!\n- Error: '$e'\n- Input: $json",
+      );
       rethrow;
     }
   }

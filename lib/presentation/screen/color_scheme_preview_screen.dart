@@ -28,7 +28,7 @@ class ColorSchemePreviewScreen extends StatelessWidget {
     //   seedColor: Colors.white,
     // );
 
-    LogUtil.log(colorScheme.toString());
+    LogUtil.print(colorScheme.toString());
     _prettyDebugColorScheme(colorScheme);
 
     return PopScope(
@@ -202,139 +202,139 @@ class _ColorRow extends StatelessWidget {
 }
 
 void _prettyDebugColorScheme(ColorScheme colorScheme) {
-  LogUtil.log("ColorScheme(");
-  LogUtil.log("  brightness: ${colorScheme.brightness},");
-  LogUtil.log("  primary: ${_toHexString(colorScheme.primary)},");
-  LogUtil.log("  onPrimary: ${_toHexString(colorScheme.onPrimary)},");
-  LogUtil.log(
+  LogUtil.print("ColorScheme(");
+  LogUtil.print("  brightness: ${colorScheme.brightness},");
+  LogUtil.print("  primary: ${_toHexString(colorScheme.primary)},");
+  LogUtil.print("  onPrimary: ${_toHexString(colorScheme.onPrimary)},");
+  LogUtil.print(
     "  primaryContainer: "
     "${_toHexString(colorScheme.primaryContainer)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onPrimaryContainer: "
     "${_toHexString(colorScheme.onPrimaryContainer)},",
   );
-  LogUtil.log("  primaryFixed: ${_toHexString(colorScheme.primaryFixed)},");
-  LogUtil.log(
+  LogUtil.print("  primaryFixed: ${_toHexString(colorScheme.primaryFixed)},");
+  LogUtil.print(
     "  primaryFixedDim: "
     "${_toHexString(colorScheme.primaryFixedDim)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onPrimaryFixed: "
     "${_toHexString(colorScheme.onPrimaryFixed)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onPrimaryFixedVariant: "
     "${_toHexString(colorScheme.onPrimaryFixedVariant)},",
   );
-  LogUtil.log("  secondary: ${_toHexString(colorScheme.secondary)},");
-  LogUtil.log("  onSecondary: ${_toHexString(colorScheme.onSecondary)},");
-  LogUtil.log(
+  LogUtil.print("  secondary: ${_toHexString(colorScheme.secondary)},");
+  LogUtil.print("  onSecondary: ${_toHexString(colorScheme.onSecondary)},");
+  LogUtil.print(
     "  secondaryContainer: "
     "${_toHexString(colorScheme.secondaryContainer)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onSecondaryContainer: "
     "${_toHexString(colorScheme.onSecondaryContainer)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  secondaryFixed: "
     "${_toHexString(colorScheme.secondaryFixed)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  secondaryFixedDim: "
     "${_toHexString(colorScheme.secondaryFixedDim)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onSecondaryFixed: "
     "${_toHexString(colorScheme.onSecondaryFixed)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onSecondaryFixedVariant: "
     "${_toHexString(colorScheme.onSecondaryFixedVariant)},",
   );
-  LogUtil.log("  tertiary: ${_toHexString(colorScheme.tertiary)},");
-  LogUtil.log("  onTertiary: ${_toHexString(colorScheme.onTertiary)},");
-  LogUtil.log(
+  LogUtil.print("  tertiary: ${_toHexString(colorScheme.tertiary)},");
+  LogUtil.print("  onTertiary: ${_toHexString(colorScheme.onTertiary)},");
+  LogUtil.print(
     "  tertiaryContainer: "
     "${_toHexString(colorScheme.tertiaryContainer)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onTertiaryContainer: "
     "${_toHexString(colorScheme.onTertiaryContainer)},",
   );
-  LogUtil.log("  tertiaryFixed: ${_toHexString(colorScheme.tertiaryFixed)},");
-  LogUtil.log(
+  LogUtil.print("  tertiaryFixed: ${_toHexString(colorScheme.tertiaryFixed)},");
+  LogUtil.print(
     "  tertiaryFixedDim: "
     "${_toHexString(colorScheme.tertiaryFixedDim)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onTertiaryFixed: "
     "${_toHexString(colorScheme.onTertiaryFixed)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onTertiaryFixedVariant: "
     "${_toHexString(colorScheme.onTertiaryFixedVariant)},",
   );
-  LogUtil.log("  error: ${_toHexString(colorScheme.error)},");
-  LogUtil.log("  onError: ${_toHexString(colorScheme.onError)},");
-  LogUtil.log(
+  LogUtil.print("  error: ${_toHexString(colorScheme.error)},");
+  LogUtil.print("  onError: ${_toHexString(colorScheme.onError)},");
+  LogUtil.print(
     "  errorContainer: "
     "${_toHexString(colorScheme.errorContainer)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onErrorContainer: "
     "${_toHexString(colorScheme.onErrorContainer)},",
   );
-  LogUtil.log("  surface: ${_toHexString(colorScheme.surface)},");
-  LogUtil.log("  onSurface: ${_toHexString(colorScheme.onSurface)},");
-  LogUtil.log("  surfaceDim: ${_toHexString(colorScheme.surfaceDim)},");
-  LogUtil.log("  surfaceBright: ${_toHexString(colorScheme.surfaceBright)},");
-  LogUtil.log(
+  LogUtil.print("  surface: ${_toHexString(colorScheme.surface)},");
+  LogUtil.print("  onSurface: ${_toHexString(colorScheme.onSurface)},");
+  LogUtil.print("  surfaceDim: ${_toHexString(colorScheme.surfaceDim)},");
+  LogUtil.print("  surfaceBright: ${_toHexString(colorScheme.surfaceBright)},");
+  LogUtil.print(
     "  surfaceContainerLowest: "
     "${_toHexString(colorScheme.surfaceContainerLowest)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  surfaceContainerLow: "
     "${_toHexString(colorScheme.surfaceContainerLow)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  surfaceContainer: "
     "${_toHexString(colorScheme.surfaceContainer)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  surfaceContainerHigh: "
     "${_toHexString(colorScheme.surfaceContainerHigh)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  surfaceContainerHighest: "
     "${_toHexString(colorScheme.surfaceContainerHighest)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onSurfaceVariant: "
     "${_toHexString(colorScheme.onSurfaceVariant)},",
   );
-  LogUtil.log("  outline: ${_toHexString(colorScheme.outline)},");
-  LogUtil.log(
+  LogUtil.print("  outline: ${_toHexString(colorScheme.outline)},");
+  LogUtil.print(
     "  outlineVariant: "
     "${_toHexString(colorScheme.outlineVariant)},",
   );
-  LogUtil.log("  shadow: ${_toHexString(colorScheme.shadow)},");
-  LogUtil.log("  scrim: ${_toHexString(colorScheme.scrim)},");
-  LogUtil.log(
+  LogUtil.print("  shadow: ${_toHexString(colorScheme.shadow)},");
+  LogUtil.print("  scrim: ${_toHexString(colorScheme.scrim)},");
+  LogUtil.print(
     "  inverseSurface: "
     "${_toHexString(colorScheme.inverseSurface)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  onInverseSurface: "
     "${_toHexString(colorScheme.onInverseSurface)},",
   );
-  LogUtil.log(
+  LogUtil.print(
     "  inversePrimary: "
     "${_toHexString(colorScheme.inversePrimary)},",
   );
-  LogUtil.log("  surfaceTint: ${_toHexString(colorScheme.surfaceTint)},");
-  LogUtil.log(")");
+  LogUtil.print("  surfaceTint: ${_toHexString(colorScheme.surfaceTint)},");
+  LogUtil.print(")");
 }
 
 String _toHexString(Color c) {

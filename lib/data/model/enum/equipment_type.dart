@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'equipment_type.g.dart';
 
@@ -21,8 +22,10 @@ enum EquipmentType {
     try {
       return $enumDecode(_$EquipmentTypeEnumMap, str);
     } catch (e) {
-      // debug("Failed to parse EquipmentType!\n"
-      //     "- Error: '$e'\n- Input: '$str'");
+      LogUtil.print(
+        "Failed to parse EquipmentType!\n"
+        "- Error: '$e'\n- Input: '$str'",
+      );
       rethrow;
     }
   }

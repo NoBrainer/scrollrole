@@ -5,6 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
 import 'package:scrollrole/data/model/enum/armor_type.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'armor.g.dart';
 
@@ -50,7 +51,7 @@ class Armor extends Equatable {
     try {
       return _$ArmorFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Armor!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print("Failed to parse Armor!\n- Error: '$e'\n- Input: $json");
       rethrow;
     }
   }

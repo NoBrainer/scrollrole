@@ -9,6 +9,7 @@ import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/unlockable.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'class.g.dart';
 
@@ -65,7 +66,7 @@ class Class extends Equatable {
     try {
       return _$ClassFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Class!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print("Failed to parse Class!\n- Error: '$e'\n- Input: $json");
       rethrow;
     }
   }

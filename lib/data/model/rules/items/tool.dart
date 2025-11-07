@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'tool.g.dart';
 
@@ -29,7 +30,7 @@ class Tool extends Equatable {
     try {
       return _$ToolFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Tool!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print("Failed to parse Tool!\n- Error: '$e'\n- Input: $json");
       rethrow;
     }
   }

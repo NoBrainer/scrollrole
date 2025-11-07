@@ -8,6 +8,7 @@ import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'background.g.dart';
 
@@ -48,7 +49,9 @@ class Background extends Equatable {
     try {
       return _$BackgroundFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Background!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print(
+        "Failed to parse Background!\n- Error: '$e'\n- Input: $json",
+      );
       rethrow;
     }
   }

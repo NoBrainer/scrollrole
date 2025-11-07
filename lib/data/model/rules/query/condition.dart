@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'condition.g.dart';
 
@@ -23,7 +24,9 @@ class Condition extends Equatable {
     try {
       return _$ConditionFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Condition!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print(
+        "Failed to parse Condition!\n- Error: '$e'\n- Input: $json",
+      );
       rethrow;
     }
   }

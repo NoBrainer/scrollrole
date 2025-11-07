@@ -9,6 +9,7 @@ import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'race.g.dart';
 
@@ -54,7 +55,7 @@ class Race extends Equatable {
     try {
       return _$RaceFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Race!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print("Failed to parse Race!\n- Error: '$e'\n- Input: $json");
       rethrow;
     }
   }

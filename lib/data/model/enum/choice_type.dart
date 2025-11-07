@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'choice_type.g.dart';
 
@@ -25,8 +26,10 @@ enum ChoiceType {
     try {
       return $enumDecode(_$ChoiceTypeEnumMap, str);
     } catch (e) {
-      // debug("Failed to parse ChoiceType!\n"
-      //     "- Error: '$e'\n- Input: '$str'");
+      LogUtil.print(
+        "Failed to parse ChoiceType!\n"
+        "- Error: '$e'\n- Input: '$str'",
+      );
       rethrow;
     }
   }

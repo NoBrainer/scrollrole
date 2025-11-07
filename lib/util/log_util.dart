@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/foundation.dart';
 
@@ -7,9 +8,9 @@ const JsonEncoder _encoder = JsonEncoder.withIndent('  ');
 
 class LogUtil {
   /// Print a message if in debug mode
-  static void log(String? message) {
-    if (kDebugMode) {
-      print(message);
+  static void print(String? message) {
+    if (kDebugMode && message != null) {
+      log(message);
     }
   }
 
@@ -17,6 +18,6 @@ class LogUtil {
   static void logPrettyJson(String input) {
     var object = _decoder.convert(input);
     String prettyString = _encoder.convert(object);
-    prettyString.split('\n').forEach((element) => log(element));
+    prettyString.split('\n').forEach((element) => print(element));
   }
 }

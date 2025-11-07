@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:scrollrole/bloc/config/config_bloc.dart';
 import 'package:scrollrole/presentation/common/orientated_list.dart';
 import 'package:scrollrole/presentation/common/styled_app_bar.dart';
 import 'package:scrollrole/presentation/presentation_layer.dart';
@@ -9,6 +11,7 @@ import 'package:scrollrole/presentation/screen/app_credits_screen.dart';
 import 'package:scrollrole/presentation/screen/app_settings_screen.dart';
 import 'package:scrollrole/presentation/screen/color_scheme_preview_screen.dart';
 import 'package:scrollrole/presentation/screen/rules/rules_screen.dart';
+import 'package:scrollrole/util/log_util.dart';
 import 'package:scrollrole/util/snackbar_util.dart';
 
 class AppMenuScreen extends StatelessWidget {
@@ -27,6 +30,16 @@ class AppMenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Figure out where this logic should live
+    ConfigState configState = context.read<ConfigBloc>().state;
+    LogUtil.print("ConfigState = $configState");
+    if ([
+      ConfigStatus.initial,
+      ConfigStatus.loadedFailure,
+    ].contains(configState.status)) {
+      context.read<ConfigBloc>().add(LoadDefaultConfigRequested());
+    }
+
     return PopScope(
       canPop: false,
       child: Scaffold(

@@ -9,6 +9,7 @@ import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/condition.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'unlockable.g.dart';
 
@@ -51,7 +52,9 @@ class Unlockable extends Equatable {
     try {
       return _$UnlockableFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Unlockable!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print(
+        "Failed to parse Unlockable!\n- Error: '$e'\n- Input: $json",
+      );
       rethrow;
     }
   }

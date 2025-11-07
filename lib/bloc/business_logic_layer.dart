@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scrollrole/bloc/app_lifecycle_state_observer.dart';
+import 'package:scrollrole/bloc/config/config_bloc.dart';
 
 class BusinessLogicLayer extends StatelessWidget {
   final Widget child;
@@ -8,13 +10,9 @@ class BusinessLogicLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppLifecycleStateObserver(child: child);
-    // return MultiBlocProvider(
-    //   providers: [
-    //     // TODO: Add providers for blocs
-    //     // BlocProvider<ExampleBloc>(create: (context) => ExampleBloc()),
-    //   ],
-    //   child: AppLifecycleStateObserver(child: child),
-    // );
+    return MultiBlocProvider(
+      providers: [BlocProvider<ConfigBloc>(create: (context) => ConfigBloc())],
+      child: AppLifecycleStateObserver(child: child),
+    );
   }
 }

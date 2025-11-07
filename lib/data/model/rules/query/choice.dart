@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'choice.g.dart';
 
@@ -45,7 +46,7 @@ class Choice extends Equatable {
     try {
       return _$ChoiceFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Choice!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print("Failed to parse Choice!\n- Error: '$e'\n- Input: $json");
       rethrow;
     }
   }

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'spell.g.dart';
 
@@ -22,7 +23,7 @@ class Spell extends Equatable {
     try {
       return _$SpellFromJson(json);
     } catch (e) {
-      // debug("Failed to parse Spell!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print("Failed to parse Spell!\n- Error: '$e'\n- Input: $json");
       rethrow;
     }
   }

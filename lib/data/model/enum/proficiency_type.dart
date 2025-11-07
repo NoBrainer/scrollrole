@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'proficiency_type.g.dart';
 
@@ -19,8 +20,10 @@ enum ProficiencyType {
     try {
       return $enumDecode(_$ProficiencyTypeEnumMap, str);
     } catch (e) {
-      // debug("Failed to parse ProficiencyType!\n"
-      //     "- Error: '$e'\n- Input: '$str'");
+      LogUtil.print(
+        "Failed to parse ProficiencyType!\n"
+        "- Error: '$e'\n- Input: '$str'",
+      );
       rethrow;
     }
   }

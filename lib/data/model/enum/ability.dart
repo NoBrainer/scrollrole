@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'ability.g.dart';
 
@@ -25,8 +26,10 @@ enum Ability {
     try {
       return $enumDecode(_$AbilityEnumMap, str);
     } catch (e) {
-      // debug("Failed to parse Ability!\n"
-      //     "- Error: '$e'\n- Input: '$str'");
+      LogUtil.print(
+        "Failed to parse Ability!\n"
+        "- Error: '$e'\n- Input: '$str'",
+      );
       rethrow;
     }
   }

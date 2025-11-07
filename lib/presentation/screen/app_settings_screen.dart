@@ -44,7 +44,7 @@ class AppSettingsScreen extends StatelessWidget {
 class _BackupRestoreCard extends StatelessWidget {
   void cleanup() {
     FilePicker.platform.clearTemporaryFiles().then((removed) {
-      LogUtil.log("FilePicker.clearTemporaryFiles() Removed=$removed");
+      LogUtil.print("FilePicker.clearTemporaryFiles() Removed=$removed");
     });
   }
 

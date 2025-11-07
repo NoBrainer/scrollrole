@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
+import 'package:scrollrole/util/log_util.dart';
 
 part 'ability_score_adjustment.g.dart';
 
@@ -22,7 +23,9 @@ class AbilityScoreAdjustment extends Equatable {
     try {
       return _$AbilityScoreAdjustmentFromJson(json);
     } catch (e) {
-      // debug("Failed to parse AbilityScoreAdjustment!\n- Error: '$e'\n- Input: $json");
+      LogUtil.print(
+        "Failed to parse AbilityScoreAdjustment!\n- Error: '$e'\n- Input: $json",
+      );
       rethrow;
     }
   }
