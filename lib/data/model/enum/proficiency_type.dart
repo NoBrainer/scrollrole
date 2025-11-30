@@ -7,8 +7,10 @@ part 'proficiency_type.g.dart';
 enum ProficiencyType {
   @JsonValue("language")
   language("language"),
+
   @JsonValue("skill")
   skill("skill"),
+
   @JsonValue("tool")
   tool("tool");
 

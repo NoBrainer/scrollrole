@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/rules/parts/feature_variable.dart';
 import 'package:scrollrole/util/log_util.dart';
 
 part 'feature.g.dart';
@@ -13,17 +14,17 @@ class Feature extends Equatable {
   final List<String> description;
   final String name;
   final String shortDescription;
-  final String value; //TODO: Rename to quantity or amount
+  final List<FeatureVariable> variables;
 
   const Feature({
     this.description = const [],
     required this.name,
     this.shortDescription = "",
-    this.value = "",
+    this.variables = const [],
   });
 
   @override
-  List<Object?> get props => [description, name, shortDescription, value];
+  List<Object?> get props => [description, name, shortDescription, variables];
 
   factory Feature.fromJson(Map<String, dynamic> json) {
     try {

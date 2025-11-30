@@ -43,9 +43,8 @@ backgrounds:
             provided the assistance you ask for is not hazardous and you remain in good standing with your temple.
     choices:
       - name: Languages
-        type: proficiency
         pick: 2
-        from: { name: proficiencies, types: [ language ] }
+        query: { list: proficiencies, types: [ language proficiency ] }
     suggestedCharacteristics:
       description:
         - Pick two personality traits, one ideal, one bond, and one flaw.
@@ -102,21 +101,18 @@ backgrounds:
       - name: Features
         description:
           - Choose any one feature from another background.
-        type: feature
         pick: 1
-        from: { name: backgroundFeatures }
+        query: { list: backgroundFeatures }
       - name: Skills
         description:
           - Choose any two skills.
-        type: proficiency
         pick: 2
-        from: { name: proficiencies, types: [ skill ] }
+        query: { list: proficiencies, types: [ skill proficiency ] }
       - name: Tool Proficiencies or Languages
         description:
           - Choose a total of two tool proficiencies or languages.
-        type: proficiency
         pick: 2
-        from: { name: proficiencies, types: [ language, tool ] }
+        query: { list: proficiencies, types: [ language proficiency, tool proficiency ] }
 
 # Classes
 classes:

@@ -7,14 +7,19 @@ part 'ability.g.dart';
 enum Ability {
   @JsonValue("CHA")
   cha("CHA"),
+
   @JsonValue("CON")
   con("CON"),
+
   @JsonValue("DEX")
   dex("DEX"),
+
   @JsonValue("INT")
   int("INT"),
+
   @JsonValue("STR")
   str("STR"),
+
   @JsonValue("WIS")
   wis("WIS");
 

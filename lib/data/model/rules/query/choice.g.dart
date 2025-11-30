@@ -13,21 +13,23 @@ Choice _$ChoiceFromJson(Map<String, dynamic> json) => Choice(
           ?.map((e) => e as String)
           .toList() ??
       const [],
-  from: json['from'] as Map<String, dynamic>?,
   name: json['name'] as String,
-  options: json['options'] as Map<String, dynamic>?,
-  pick: (json['pick'] as num?)?.toInt(),
-  type: json['type'] as String,
-  use: json['use'] as Map<String, dynamic>?,
+  options:
+      (json['options'] as List<dynamic>?)
+          ?.map((e) => ListOption.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  pick: (json['pick'] as num?)?.toInt() ?? 1,
+  query: json['query'] == null
+      ? null
+      : ListQuery.fromJson(json['query'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ChoiceToJson(Choice instance) => <String, dynamic>{
   'allowDuplicate': instance.allowDuplicate,
   'description': instance.description,
-  'from': instance.from,
   'name': instance.name,
-  'options': instance.options,
+  'options': instance.options.map((e) => e.toJson()).toList(),
   'pick': instance.pick,
-  'type': instance.type,
-  'use': instance.use,
+  'query': instance.query?.toJson(),
 };

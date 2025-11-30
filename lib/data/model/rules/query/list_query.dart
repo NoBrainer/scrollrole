@@ -3,44 +3,45 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/enum/list_option_type.dart';
 import 'package:scrollrole/util/log_util.dart';
 
-part 'list_selector.g.dart';
+part 'list_query.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)
-class ListSelector extends Equatable {
+class ListQuery extends Equatable {
   final List<String> classes;
   final List<int> levels;
-  final String name;
+  final String list;
   final List<String> requiredTags;
   final List<String> tags;
-  final List<String> types;
+  final List<ListOptionType> types;
 
-  const ListSelector({
+  const ListQuery({
     this.classes = const [],
     this.levels = const [],
-    required this.name,
+    required this.list,
     this.requiredTags = const [],
     this.tags = const [],
     this.types = const [],
   });
 
   @override
-  List<Object?> get props => [classes, levels, name, requiredTags, tags, types];
+  List<Object?> get props => [classes, levels, list, requiredTags, tags, types];
 
-  factory ListSelector.fromJson(Map<String, dynamic> json) {
+  factory ListQuery.fromJson(Map<String, dynamic> json) {
     try {
-      return _$ListSelectorFromJson(json);
+      return _$ListQueryFromJson(json);
     } catch (e) {
       LogUtil.print(
-        "Failed to parse ListSelector!\n- Error: '$e'\n- Input: $json",
+        "Failed to parse ListQuery!\n- Error: '$e'\n- Input: $json",
       );
       rethrow;
     }
   }
 
-  Map<String, dynamic> toJson() => _$ListSelectorToJson(this);
+  Map<String, dynamic> toJson() => _$ListQueryToJson(this);
 
   String toJsonString() {
     return jsonEncode(toJson());

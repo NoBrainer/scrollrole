@@ -19,15 +19,19 @@ class Background extends Equatable {
   final List<String> description;
   final List<Equipment> equipment;
   final List<Feature> features;
+  final String iconId;
   final String name;
   final List<Proficiency> proficiencies;
   final SuggestedCharacteristics suggestedCharacteristics;
+
+  static const defaultIconId = 'background-custom';
 
   const Background({
     this.choices = const [],
     this.description = const [],
     this.equipment = const [],
     this.features = const [],
+    this.iconId = Background.defaultIconId,
     required this.name,
     this.proficiencies = const [],
     this.suggestedCharacteristics = SuggestedCharacteristics.blank,
@@ -39,6 +43,7 @@ class Background extends Equatable {
     description,
     equipment,
     features,
+    iconId,
     name,
     proficiencies,
     suggestedCharacteristics,

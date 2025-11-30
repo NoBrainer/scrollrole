@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'list_selector.dart';
+part of 'list_query.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ListSelector _$ListSelectorFromJson(Map<String, dynamic> json) => ListSelector(
+ListQuery _$ListQueryFromJson(Map<String, dynamic> json) => ListQuery(
   classes:
       (json['classes'] as List<dynamic>?)?.map((e) => e as String).toList() ??
       const [],
@@ -15,7 +15,7 @@ ListSelector _$ListSelectorFromJson(Map<String, dynamic> json) => ListSelector(
           ?.map((e) => (e as num).toInt())
           .toList() ??
       const [],
-  name: json['name'] as String,
+  list: json['list'] as String,
   requiredTags:
       (json['requiredTags'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -25,16 +25,17 @@ ListSelector _$ListSelectorFromJson(Map<String, dynamic> json) => ListSelector(
       (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ??
       const [],
   types:
-      (json['types'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      (json['types'] as List<dynamic>?)
+          ?.map((e) => ListOptionType.fromJson(e as String))
+          .toList() ??
       const [],
 );
 
-Map<String, dynamic> _$ListSelectorToJson(ListSelector instance) =>
-    <String, dynamic>{
-      'classes': instance.classes,
-      'levels': instance.levels,
-      'name': instance.name,
-      'requiredTags': instance.requiredTags,
-      'tags': instance.tags,
-      'types': instance.types,
-    };
+Map<String, dynamic> _$ListQueryToJson(ListQuery instance) => <String, dynamic>{
+  'classes': instance.classes,
+  'levels': instance.levels,
+  'list': instance.list,
+  'requiredTags': instance.requiredTags,
+  'tags': instance.tags,
+  'types': instance.types.map((e) => e.toJson()).toList(),
+};

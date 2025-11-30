@@ -7,10 +7,13 @@ part 'equipment_type.g.dart';
 enum EquipmentType {
   @JsonValue("armor")
   armor("Armor"),
+
   @JsonValue("gear")
   gear("Gear"),
+
   @JsonValue("weapon")
   weapon("Weapon"),
+
   @JsonValue("tool")
   tool("Tool");
 

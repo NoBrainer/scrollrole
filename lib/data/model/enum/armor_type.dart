@@ -7,10 +7,13 @@ part 'armor_type.g.dart';
 enum ArmorType {
   @JsonValue("light")
   light("Light Armor"),
+
   @JsonValue("medium")
   medium("Medium Armor"),
+
   @JsonValue("heavy")
   heavy("Heavy Armor"),
+
   @JsonValue("shield")
   shield("Shield");
 

@@ -27,6 +27,7 @@ Background _$BackgroundFromJson(Map<String, dynamic> json) => Background(
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  iconId: json['iconId'] as String? ?? Background.defaultIconId,
   name: json['name'] as String,
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
@@ -46,6 +47,7 @@ Map<String, dynamic> _$BackgroundToJson(Background instance) =>
       'description': instance.description,
       'equipment': instance.equipment.map((e) => e.toJson()).toList(),
       'features': instance.features.map((e) => e.toJson()).toList(),
+      'iconId': instance.iconId,
       'name': instance.name,
       'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
       'suggestedCharacteristics': instance.suggestedCharacteristics.toJson(),

@@ -3,48 +3,53 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/rules/query/list_option.dart';
+import 'package:scrollrole/data/model/rules/query/list_query.dart';
 import 'package:scrollrole/util/log_util.dart';
 
 part 'choice.g.dart';
 
+/// Must provide a query or hard-coded options, not both.
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Choice extends Equatable {
   final bool allowDuplicate;
   final List<String> description;
-  final Map? from; //TODO: update type to object
   final String name;
-  final Map? options; //TODO: update type to object
-  final int? pick;
-  final String type;
-  final Map? use; //TODO: update type to object
+  final List<ListOption> options;
+  final int pick;
+  final ListQuery? query;
 
   const Choice({
     this.allowDuplicate = false,
     this.description = const [],
-    this.from,
     required this.name,
-    this.options,
-    this.pick,
-    required this.type,
-    this.use,
+    this.options = const [],
+    this.pick = 1,
+    this.query,
   });
 
   @override
   List<Object?> get props => [
     allowDuplicate,
     description,
-    from,
     name,
     options,
     pick,
-    type,
-    use,
+    query,
   ];
 
   factory Choice.fromJson(Map<String, dynamic> json) {
     try {
-      return _$ChoiceFromJson(json);
+      Choice parsedChoice = _$ChoiceFromJson(json);
+      // TODO: Handle these exceptions or change parsing strategies
+      if (parsedChoice.options.isEmpty && parsedChoice.query == null) {
+        throw Exception("Choice must include 'option' or 'query'");
+      } else if (parsedChoice.options.isNotEmpty &&
+          parsedChoice.query != null) {
+        throw Exception("Choice must not include both 'option' and 'query'");
+      }
+      return parsedChoice;
     } catch (e) {
       LogUtil.print("Failed to parse Choice!\n- Error: '$e'\n- Input: $json");
       rethrow;
