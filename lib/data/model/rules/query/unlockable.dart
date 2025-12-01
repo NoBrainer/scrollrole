@@ -9,7 +9,7 @@ import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/condition.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'unlockable.g.dart';
 
@@ -49,14 +49,8 @@ class Unlockable extends Equatable {
   ];
 
   factory Unlockable.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$UnlockableFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse Unlockable!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Unlockable", _$UnlockableFromJson, json)
+        as Unlockable;
   }
 
   Map<String, dynamic> toJson() => _$UnlockableToJson(this);

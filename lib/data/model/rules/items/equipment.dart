@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'equipment.g.dart';
 
@@ -19,14 +19,8 @@ class Equipment extends Equatable {
   List<Object?> get props => [name, quantity];
 
   factory Equipment.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$EquipmentFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse Equipment!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Equipment", _$EquipmentFromJson, json)
+        as Equipment;
   }
 
   Map<String, dynamic> toJson() => _$EquipmentToJson(this);

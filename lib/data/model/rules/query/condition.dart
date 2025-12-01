@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'condition.g.dart';
 
@@ -21,14 +21,8 @@ class Condition extends Equatable {
   List<Object?> get props => [feature, level, proficiency];
 
   factory Condition.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$ConditionFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse Condition!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Condition", _$ConditionFromJson, json)
+        as Condition;
   }
 
   Map<String, dynamic> toJson() => _$ConditionToJson(this);

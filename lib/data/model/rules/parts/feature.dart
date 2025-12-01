@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/parts/feature_variable.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'feature.g.dart';
 
@@ -27,12 +27,8 @@ class Feature extends Equatable {
   List<Object?> get props => [description, name, shortDescription, variables];
 
   factory Feature.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$FeatureFromJson(json);
-    } catch (e) {
-      LogUtil.print("Failed to parse Feature!\n- Error: '$e'\n- Input: $json");
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Feature", _$FeatureFromJson, json)
+        as Feature;
   }
 
   Map<String, dynamic> toJson() => _$FeatureToJson(this);

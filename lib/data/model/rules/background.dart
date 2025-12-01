@@ -8,7 +8,7 @@ import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'background.g.dart';
 
@@ -50,14 +50,8 @@ class Background extends Equatable {
   ];
 
   factory Background.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$BackgroundFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse Background!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Background", _$BackgroundFromJson, json)
+        as Background;
   }
 
   Map<String, dynamic> toJson() => _$BackgroundToJson(this);

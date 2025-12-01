@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
 import 'package:scrollrole/data/model/rules/parts/spell.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'spell_casting.g.dart';
 
@@ -50,14 +50,8 @@ class SpellCasting extends Equatable {
   ];
 
   factory SpellCasting.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$SpellCastingFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse SpellCasting!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("SpellCasting", _$SpellCastingFromJson, json)
+        as SpellCasting;
   }
 
   Map<String, dynamic> toJson() => _$SpellCastingToJson(this);

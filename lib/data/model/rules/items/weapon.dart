@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'weapon.g.dart';
 
@@ -46,12 +46,7 @@ class Weapon extends Equatable {
   ];
 
   factory Weapon.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$WeaponFromJson(json);
-    } catch (e) {
-      LogUtil.print("Failed to parse Weapon!\n- Error: '$e'\n- Input: $json");
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Weapon", _$WeaponFromJson, json) as Weapon;
   }
 
   Map<String, dynamic> toJson() => _$WeaponToJson(this);

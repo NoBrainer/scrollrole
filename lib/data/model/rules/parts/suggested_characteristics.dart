@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'suggested_characteristics.g.dart';
 
@@ -36,14 +36,12 @@ class SuggestedCharacteristics extends Equatable {
   ];
 
   factory SuggestedCharacteristics.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$SuggestedCharacteristicsFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse SuggestedCharacteristics!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject(
+          "SuggestedCharacteristics",
+          _$SuggestedCharacteristicsFromJson,
+          json,
+        )
+        as SuggestedCharacteristics;
   }
 
   Map<String, dynamic> toJson() => _$SuggestedCharacteristicsToJson(this);

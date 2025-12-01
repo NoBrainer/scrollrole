@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'equipment_pack.g.dart';
 
@@ -20,14 +20,12 @@ class EquipmentPack extends Equatable {
   List<Object?> get props => [name, items];
 
   factory EquipmentPack.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$EquipmentPackFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse EquipmentPack!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject(
+          "EquipmentPack",
+          _$EquipmentPackFromJson,
+          json,
+        )
+        as EquipmentPack;
   }
 
   Map<String, dynamic> toJson() => _$EquipmentPackToJson(this);

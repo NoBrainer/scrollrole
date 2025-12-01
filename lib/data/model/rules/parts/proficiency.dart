@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/proficiency_type.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'proficiency.g.dart';
 
@@ -25,14 +25,8 @@ class Proficiency extends Equatable {
   List<Object?> get props => [name, tags, type];
 
   factory Proficiency.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$ProficiencyFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse Proficiency!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Proficiency", _$ProficiencyFromJson, json)
+        as Proficiency;
   }
 
   Map<String, dynamic> toJson() => _$ProficiencyToJson(this);

@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/list_option_type.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'list_query.g.dart';
 
@@ -31,14 +31,8 @@ class ListQuery extends Equatable {
   List<Object?> get props => [classes, levels, list, requiredTags, tags, types];
 
   factory ListQuery.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$ListQueryFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse ListQuery!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("ListQuery", _$ListQueryFromJson, json)
+        as ListQuery;
   }
 
   Map<String, dynamic> toJson() => _$ListQueryToJson(this);

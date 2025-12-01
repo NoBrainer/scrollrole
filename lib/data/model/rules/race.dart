@@ -9,7 +9,7 @@ import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'race.g.dart';
 
@@ -51,12 +51,7 @@ class Race extends Equatable {
   ];
 
   factory Race.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$RaceFromJson(json);
-    } catch (e) {
-      LogUtil.print("Failed to parse Race!\n- Error: '$e'\n- Input: $json");
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Race", _$RaceFromJson, json) as Race;
   }
 
   Map<String, dynamic> toJson() => _$RaceToJson(this);

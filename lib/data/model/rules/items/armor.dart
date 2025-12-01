@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
 import 'package:scrollrole/data/model/enum/armor_type.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'armor.g.dart';
 
@@ -48,12 +48,7 @@ class Armor extends Equatable {
   ];
 
   factory Armor.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$ArmorFromJson(json);
-    } catch (e) {
-      LogUtil.print("Failed to parse Armor!\n- Error: '$e'\n- Input: $json");
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Armor", _$ArmorFromJson, json) as Armor;
   }
 
   Map<String, dynamic> toJson() => _$ArmorToJson(this);

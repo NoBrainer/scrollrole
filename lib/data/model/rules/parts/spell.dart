@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'spell.g.dart';
 
@@ -20,12 +20,7 @@ class Spell extends Equatable {
   List<Object?> get props => [classes, level, name];
 
   factory Spell.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$SpellFromJson(json);
-    } catch (e) {
-      LogUtil.print("Failed to parse Spell!\n- Error: '$e'\n- Input: $json");
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("Spell", _$SpellFromJson, json) as Spell;
   }
 
   Map<String, dynamic> toJson() => _$SpellToJson(this);

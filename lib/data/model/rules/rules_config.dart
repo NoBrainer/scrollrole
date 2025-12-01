@@ -5,6 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/background.dart';
 import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 import 'package:yaml/yaml.dart';
 import 'package:yaml_writer/yaml_writer.dart';
 
@@ -23,14 +24,8 @@ class RulesConfig extends Equatable {
   List<Object?> get props => [backgrounds];
 
   factory RulesConfig.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$RulesConfigFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse RulesConfig!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject("RulesConfig", _$RulesConfigFromJson, json)
+        as RulesConfig;
   }
 
   Map<String, dynamic> toJson() => _$RulesConfigToJson(this);

@@ -5,7 +5,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/query/list_option.dart';
 import 'package:scrollrole/data/model/rules/query/list_query.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'choice.g.dart';
 
@@ -40,20 +40,24 @@ class Choice extends Equatable {
   ];
 
   factory Choice.fromJson(Map<String, dynamic> json) {
-    try {
-      Choice parsedChoice = _$ChoiceFromJson(json);
-      // TODO: Handle these exceptions or change parsing strategies
-      if (parsedChoice.options.isEmpty && parsedChoice.query == null) {
-        throw Exception("Choice must include 'option' or 'query'");
-      } else if (parsedChoice.options.isNotEmpty &&
-          parsedChoice.query != null) {
-        throw Exception("Choice must not include both 'option' and 'query'");
-      }
-      return parsedChoice;
-    } catch (e) {
-      LogUtil.print("Failed to parse Choice!\n- Error: '$e'\n- Input: $json");
-      rethrow;
-    }
+    return MapperUtil.jsonToObject(
+          "Choice",
+          _$ChoiceFromJson,
+          json,
+          validate: (Choice parsedChoice) {
+            // TODO: Handle these exceptions or change parsing strategies
+            // Note: This works well as a developer but not a user.
+            if (parsedChoice.options.isEmpty && parsedChoice.query == null) {
+              throw Exception("Choice must include 'option' or 'query'");
+            } else if (parsedChoice.options.isNotEmpty &&
+                parsedChoice.query != null) {
+              throw Exception(
+                "Choice must not include both 'option' and 'query'",
+              );
+            }
+          },
+        )
+        as Choice;
   }
 
   Map<String, dynamic> toJson() => _$ChoiceToJson(this);

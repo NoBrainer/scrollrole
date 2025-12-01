@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'ability_score_adjustment.g.dart';
 
@@ -20,14 +20,12 @@ class AbilityScoreAdjustment extends Equatable {
   List<Object?> get props => [ability, modifier];
 
   factory AbilityScoreAdjustment.fromJson(Map<String, dynamic> json) {
-    try {
-      return _$AbilityScoreAdjustmentFromJson(json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse AbilityScoreAdjustment!\n- Error: '$e'\n- Input: $json",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToObject(
+          "AbilityScoreAdjustment",
+          _$AbilityScoreAdjustmentFromJson,
+          json,
+        )
+        as AbilityScoreAdjustment;
   }
 
   Map<String, dynamic> toJson() => _$AbilityScoreAdjustmentToJson(this);
