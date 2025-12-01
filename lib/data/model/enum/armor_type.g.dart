@@ -7,8 +7,8 @@ part of 'armor_type.dart';
 // **************************************************************************
 
 const _$ArmorTypeEnumMap = {
-  ArmorType.light: 'light',
-  ArmorType.medium: 'medium',
-  ArmorType.heavy: 'heavy',
-  ArmorType.shield: 'shield',
+  ArmorType.light: 'LIGHT',
+  ArmorType.medium: 'MEDIUM',
+  ArmorType.heavy: 'HEAVY',
+  ArmorType.shield: 'SHIELD',
 };

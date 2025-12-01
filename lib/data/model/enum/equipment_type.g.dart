@@ -7,8 +7,8 @@ part of 'equipment_type.dart';
 // **************************************************************************
 
 const _$EquipmentTypeEnumMap = {
-  EquipmentType.armor: 'armor',
-  EquipmentType.gear: 'gear',
-  EquipmentType.weapon: 'weapon',
-  EquipmentType.tool: 'tool',
+  EquipmentType.armor: 'ARMOR',
+  EquipmentType.gear: 'GEAR',
+  EquipmentType.weapon: 'WEAPON',
+  EquipmentType.tool: 'TOOL',
 };

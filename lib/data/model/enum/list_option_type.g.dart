@@ -7,13 +7,13 @@ part of 'list_option_type.dart';
 // **************************************************************************
 
 const _$ListOptionTypeEnumMap = {
-  ListOptionType.abilityScoreAdjustment: 'abilityScoreAdjustment',
-  ListOptionType.equipment: 'equipment',
-  ListOptionType.feat: 'feat',
-  ListOptionType.feature: 'feature',
-  ListOptionType.proficiency: 'proficiency',
-  ListOptionType.proficiencyLanguage: 'language proficiency',
-  ListOptionType.proficiencySkill: 'skill proficiency',
-  ListOptionType.proficiencyTool: 'tool proficiency',
-  ListOptionType.spell: 'spell',
+  ListOptionType.abilityScoreAdjustment: 'ABILITY_SCORE_ADJUSTMENT',
+  ListOptionType.equipment: 'EQUIPMENT',
+  ListOptionType.feat: 'FEAT',
+  ListOptionType.feature: 'FEATURE',
+  ListOptionType.proficiency: 'PROFICIENCY',
+  ListOptionType.proficiencyLanguage: 'PROFICIENCY_LANGUAGE',
+  ListOptionType.proficiencySkill: 'PROFICIENCY_SKILL',
+  ListOptionType.proficiencyTool: 'PROFICIENCY_TOOL',
+  ListOptionType.spell: 'SPELL',
 };

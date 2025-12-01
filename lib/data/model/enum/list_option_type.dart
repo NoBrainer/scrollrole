@@ -3,46 +3,31 @@ import 'package:scrollrole/util/log_util.dart';
 
 part 'list_option_type.g.dart';
 
-@JsonEnum(alwaysCreate: true)
+@JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum ListOptionType {
-  @JsonValue("abilityScoreAdjustment")
-  abilityScoreAdjustment("Ability Score Adjustment"),
-
-  @JsonValue("equipment")
-  equipment("Equipment"),
-
-  @JsonValue("feat")
-  feat("Feat"),
-
-  @JsonValue("feature")
-  feature("Feature"),
-
-  @JsonValue("proficiency")
-  proficiency("Proficiency"),
-
-  @JsonValue("language proficiency")
-  proficiencyLanguage("Language Proficiency"),
-
-  @JsonValue("skill proficiency")
-  proficiencySkill("Skill Proficiency"),
-
-  @JsonValue("tool proficiency")
-  proficiencyTool("Tool Proficiency"),
-
-  @JsonValue("spell")
-  spell("Spell");
+  abilityScoreAdjustment("ASI", "Ability Score Adjustment"),
+  equipment("Equipment", "Equipment"),
+  feat("Feat", "Feat"),
+  feature("Feature", "Feature"),
+  proficiency("Proficiency", "Proficiency"),
+  proficiencyLanguage("Language", "Language Proficiency"),
+  proficiencySkill("Skill", "Skill Proficiency"),
+  proficiencyTool("Tool", "Tool Proficiency"),
+  spell("Spell", "Spell");
 
   final String display;
+  final String displayLong;
 
-  const ListOptionType(this.display);
+  const ListOptionType(this.display, this.displayLong);
 
-  factory ListOptionType.fromJson(String str) {
+  factory ListOptionType.fromJson(String json) {
     try {
-      return $enumDecode(_$ListOptionTypeEnumMap, str);
+      json = json.toUpperCase();
+      return $enumDecode(_$ListOptionTypeEnumMap, json);
     } catch (e) {
       LogUtil.print(
         "Failed to parse ListOptionType!\n"
-        "- Error: '$e'\n- Input: '$str'",
+        "- Error: '$e'\n- Input: '$json'",
       );
       rethrow;
     }

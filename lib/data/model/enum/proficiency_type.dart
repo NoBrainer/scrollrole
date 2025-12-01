@@ -3,28 +3,27 @@ import 'package:scrollrole/util/log_util.dart';
 
 part 'proficiency_type.g.dart';
 
-@JsonEnum(alwaysCreate: true)
+@JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum ProficiencyType {
-  @JsonValue("language")
-  language("language"),
-
-  @JsonValue("skill")
-  skill("skill"),
-
-  @JsonValue("tool")
-  tool("tool");
+  armor("Armor", "Armor Proficiency"),
+  language("Language", "Language Proficiency"),
+  savingThrow("Saving Throw", "Saving Throw Proficiency"),
+  skill("Skill", "Skill Proficiency"),
+  tool("Tool", "Tool Proficiency");
 
   final String display;
+  final String displayLong;
 
-  const ProficiencyType(this.display);
+  const ProficiencyType(this.display, this.displayLong);
 
-  factory ProficiencyType.fromJson(String str) {
+  factory ProficiencyType.fromJson(String json) {
     try {
-      return $enumDecode(_$ProficiencyTypeEnumMap, str);
+      json = json.toUpperCase();
+      return $enumDecode(_$ProficiencyTypeEnumMap, json);
     } catch (e) {
       LogUtil.print(
         "Failed to parse ProficiencyType!\n"
-        "- Error: '$e'\n- Input: '$str'",
+        "- Error: '$e'\n- Input: '$json'",
       );
       rethrow;
     }

@@ -3,31 +3,25 @@ import 'package:scrollrole/util/log_util.dart';
 
 part 'equipment_type.g.dart';
 
-@JsonEnum(alwaysCreate: true)
+@JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum EquipmentType {
-  @JsonValue("armor")
   armor("Armor"),
-
-  @JsonValue("gear")
   gear("Gear"),
-
-  @JsonValue("weapon")
   weapon("Weapon"),
-
-  @JsonValue("tool")
   tool("Tool");
 
   final String display;
 
   const EquipmentType(this.display);
 
-  factory EquipmentType.fromJson(String str) {
+  factory EquipmentType.fromJson(String json) {
     try {
-      return $enumDecode(_$EquipmentTypeEnumMap, str);
+      json = json.toUpperCase();
+      return $enumDecode(_$EquipmentTypeEnumMap, json);
     } catch (e) {
       LogUtil.print(
         "Failed to parse EquipmentType!\n"
-        "- Error: '$e'\n- Input: '$str'",
+        "- Error: '$e'\n- Input: '$json'",
       );
       rethrow;
     }

@@ -3,37 +3,28 @@ import 'package:scrollrole/util/log_util.dart';
 
 part 'ability.g.dart';
 
-@JsonEnum(alwaysCreate: true)
+@JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum Ability {
-  @JsonValue("CHA")
-  cha("CHA"),
-
-  @JsonValue("CON")
-  con("CON"),
-
-  @JsonValue("DEX")
-  dex("DEX"),
-
-  @JsonValue("INT")
-  int("INT"),
-
-  @JsonValue("STR")
-  str("STR"),
-
-  @JsonValue("WIS")
-  wis("WIS");
+  cha("CHA", "Charisma"),
+  con("CON", "Constitution"),
+  dex("DEX", "Dexterity"),
+  int("INT", "Intelligence"),
+  str("STR", "Strength"),
+  wis("WIS", "Wisdom");
 
   final String display;
+  final String displayLong;
 
-  const Ability(this.display);
+  const Ability(this.display, this.displayLong);
 
-  factory Ability.fromJson(String str) {
+  factory Ability.fromJson(String json) {
     try {
-      return $enumDecode(_$AbilityEnumMap, str);
+      json = json.toUpperCase();
+      return $enumDecode(_$AbilityEnumMap, json);
     } catch (e) {
       LogUtil.print(
         "Failed to parse Ability!\n"
-        "- Error: '$e'\n- Input: '$str'",
+        "- Error: '$e'\n- Input: '$json'",
       );
       rethrow;
     }

@@ -7,7 +7,9 @@ part of 'proficiency_type.dart';
 // **************************************************************************
 
 const _$ProficiencyTypeEnumMap = {
-  ProficiencyType.language: 'language',
-  ProficiencyType.skill: 'skill',
-  ProficiencyType.tool: 'tool',
+  ProficiencyType.armor: 'ARMOR',
+  ProficiencyType.language: 'LANGUAGE',
+  ProficiencyType.savingThrow: 'SAVING_THROW',
+  ProficiencyType.skill: 'SKILL',
+  ProficiencyType.tool: 'TOOL',
 };
