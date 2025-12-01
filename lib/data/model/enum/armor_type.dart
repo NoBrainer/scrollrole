@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'armor_type.g.dart';
 
@@ -16,16 +16,8 @@ enum ArmorType {
   const ArmorType(this.display, this.displayLong);
 
   factory ArmorType.fromJson(String json) {
-    try {
-      json = json.toUpperCase();
-      return $enumDecode(_$ArmorTypeEnumMap, json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse ArmorType!\n"
-        "- Error: '$e'\n- Input: '$json'",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToEnum("ArmorType", _$ArmorTypeEnumMap, json)
+        as ArmorType;
   }
 
   String toJson() => _$ArmorTypeEnumMap[this]!;

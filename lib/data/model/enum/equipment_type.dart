@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'equipment_type.g.dart';
 
@@ -15,16 +15,8 @@ enum EquipmentType {
   const EquipmentType(this.display);
 
   factory EquipmentType.fromJson(String json) {
-    try {
-      json = json.toUpperCase();
-      return $enumDecode(_$EquipmentTypeEnumMap, json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse EquipmentType!\n"
-        "- Error: '$e'\n- Input: '$json'",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToEnum("EquipmentType", _$EquipmentTypeEnumMap, json)
+        as EquipmentType;
   }
 
   String toJson() => _$EquipmentTypeEnumMap[this]!;

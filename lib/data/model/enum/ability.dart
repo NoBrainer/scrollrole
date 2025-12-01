@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'ability.g.dart';
 
@@ -18,16 +18,7 @@ enum Ability {
   const Ability(this.display, this.displayLong);
 
   factory Ability.fromJson(String json) {
-    try {
-      json = json.toUpperCase();
-      return $enumDecode(_$AbilityEnumMap, json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse Ability!\n"
-        "- Error: '$e'\n- Input: '$json'",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToEnum("Ability", _$AbilityEnumMap, json) as Ability;
   }
 
   String toJson() => _$AbilityEnumMap[this]!;

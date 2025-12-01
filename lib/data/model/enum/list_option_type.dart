@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'list_option_type.g.dart';
 
@@ -21,16 +21,12 @@ enum ListOptionType {
   const ListOptionType(this.display, this.displayLong);
 
   factory ListOptionType.fromJson(String json) {
-    try {
-      json = json.toUpperCase();
-      return $enumDecode(_$ListOptionTypeEnumMap, json);
-    } catch (e) {
-      LogUtil.print(
-        "Failed to parse ListOptionType!\n"
-        "- Error: '$e'\n- Input: '$json'",
-      );
-      rethrow;
-    }
+    return MapperUtil.jsonToEnum(
+          "ListOptionType",
+          _$ListOptionTypeEnumMap,
+          json,
+        )
+        as ListOptionType;
   }
 
   String toJson() => _$ListOptionTypeEnumMap[this]!;
