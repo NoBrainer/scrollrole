@@ -13,14 +13,16 @@ part 'spell_casting.g.dart';
 @JsonSerializable(explicitToJson: true)
 class SpellCasting extends Equatable {
   final Ability ability;
-  final int cantripsKnown;
   final List<String> description;
   final String focus;
+  final int knownCantrips;
+  final int knownSpells;
   final String name;
-  final List<Spell> spellList; //TODO: Rename to availableSpells or spells
-  final int spellsKnown;
+  final List<Spell> spells;
   final Map<int, int> spellSlots;
 
+  // TODO: Support classes without spellcasting (either something like this blank
+  // TODO: or make it nullable)
   static const SpellCasting blank = SpellCasting(
     ability: Ability.int,
     name: "Spell Casting",
@@ -28,24 +30,24 @@ class SpellCasting extends Equatable {
 
   const SpellCasting({
     required this.ability,
-    this.cantripsKnown = 0,
     this.description = const [],
     this.focus = "",
+    this.knownCantrips = 0,
+    this.knownSpells = 0,
     required this.name,
-    this.spellList = const [],
-    this.spellsKnown = 0,
+    this.spells = const [],
     this.spellSlots = const {},
   });
 
   @override
   List<Object?> get props => [
     ability,
-    cantripsKnown,
     description,
     focus,
+    knownCantrips,
+    knownSpells,
     name,
-    spellList,
-    spellsKnown,
+    spells,
     spellSlots,
   ];
 

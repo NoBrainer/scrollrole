@@ -7,7 +7,7 @@
    - Data Model Attempt: https://github.com/NoBrainer/scrollrole-old/tree/main/public/js/model/rules/parts
    - [X] Backgrounds
    - [ ] Classes
-   - [ ] Races 
+   - [ ] Races
    - [ ] Lists
 2. Enhance data model
    - Share most fields across background, race, species for complete flexibility

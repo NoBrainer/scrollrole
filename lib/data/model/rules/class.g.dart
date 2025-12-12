@@ -33,7 +33,10 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  hitDice: json['hitDice'] as String? ?? "D8",
+  hitPointDie: json['hitPointDie'] == null
+      ? DiceType.d8
+      : DiceType.fromJson(json['hitPointDie'] as String),
+  iconId: json['iconId'] as String? ?? Class.defaultIconId,
   name: json['name'] as String,
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
@@ -58,7 +61,8 @@ Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
   'description': instance.description,
   'equipment': instance.equipment.map((e) => e.toJson()).toList(),
   'features': instance.features.map((e) => e.toJson()).toList(),
-  'hitDice': instance.hitDice,
+  'hitPointDie': instance.hitPointDie.toJson(),
+  'iconId': instance.iconId,
   'name': instance.name,
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'proficiencyBonus': instance.proficiencyBonus,

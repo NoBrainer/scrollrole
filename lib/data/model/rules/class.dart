@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/enum/dice_type.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
@@ -22,12 +23,15 @@ class Class extends Equatable {
   final List<String> description;
   final List<Equipment> equipment;
   final List<Feature> features;
-  final String hitDice; //TODO: update type to object
+  final DiceType hitPointDie;
+  final String iconId;
   final String name;
   final List<Proficiency> proficiencies;
   final int proficiencyBonus;
   final SpellCasting spellCasting;
   final List<Unlockable> unlockables;
+
+  static const defaultIconId = 'class-custom';
 
   const Class({
     //TODO: replace ASI levels with unlockables
@@ -37,7 +41,8 @@ class Class extends Equatable {
     this.description = const [],
     this.equipment = const [],
     this.features = const [],
-    this.hitDice = "D8",
+    this.hitPointDie = DiceType.d8,
+    this.iconId = Class.defaultIconId,
     required this.name,
     this.proficiencies = const [],
     this.proficiencyBonus = 2,
@@ -53,7 +58,7 @@ class Class extends Equatable {
     description,
     equipment,
     features,
-    hitDice,
+    hitPointDie,
     name,
     proficiencies,
     proficiencyBonus,
