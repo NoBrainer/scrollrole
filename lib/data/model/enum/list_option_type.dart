@@ -10,9 +10,12 @@ enum ListOptionType {
   feat("Feat", "Feat"),
   feature("Feature", "Feature"),
   proficiency("Proficiency", "Proficiency"),
+  proficiencyArmor("Armor", "Armor Proficiency"),
   proficiencyLanguage("Language", "Language Proficiency"),
+  proficiencySavingThrow("Saving Throw", "Saving Throw Proficiency"),
   proficiencySkill("Skill", "Skill Proficiency"),
   proficiencyTool("Tool", "Tool Proficiency"),
+  proficiencyWeapon("Weapon", "Weapon Proficiency"),
   spell("Spell", "Spell");
 
   final String display;

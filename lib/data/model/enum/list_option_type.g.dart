@@ -12,8 +12,11 @@ const _$ListOptionTypeEnumMap = {
   ListOptionType.feat: 'FEAT',
   ListOptionType.feature: 'FEATURE',
   ListOptionType.proficiency: 'PROFICIENCY',
+  ListOptionType.proficiencyArmor: 'PROFICIENCY_ARMOR',
   ListOptionType.proficiencyLanguage: 'PROFICIENCY_LANGUAGE',
+  ListOptionType.proficiencySavingThrow: 'PROFICIENCY_SAVING_THROW',
   ListOptionType.proficiencySkill: 'PROFICIENCY_SKILL',
   ListOptionType.proficiencyTool: 'PROFICIENCY_TOOL',
+  ListOptionType.proficiencyWeapon: 'PROFICIENCY_WEAPON',
   ListOptionType.spell: 'SPELL',
 };

@@ -45,6 +45,7 @@ class Choice extends Equatable {
           _$ChoiceFromJson,
           json,
           validate: (Choice parsedChoice) {
+            // TODO: Consider allowing both and combining lists.
             // TODO: Handle these exceptions or change parsing strategies
             // Note: This works well as a developer but not a user.
             if (parsedChoice.options.isEmpty && parsedChoice.query == null) {

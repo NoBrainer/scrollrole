@@ -170,27 +170,24 @@ classes:
       - name: Skills
         description:
           - Choose two from Animal Handling, Athletics, Intimidation, Nature, Perception, and Survival.
-        type: proficiency
         pick: 2
         options:
-          - { type: SKILL, name: Animal Handling }
-          - { type: SKILL, name: Athletics }
-          - { type: SKILL, name: Intimidation }
-          - { type: SKILL, name: Nature }
-          - { type: SKILL, name: Perception }
-          - { type: SKILL, name: Survival }
+          - { type: PROFICIENCY_SKILL, name: Animal Handling }
+          - { type: PROFICIENCY_SKILL, name: Athletics }
+          - { type: PROFICIENCY_SKILL, name: Intimidation }
+          - { type: PROFICIENCY_SKILL, name: Nature }
+          - { type: PROFICIENCY_SKILL, name: Perception }
+          - { type: PROFICIENCY_SKILL, name: Survival }
       - name: Equipment
-        type: equipment
         pick: 1
         options:
-          - greataxe
-          - any martial melee weapon
+          - { type: EQUIPMENT, name: greataxe }
+          - { type: EQUIPMENT, name: any martial melee weapon }
       - name: Equipment
-        type: equipment
         pick: 1
         options:
-          - 2 handaxes
-          - any simple weapon
+          - { type: EQUIPMENT, name: 2 handaxes }
+          - { type: EQUIPMENT, name: any simple weapon }
     unlockables:
       - condition: { level: 2 }
         features:
@@ -220,15 +217,8 @@ classes:
                 At 3rd level, you choose a path that shapes the nature of your rage. Choose the Path of the Berserker or
                 the Path of the Totem Warrior, both detailed at the end of the class description. Your choice grants you
                 features at 3rd level and again at 6th, 10th, and 14th levels.
-            type: feature
             pick: 1
-            options:
-              - name: Path of the Berserker
-                description:
-                  - >
-                    For some barbarians, rage is a means to an end - that end being violence. The Path of the Berserker
-                    is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in
-                    the chaos of battle, heedless of your own health or well-being.
+            query: { list: features, classes: [ Barbarian ], tags: [ primal path ] }
       - condition: { level: 3, feature: Path of the Berserker }
         features:
           - name: Frenzy
@@ -442,46 +432,39 @@ classes:
       - name: Musical instruments
         description:
           - Three musical instruments of your choice
-        type: proficiency
         pick: 3
-        from: { name: proficiencies, tags: [ musical instrument ] }
+        query: { list: proficiencies, types: [ PROFICIENCY_TOOL ], tags: [ musical instrument ] }
       - name: Skills
         description:
           - Choose any three
-        type: proficiency
         pick: 3
-        from: { name: proficiencies, types: [ PROFICIENCY_SKILL ] }
+        query: { list: proficiencies, types: [ PROFICIENCY_SKILL ] }
       - name: Equipment
-        type: equipment
         pick: 1
         options:
-          - rapier
-          - longsword
-          - any simple weapon
+          - { type: EQUIPMENT, name: rapier }
+          - { type: EQUIPMENT, name: longsword }
+          - { type: EQUIPMENT, name: any simple weapon }
       - name: Equipment
-        type: equipment
         pick: 1
         options:
-          - diplomat's pack
-          - entertainer's pack
+          - { type: EQUIPMENT, name: diplomat's pack }
+          - { type: EQUIPMENT, name: entertainer's pack }
       - name: Equipment
-        type: equipment
         pick: 1
-        from: { name: tools, tags: [ musical instrument ] }
+        query: { list: tools, tags: [ musical instrument ] }
       - name: Cantrips
         description:
           - >
             You know two cantrips of your choice from the bard spell list. You learn additional bard cantrips of your
             choice at higher levels.
-        type: spell
         pick: 2
-        from: { name: spells, levels: [ 0 ], classes: [ Bard ] }
+        query: { list: spells, levels: [ 0 ], classes: [ Bard ] }
       - name: Spells Known
         description:
           - You know four 1st-level spells of your choice from the bard spell list.
-        type: spell
         pick: 4
-        from: { name: spells, levels: [ 1 ], classes: [ Bard ] }
+        query: { list: spells, levels: [ 1 ], classes: [ Bard ] }
     unlockables:
       - condition: { level: 2 }
         spellCasting:
@@ -523,27 +506,8 @@ classes:
               - >
                 At 3rd level, you delve into the advanced techniques of a bard college of your choice, such as the
                 College of Lore. Your choice grants you features at 3rd level and again at 6th and 14th level.
-            type: feature
             pick: 1
-            options:
-              - name: College of Lore
-                description:
-                  - >
-                    Bards of the College of Lore know something about most things, collecting bits of knowledge from
-                    sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or
-                    elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound.
-                    When the applause dies down, the audience members might find themselves questioning everything they
-                    held to be true, from their faith in the priesthood of the local temple to their loyalty to the
-                    king.
-                  - >
-                    The loyalty of these bards lies in the pursuit of beauty and truth, not in fealty to a monarch or
-                    following the tenets of a deity. A noble who keeps such a bard as a herald or advisor knows that the
-                    bard would rather be honest than politic.
-                  - >
-                    The college's members gather in libraries and sometimes in actual colleges, complete with classrooms
-                    and dormitories, to share their lore with one another. They also meet at festivals or affairs of
-                    state, where they can expose corruption, unravel lies, and poke fun at self-important figures of
-                    authority.
+            query: { list: features, classes: [ Bard ], tags: [ bard college ] }
       - condition: { level: 3, feature: College of Lore }
         features:
           - name: Cutting Words
@@ -560,9 +524,8 @@ classes:
           - name: Bonus Proficiencies
             description:
               - When you join the College of Lore at 3rd level, you gain proficiency with three skills of your choice.
-            type: proficiency
             pick: 3
-            from: { name: proficiencies, types: [ PROFICIENCY_SKILL ] }
+            query: { list: proficiencies, types: [ PROFICIENCY_SKILL ] }
       - condition: { level: 6, feature: College of Lore }
         choices:
           - name: Additional Magical Secrets
@@ -571,9 +534,8 @@ classes:
                 At 6th level, you learn two spells of your choice from any class. A spell you choose must be of a level
                 you can cast or a cantrip. The chosen spells count as bard spells for you but don't count against the
                 number of bard spells you know.
-            type: spell
             pick: 2
-            from: { name: spells, levels: [ 0, 1, 2, 3 ] }
+            query: { list: spells, levels: [ 0, 1, 2, 3 ] }
       - condition: { level: 14, feature: College of Lore }
         features:
           - name: Peerless Skill
@@ -649,9 +611,8 @@ classes:
                 The chosen spells count as bard spells for you and are included in the number in the Spells Known.
               - >
                 You learn two additional spells from any class at 14th level and again at 18th level.
-            type: spell
             pick: 2
-            from: { name: spells, levels: [ 0, 1, 2, 3, 4, 5 ] }
+            query: { list: spells, levels: [ 0, 1, 2, 3, 4, 5 ] }
       - condition: { level: 11 }
         spellCasting:
           knownSpells: 15
@@ -675,9 +636,8 @@ classes:
                 or a cantrip.
               - >
                 The chosen spells count as bard spells for you and are included in the number in the Spells Known.
-            type: spell
             pick: 2
-            from: { name: spells, levels: [ 0, 1, 2, 3, 4, 5, 6, 7 ] }
+            query: { list: spells }
       - condition: { level: 15 }
         spellCasting:
           knownSpells: 19
@@ -705,9 +665,8 @@ classes:
                 or a cantrip.
               - >
                 The chosen spells count as bard spells for you and are included in the number in the Spells Known.
-            type: spell
             pick: 2
-            from: { name: spells }
+            query: { name: spells }
       - condition: { level: 19 }
         spellCasting:
           spellSlots: { L6: 2 }
@@ -720,7 +679,6 @@ classes:
               - >
                 At 20th level, when you roll initiative and have no uses of Bardic Inspiration left, you regain one
                 use.
-
 
   ## CLERIC
   - name: Cleric
@@ -814,12 +772,11 @@ races:
           - >
             You gain proficiency with the artisan's tool of your choice: smith's tools, brewer's supplies, or mason's
             tools.
-        type: proficiency
         pick: 1
         options:
-          - { type: TOOL, name: smith's tools }
-          - { type: TOOL, name: brewer's supplies }
-          - { type: TOOL, name: mason's tools }
+          - { type: PROFICIENCY_TOOL, name: smith's tools }
+          - { type: PROFICIENCY_TOOL, name: brewer's supplies }
+          - { type: PROFICIENCY_TOOL, name: mason's tools }
     subraces: #TODO: rework
       - name: Hill Dwarf
         description:
@@ -895,29 +852,13 @@ races:
               - >
                 You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting
                 ability for it.
-            type: feature
             pick: 1
-            options:
-              - { type: spell, level: 0, name: Acid Splash }
-              - { type: spell, level: 0, name: Chill Touch }
-              - { type: spell, level: 0, name: Dancing Lights }
-              - { type: spell, level: 0, name: Fire Bolt }
-              - { type: spell, level: 0, name: Light }
-              - { type: spell, level: 0, name: Mage Hand }
-              - { type: spell, level: 0, name: Mending }
-              - { type: spell, level: 0, name: Message }
-              - { type: spell, level: 0, name: Minor Illusion }
-              - { type: spell, level: 0, name: Poison Spray }
-              - { type: spell, level: 0, name: Prestidigitation }
-              - { type: spell, level: 0, name: Ray of Frost }
-              - { type: spell, level: 0, name: Shocking Grasp }
-              - { type: spell, level: 0, name: True Strike }
+            query: { list: spells, levels: [ 0 ], classes: [ Wizard ] }
           - name: Languages
             description:
               - You can speak, read, and write one extra language of your choice.
-            type: proficiency
             pick: 1
-            from: { name: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
+            query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
 
   ## HALFLING
   - name: Halfling
@@ -995,9 +936,8 @@ races:
             languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their
             speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military
             phrases, and so on.
-        type: proficiency
         pick: 1
-        from: { name: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
+        query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
 
   ## DRAGONBORN
   - name: Dragonborn
@@ -1026,89 +966,8 @@ races:
           - >
             You have draconic ancestry. Choose one Draconic Ancestry. Your breath weapon and damage resistance are
             determined by the dragon type.
-        type: feature
         pick: 1
-        options:
-          - name: Draconic Ancestry - Black
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 acid damage in a
-                5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to acid damage.
-          - name: Draconic Ancestry - Blue
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 lightning damage in a
-                5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to lightning damage.
-          - name: Draconic Ancestry - Brass
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 fire damage in a
-                5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to fire damage.
-          - name: Draconic Ancestry - Bronze
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 lightning damage in a
-                5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to lightning damage.
-          - name: Draconic Ancestry - Copper
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 acid damage in a
-                5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to acid damage.
-          - name: Draconic Ancestry - Gold
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 fire damage in a
-                15 ft cone, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to fire damage.
-          - name: Draconic Ancestry - Green
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 poison damage in a
-                15 ft cone, or half as much on a CON save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to poison damage.
-          - name: Draconic Ancestry - Red
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 fire damage in a
-                15 ft cone, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to fire damage.
-          - name: Draconic Ancestry - Silver
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 cold damage in a
-                15 ft cone, or half as much on a CON save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to cold damage.
-          - name: Draconic Ancestry - White
-            description:
-              - >
-                Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 cold damage in a
-                15 ft cone, or half as much on a CON save. The DC for this saving throw equals 8 + your CON
-                modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
-                You cannot use your breath weapon again until you finish a short or long rest.
-              - Damage Resistance. You have resistance to cold damage.
+        query: { list: features, tags: [ draconic ancestry ] }
 
   ## GNOME
   - name: Gnome
@@ -1163,25 +1022,8 @@ races:
                 after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use
                 your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have
                 up to three such devices active at one time.
-            type: feature
             pick: 1
-            options:
-              - name: Clockwork Toy
-                description:
-                  - >
-                    This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier.
-                    When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random
-                    direction. It makes noises as appropriate to the creature it represents.
-              - name: Fire Starter
-                description:
-                  - >
-                    The device produces a miniature flame, which you can use to light a candle, torch, or campfire.
-                    Using the device requires your action.
-              - name: Music Box
-                description:
-                  - >
-                    When opened, this music box plays a single song at a moderate volume. The box stops playing when it
-                    reaches the song's end or when it is closed.
+            query: { list: features, tags: [ tinker device ] }
         proficiencies:
           - { type: TOOL, name: tinker's tools }
 
@@ -1220,26 +1062,23 @@ races:
       - name: Ability Score Adjustment
         description:
           - Two other ability scores of your choice increase by 1.
-        type: abilityScoreAdjustment
         pick: 2
         options:
-          - { ability: STR, modifier: +1 }
-          - { ability: DEX, modifier: +1 }
-          - { ability: CON, modifier: +1 }
-          - { ability: INT, modifier: +1 }
-          - { ability: WIS, modifier: +1 }
+          - { type: ABILITY_SCORE_ADJUSTMENT, name: STR }
+          - { type: ABILITY_SCORE_ADJUSTMENT, name: DEX }
+          - { type: ABILITY_SCORE_ADJUSTMENT, name: CON }
+          - { type: ABILITY_SCORE_ADJUSTMENT, name: INT }
+          - { type: ABILITY_SCORE_ADJUSTMENT, name: WIS }
       - name: Languages
         description:
           - You can speak, read, and write Common, Elvish, and one extra language of your choice.
-        type: proficiency
         pick: 1
-        from: { name: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
+        query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
       - name: Skill Versatility
         description:
           - You gain proficiency in two skills of your choice.
-        type: proficiency
         pick: 2
-        from: { name: proficiencies, types: [ PROFICIENCY_SKILL ] }
+        query: { list: proficiencies, types: [ PROFICIENCY_SKILL ] }
 
   ## HALF-ORC
   - name: Half-Orc
@@ -1453,6 +1292,145 @@ lists:
           succeed, you and the creature are both restrained until the grapple ends.
       prerequisites:
         - STR 13
+
+  features:
+    - name: Path of the Berserker
+      classes: [ Barbarian ]
+      tags: [ primal path ]
+      description:
+        - >
+          For some barbarians, rage is a means to an end - that end being violence. The Path of the Berserker
+          is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in
+          the chaos of battle, heedless of your own health or well-being.
+    - name: College of Lore
+      classes: [ Bard ]
+      tags: [ bard college ]
+      description:
+        - >
+          Bards of the College of Lore know something about most things, collecting bits of knowledge from
+          sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or
+          elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound.
+          When the applause dies down, the audience members might find themselves questioning everything they
+          held to be true, from their faith in the priesthood of the local temple to their loyalty to the
+          king.
+        - >
+          The loyalty of these bards lies in the pursuit of beauty and truth, not in fealty to a monarch or
+          following the tenets of a deity. A noble who keeps such a bard as a herald or advisor knows that the
+          bard would rather be honest than politic.
+        - >
+          The college's members gather in libraries and sometimes in actual colleges, complete with classrooms
+          and dormitories, to share their lore with one another. They also meet at festivals or affairs of
+          state, where they can expose corruption, unravel lies, and poke fun at self-important figures of
+          authority.
+    - name: Draconic Ancestry - Black
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 acid damage in a
+          5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to acid damage.
+    - name: Draconic Ancestry - Blue
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 lightning damage in a
+          5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to lightning damage.
+    - name: Draconic Ancestry - Brass
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 fire damage in a
+          5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to fire damage.
+    - name: Draconic Ancestry - Bronze
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 lightning damage in a
+          5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to lightning damage.
+    - name: Draconic Ancestry - Copper
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 acid damage in a
+          5 by 30 ft line, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to acid damage.
+    - name: Draconic Ancestry - Gold
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 fire damage in a
+          15 ft cone, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to fire damage.
+    - name: Draconic Ancestry - Green
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 poison damage in a
+          15 ft cone, or half as much on a CON save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to poison damage.
+    - name: Draconic Ancestry - Red
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 fire damage in a
+          15 ft cone, or half as much on a DEX save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to fire damage.
+    - name: Draconic Ancestry - Silver
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 cold damage in a
+          15 ft cone, or half as much on a CON save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to cold damage.
+    - name: Draconic Ancestry - White
+      tags: [ draconic ancestry ]
+      description:
+        - >
+          Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 cold damage in a
+          15 ft cone, or half as much on a CON save. The DC for this saving throw equals 8 + your CON
+          modifier + your proficiency bonus. Damage increases by 1d6 at 6th, 11th, and 16th level.
+          You cannot use your breath weapon again until you finish a short or long rest.
+        - Damage Resistance. You have resistance to cold damage.
+    - name: Clockwork Toy
+      tags: [ tinker device ]
+      description:
+        - >
+          This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier.
+          When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random
+          direction. It makes noises as appropriate to the creature it represents.
+    - name: Fire Starter
+      tags: [ tinker device ]
+      description:
+        - >
+          The device produces a miniature flame, which you can use to light a candle, torch, or campfire.
+          Using the device requires your action.
+    - name: Music Box
+      tags: [ tinker device ]
+      description:
+        - >
+          When opened, this music box plays a single song at a moderate volume. The box stops playing when it
+          reaches the song's end or when it is closed.
 
   gear:
     #default { weight: "0 lb", per: "1" }
@@ -2057,77 +2035,40 @@ lists:
 
   weapons:
     #default { weight: "0 lb" }
-    - { name: "club",           tags: [ simple, melee, light ],                                     cost: "1sp", weight: "2 lb",   damage: 1d4,  damageType: bludgeoning }
-    - { name: "dagger",         tags: [ simple, melee, light, finesse, thrown ],                    cost: "2gp", weight: "1 lb",   damage: 1d4,  damageType: piercing,     range: "20/60" }
-    - { name: "greatclub",      tags: [ simple, melee, two-handed ],                                cost: "2sp", weight: "10 lb",   damage: 1d8,  damageType: bludgeoning }
-    - { name: "handaxe",        tags: [ simple, melee, light, thrown ],                             cost: "5gp", weight: "2 lb",   damage: 1d6,  damageType: slashing,     range: "20/60" }
-    - { name: "javelin",        tags: [ simple, melee, thrown ],                                    cost: "5sp", weight: "2 lb",   damage: 1d6,  damageType: piercing,     range: "30/120" }
-    - { name: "light hammer",   tags: [ simple, melee, light, thrown ],                             cost: "2gp", weight: "2 lb",   damage: 1d4,  damageType: bludgeoning,  range: "20/60" }
-    - { name: "mace",           tags: [ simple, melee ],                                            cost: "5gp", weight: "4 lb",   damage: 1d6,  damageType: bludgeoning }
-    - { name: "quarterstaff",   tags: [ simple, melee, versatile ],                                 cost: "2sp", weight: "4 lb",   damage: 1d6,  damageType: bludgeoning,                  versatileDamage: 1d8 }
-    - { name: "sickle",         tags: [ simple, melee, light ],                                     cost: "1gp", weight: "2 lb",   damage: 1d4,  damageType: slashing }
-    - { name: "spear",          tags: [ simple, melee, thrown, versatile ],                         cost: "1gp", weight: "3 lb",   damage: 1d6,  damageType: piercing,     range: "20/60", versatileDamage: 1d8 }
-    - { name: "crossbow, light",tags: [ simple, ranged, ammunition, loading, two-handed ],          cost: "25gp", weight: "5 lb",   damage: 1d8,  damageType: piercing,     range: "80/320" }
-    - { name: "dart",           tags: [ simple, ranged, finesse, thrown ],                          cost: "5cp", weight: "0.25 lb",damage: 1d4,  damageType: piercing,     range: "20/60" }
-    - { name: "shortbow",       tags: [ simple, ranged, ammunition, two-handed ],                   cost: "25gp", weight: "2 lb",   damage: 1d6,  damageType: piercing,     range: "80/320" }
-    - { name: "sling",          tags: [ simple, ranged, ammunition ],                               cost: "1sp",                    damage: 1d4,  damageType: bludgeoning,  range: "30/120" }
-    - { name: "battleaxe",      tags: [ martial, melee, versatile ],                                cost: "10gp", weight: "4 lb",   damage: 1d8,  damageType: slashing,                     versatileDamage: 1d10 }
-    - { name: "flail",          tags: [ martial, melee ],                                           cost: "10gp", weight: "2 lb",   damage: 1d4,  damageType: bludgeoning }
-    - { name: "glaive",         tags: [ martial, melee, heavy, reach, two-handed ],                 cost: "20gp", weight: "6 lb",   damage: 1d10, damageType: slashing }
-    - { name: "greataxe",       tags: [ martial, melee, heavy, two-handed ],                        cost: "30gp", weight: "7 lb",   damage: 1d12, damageType: slashing }
-    - { name: "greatsword",     tags: [ martial, melee, heavy, two-handed ],                        cost: "50gp", weight: "6 lb",   damage: 2d6,  damageType: slashing }
-    - { name: "halberd",        tags: [ martial, melee, heavy, reach, two-handed ],                 cost: "20gp", weight: "6 lb",   damage: 1d10, damageType: slashing }
-    - { name: "lance",          tags: [ martial, melee, reach, special ],                           cost: "10gp", weight: "6 lb",   damage: 1d12, damageType: piercing }
-    - { name: "longsword",      tags: [ martial, melee, versatile ],                                cost: "15gp", weight: "3 lb",   damage: 1d8,  damageType: slashing,                     versatileDamage: 1d10 }
-    - { name: "maul",           tags: [ martial, melee, heavy, two-handed ],                        cost: "10gp", weight: "10 lb",   damage: 2d6,  damageType: bludgeoning }
-    - { name: "morningstar",    tags: [ martial, melee ],                                           cost: "15gp", weight: "4 lb",   damage: 1d8,  damageType: piercing }
-    - { name: "pike",           tags: [ martial, melee, heavy, reach, two-handed ],                 cost: "5gp", weight: "18 lb",   damage: 1d10, damageType: piercing }
-    - { name: "rapier",         tags: [ martial, melee, finesse ],                                  cost: "25gp", weight: "2 lb",   damage: 1d8,  damageType: piercing }
-    - { name: "scimitar",       tags: [ martial, melee, finesse, light ],                           cost: "25gp", weight: "3 lb",   damage: 1d6,  damageType: slashing }
-    - { name: "shortsword",     tags: [ martial, melee, finesse, light ],                           cost: "10gp", weight: "2 lb",   damage: 1d6,  damageType: piercing }
-    - { name: "trident",        tags: [ martial, melee, thrown, versatile ],                        cost: "5gp", weight: "4 lb",   damage: 1d6,  damageType: piercing,     range: "20/60", versatileDamage: 1d8 }
-    - { name: "war pick",       tags: [ martial, melee ],                                           cost: "5gp", weight: "2 lb",   damage: 1d8,  damageType: piercing }
-    - { name: "warhammer",      tags: [ martial, melee, versatile ],                                cost: "15gp", weight: "2 lb",   damage: 1d8,  damageType: bludgeoning,                  versatileDamage: 1d10 }
-    - { name: "whip",           tags: [ martial, melee, finesse, reach ],                           cost: "2gp", weight: "3 lb",   damage: 1d4,  damageType: slashing }
-    - { name: "blowgun",        tags: [ martial, ranged, ammunition, loading ],                     cost: "10gp", weight: "1 lb",   damage: 1,    damageType: piercing,     range: "25/100" }
-    - { name: "crossbow, hand", tags: [ martial, ranged, ammunition, light, loading ],              cost: "75gp", weight: "3 lb",   damage: 1d6,  damageType: piercing,     range: "30/120" }
-    - { name: "crossbow, heavy",tags: [ martial, ranged, ammunition, heavy, loading, two-handed ],  cost: "50gp", weight: "18 lb",   damage: 1d10, damageType: piercing,     range: "100/400" }
-    - { name: "longbow",        tags: [ martial, ranged, ammunition, heavy, two-handed ],           cost: "50gp", weight: "2 lb",   damage: 1d8,  damageType: piercing,     range: "150/600" }
-    - { name: "net",            tags: [ martial, ranged, special, thrown ],                         cost: "1gp", weight: "3 lb",   damage: 0,                              range: "5/15" }
-
-# Predefined Objects
-objects:
-
-  abilityScoreImprovementChoice:
-    name: Ability Score Improvement
-    description:
-      - >
-        When you reach certain levels, you can increase one ability score of your choice by 2,
-        or you can increase two ability scores of your choice by 1. As normal, you can't increase
-        an ability score above 20 using this feature.
-      - >
-        Using the optional feats rule, you can forgo taking that feature to take a feat of your
-        choice instead. You can take each feat only once, unless the feat's description says otherwise.
-      - >
-        You must meet any prerequisite specified in a feat to take that feat. If you ever lose a feat's
-        prerequisite, you can't use that feat until you regain the prerequisite. For example, the Grappler
-        feat requires you to have a Strength of 13 or higher. If your Strength is reduced below 13 somehow -
-        perhaps by a withering curse - you can't benefit from the Grappler feat until your Strength is restored.
-    type: choice
-    pick: 1
-    options:
-      - name: Two Ability Score Adjustments
-        type: abilityScoreAdjustment
-        pick: 2
-        allowDuplicate: true
-        options:
-          - { ability: STR, modifier: +1 }
-          - { ability: DEX, modifier: +1 }
-          - { ability: CON, modifier: +1 }
-          - { ability: INT, modifier: +1 }
-          - { ability: WIS, modifier: +1 }
-          - { ability: CHA, modifier: +1 }
-      - name: One Feat
-        type: feature
-        pick: 1
-        from: { name: feats }
+    - { name: "club",             tags: [ simple, melee, light ],                                     cost: "1sp",  weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
+    - { name: "dagger",           tags: [ simple, melee, light, finesse, thrown ],                    cost: "2gp",  weight: "1 lb",     damage: 1d4,  damageType: piercing,     range: "20/60" }
+    - { name: "greatclub",        tags: [ simple, melee, two-handed ],                                cost: "2sp",  weight: "10 lb",    damage: 1d8,  damageType: bludgeoning }
+    - { name: "handaxe",          tags: [ simple, melee, light, thrown ],                             cost: "5gp",  weight: "2 lb",     damage: 1d6,  damageType: slashing,     range: "20/60" }
+    - { name: "javelin",          tags: [ simple, melee, thrown ],                                    cost: "5sp",  weight: "2 lb",     damage: 1d6,  damageType: piercing,     range: "30/120" }
+    - { name: "light hammer",     tags: [ simple, melee, light, thrown ],                             cost: "2gp",  weight: "2 lb",     damage: 1d4,  damageType: bludgeoning,  range: "20/60" }
+    - { name: "mace",             tags: [ simple, melee ],                                            cost: "5gp",  weight: "4 lb",     damage: 1d6,  damageType: bludgeoning }
+    - { name: "quarterstaff",     tags: [ simple, melee, versatile ],                                 cost: "2sp",  weight: "4 lb",     damage: 1d6,  damageType: bludgeoning,                  versatileDamage: 1d8 }
+    - { name: "sickle",           tags: [ simple, melee, light ],                                     cost: "1gp",  weight: "2 lb",     damage: 1d4,  damageType: slashing }
+    - { name: "spear",            tags: [ simple, melee, thrown, versatile ],                         cost: "1gp",  weight: "3 lb",     damage: 1d6,  damageType: piercing,     range: "20/60", versatileDamage: 1d8 }
+    - { name: "crossbow, light",  tags: [ simple, ranged, ammunition, loading, two-handed ],          cost: "25gp", weight: "5 lb",     damage: 1d8,  damageType: piercing,     range: "80/320" }
+    - { name: "dart",             tags: [ simple, ranged, finesse, thrown ],                          cost: "5cp",  weight: "0.25 lb",  damage: 1d4,  damageType: piercing,     range: "20/60" }
+    - { name: "shortbow",         tags: [ simple, ranged, ammunition, two-handed ],                   cost: "25gp", weight: "2 lb",     damage: 1d6,  damageType: piercing,     range: "80/320" }
+    - { name: "sling",            tags: [ simple, ranged, ammunition ],                               cost: "1sp",                      damage: 1d4,  damageType: bludgeoning,  range: "30/120" }
+    - { name: "battleaxe",        tags: [ martial, melee, versatile ],                                cost: "10gp", weight: "4 lb",     damage: 1d8,  damageType: slashing,                     versatileDamage: 1d10 }
+    - { name: "flail",            tags: [ martial, melee ],                                           cost: "10gp", weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
+    - { name: "glaive",           tags: [ martial, melee, heavy, reach, two-handed ],                 cost: "20gp", weight: "6 lb",     damage: 1d10, damageType: slashing }
+    - { name: "greataxe",         tags: [ martial, melee, heavy, two-handed ],                        cost: "30gp", weight: "7 lb",     damage: 1d12, damageType: slashing }
+    - { name: "greatsword",       tags: [ martial, melee, heavy, two-handed ],                        cost: "50gp", weight: "6 lb",     damage: 2d6,  damageType: slashing }
+    - { name: "halberd",          tags: [ martial, melee, heavy, reach, two-handed ],                 cost: "20gp", weight: "6 lb",     damage: 1d10, damageType: slashing }
+    - { name: "lance",            tags: [ martial, melee, reach, special ],                           cost: "10gp", weight: "6 lb",     damage: 1d12, damageType: piercing }
+    - { name: "longsword",        tags: [ martial, melee, versatile ],                                cost: "15gp", weight: "3 lb",     damage: 1d8,  damageType: slashing,                     versatileDamage: 1d10 }
+    - { name: "maul",             tags: [ martial, melee, heavy, two-handed ],                        cost: "10gp", weight: "10 lb",    damage: 2d6,  damageType: bludgeoning }
+    - { name: "morningstar",      tags: [ martial, melee ],                                           cost: "15gp", weight: "4 lb",     damage: 1d8,  damageType: piercing }
+    - { name: "pike",             tags: [ martial, melee, heavy, reach, two-handed ],                 cost: "5gp",  weight: "18 lb",    damage: 1d10, damageType: piercing }
+    - { name: "rapier",           tags: [ martial, melee, finesse ],                                  cost: "25gp", weight: "2 lb",     damage: 1d8,  damageType: piercing }
+    - { name: "scimitar",         tags: [ martial, melee, finesse, light ],                           cost: "25gp", weight: "3 lb",     damage: 1d6,  damageType: slashing }
+    - { name: "shortsword",       tags: [ martial, melee, finesse, light ],                           cost: "10gp", weight: "2 lb",     damage: 1d6,  damageType: piercing }
+    - { name: "trident",          tags: [ martial, melee, thrown, versatile ],                        cost: "5gp",  weight: "4 lb",     damage: 1d6,  damageType: piercing,     range: "20/60", versatileDamage: 1d8 }
+    - { name: "war pick",         tags: [ martial, melee ],                                           cost: "5gp",  weight: "2 lb",     damage: 1d8,  damageType: piercing }
+    - { name: "warhammer",        tags: [ martial, melee, versatile ],                                cost: "15gp", weight: "2 lb",     damage: 1d8,  damageType: bludgeoning,                  versatileDamage: 1d10 }
+    - { name: "whip",             tags: [ martial, melee, finesse, reach ],                           cost: "2gp",  weight: "3 lb",     damage: 1d4,  damageType: slashing }
+    - { name: "blowgun",          tags: [ martial, ranged, ammunition, loading ],                     cost: "10gp", weight: "1 lb",     damage: "1",  damageType: piercing,     range: "25/100" }
+    - { name: "crossbow, hand",   tags: [ martial, ranged, ammunition, light, loading ],              cost: "75gp", weight: "3 lb",     damage: 1d6,  damageType: piercing,     range: "30/120" }
+    - { name: "crossbow, heavy",  tags: [ martial, ranged, ammunition, heavy, loading, two-handed ],  cost: "50gp", weight: "18 lb",    damage: 1d10, damageType: piercing,     range: "100/400" }
+    - { name: "longbow",          tags: [ martial, ranged, ammunition, heavy, two-handed ],           cost: "50gp", weight: "2 lb",     damage: 1d8,  damageType: piercing,     range: "150/600" }
+    - { name: "net",              tags: [ martial, ranged, special, thrown ],                         cost: "1gp",  weight: "3 lb",     damage: "0",                            range: "5/15" }
