@@ -5,7 +5,7 @@ part 'list_option_type.g.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum ListOptionType {
-  abilityScoreAdjustment("ASI", "Ability Score Adjustment"),
+  abilityScore("Ability Score", "Ability Score"),
   equipment("Equipment", "Equipment"),
   feat("Feat", "Feat"),
   feature("Feature", "Feature"),

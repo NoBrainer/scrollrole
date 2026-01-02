@@ -134,7 +134,6 @@ classes:
       - { name: explorer's pack }
       - { name: 4 javelins }
     proficiencyBonus: +2
-    abilityScoreImprovementLevels: [ 4, 8, 12, 16, 19 ]
     features:
       - name: Rage
         description:
@@ -189,6 +188,18 @@ classes:
           - { type: EQUIPMENT, name: 2 handaxes }
           - { type: EQUIPMENT, name: any simple weapon }
     unlockables:
+      - condition: { levels: [ 4, 8, 12, 16, 19 ] }
+        choices:
+          - name: Ability Score Improvement
+            allowDuplicate: true
+            pick: 2
+            options:
+              - { name: CHA, type: ABILITY_SCORE, modifier: 1 }
+              - { name: CON, type: ABILITY_SCORE, modifier: 1 }
+              - { name: DEX, type: ABILITY_SCORE, modifier: 1 }
+              - { name: INT, type: ABILITY_SCORE, modifier: 1 }
+              - { name: STR, type: ABILITY_SCORE, modifier: 1 }
+              - { name: WIS, type: ABILITY_SCORE, modifier: 1 }
       - condition: { level: 2 }
         features:
           - name: Reckless Attack
@@ -372,7 +383,6 @@ classes:
     equipment:
       - { name: leather armor }
       - { name: dagger }
-    abilityScoreImprovementLevels: [ 4, 8, 12, 16, 19 ]
     proficiencyBonus: +2
     spellCasting:
       description:
@@ -466,6 +476,18 @@ classes:
         pick: 4
         query: { list: spells, levels: [ 1 ], classes: [ Bard ] }
     unlockables:
+      - condition: { levels: [ 4, 8, 12, 16, 19 ] }
+        choices:
+          - name: Ability Score Improvement
+            allowDuplicate: true
+            pick: 2
+            options:
+              - { name: CHA, type: ABILITY_SCORE, modifier: 1 }
+              - { name: CON, type: ABILITY_SCORE, modifier: 1 }
+              - { name: DEX, type: ABILITY_SCORE, modifier: 1 }
+              - { name: INT, type: ABILITY_SCORE, modifier: 1 }
+              - { name: STR, type: ABILITY_SCORE, modifier: 1 }
+              - { name: WIS, type: ABILITY_SCORE, modifier: 1 }
       - condition: { level: 2 }
         spellCasting:
           knownSpells: 5

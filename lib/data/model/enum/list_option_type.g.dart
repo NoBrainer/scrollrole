@@ -7,7 +7,7 @@ part of 'list_option_type.dart';
 // **************************************************************************
 
 const _$ListOptionTypeEnumMap = {
-  ListOptionType.abilityScoreAdjustment: 'ABILITY_SCORE_ADJUSTMENT',
+  ListOptionType.abilityScore: 'ABILITY_SCORE',
   ListOptionType.equipment: 'EQUIPMENT',
   ListOptionType.feat: 'FEAT',
   ListOptionType.feature: 'FEATURE',

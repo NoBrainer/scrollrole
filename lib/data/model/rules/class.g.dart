@@ -7,11 +7,6 @@ part of 'class.dart';
 // **************************************************************************
 
 Class _$ClassFromJson(Map<String, dynamic> json) => Class(
-  abilityScoreImprovementLevels:
-      (json['abilityScoreImprovementLevels'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList() ??
-      const [],
   baseHitPoints: (json['baseHitPoints'] as num?)?.toInt() ?? 10,
   choices:
       (json['choices'] as List<dynamic>?)
@@ -55,7 +50,6 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
 );
 
 Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
-  'abilityScoreImprovementLevels': instance.abilityScoreImprovementLevels,
   'baseHitPoints': instance.baseHitPoints,
   'choices': instance.choices.map((e) => e.toJson()).toList(),
   'description': instance.description,

@@ -13,12 +13,13 @@ part 'condition.g.dart';
 class Condition extends Equatable {
   final String? feature;
   final int? level;
+  final List<int>? levels;
   final Proficiency? proficiency;
 
-  const Condition({this.feature, this.level, this.proficiency});
+  const Condition({this.feature, this.level, this.levels, this.proficiency});
 
   @override
-  List<Object?> get props => [feature, level, proficiency];
+  List<Object?> get props => [feature, level, levels, proficiency];
 
   factory Condition.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject("Condition", _$ConditionFromJson, json)

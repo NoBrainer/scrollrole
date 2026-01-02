@@ -17,7 +17,6 @@ part 'class.g.dart';
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Class extends Equatable {
-  final List<int> abilityScoreImprovementLevels;
   final int baseHitPoints;
   final List<Choice> choices;
   final List<String> description;
@@ -34,8 +33,6 @@ class Class extends Equatable {
   static const defaultIconId = 'class-custom';
 
   const Class({
-    //TODO: replace ASI levels with unlockables
-    this.abilityScoreImprovementLevels = const [],
     this.baseHitPoints = 10,
     this.choices = const [],
     this.description = const [],
@@ -52,7 +49,6 @@ class Class extends Equatable {
 
   @override
   List<Object?> get props => [
-    abilityScoreImprovementLevels,
     baseHitPoints,
     choices,
     description,
