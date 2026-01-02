@@ -133,7 +133,7 @@ classes:
     equipment:
       - { name: explorer's pack }
       - { name: 4 javelins }
-    proficiencyBonus: +2
+    proficiencyBonus: 2
     features:
       - name: Rage
         description:
@@ -220,7 +220,10 @@ classes:
       - condition: { level: 3 }
         features:
           - name: Rage Count
-            value: 3
+            variables:
+              - displayName: Rage Count
+                key: RAGE_COUNT
+                value: 3
         choices:
           - name: Primal Path
             description:
@@ -270,7 +273,7 @@ classes:
                 Starting at 14th level, when you take damage from a creature that is within 5 feet of you,
                 you can use your reaction to make a melee weapon attack against that creature.
       - condition: { level: 5 }
-        proficiencyBonus: +3
+        proficiencyBonus: 3
         features:
           - name: Extra Attack
             description:
@@ -283,7 +286,10 @@ classes:
       - condition: { level: 6 }
         features:
           - name: Rage Count
-            value: 4
+            variables:
+              - displayName: Rage Count
+                key: RAGE_COUNT
+                value: 4
       - condition: { level: 7 }
         features:
           - name: Feral Instinct
@@ -294,10 +300,13 @@ classes:
                 Additionally, if you are surprised at the beginning of combat and aren't incapacitated, you can act
                 normally on your first turn, but only if you enter your rage before doing anything else on that turn.
       - condition: { level: 9 }
-        proficiencyBonus: +4
+        proficiencyBonus: 4
         features:
           - name: Rage Damage
-            value: '+3'
+            variables:
+              - displayName: Rage Damage
+                key: RAGE_DAMAGE
+                value: 3
           - name: Brutal Critical
             description:
               - >
@@ -305,8 +314,10 @@ classes:
                 damage for a critical hit with a melee attack.
               - >
                 This increases to two additional dice at 13th level and three additional dice at 17th level.
-          - name: Brutal Critical Dice
-            value: 1
+            variables:
+              - displayName: Brutal Critical Dice
+                key: BRUTAL_CRITICAL_DICE
+                value: 1
       - condition: { level: 11 }
         features:
           - name: Relentless Rage
@@ -321,12 +332,18 @@ classes:
       - condition: { level: 12 }
         features:
           - name: Rage Count
-            value: 5
+            variables:
+              - displayName: Rage Count
+                key: RAGE_COUNT
+                value: 5
       - condition: { level: 13 }
-        proficiencyBonus: +5
+        proficiencyBonus: 5
         features:
           - name: Brutal Critical Dice
-            value: 2
+            variables:
+              - displayName: Brutal Critical Dice
+                key: BRUTAL_CRITICAL_DICE
+                value: 2
       - condition: { level: 15 }
         features:
           - name: Persistent Rage
@@ -337,14 +354,23 @@ classes:
       - condition: { level: 16 }
         features:
           - name: Rage Damage
-            value: '+4'
+            variables:
+              - displayName: Rage Damage
+                key: RAGE_DAMAGE
+                value: 4
       - condition: { level: 17 }
-        proficiencyBonus: +6
+        proficiencyBonus: 6
         features:
           - name: Rage Count
-            value: 6
+            variables:
+              - displayName: Rage Count
+                key: RAGE_COUNT
+                value: 6
           - name: Brutal Critical Dice
-            value: 3
+            variables:
+              - displayName: Brutal Critical Dice
+                key: BRUTAL_CRITICAL_DICE
+                value: 3
       - condition: { level: 18 }
         features:
           - name: Indomitable Might
@@ -355,11 +381,14 @@ classes:
       - condition: { level: 20 }
         features:
           - name: Rage Count
-            value: unlimited
+            variables:
+              - displayName: Rage Count
+                key: RAGE_COUNT
+                value: unlimited
           - name: Primal Champion
             abilityScoreAdjustments:
-              - { ability: STR, modifier: +4 }
-              - { ability: CON, modifier: +4 }
+              - { ability: STR, modifier: 4 }
+              - { ability: CON, modifier: 4 }
             description:
               - >
                 At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
@@ -383,7 +412,7 @@ classes:
     equipment:
       - { name: leather armor }
       - { name: dagger }
-    proficiencyBonus: +2
+    proficiencyBonus: 2
     spellCasting:
       description:
         - >
@@ -575,7 +604,7 @@ classes:
           knownSpells: 7
           spellSlots: { 2: 3 }
       - condition: { level: 5 }
-        proficiencyBonus: +3
+        proficiencyBonus: 3
         spellCasting:
           knownSpells: 8
           spellSlots: { 3: 2 }
@@ -612,7 +641,7 @@ classes:
           knownSpells: 11
           spellSlots: { 4: 2 }
       - condition: { level: 9 }
-        proficiencyBonus: +4
+        proficiencyBonus: 4
         spellCasting:
           knownSpells: 12
           spellSlots: { 4: 3, 5: 1 }
@@ -652,7 +681,7 @@ classes:
           knownSpells: 15
           spellSlots: { 6: 1 }
       - condition: { level: 13 }
-        proficiencyBonus: +5
+        proficiencyBonus: 5
         spellCasting:
           knownSpells: 16
           spellSlots: { 7: 1 }
@@ -686,7 +715,7 @@ classes:
                 key: BARDIC_INSPIRATION_DIE
                 value: 1d12
       - condition: { level: 17 }
-        proficiencyBonus: +6
+        proficiencyBonus: 6
         spellCasting:
           knownSpells: 20
           spellSlots: { 9: 1 }
@@ -781,7 +810,7 @@ races:
         order.
       - Dwarves stand between 4 and 5 feet tall and average about 150 pounds. Your size is Medium.
     abilityScoreAdjustments:
-      - { ability: CON, modifier: +2 }
+      - { ability: CON, modifier: 2 }
     speed: 25
     features:
       - name: Darkvision
@@ -825,13 +854,13 @@ races:
         description:
           - As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.
         abilityScoreAdjustments:
-          - { ability: WIS, modifier: +1 }
+          - { ability: WIS, modifier: 1 }
         features:
           - name: Dwarven Toughness
             description:
               - Your hit point maximum increases by 1, and it increases 1 every time you gain a level.
             stat: hp
-            modifier: +1
+            modifier: 1
             per: level
 
   ## ELF
@@ -848,7 +877,7 @@ races:
         value and protect others' freedom as well as their own, and they are more often good than not.
       - Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium.
     abilityScoreAdjustments:
-      - { ability: DEX, modifier: +2 }
+      - { ability: DEX, modifier: 2 }
     speed: 30
     features:
       - name: Darkvision
@@ -883,7 +912,7 @@ races:
             superior to non-elves and even other elves. The other type is more common and more friendly, and often
             encountered among humans and other races.
         abilityScoreAdjustments:
-          - { ability: INT, modifier: +1 }
+          - { ability: INT, modifier: 1 }
         proficiencies:
           - { type: WEAPON, name: longbow }
           - { type: WEAPON, name: longsword }
@@ -915,7 +944,7 @@ races:
         community and the comfort of their old ways.
       - Halflings average about 3 feet tall and weigh 40 pounds. Your size is Small.
     abilityScoreAdjustments:
-      - { ability: DEX, modifier: +2 }
+      - { ability: DEX, modifier: 2 }
     speed: 25
     features:
       - name: Lucky
@@ -943,7 +972,7 @@ races:
             to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings,
             and often dwell alongside other races or take up a nomadic life.
         abilityScoreAdjustments:
-          - { ability: CHA, modifier: +1 }
+          - { ability: CHA, modifier: 1 }
         features:
           - name: Naturally Stealthy
             description:
@@ -962,12 +991,12 @@ races:
         Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position
         in that range, your size is Medium.
     abilityScoreAdjustments:
-      - { ability: STR, modifier: +1 }
-      - { ability: DEX, modifier: +1 }
-      - { ability: CON, modifier: +1 }
-      - { ability: INT, modifier: +1 }
-      - { ability: WIS, modifier: +1 }
-      - { ability: CHA, modifier: +1 }
+      - { ability: STR, modifier: 1 }
+      - { ability: DEX, modifier: 1 }
+      - { ability: CON, modifier: 1 }
+      - { ability: INT, modifier: 1 }
+      - { ability: WIS, modifier: 1 }
+      - { ability: CHA, modifier: 1 }
     speed: 30
     proficiencies:
       - { type: LANGUAGE, name: Common }
@@ -997,8 +1026,8 @@ races:
         Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds.
         Your size is Medium.
     abilityScoreAdjustments:
-      - { ability: STR, modifier: +2 }
-      - { ability: CHA, modifier: +1 }
+      - { ability: STR, modifier: 2 }
+      - { ability: CHA, modifier: 1 }
     speed: 30
     proficiencies:
       - { type: LANGUAGE, name: Common }
@@ -1026,7 +1055,7 @@ races:
         good-hearted, and even the tricksters among them are more playful than vicious.
       - Gnomes are between 3 and 4 feet tall and average about 40 pounds. Your size is Small.
     abilityScoreAdjustments:
-      - { ability: INT, modifier: +2 }
+      - { ability: INT, modifier: 2 }
     speed: 25
     features:
       - name: Darkvision
@@ -1048,7 +1077,7 @@ races:
         description:
           - As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.
         abilityScoreAdjustments:
-          - { ability: CON, modifier: +1 }
+          - { ability: CON, modifier: 1 }
         features:
           - name: Artificer's Lore
             description:
@@ -1084,7 +1113,7 @@ races:
         demands and sometimes prove unreliable, or at least unpredictable.
       - Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium.
     abilityScoreAdjustments:
-      - { ability: CHA, modifier: +2 }
+      - { ability: CHA, modifier: 2 }
     speed: 30
     features:
       - name: Darkvision
@@ -1138,8 +1167,8 @@ races:
         Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size
         is Medium.
     abilityScoreAdjustments:
-      - { ability: STR, modifier: +2 }
-      - { ability: CON, modifier: +1 }
+      - { ability: STR, modifier: 2 }
+      - { ability: CON, modifier: 1 }
     speed: 30
     features:
       - name: Darkvision
@@ -1177,8 +1206,8 @@ races:
         independent nature inclines many tieflings toward a chaotic alignment.
       - Tieflings are about the same size and build as humans. Your size is Medium.
     abilityScoreAdjustments:
-      - { ability: INT, modifier: +1 }
-      - { ability: CHA, modifier: +2 }
+      - { ability: INT, modifier: 1 }
+      - { ability: CHA, modifier: 2 }
     speed: 30
     features:
       - name: Darkvision
@@ -1223,7 +1252,7 @@ lists:
     - { name: "chain mail",      type: HEAVY,   cost: "75gp",   weight: "55 lb",  baseAC: 16,                                  stealthDisadv: true, strengthReq: 13 }
     - { name: "splint",          type: HEAVY,   cost: "200gp",  weight: "60 lb",  baseAC: 17,                                  stealthDisadv: true, strengthReq: 15 }
     - { name: "plate",           type: HEAVY,   cost: "1500gp", weight: "65 lb",  baseAC: 18,                                  stealthDisadv: true, strengthReq: 15 }
-    - { name: "shield",          type: SHIELD,  cost: "10gp",   weight: "6 lb",   baseAC: +2 }
+    - { name: "shield",          type: SHIELD,  cost: "10gp",   weight: "6 lb",   baseAC: 2 }
 
   backgroundFeatures:
     - name: Shelter of the Faithful
