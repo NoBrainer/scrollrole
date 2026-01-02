@@ -13,15 +13,15 @@ part 'spell_casting.g.dart';
 class SpellCasting extends Equatable {
   final Ability ability;
   final List<String> description;
-  final String focus;
+  final String? focus;
   final int knownCantrips;
   final int knownSpells;
-  final Map<int, int> spellSlots;
+  final Map<String, int> spellSlots;
 
   const SpellCasting({
     required this.ability,
     this.description = const [],
-    this.focus = "",
+    this.focus,
     this.knownCantrips = 0,
     this.knownSpells = 0,
     this.spellSlots = const {},

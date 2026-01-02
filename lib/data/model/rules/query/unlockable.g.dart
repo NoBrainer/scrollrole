@@ -35,6 +35,11 @@ Unlockable _$UnlockableFromJson(Map<String, dynamic> json) => Unlockable(
   spellCasting: json['spellCasting'] == null
       ? null
       : SpellCasting.fromJson(json['spellCasting'] as Map<String, dynamic>),
+  spellCastingUpdate: json['spellCastingUpdate'] == null
+      ? null
+      : SpellCastingUpdate.fromJson(
+          json['spellCastingUpdate'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic> _$UnlockableToJson(Unlockable instance) =>
@@ -49,4 +54,5 @@ Map<String, dynamic> _$UnlockableToJson(Unlockable instance) =>
       'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
       'speed': instance.speed,
       'spellCasting': instance.spellCasting?.toJson(),
+      'spellCastingUpdate': instance.spellCastingUpdate?.toJson(),
     };

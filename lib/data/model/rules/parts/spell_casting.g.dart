@@ -13,23 +13,22 @@ SpellCasting _$SpellCastingFromJson(Map<String, dynamic> json) => SpellCasting(
           ?.map((e) => e as String)
           .toList() ??
       const [],
-  focus: json['focus'] as String? ?? "",
+  focus: json['focus'] as String?,
   knownCantrips: (json['knownCantrips'] as num?)?.toInt() ?? 0,
   knownSpells: (json['knownSpells'] as num?)?.toInt() ?? 0,
   spellSlots:
       (json['spellSlots'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(int.parse(k), (e as num).toInt()),
+        (k, e) => MapEntry(k, (e as num).toInt()),
       ) ??
       const {},
 );
 
-Map<String, dynamic> _$SpellCastingToJson(
-  SpellCasting instance,
-) => <String, dynamic>{
-  'ability': instance.ability.toJson(),
-  'description': instance.description,
-  'focus': instance.focus,
-  'knownCantrips': instance.knownCantrips,
-  'knownSpells': instance.knownSpells,
-  'spellSlots': instance.spellSlots.map((k, e) => MapEntry(k.toString(), e)),
-};
+Map<String, dynamic> _$SpellCastingToJson(SpellCasting instance) =>
+    <String, dynamic>{
+      'ability': instance.ability.toJson(),
+      'description': instance.description,
+      'focus': instance.focus,
+      'knownCantrips': instance.knownCantrips,
+      'knownSpells': instance.knownSpells,
+      'spellSlots': instance.spellSlots,
+    };

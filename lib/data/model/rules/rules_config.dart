@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/background.dart';
+import 'package:scrollrole/data/model/rules/class.dart';
 import 'package:scrollrole/util/log_util.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 import 'package:yaml/yaml.dart';
@@ -15,13 +16,14 @@ part 'rules_config.g.dart';
 @JsonSerializable(explicitToJson: true)
 class RulesConfig extends Equatable {
   final List<Background> backgrounds;
+  final List<Class> classes;
 
-  const RulesConfig({this.backgrounds = const []});
+  const RulesConfig({this.backgrounds = const [], this.classes = const []});
 
   const RulesConfig.blank() : this();
 
   @override
-  List<Object?> get props => [backgrounds];
+  List<Object?> get props => [backgrounds, classes];
 
   factory RulesConfig.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject("RulesConfig", _$RulesConfigFromJson, json)

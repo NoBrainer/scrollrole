@@ -12,7 +12,7 @@ part 'feature_variable.g.dart';
 class FeatureVariable extends Equatable {
   final String displayName;
   final String key;
-  final String value;
+  final dynamic value;
 
   const FeatureVariable({
     required this.displayName,

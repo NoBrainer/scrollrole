@@ -9,7 +9,8 @@ enum ProficiencyType {
   language("Language", "Language Proficiency"),
   savingThrow("Saving Throw", "Saving Throw Proficiency"),
   skill("Skill", "Skill Proficiency"),
-  tool("Tool", "Tool Proficiency");
+  tool("Tool", "Tool Proficiency"),
+  weapon("Weapon", "Weapon Proficiency");
 
   final String display;
   final String displayLong;

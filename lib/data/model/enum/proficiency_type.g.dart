@@ -12,4 +12,5 @@ const _$ProficiencyTypeEnumMap = {
   ProficiencyType.savingThrow: 'SAVING_THROW',
   ProficiencyType.skill: 'SKILL',
   ProficiencyType.tool: 'TOOL',
+  ProficiencyType.weapon: 'WEAPON',
 };

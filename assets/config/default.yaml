@@ -120,7 +120,7 @@ classes:
   ## BARBARIAN
   - name: Barbarian
     iconId: class-barbarian
-    hitPointDie: 1d12
+    hitPointDie: D12
     baseHitPoints: 12
     proficiencies:
       - { type: ARMOR,          name: light armor }
@@ -398,7 +398,7 @@ classes:
   ## BARD
   - name: Bard
     iconId: class-bard
-    hitPointDie: 1d8
+    hitPointDie: D8
     baseHitPoints: 8
     proficiencies:
       - { type: ARMOR,        name: light armor }
@@ -433,7 +433,7 @@ classes:
       focus: You can use a musical instrument as a spellcasting focus for your bard spells.
       knownCantrips: 2
       knownSpells: 4
-      spellSlots: { 1: 2 }
+      spellSlots: { '1': 2 }
     features:
       - name: Spellcasting Ability
         description:
@@ -518,9 +518,9 @@ classes:
               - { name: STR, type: ABILITY_SCORE, modifier: 1 }
               - { name: WIS, type: ABILITY_SCORE, modifier: 1 }
       - condition: { level: 2 }
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 5
-          spellSlots: { 1: 3 }
+          spellSlots: { '1': 3 }
         features:
           - name: Jack of All Trades
             description:
@@ -543,9 +543,9 @@ classes:
                 key: SONG_OF_REST_BONUS_HIT_DIE
                 value: 1d6
       - condition: { level: 3 }
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 6
-          spellSlots: { 1: 4, 2: 2 }
+          spellSlots: { '1': 4, '2': 2 }
         features:
           - name: Expertise 1
             description:
@@ -599,15 +599,15 @@ classes:
                 Roll a Bardic Inspiration die and add the number rolled to your ability check. You can choose to do so
                 after you roll the die for the ability check, but before the GM tells you whether you succeed or fail.
       - condition: { level: 4 }
-        spellCasting:
+        spellCastingUpdate:
           knownCantrips: 3
           knownSpells: 7
-          spellSlots: { 2: 3 }
+          spellSlots: { '2': 3 }
       - condition: { level: 5 }
         proficiencyBonus: 3
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 8
-          spellSlots: { 3: 2 }
+          spellSlots: { '3': 2 }
         features:
           - name: Bardic Inspiration Die
             variables:
@@ -620,9 +620,9 @@ classes:
                 Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when
                 you finish a short or long rest.
       - condition: { level: 6 }
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 9
-          spellSlots: { 3: 3 }
+          spellSlots: { '3': 3 }
         features:
           - name: Countercharm
             description:
@@ -633,18 +633,18 @@ classes:
                 being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance
                 ends early if you are incapacitated or silenced or if you voluntarily end it (no action required).
       - condition: { level: 7 }
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 10
-          spellSlots: { 4: 1 }
+          spellSlots: { '4': 1 }
       - condition: { level: 8 }
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 11
-          spellSlots: { 4: 2 }
+          spellSlots: { '4': 2 }
       - condition: { level: 9 }
         proficiencyBonus: 4
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 12
-          spellSlots: { 4: 3, 5: 1 }
+          spellSlots: { '4': 3, '5': 1 }
         features:
           - name: Song of Rest Bonus Hit Die
             variables:
@@ -652,10 +652,10 @@ classes:
                 key: SONG_OF_REST_BONUS_HIT_DIE
                 value: 1d8
       - condition: { level: 10 }
-        spellCasting:
+        spellCastingUpdate:
           knownCantrips: 4
           knownSpells: 14
-          spellSlots: { 5: 2 }
+          spellSlots: { '5': 2 }
         features:
           - name: Bardic Inspiration Die
             variables:
@@ -677,14 +677,14 @@ classes:
             pick: 2
             query: { list: spells, levels: [ 0, 1, 2, 3, 4, 5 ] }
       - condition: { level: 11 }
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 15
-          spellSlots: { 6: 1 }
+          spellSlots: { '6': 1 }
       - condition: { level: 13 }
         proficiencyBonus: 5
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 16
-          spellSlots: { 7: 1 }
+          spellSlots: { '7': 1 }
         features:
           - name: Song of Rest Bonus Hit Die
             variables:
@@ -692,7 +692,7 @@ classes:
                 key: SONG_OF_REST_BONUS_HIT_DIE
                 value: 1d10
       - condition: { level: 14 }
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 18
         choices:
           - name: Magical Secrets 2
@@ -705,9 +705,9 @@ classes:
             pick: 2
             query: { list: spells }
       - condition: { level: 15 }
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 19
-          spellSlots: { 8: 1 }
+          spellSlots: { '8': 1 }
         features:
           - name: Bardic Inspiration Die
             variables:
@@ -716,9 +716,9 @@ classes:
                 value: 1d12
       - condition: { level: 17 }
         proficiencyBonus: 6
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 20
-          spellSlots: { 9: 1 }
+          spellSlots: { '9': 1 }
         features:
           - name: Song of Rest Bonus Hit Die
             variables:
@@ -726,9 +726,9 @@ classes:
                 key: SONG_OF_REST_BONUS_HIT_DIE
                 value: 1d12
       - condition: { level: 18 }
-        spellCasting:
+        spellCastingUpdate:
           knownSpells: 22
-          spellSlots: { 5: 3 }
+          spellSlots: { '5': 3 }
         choices:
           - name: Magical Secrets 3
             description:
@@ -738,13 +738,13 @@ classes:
               - >
                 The chosen spells count as bard spells for you and are included in the number in the Spells Known.
             pick: 2
-            query: { name: spells }
+            query: { list: spells }
       - condition: { level: 19 }
-        spellCasting:
-          spellSlots: { 6: 2 }
+        spellCastingUpdate:
+          spellSlots: { '6': 2 }
       - condition: { level: 20 }
-        spellCasting:
-          spellSlots: { 7: 2 }
+        spellCastingUpdate:
+          spellSlots: { '7': 2 }
         features:
           - name: Superior Inspiration
             description:

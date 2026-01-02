@@ -7,6 +7,7 @@ import 'package:scrollrole/data/model/rules/parts/ability_score_adjustment.dart'
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
+import 'package:scrollrole/data/model/rules/parts/spell_casting_update.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/condition.dart';
 import 'package:scrollrole/util/mapper_util.dart';
@@ -24,6 +25,7 @@ class Unlockable extends Equatable {
   final List<Proficiency> proficiencies;
   final int speed; //TODO: rename to speedModifier and/or use StatModifier
   final SpellCasting? spellCasting;
+  final SpellCastingUpdate? spellCastingUpdate;
 
   const Unlockable({
     this.abilityScoreAdjustments = const [],
@@ -34,6 +36,7 @@ class Unlockable extends Equatable {
     this.proficiencies = const [],
     this.speed = 0,
     this.spellCasting,
+    this.spellCastingUpdate,
   });
 
   @override
@@ -46,6 +49,7 @@ class Unlockable extends Equatable {
     proficiencies,
     speed,
     spellCasting,
+    spellCastingUpdate,
   ];
 
   factory Unlockable.fromJson(Map<String, dynamic> json) {
