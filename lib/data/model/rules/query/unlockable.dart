@@ -22,8 +22,8 @@ class Unlockable extends Equatable {
   final List<Feature> features;
   final int proficiencyBonus;
   final List<Proficiency> proficiencies;
-  final int speed; //TODO: rename to speedModifier
-  final SpellCasting spellCasting;
+  final int speed; //TODO: rename to speedModifier and/or use StatModifier
+  final SpellCasting? spellCasting;
 
   const Unlockable({
     this.abilityScoreAdjustments = const [],
@@ -33,7 +33,7 @@ class Unlockable extends Equatable {
     this.proficiencyBonus = 0,
     this.proficiencies = const [],
     this.speed = 0,
-    this.spellCasting = SpellCasting.blank,
+    this.spellCasting,
   });
 
   @override

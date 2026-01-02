@@ -40,7 +40,7 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
       const [],
   proficiencyBonus: (json['proficiencyBonus'] as num?)?.toInt() ?? 2,
   spellCasting: json['spellCasting'] == null
-      ? SpellCasting.blank
+      ? null
       : SpellCasting.fromJson(json['spellCasting'] as Map<String, dynamic>),
   unlockables:
       (json['unlockables'] as List<dynamic>?)
@@ -60,6 +60,6 @@ Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
   'name': instance.name,
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'proficiencyBonus': instance.proficiencyBonus,
-  'spellCasting': instance.spellCasting.toJson(),
+  'spellCasting': instance.spellCasting?.toJson(),
   'unlockables': instance.unlockables.map((e) => e.toJson()).toList(),
 };

@@ -27,7 +27,7 @@ class Class extends Equatable {
   final String name;
   final List<Proficiency> proficiencies;
   final int proficiencyBonus;
-  final SpellCasting spellCasting;
+  final SpellCasting? spellCasting;
   final List<Unlockable> unlockables;
 
   static const defaultIconId = 'class-custom';
@@ -43,7 +43,7 @@ class Class extends Equatable {
     required this.name,
     this.proficiencies = const [],
     this.proficiencyBonus = 2,
-    this.spellCasting = SpellCasting.blank,
+    this.spellCasting,
     this.unlockables = const [],
   });
 

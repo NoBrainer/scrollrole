@@ -4,7 +4,6 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
-import 'package:scrollrole/data/model/rules/parts/spell.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'spell_casting.g.dart';
@@ -17,16 +16,7 @@ class SpellCasting extends Equatable {
   final String focus;
   final int knownCantrips;
   final int knownSpells;
-  final String name;
-  final List<Spell> spells;
   final Map<int, int> spellSlots;
-
-  // TODO: Support classes without spellcasting (either something like this blank
-  // TODO: or make it nullable)
-  static const SpellCasting blank = SpellCasting(
-    ability: Ability.int,
-    name: "Spell Casting",
-  );
 
   const SpellCasting({
     required this.ability,
@@ -34,8 +24,6 @@ class SpellCasting extends Equatable {
     this.focus = "",
     this.knownCantrips = 0,
     this.knownSpells = 0,
-    required this.name,
-    this.spells = const [],
     this.spellSlots = const {},
   });
 
@@ -46,8 +34,6 @@ class SpellCasting extends Equatable {
     focus,
     knownCantrips,
     knownSpells,
-    name,
-    spells,
     spellSlots,
   ];
 
