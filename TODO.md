@@ -6,7 +6,7 @@
    - YAML Config: https://github.com/NoBrainer/scrollrole/blob/main/assets/config/default.yaml
    - Data Model Attempt: https://github.com/NoBrainer/scrollrole-old/tree/main/public/js/model/rules/parts
    - [X] Backgrounds
-   - [ ] Classes
+   - [X] Classes
    - [ ] Races
    - [ ] Lists
 2. Enhance data model
