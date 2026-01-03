@@ -273,7 +273,8 @@ classes:
                 Starting at 14th level, when you take damage from a creature that is within 5 feet of you,
                 you can use your reaction to make a melee weapon attack against that creature.
       - condition: { level: 5 }
-        proficiencyBonus: 3
+        statModifiers:
+          - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         features:
           - name: Extra Attack
             description:
@@ -300,7 +301,8 @@ classes:
                 Additionally, if you are surprised at the beginning of combat and aren't incapacitated, you can act
                 normally on your first turn, but only if you enter your rage before doing anything else on that turn.
       - condition: { level: 9 }
-        proficiencyBonus: 4
+        statModifiers:
+          - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         features:
           - name: Rage Damage
             variables:
@@ -337,7 +339,8 @@ classes:
                 key: RAGE_COUNT
                 value: 5
       - condition: { level: 13 }
-        proficiencyBonus: 5
+        statModifiers:
+          - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         features:
           - name: Brutal Critical Dice
             variables:
@@ -359,7 +362,8 @@ classes:
                 key: RAGE_DAMAGE
                 value: 4
       - condition: { level: 17 }
-        proficiencyBonus: 6
+        statModifiers:
+          - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         features:
           - name: Rage Count
             variables:
@@ -386,9 +390,9 @@ classes:
                 key: RAGE_COUNT
                 value: unlimited
           - name: Primal Champion
-            abilityScoreAdjustments:
-              - { ability: STR, modifier: 4 }
-              - { ability: CON, modifier: 4 }
+            statModifiers:
+              - { type: ABILITY_SCORE, name: CON, modifier: 4 }
+              - { type: ABILITY_SCORE, name: STR, modifier: 4 }
             description:
               - >
                 At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4.
@@ -604,7 +608,8 @@ classes:
           knownSpells: 7
           spellSlots: { '2': 3 }
       - condition: { level: 5 }
-        proficiencyBonus: 3
+        statModifiers:
+          - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         spellCastingUpdate:
           knownSpells: 8
           spellSlots: { '3': 2 }
@@ -641,7 +646,8 @@ classes:
           knownSpells: 11
           spellSlots: { '4': 2 }
       - condition: { level: 9 }
-        proficiencyBonus: 4
+        statModifiers:
+          - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         spellCastingUpdate:
           knownSpells: 12
           spellSlots: { '4': 3, '5': 1 }
@@ -681,7 +687,8 @@ classes:
           knownSpells: 15
           spellSlots: { '6': 1 }
       - condition: { level: 13 }
-        proficiencyBonus: 5
+        statModifiers:
+          - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         spellCastingUpdate:
           knownSpells: 16
           spellSlots: { '7': 1 }
@@ -715,7 +722,8 @@ classes:
                 key: BARDIC_INSPIRATION_DIE
                 value: 1d12
       - condition: { level: 17 }
-        proficiencyBonus: 6
+        statModifiers:
+          - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         spellCastingUpdate:
           knownSpells: 20
           spellSlots: { '9': 1 }
@@ -809,8 +817,8 @@ races:
         well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just
         order.
       - Dwarves stand between 4 and 5 feet tall and average about 150 pounds. Your size is Medium.
-    abilityScoreAdjustments:
-      - { ability: CON, modifier: 2 }
+    statModifiers:
+      - { type: ABILITY_SCORE, name: CON, modifier: 2 }
     speed: 25
     features:
       - name: Darkvision
@@ -853,8 +861,8 @@ races:
       - name: Hill Dwarf
         description:
           - As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.
-        abilityScoreAdjustments:
-          - { ability: WIS, modifier: 1 }
+        statModifiers:
+          - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
         features:
           - name: Dwarven Toughness
             description:
@@ -876,8 +884,8 @@ races:
         Elves love freedom, variety, and self-expression, so they lean strongly toward the gentler aspects of chaos. They
         value and protect others' freedom as well as their own, and they are more often good than not.
       - Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium.
-    abilityScoreAdjustments:
-      - { ability: DEX, modifier: 2 }
+    statModifiers:
+      - { type: ABILITY_SCORE, name: DEX, modifier: 2 }
     speed: 30
     features:
       - name: Darkvision
@@ -911,8 +919,8 @@ races:
             worlds, there are two kinds of high elves. One type is haughty and reclusive, believing themselves to be
             superior to non-elves and even other elves. The other type is more common and more friendly, and often
             encountered among humans and other races.
-        abilityScoreAdjustments:
-          - { ability: INT, modifier: 1 }
+        statModifiers:
+          - { type: ABILITY_SCORE, name: INT, modifier: 1 }
         proficiencies:
           - { type: WEAPON, name: longbow }
           - { type: WEAPON, name: longsword }
@@ -943,8 +951,8 @@ races:
         tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their
         community and the comfort of their old ways.
       - Halflings average about 3 feet tall and weigh 40 pounds. Your size is Small.
-    abilityScoreAdjustments:
-      - { ability: DEX, modifier: 2 }
+    statModifiers:
+      - { type: ABILITY_SCORE, name: DEX, modifier: 2 }
     speed: 25
     features:
       - name: Lucky
@@ -971,8 +979,8 @@ races:
             As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined
             to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings,
             and often dwell alongside other races or take up a nomadic life.
-        abilityScoreAdjustments:
-          - { ability: CHA, modifier: 1 }
+        statModifiers:
+          - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
         features:
           - name: Naturally Stealthy
             description:
@@ -990,13 +998,13 @@ races:
       - >
         Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position
         in that range, your size is Medium.
-    abilityScoreAdjustments:
-      - { ability: STR, modifier: 1 }
-      - { ability: DEX, modifier: 1 }
-      - { ability: CON, modifier: 1 }
-      - { ability: INT, modifier: 1 }
-      - { ability: WIS, modifier: 1 }
-      - { ability: CHA, modifier: 1 }
+    statModifiers:
+      - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
+      - { type: ABILITY_SCORE, name: CON, modifier: 1 }
+      - { type: ABILITY_SCORE, name: DEX, modifier: 1 }
+      - { type: ABILITY_SCORE, name: INT, modifier: 1 }
+      - { type: ABILITY_SCORE, name: STR, modifier: 1 }
+      - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
     speed: 30
     proficiencies:
       - { type: LANGUAGE, name: Common }
@@ -1025,9 +1033,9 @@ races:
       - >
         Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds.
         Your size is Medium.
-    abilityScoreAdjustments:
-      - { ability: STR, modifier: 2 }
-      - { ability: CHA, modifier: 1 }
+    statModifiers:
+      - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
+      - { type: ABILITY_SCORE, name: STR, modifier: 2 }
     speed: 30
     proficiencies:
       - { type: LANGUAGE, name: Common }
@@ -1054,8 +1062,8 @@ races:
         or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are
         good-hearted, and even the tricksters among them are more playful than vicious.
       - Gnomes are between 3 and 4 feet tall and average about 40 pounds. Your size is Small.
-    abilityScoreAdjustments:
-      - { ability: INT, modifier: 2 }
+    statModifiers:
+      - { type: ABILITY_SCORE, name: INT, modifier: 2 }
     speed: 25
     features:
       - name: Darkvision
@@ -1076,8 +1084,8 @@ races:
       - name: Rock Gnome
         description:
           - As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.
-        abilityScoreAdjustments:
-          - { ability: CON, modifier: 1 }
+        statModifiers:
+          - { type: ABILITY_SCORE, name: CON, modifier: 1 }
         features:
           - name: Artificer's Lore
             description:
@@ -1112,8 +1120,8 @@ races:
         expression, demonstrating neither love of leaders nor desire for followers. They chafe at rules, resent others'
         demands and sometimes prove unreliable, or at least unpredictable.
       - Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium.
-    abilityScoreAdjustments:
-      - { ability: CHA, modifier: 2 }
+    statModifiers:
+      - { type: ABILITY_SCORE, name: CHA, modifier: 2 }
     speed: 30
     features:
       - name: Darkvision
@@ -1166,9 +1174,9 @@ races:
       - >
         Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size
         is Medium.
-    abilityScoreAdjustments:
-      - { ability: STR, modifier: 2 }
-      - { ability: CON, modifier: 1 }
+    statModifiers:
+      - { type: ABILITY_SCORE, name: CON, modifier: 1 }
+      - { type: ABILITY_SCORE, name: STR, modifier: 2 }
     speed: 30
     features:
       - name: Darkvision
@@ -1205,9 +1213,9 @@ races:
         Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an
         independent nature inclines many tieflings toward a chaotic alignment.
       - Tieflings are about the same size and build as humans. Your size is Medium.
-    abilityScoreAdjustments:
-      - { ability: INT, modifier: 1 }
-      - { ability: CHA, modifier: 2 }
+    statModifiers:
+      - { type: ABILITY_SCORE, name: CHA, modifier: 2 }
+      - { type: ABILITY_SCORE, name: INT, modifier: 1 }
     speed: 30
     features:
       - name: Darkvision

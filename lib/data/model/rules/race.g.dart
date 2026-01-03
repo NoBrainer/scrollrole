@@ -7,13 +7,6 @@ part of 'race.dart';
 // **************************************************************************
 
 Race _$RaceFromJson(Map<String, dynamic> json) => Race(
-  abilityScoreAdjustments:
-      (json['abilityScoreAdjustments'] as List<dynamic>?)
-          ?.map(
-            (e) => AbilityScoreAdjustment.fromJson(e as Map<String, dynamic>),
-          )
-          .toList() ??
-      const [],
   choices:
       (json['choices'] as List<dynamic>?)
           ?.map((e) => Choice.fromJson(e as Map<String, dynamic>))
@@ -41,6 +34,11 @@ Race _$RaceFromJson(Map<String, dynamic> json) => Race(
           .toList() ??
       const [],
   speed: (json['speed'] as num?)?.toInt() ?? 30,
+  statModifiers:
+      (json['statModifiers'] as List<dynamic>?)
+          ?.map((e) => StatModifier.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
   suggestedCharacteristics: json['suggestedCharacteristics'] == null
       ? SuggestedCharacteristics.blank
       : SuggestedCharacteristics.fromJson(
@@ -49,14 +47,12 @@ Race _$RaceFromJson(Map<String, dynamic> json) => Race(
 );
 
 Map<String, dynamic> _$RaceToJson(Race instance) => <String, dynamic>{
-  'abilityScoreAdjustments': instance.abilityScoreAdjustments
-      .map((e) => e.toJson())
-      .toList(),
   'choices': instance.choices.map((e) => e.toJson()).toList(),
   'description': instance.description,
   'equipment': instance.equipment.map((e) => e.toJson()).toList(),
   'features': instance.features.map((e) => e.toJson()).toList(),
   'name': instance.name,
+  'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'speed': instance.speed,
   'suggestedCharacteristics': instance.suggestedCharacteristics.toJson(),

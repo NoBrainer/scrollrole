@@ -4,9 +4,9 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
-import 'package:scrollrole/data/model/rules/parts/ability_score_adjustment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
+import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
 import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/util/mapper_util.dart';
@@ -16,18 +16,17 @@ part 'race.g.dart';
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Race extends Equatable {
-  final List<AbilityScoreAdjustment> abilityScoreAdjustments;
   final List<Choice> choices;
   final List<String> description;
   final List<Equipment> equipment;
   final List<Feature> features;
   final String name;
+  final List<StatModifier> statModifiers;
   final List<Proficiency> proficiencies;
   final int speed;
   final SuggestedCharacteristics suggestedCharacteristics;
 
   const Race({
-    this.abilityScoreAdjustments = const [],
     this.choices = const [],
     this.description = const [],
     this.equipment = const [],
@@ -35,6 +34,7 @@ class Race extends Equatable {
     required this.name,
     this.proficiencies = const [],
     this.speed = 30,
+    this.statModifiers = const [],
     this.suggestedCharacteristics = SuggestedCharacteristics.blank,
   });
 
@@ -47,6 +47,7 @@ class Race extends Equatable {
     name,
     proficiencies,
     speed,
+    statModifiers,
     suggestedCharacteristics,
   ];
 
