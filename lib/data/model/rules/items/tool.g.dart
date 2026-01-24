@@ -7,7 +7,7 @@ part of 'tool.dart';
 // **************************************************************************
 
 Tool _$ToolFromJson(Map<String, dynamic> json) => Tool(
-  cost: json['cost'] as String? ?? "",
+  cost: (json['cost'] as num?)?.toInt() ?? 0,
   name: json['name'] as String,
   tags:
       (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ??

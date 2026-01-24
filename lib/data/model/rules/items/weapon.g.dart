@@ -7,11 +7,13 @@ part of 'weapon.dart';
 // **************************************************************************
 
 Weapon _$WeaponFromJson(Map<String, dynamic> json) => Weapon(
-  cost: json['cost'] as String? ?? "",
+  cost: (json['cost'] as num?)?.toInt() ?? 0,
   damage: (json['damage'] as num?)?.toInt() ?? 1,
   damageType: json['damageType'] as String? ?? "",
   name: json['name'] as String,
-  range: json['range'] as String? ?? "",
+  range: (json['range'] as num?)?.toInt() ?? 0,
+  rangeUnits: json['rangeUnits'] as String? ?? "ft",
+  rangeWithDisadvantage: (json['rangeWithDisadvantage'] as num?)?.toInt() ?? 0,
   tags:
       (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ??
       const [],
@@ -25,6 +27,8 @@ Map<String, dynamic> _$WeaponToJson(Weapon instance) => <String, dynamic>{
   'damageType': instance.damageType,
   'name': instance.name,
   'range': instance.range,
+  'rangeUnits': instance.rangeUnits,
+  'rangeWithDisadvantage': instance.rangeWithDisadvantage,
   'tags': instance.tags,
   'versatileDamage': instance.versatileDamage,
   'weight': instance.weight,

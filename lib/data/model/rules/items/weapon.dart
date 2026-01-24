@@ -10,24 +10,25 @@ part 'weapon.g.dart';
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Weapon extends Equatable {
-  final String cost;
+  final int cost;
   final int damage;
   final String damageType;
   final String name;
-  final String range;
+  final int range;
+  final String rangeUnits;
+  final int rangeWithDisadvantage;
   final List<String> tags;
   final String versatileDamage;
   final String weight;
 
-  //TODO: Update cost to be int (number of copper)
-  //TODO: Update range to be int
-  //TODO: Add rangeUnits as string with default "ft"
   const Weapon({
-    this.cost = "",
+    this.cost = 0,
     this.damage = 1,
     this.damageType = "",
     required this.name,
-    this.range = "",
+    this.range = 0,
+    this.rangeUnits = "ft",
+    this.rangeWithDisadvantage = 0,
     this.tags = const [],
     this.versatileDamage = "",
     this.weight = "",
@@ -40,6 +41,8 @@ class Weapon extends Equatable {
     damageType,
     name,
     range,
+    rangeUnits,
+    rangeWithDisadvantage,
     tags,
     versatileDamage,
     weight,

@@ -10,14 +10,13 @@ part 'gear.g.dart';
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Gear extends Equatable {
-  final String cost;
+  final int cost;
   final String name;
   final String per;
   final String weight;
 
-  //TODO: Update cost to be int (number of copper)
   const Gear({
-    this.cost = "",
+    this.cost = 0,
     required this.name,
     this.per = "1",
     this.weight = "",

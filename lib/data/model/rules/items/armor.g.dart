@@ -7,27 +7,27 @@ part of 'armor.dart';
 // **************************************************************************
 
 Armor _$ArmorFromJson(Map<String, dynamic> json) => Armor(
-  baseAC: (json['baseAC'] as num?)?.toInt() ?? 10,
-  cost: json['cost'] as String? ?? "",
+  baseAc: (json['baseAc'] as num?)?.toInt() ?? 10,
+  cost: (json['cost'] as num?)?.toInt() ?? 0,
   maxModifier: (json['maxModifier'] as num?)?.toInt(),
-  modifier: json['modifier'] == null
+  modifierAbility: json['modifierAbility'] == null
       ? Ability.dex
-      : Ability.fromJson(json['modifier'] as String),
+      : Ability.fromJson(json['modifierAbility'] as String),
   name: json['name'] as String,
-  stealthDisadv: json['stealthDisadv'] as bool? ?? false,
-  strengthReq: (json['strengthReq'] as num?)?.toInt(),
+  stealthDisadvantage: json['stealthDisadvantage'] as bool? ?? false,
+  strengthRequirement: (json['strengthRequirement'] as num?)?.toInt(),
   type: ArmorType.fromJson(json['type'] as String),
   weight: json['weight'] as String? ?? "",
 );
 
 Map<String, dynamic> _$ArmorToJson(Armor instance) => <String, dynamic>{
-  'baseAC': instance.baseAC,
+  'baseAc': instance.baseAc,
   'cost': instance.cost,
   'maxModifier': instance.maxModifier,
-  'modifier': instance.modifier.toJson(),
+  'modifierAbility': instance.modifierAbility.toJson(),
   'name': instance.name,
-  'stealthDisadv': instance.stealthDisadv,
-  'strengthReq': instance.strengthReq,
+  'stealthDisadvantage': instance.stealthDisadvantage,
+  'strengthRequirement': instance.strengthRequirement,
   'type': instance.type.toJson(),
   'weight': instance.weight,
 };

@@ -10,14 +10,13 @@ part 'tool.g.dart';
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Tool extends Equatable {
-  final String cost;
+  final int cost;
   final String name;
   final List<String> tags;
   final String weight;
 
-  //TODO: Update cost to be int (number of copper)
   const Tool({
-    this.cost = "",
+    this.cost = 0,
     required this.name,
     this.tags = const [],
     this.weight = "",

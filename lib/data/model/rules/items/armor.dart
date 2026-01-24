@@ -12,37 +12,37 @@ part 'armor.g.dart';
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Armor extends Equatable {
-  final int baseAC; //TODO: rename to baseAc (camelCase)
-  final String cost;
+  final int baseAc;
+  final int cost;
   final int? maxModifier;
-  final Ability modifier; //TODO: rename to modifierAbility
+  final Ability modifierAbility;
   final String name;
-  final bool stealthDisadv; //TODO: rename without abbreviation
-  final int? strengthReq; //TODO: rename without abbreviation
+  final bool stealthDisadvantage;
+  final int? strengthRequirement;
   final ArmorType type;
   final String weight;
 
   const Armor({
-    this.baseAC = 10,
-    this.cost = "",
+    this.baseAc = 10,
+    this.cost = 0,
     this.maxModifier,
-    this.modifier = Ability.dex,
+    this.modifierAbility = Ability.dex,
     required this.name,
-    this.stealthDisadv = false,
-    this.strengthReq,
+    this.stealthDisadvantage = false,
+    this.strengthRequirement,
     required this.type,
     this.weight = "",
   });
 
   @override
   List<Object?> get props => [
-    baseAC,
+    baseAc,
     cost,
     maxModifier,
-    modifier,
+    modifierAbility,
     name,
-    stealthDisadv,
-    strengthReq,
+    stealthDisadvantage,
+    strengthRequirement,
     type,
     weight,
   ];
