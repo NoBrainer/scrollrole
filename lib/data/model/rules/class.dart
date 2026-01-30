@@ -8,6 +8,8 @@ import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
+import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
+import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/unlockable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
@@ -27,7 +29,10 @@ class Class extends Equatable {
   final String name;
   final List<Proficiency> proficiencies;
   final int proficiencyBonus;
+  final int? speed;
   final SpellCasting? spellCasting;
+  final List<StatModifier> statModifiers;
+  final SuggestedCharacteristics suggestedCharacteristics;
   final List<Unlockable> unlockables;
 
   static const defaultIconId = 'class-custom';
@@ -43,7 +48,10 @@ class Class extends Equatable {
     required this.name,
     this.proficiencies = const [],
     this.proficiencyBonus = 2,
+    this.speed,
     this.spellCasting,
+    this.statModifiers = const [],
+    this.suggestedCharacteristics = const SuggestedCharacteristics.blank(),
     this.unlockables = const [],
   });
 
@@ -55,10 +63,14 @@ class Class extends Equatable {
     equipment,
     features,
     hitPointDie,
+    iconId,
     name,
     proficiencies,
     proficiencyBonus,
+    speed,
     spellCasting,
+    statModifiers,
+    suggestedCharacteristics,
     unlockables,
   ];
 

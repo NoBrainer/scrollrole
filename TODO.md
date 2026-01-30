@@ -3,7 +3,6 @@
 # Task Priority
 
 1. Enhance data model
-   - Share most fields across background, race, species for complete flexibility
    - Rework Race to Species (alias?)
 2. Implement viewing the default rules config
 3. Implement modifying the default rules config

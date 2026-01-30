@@ -39,9 +39,20 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           .toList() ??
       const [],
   proficiencyBonus: (json['proficiencyBonus'] as num?)?.toInt() ?? 2,
+  speed: (json['speed'] as num?)?.toInt(),
   spellCasting: json['spellCasting'] == null
       ? null
       : SpellCasting.fromJson(json['spellCasting'] as Map<String, dynamic>),
+  statModifiers:
+      (json['statModifiers'] as List<dynamic>?)
+          ?.map((e) => StatModifier.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  suggestedCharacteristics: json['suggestedCharacteristics'] == null
+      ? const SuggestedCharacteristics.blank()
+      : SuggestedCharacteristics.fromJson(
+          json['suggestedCharacteristics'] as Map<String, dynamic>,
+        ),
   unlockables:
       (json['unlockables'] as List<dynamic>?)
           ?.map((e) => Unlockable.fromJson(e as Map<String, dynamic>))
@@ -60,6 +71,9 @@ Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
   'name': instance.name,
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'proficiencyBonus': instance.proficiencyBonus,
+  'speed': instance.speed,
   'spellCasting': instance.spellCasting?.toJson(),
+  'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
+  'suggestedCharacteristics': instance.suggestedCharacteristics.toJson(),
   'unlockables': instance.unlockables.map((e) => e.toJson()).toList(),
 };

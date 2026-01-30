@@ -9,6 +9,7 @@ import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
 import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
+import 'package:scrollrole/data/model/rules/query/unlockable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'race.g.dart';
@@ -22,10 +23,11 @@ class Race extends Equatable {
   final List<Feature> features;
   final String iconId;
   final String name;
-  final List<StatModifier> statModifiers;
   final List<Proficiency> proficiencies;
-  final int speed;
+  final int? speed;
+  final List<StatModifier> statModifiers;
   final SuggestedCharacteristics suggestedCharacteristics;
+  final List<Unlockable> unlockables;
 
   static const defaultIconId = 'race-custom';
 
@@ -37,9 +39,10 @@ class Race extends Equatable {
     this.iconId = Race.defaultIconId,
     required this.name,
     this.proficiencies = const [],
-    this.speed = 30,
+    this.speed,
     this.statModifiers = const [],
-    this.suggestedCharacteristics = SuggestedCharacteristics.blank,
+    this.suggestedCharacteristics = const SuggestedCharacteristics.blank(),
+    this.unlockables = const [],
   });
 
   @override
@@ -54,6 +57,7 @@ class Race extends Equatable {
     speed,
     statModifiers,
     suggestedCharacteristics,
+    unlockables,
   ];
 
   factory Race.fromJson(Map<String, dynamic> json) {

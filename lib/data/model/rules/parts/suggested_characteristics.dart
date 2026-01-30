@@ -16,8 +16,6 @@ class SuggestedCharacteristics extends Equatable {
   final List<String> ideals;
   final List<String> personalityTraits;
 
-  static const blank = SuggestedCharacteristics();
-
   const SuggestedCharacteristics({
     this.bonds = const [],
     this.description = const [],
@@ -25,6 +23,8 @@ class SuggestedCharacteristics extends Equatable {
     this.ideals = const [],
     this.personalityTraits = const [],
   });
+
+  const SuggestedCharacteristics.blank() : this();
 
   @override
   List<Object?> get props => [

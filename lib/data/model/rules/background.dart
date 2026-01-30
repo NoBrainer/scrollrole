@@ -6,8 +6,10 @@ import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
+import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
 import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
+import 'package:scrollrole/data/model/rules/query/unlockable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'background.g.dart';
@@ -22,7 +24,10 @@ class Background extends Equatable {
   final String iconId;
   final String name;
   final List<Proficiency> proficiencies;
+  final int? speed;
+  final List<StatModifier> statModifiers;
   final SuggestedCharacteristics suggestedCharacteristics;
+  final List<Unlockable> unlockables;
 
   static const defaultIconId = 'background-custom';
 
@@ -34,7 +39,10 @@ class Background extends Equatable {
     this.iconId = Background.defaultIconId,
     required this.name,
     this.proficiencies = const [],
-    this.suggestedCharacteristics = SuggestedCharacteristics.blank,
+    this.speed,
+    this.statModifiers = const [],
+    this.suggestedCharacteristics = const SuggestedCharacteristics.blank(),
+    this.unlockables = const [],
   });
 
   @override
@@ -46,7 +54,10 @@ class Background extends Equatable {
     iconId,
     name,
     proficiencies,
+    speed,
+    statModifiers,
     suggestedCharacteristics,
+    unlockables,
   ];
 
   factory Background.fromJson(Map<String, dynamic> json) {
