@@ -12,11 +12,12 @@ part 'equipment.g.dart';
 class Equipment extends Equatable {
   final String name;
   final double quantity;
+  final String? units;
 
-  const Equipment({required this.name, this.quantity = 1});
+  const Equipment({required this.name, this.quantity = 1, this.units});
 
   @override
-  List<Object?> get props => [name, quantity];
+  List<Object?> get props => [name, quantity, units];
 
   factory Equipment.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject("Equipment", _$EquipmentFromJson, json)

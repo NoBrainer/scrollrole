@@ -11,7 +11,7 @@ part 'weapon.g.dart';
 @JsonSerializable(explicitToJson: true)
 class Weapon extends Equatable {
   final int cost;
-  final int damage;
+  final String damage;
   final String damageType;
   final String name;
   final int range;
@@ -23,7 +23,7 @@ class Weapon extends Equatable {
 
   const Weapon({
     this.cost = 0,
-    this.damage = 1,
+    this.damage = "1d6",
     this.damageType = "",
     required this.name,
     this.range = 0,

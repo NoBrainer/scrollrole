@@ -2,19 +2,12 @@
 
 # Task Priority
 
-1. Create data model
-   - YAML Config: https://github.com/NoBrainer/scrollrole/blob/main/assets/config/default.yaml
-   - Data Model Attempt: https://github.com/NoBrainer/scrollrole-old/tree/main/public/js/model/rules/parts
-   - [X] Backgrounds
-   - [X] Classes
-   - [X] Races
-   - [ ] Lists
-2. Enhance data model
+1. Enhance data model
    - Share most fields across background, race, species for complete flexibility
    - Rework Race to Species (alias?)
-3. Implement viewing the default rules config
-4. Implement modifying the default rules config
-5. Implement import/export rules config
+2. Implement viewing the default rules config
+3. Implement modifying the default rules config
+4. Implement import/export rules config
 
 # Unprioritized Backlog
 

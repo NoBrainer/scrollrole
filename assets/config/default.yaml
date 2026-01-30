@@ -23,7 +23,7 @@ backgrounds:
     equipment:
       - { name: holy symbol }
       - { name: prayer book or prayer wheel }
-      - { name: 5 sticks of incense }
+      - { name: sticks of incense, quantity: 5 }
       - { name: vestments }
       - { name: a set of common clothes }
       - { name: a pouch containing 15gp }
@@ -132,7 +132,7 @@ classes:
       - { type: SAVING_THROW,   name: CON }
     equipment:
       - { name: explorer's pack }
-      - { name: 4 javelins }
+      - { name: javelins, quantity: 4 }
     proficiencyBonus: 2
     features:
       - name: Rage
@@ -1281,30 +1281,30 @@ lists:
     - name: burglar's pack
       items:
         - { name: "backpack" }
-        - { name: "ball bearings",          amount: "bag of 1000" }
-        - { name: "string",                 amount: "10ft" }
+        - { name: "ball bearings",          quantity: 1,  units: "bags of 1000" }
+        - { name: "string",                 quantity: 10, units: "feet" }
         - { name: "bell" }
-        - { name: "candles",                amount: "5" }
+        - { name: "candles",                quantity: 5 }
         - { name: "crowbar" }
         - { name: "hammer" }
-        - { name: "pitons",                 amount: "10" }
+        - { name: "pitons",                 quantity: 10 }
         - { name: "lantern, hooded" }
-        - { name: "oil",                    amount: "2 flasks" }
-        - { name: "rations",                amount: "5 days" }
+        - { name: "oil",                    quantity: 2,  units: "flasks" }
+        - { name: "rations",                quantity: 5,  units: "days" }
         - { name: "tinderbox" }
         - { name: "waterskin" }
-        - { name: "rope, hempen",           amount: "50ft" }
+        - { name: "rope, hempen",           quantity: 50, units: "feet" }
     - name: diplomat's pack
       items:
         - { name: "chest" }
-        - { name: "cases, maps or scrolls", amount: "2" }
-        - { name: "clothes, fine",          amount: "1 set" }
-        - { name: "ink",                    amount: "1 ounce bottle" }
+        - { name: "cases, maps or scrolls", quantity: 2 }
+        - { name: "clothes, fine",          quantity: 1,  units: "sets" }
+        - { name: "ink",                    quantity: 1,  units: "one-ounce bottles" }
         - { name: "ink pen" }
         - { name: "lamp" }
-        - { name: "oil",                    amount: "2 flasks" }
-        - { name: "paper",                  amount: "5 sheets" }
-        - { name: "perfume",                amount: "1 vial" }
+        - { name: "oil",                    quantity: 2,  units: "flasks" }
+        - { name: "paper",                  quantity: 5,  units: "sheets" }
+        - { name: "perfume",                quantity: 1,  units: "vials" }
         - { name: "sealing wax" }
         - { name: "soap" }
     - name: dungeoneer's pack
@@ -1312,19 +1312,19 @@ lists:
         - { name: "backpack" }
         - { name: "crowbar" }
         - { name: "hammer" }
-        - { name: "pitons",                 amount: "10" }
-        - { name: "torches",                amount: "10" }
+        - { name: "pitons",                 quantity: 10 }
+        - { name: "torches",                quantity: 10 }
         - { name: "tinderbox" }
-        - { name: "rations",                amount: "10 days" }
+        - { name: "rations",                quantity: 10, units: "days" }
         - { name: "waterskin" }
-        - { name: "rope, hempen",           amount: "50ft" }
+        - { name: "rope, hempen",           quantity: 50, units: "feet" }
     - name: entertainer's pack
       items:
         - { name: "backpack" }
         - { name: "bedroll" }
-        - { name: "clothes, costume",       amount: "2 sets" }
-        - { name: "candles",                amount: "5" }
-        - { name: "rations",                amount: "5 days" }
+        - { name: "clothes, costume",       quantity: 2,  units: "sets" }
+        - { name: "candles",                quantity: 5 }
+        - { name: "rations",                quantity: 5,  units: "days" }
         - { name: "waterskin" }
         - { name: "disguise kit" }
     - name: explorer's pack
@@ -1333,29 +1333,29 @@ lists:
         - { name: "bedroll" }
         - { name: "mess kit" }
         - { name: "tinderbox" }
-        - { name: "torches",                amount: "10" }
-        - { name: "rations",                amount: "10 days" }
+        - { name: "torches",                quantity: 10 }
+        - { name: "rations",                quantity: 10, units: "days" }
         - { name: "waterskin" }
-        - { name: "rope, hempen",           amount: "50ft" }
+        - { name: "rope, hempen",           quantity: 50, units: "feet" }
     - name: priest's pack
       items:
         - { name: "backpack" }
         - { name: "blanket" }
-        - { name: "candles",                amount: "10" }
+        - { name: "candles",                quantity: 10 }
         - { name: "tinderbox" }
         - { name: "alms box" }
-        - { name: "incense",                amount: "2 blocks" }
+        - { name: "incense",                quantity: 2,  units: "blocks" }
         - { name: "censer" }
         - { name: "vestments" }
-        - { name: "rations",                amount: "2 days" }
+        - { name: "rations",                quantity: 2,  units: "days" }
         - { name: "waterskin" }
     - name: scholar's pack
       items:
         - { name: "backpack" }
         - { name: "book of lore" }
-        - { name: "ink",                    amount: "1 ounce bottle" }
+        - { name: "ink",                    quantity: 1,  units: "one-ounce bottles" }
         - { name: "ink pen" }
-        - { name: "parchment",              amount: "10 sheets" }
+        - { name: "parchment",              quantity: 10, units: "sheets" }
         - { name: "little bag of sand" }
         - { name: "small knife" }
 

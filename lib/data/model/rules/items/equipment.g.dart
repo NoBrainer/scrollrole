@@ -9,9 +9,11 @@ part of 'equipment.dart';
 Equipment _$EquipmentFromJson(Map<String, dynamic> json) => Equipment(
   name: json['name'] as String,
   quantity: (json['quantity'] as num?)?.toDouble() ?? 1,
+  units: json['units'] as String?,
 );
 
 Map<String, dynamic> _$EquipmentToJson(Equipment instance) => <String, dynamic>{
   'name': instance.name,
   'quantity': instance.quantity,
+  'units': instance.units,
 };

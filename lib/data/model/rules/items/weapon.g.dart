@@ -8,7 +8,7 @@ part of 'weapon.dart';
 
 Weapon _$WeaponFromJson(Map<String, dynamic> json) => Weapon(
   cost: (json['cost'] as num?)?.toInt() ?? 0,
-  damage: (json['damage'] as num?)?.toInt() ?? 1,
+  damage: json['damage'] as String? ?? "1d6",
   damageType: json['damageType'] as String? ?? "",
   name: json['name'] as String,
   range: (json['range'] as num?)?.toInt() ?? 0,
