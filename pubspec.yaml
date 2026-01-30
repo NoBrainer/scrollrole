@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 0.0.0+1
 
 environment:
-  sdk: ^3.8.1
+  sdk: ^3.10.8
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -33,7 +33,7 @@ dependencies:
 
   # Separate presentation and business logic/data retrieval
   # See: https://bloclibrary.dev/#/architecture
-  bloc: ^9.0.0
+  bloc: ^9.2.0
   flutter_bloc: ^9.1.1
   # Persist state
   hydrated_bloc: ^10.0.0
@@ -45,31 +45,31 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # Automatically overrides `==` and `hashCode` based on `props`
-  equatable: ^2.0.5
+  equatable: ^2.0.8
 
   # SVG support
-  flutter_svg: ^2.0.10+1
+  flutter_svg: ^2.2.3
 
   # Font Awesome icons
-  font_awesome_flutter: ^10.10.0
+  font_awesome_flutter: ^10.12.0
 
   # Handle routing and deep-linking
-  go_router: ^16.2.5
+  go_router: ^17.0.1
 
-  google_fonts: ^6.2.1
+  google_fonts: ^8.0.0
 
   # Transform streams for things like throttling
   stream_transform: ^2.1.0
 
   # Annotations
-  json_annotation: ^4.9.0
-  meta: ^1.16.0
+  json_annotation: ^4.10.0
+  meta: ^1.17.0
 
   # Provides access to the app version
   package_info_plus: ^9.0.0
 
   # Provide cross-platform way to access file system
-  file_picker: ^10.2.0
+  file_picker: ^10.3.10
 
   url_launcher: ^6.3.2
 
@@ -90,8 +90,8 @@ dev_dependencies:
 
   # After updating objects with json converters, you may want to update the associated generated code.
   # To do so, run this script from the project base: `dart run build_runner build`
-  build_runner: ^2.0.0
-  json_serializable: ^6.8.0
+  build_runner: ^2.10.5
+  json_serializable: ^6.12.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
