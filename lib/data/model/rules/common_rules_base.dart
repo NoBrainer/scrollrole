@@ -1,0 +1,75 @@
+import 'dart:convert';
+
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/rules/items/equipment.dart';
+import 'package:scrollrole/data/model/rules/parts/feature.dart';
+import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
+import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
+import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
+import 'package:scrollrole/data/model/rules/query/choice.dart';
+import 'package:scrollrole/data/model/rules/query/unlockable.dart';
+import 'package:scrollrole/util/mapper_util.dart';
+
+part 'common_rules_base.g.dart';
+
+@immutable
+@JsonSerializable(explicitToJson: true)
+class CommonRulesBase extends Equatable {
+  final List<Choice> choices;
+  final List<String> description;
+  final List<Equipment> equipment;
+  final List<Feature> features;
+  final String iconId;
+  final String name;
+  final List<Proficiency> proficiencies;
+  final int? speed;
+  final List<StatModifier> statModifiers;
+  final SuggestedCharacteristics? suggestedCharacteristics;
+  final List<Unlockable> unlockables;
+
+  const CommonRulesBase({
+    this.choices = const [],
+    this.description = const [],
+    this.equipment = const [],
+    this.features = const [],
+    required this.iconId,
+    required this.name,
+    this.proficiencies = const [],
+    this.speed,
+    this.statModifiers = const [],
+    this.suggestedCharacteristics,
+    this.unlockables = const [],
+  });
+
+  @override
+  List<Object?> get props => [
+    choices,
+    description,
+    equipment,
+    features,
+    iconId,
+    name,
+    proficiencies,
+    speed,
+    statModifiers,
+    suggestedCharacteristics,
+    unlockables,
+  ];
+
+  factory CommonRulesBase.fromJson(Map<String, dynamic> json) {
+    return MapperUtil.jsonToObject(
+          "CommonRulesBase",
+          _$CommonRulesBaseFromJson,
+          json,
+        )
+        as CommonRulesBase;
+  }
+
+  Map<String, dynamic> toJson() => _$CommonRulesBaseToJson(this);
+
+  String toJsonString() {
+    return jsonEncode(toJson());
+  }
+}

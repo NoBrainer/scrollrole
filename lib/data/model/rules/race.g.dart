@@ -41,7 +41,7 @@ Race _$RaceFromJson(Map<String, dynamic> json) => Race(
           .toList() ??
       const [],
   suggestedCharacteristics: json['suggestedCharacteristics'] == null
-      ? const SuggestedCharacteristics.blank()
+      ? null
       : SuggestedCharacteristics.fromJson(
           json['suggestedCharacteristics'] as Map<String, dynamic>,
         ),
@@ -62,6 +62,6 @@ Map<String, dynamic> _$RaceToJson(Race instance) => <String, dynamic>{
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'speed': instance.speed,
   'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
-  'suggestedCharacteristics': instance.suggestedCharacteristics.toJson(),
+  'suggestedCharacteristics': instance.suggestedCharacteristics?.toJson(),
   'unlockables': instance.unlockables.map((e) => e.toJson()).toList(),
 };

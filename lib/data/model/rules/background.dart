@@ -1,8 +1,6 @@
-import 'dart:convert';
-
-import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/rules/common_rules_base.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
@@ -16,58 +14,31 @@ part 'background.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)
-class Background extends Equatable {
-  final List<Choice> choices;
-  final List<String> description;
-  final List<Equipment> equipment;
-  final List<Feature> features;
-  final String iconId;
-  final String name;
-  final List<Proficiency> proficiencies;
-  final int? speed;
-  final List<StatModifier> statModifiers;
-  final SuggestedCharacteristics suggestedCharacteristics;
-  final List<Unlockable> unlockables;
-
+class Background extends CommonRulesBase {
   static const defaultIconId = 'background-custom';
 
   const Background({
-    this.choices = const [],
-    this.description = const [],
-    this.equipment = const [],
-    this.features = const [],
-    this.iconId = Background.defaultIconId,
-    required this.name,
-    this.proficiencies = const [],
-    this.speed,
-    this.statModifiers = const [],
-    this.suggestedCharacteristics = const SuggestedCharacteristics.blank(),
-    this.unlockables = const [],
+    super.choices,
+    super.description,
+    super.equipment,
+    super.features,
+    super.iconId = Background.defaultIconId,
+    required super.name,
+    super.proficiencies,
+    super.speed,
+    super.statModifiers,
+    super.suggestedCharacteristics,
+    super.unlockables,
   });
 
   @override
-  List<Object?> get props => [
-    choices,
-    description,
-    equipment,
-    features,
-    iconId,
-    name,
-    proficiencies,
-    speed,
-    statModifiers,
-    suggestedCharacteristics,
-    unlockables,
-  ];
+  List<Object?> get props => [...super.props];
 
   factory Background.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject("Background", _$BackgroundFromJson, json)
         as Background;
   }
 
+  @override
   Map<String, dynamic> toJson() => _$BackgroundToJson(this);
-
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
 }

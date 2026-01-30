@@ -7,7 +7,8 @@ part of 'class.dart';
 // **************************************************************************
 
 Class _$ClassFromJson(Map<String, dynamic> json) => Class(
-  baseHitPoints: (json['baseHitPoints'] as num?)?.toInt() ?? 10,
+  baseHitPoints:
+      (json['baseHitPoints'] as num?)?.toInt() ?? Class.defaultBaseHitPoints,
   choices:
       (json['choices'] as List<dynamic>?)
           ?.map((e) => Choice.fromJson(e as Map<String, dynamic>))
@@ -29,7 +30,7 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           .toList() ??
       const [],
   hitPointDie: json['hitPointDie'] == null
-      ? DiceType.d8
+      ? Class.defaultHitPointDie
       : DiceType.fromJson(json['hitPointDie'] as String),
   iconId: json['iconId'] as String? ?? Class.defaultIconId,
   name: json['name'] as String,
@@ -38,7 +39,9 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  proficiencyBonus: (json['proficiencyBonus'] as num?)?.toInt() ?? 2,
+  proficiencyBonus:
+      (json['proficiencyBonus'] as num?)?.toInt() ??
+      Class.defaultProficiencyBonus,
   speed: (json['speed'] as num?)?.toInt(),
   spellCasting: json['spellCasting'] == null
       ? null
@@ -49,7 +52,7 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           .toList() ??
       const [],
   suggestedCharacteristics: json['suggestedCharacteristics'] == null
-      ? const SuggestedCharacteristics.blank()
+      ? null
       : SuggestedCharacteristics.fromJson(
           json['suggestedCharacteristics'] as Map<String, dynamic>,
         ),
@@ -61,19 +64,19 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
 );
 
 Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
-  'baseHitPoints': instance.baseHitPoints,
   'choices': instance.choices.map((e) => e.toJson()).toList(),
   'description': instance.description,
   'equipment': instance.equipment.map((e) => e.toJson()).toList(),
   'features': instance.features.map((e) => e.toJson()).toList(),
-  'hitPointDie': instance.hitPointDie.toJson(),
   'iconId': instance.iconId,
   'name': instance.name,
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
-  'proficiencyBonus': instance.proficiencyBonus,
   'speed': instance.speed,
-  'spellCasting': instance.spellCasting?.toJson(),
   'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
-  'suggestedCharacteristics': instance.suggestedCharacteristics.toJson(),
+  'suggestedCharacteristics': instance.suggestedCharacteristics?.toJson(),
   'unlockables': instance.unlockables.map((e) => e.toJson()).toList(),
+  'baseHitPoints': instance.baseHitPoints,
+  'hitPointDie': instance.hitPointDie.toJson(),
+  'proficiencyBonus': instance.proficiencyBonus,
+  'spellCasting': instance.spellCasting?.toJson(),
 };
