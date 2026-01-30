@@ -20,17 +20,21 @@ class Race extends Equatable {
   final List<String> description;
   final List<Equipment> equipment;
   final List<Feature> features;
+  final String iconId;
   final String name;
   final List<StatModifier> statModifiers;
   final List<Proficiency> proficiencies;
   final int speed;
   final SuggestedCharacteristics suggestedCharacteristics;
 
+  static const defaultIconId = 'race-custom';
+
   const Race({
     this.choices = const [],
     this.description = const [],
     this.equipment = const [],
     this.features = const [],
+    this.iconId = Race.defaultIconId,
     required this.name,
     this.proficiencies = const [],
     this.speed = 30,
@@ -44,6 +48,7 @@ class Race extends Equatable {
     description,
     equipment,
     features,
+    iconId,
     name,
     proficiencies,
     speed,

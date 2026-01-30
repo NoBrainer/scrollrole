@@ -27,6 +27,7 @@ Race _$RaceFromJson(Map<String, dynamic> json) => Race(
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  iconId: json['iconId'] as String? ?? Race.defaultIconId,
   name: json['name'] as String,
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
@@ -51,6 +52,7 @@ Map<String, dynamic> _$RaceToJson(Race instance) => <String, dynamic>{
   'description': instance.description,
   'equipment': instance.equipment.map((e) => e.toJson()).toList(),
   'features': instance.features.map((e) => e.toJson()).toList(),
+  'iconId': instance.iconId,
   'name': instance.name,
   'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),

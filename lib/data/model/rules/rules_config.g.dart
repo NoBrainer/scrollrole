@@ -17,10 +17,16 @@ RulesConfig _$RulesConfigFromJson(Map<String, dynamic> json) => RulesConfig(
           ?.map((e) => Class.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  races:
+      (json['races'] as List<dynamic>?)
+          ?.map((e) => Race.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
 );
 
 Map<String, dynamic> _$RulesConfigToJson(RulesConfig instance) =>
     <String, dynamic>{
       'backgrounds': instance.backgrounds.map((e) => e.toJson()).toList(),
       'classes': instance.classes.map((e) => e.toJson()).toList(),
+      'races': instance.races.map((e) => e.toJson()).toList(),
     };

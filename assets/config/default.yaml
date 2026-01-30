@@ -1144,11 +1144,11 @@ races:
           - Two other ability scores of your choice increase by 1.
         pick: 2
         options:
-          - { type: ABILITY_SCORE_ADJUSTMENT, name: STR }
-          - { type: ABILITY_SCORE_ADJUSTMENT, name: DEX }
-          - { type: ABILITY_SCORE_ADJUSTMENT, name: CON }
-          - { type: ABILITY_SCORE_ADJUSTMENT, name: INT }
-          - { type: ABILITY_SCORE_ADJUSTMENT, name: WIS }
+          - { type: ABILITY_SCORE, name: STR, modifier: 1 }
+          - { type: ABILITY_SCORE, name: DEX, modifier: 1 }
+          - { type: ABILITY_SCORE, name: CON, modifier: 1 }
+          - { type: ABILITY_SCORE, name: INT, modifier: 1 }
+          - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
       - name: Languages
         description:
           - You can speak, read, and write Common, Elvish, and one extra language of your choice.
