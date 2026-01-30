@@ -1,4 +1,6 @@
-# Running the App
+# Developer Notes
+
+## Running the App
 
 In Android Studios or IntelliJ:
 
@@ -11,7 +13,7 @@ In Android Studios or IntelliJ:
 3. Pick `main.dart` in the "Select Run/Debug Configuration" dropdown.
 4. Click the Run button.
 
-# Development Environment Setup
+## Development Environment Setup
 
 If this is your first Flutter project, here are some useful resources:
 
@@ -23,9 +25,10 @@ To start setting up your development environment, follow the "Get started" steps
 
 - Install Flutter SDK
     - Note: If you use multiple drives, you want this to be on the same drive as your IDE files.
-- Install Android Studio (You want this even if you're using another IDE, because it includes some other Android
-  dependencies.)
-    - Note: If you use multiple drives, you want the Android SDK to be on the same drive as your IDE files.
+- Install Android Studio (You want this even if you're using another IDE, because it includes some
+  other Android dependencies.)
+    - Note: If you use multiple drives, you should make sure that the Android SDK to be on the same
+      drive as your IDE files.
     - If you do have it installed somewhere other than the default location, make sure to run:
       ```
       flutter config --android-sdk path/to/sdk
@@ -37,14 +40,16 @@ To start setting up your development environment, follow the "Get started" steps
 - Install the Flutter and Dart plugins for your IDE
 - Verify Flutter is properly setup with `flutter doctor`
 
-# Examples to Reference
+## Examples to Reference
 
 - [Flutter Casual Games Toolkit](https://flutter.dev/games)
     - [Game Template](https://github.com/flutter/samples/tree/main/game_template) with sound effects, music, settings,
       ads, in-app purchases, game services (for leaderboard and achievements), and crash reporting
 - [Bare Flame game](https://docs.flame-engine.org/latest/tutorials/bare_flame_game.html)
 
-# Upgrading Dependencies
+## Staying Up-to-Date
+
+### Upgrading Dependencies
 
 ```
 # Check outdated dependencies
@@ -58,14 +63,15 @@ flutter clean
 flutter pub get
 ```
 
-# Upgrading Flutter
+### Upgrading Flutter
 
-When upgrading Flutter, you will most likely need to also refresh your platform directories (android, ios, linux, macos,
-web, windows). This entire process is easily done in several steps:
+When upgrading Flutter, you will most likely need to also refresh your platform directories
+(`android`, `ios`, `linux`, `macos`, `web`, `windows`). This entire process is easily done in several steps:
 
-1. Upgrade flutter:
+1. Upgrade flutter and clear cache:
     ```
     flutter upgrade
+    flutter clean
     ```
 2. Delete platform directories.
 3. Re-create platform directories:
@@ -96,14 +102,14 @@ web, windows). This entire process is easily done in several steps:
       flutter pub get
       ```
 
-# Building and Deploying Directly to Android Device
+## Building and Deploying Directly to Android Device
 
 Note: We use a fat APK for simplicity, but if the app is made available in Google Play, it's recommended to instead use
 app bundles.
 
 See: https://docs.flutter.dev/deployment/android
 
-## Prototype Release Process
+### Prototype Release Process
 
 1. Update `CHANGELOG.md`, commit, and push.
 2. Tag the latest commit with `release-YYYY-MM-DD` to keep track of what is released. Push these changes with tags.
@@ -119,7 +125,7 @@ See: https://docs.flutter.dev/deployment/android
     - You just need to allow your device to "Install unknown apps" to be able to install it.
     - IMPORTANT: Make sure to turn off the permission to "Install unknown apps" after installation.
 
-## Developer Release Process
+### Developer Release Process
 
 1. Setup your device:
     - [Enable Developer options](https://developer.android.com/tools/adb)
@@ -165,7 +171,7 @@ See: https://docs.flutter.dev/deployment/android
 3. For security purposes, turn off Wireless & USB debugging.
 4. If connected with USB, safely disconnect USB device from computer
 
-# Code Organization
+## Code Organization
 
 Inspired by `bloc`'s [Architecture page](https://bloclibrary.dev/#/architecture), this application is broken up into
 three main parts:
@@ -174,14 +180,14 @@ three main parts:
 - `lib/bloc`: Business Logic Layer
 - `lib/data`: Data Layer
 
-## Presentation Layer
+### Presentation Layer
 
 This layer is responsible for rendering itself based on the state, handling user input, and handling state change.
 
-## Business Logic Layer
+### Business Logic Layer
 
 This layer is responsible for responding to input from the presentation layer and maintaining the state.
 
-## Data Layer
+### Data Layer
 
 This layer is responsible for retrieving and storing data.
