@@ -9,7 +9,7 @@ part of 'language.dart';
 Language _$LanguageFromJson(Map<String, dynamic> json) => Language(
   isExotic: json['isExotic'] as bool? ?? false,
   name: json['name'] as String,
-  script: json['script'] as String? ?? "",
+  script: json['script'] as String? ?? '',
   typicalUsers:
       (json['typicalUsers'] as List<dynamic>?)
           ?.map((e) => e as String)

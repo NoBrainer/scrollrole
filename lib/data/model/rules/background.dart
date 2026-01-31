@@ -39,7 +39,7 @@ class Background extends Feature {
   List<Object?> get props => [...super.props, iconId];
 
   factory Background.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Background", _$BackgroundFromJson, json)
+    return MapperUtil.jsonToObject('Background', _$BackgroundFromJson, json)
         as Background;
   }
 

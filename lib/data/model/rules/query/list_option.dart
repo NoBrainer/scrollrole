@@ -20,7 +20,7 @@ class ListOption extends Equatable {
   List<Object?> get props => [name, type];
 
   factory ListOption.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("ListOption", _$ListOptionFromJson, json)
+    return MapperUtil.jsonToObject('ListOption', _$ListOptionFromJson, json)
         as ListOption;
   }
 

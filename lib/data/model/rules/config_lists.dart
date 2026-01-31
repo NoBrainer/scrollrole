@@ -64,7 +64,7 @@ class ConfigLists extends Equatable {
   ];
 
   factory ConfigLists.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("ConfigLists", _$ConfigListsFromJson, json)
+    return MapperUtil.jsonToObject('ConfigLists', _$ConfigListsFromJson, json)
         as ConfigLists;
   }
 

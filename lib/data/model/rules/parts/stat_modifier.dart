@@ -26,7 +26,7 @@ class StatModifier extends Equatable {
   List<Object?> get props => [modifier, name, type];
 
   factory StatModifier.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("StatModifier", _$StatModifierFromJson, json)
+    return MapperUtil.jsonToObject('StatModifier', _$StatModifierFromJson, json)
         as StatModifier;
   }
 

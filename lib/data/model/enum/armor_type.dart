@@ -5,10 +5,10 @@ part 'armor_type.g.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum ArmorType {
-  light("Light", "Light Armor"),
-  medium("Medium", "Medium Armor"),
-  heavy("Heavy", "Heavy Armor"),
-  shield("Shield", "Shield");
+  light('Light', 'Light Armor'),
+  medium('Medium', 'Medium Armor'),
+  heavy('Heavy', 'Heavy Armor'),
+  shield('Shield', 'Shield');
 
   final String display;
   final String displayLong;
@@ -16,7 +16,7 @@ enum ArmorType {
   const ArmorType(this.display, this.displayLong);
 
   factory ArmorType.fromJson(String json) {
-    return MapperUtil.jsonToEnum("ArmorType", _$ArmorTypeEnumMap, json)
+    return MapperUtil.jsonToEnum('ArmorType', _$ArmorTypeEnumMap, json)
         as ArmorType;
   }
 

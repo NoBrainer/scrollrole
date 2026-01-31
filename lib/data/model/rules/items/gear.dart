@@ -18,15 +18,15 @@ class Gear extends Equatable {
   const Gear({
     this.cost = 0,
     required this.name,
-    this.per = "1",
-    this.weight = "",
+    this.per = '1',
+    this.weight = '',
   });
 
   @override
   List<Object?> get props => [cost, name, per, weight];
 
   factory Gear.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Gear", _$GearFromJson, json) as Gear;
+    return MapperUtil.jsonToObject('Gear', _$GearFromJson, json) as Gear;
   }
 
   Map<String, dynamic> toJson() => _$GearToJson(this);

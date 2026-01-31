@@ -20,7 +20,7 @@ class Equipment extends Equatable {
   List<Object?> get props => [name, quantity, units];
 
   factory Equipment.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Equipment", _$EquipmentFromJson, json)
+    return MapperUtil.jsonToObject('Equipment', _$EquipmentFromJson, json)
         as Equipment;
   }
 

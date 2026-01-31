@@ -16,7 +16,7 @@ class MapperUtil {
       return $enumDecode(enumMap, json);
     } catch (e) {
       LogUtil.print(
-        "Failed to parse $enumName!\n"
+        'Failed to parse $enumName!\n'
         "- Error: '$e'\n"
         "- Input: '$json'",
       );
@@ -38,9 +38,9 @@ class MapperUtil {
       return obj;
     } catch (e) {
       LogUtil.print(
-        "Failed to parse $objectName!\n"
+        'Failed to parse $objectName!\n'
         "- Error: '$e'\n"
-        "- Input: $json",
+        '- Input: $json',
       );
       rethrow;
     }

@@ -25,7 +25,7 @@ class Proficiency extends Equatable {
   List<Object?> get props => [name, tags, type];
 
   factory Proficiency.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Proficiency", _$ProficiencyFromJson, json)
+    return MapperUtil.jsonToObject('Proficiency', _$ProficiencyFromJson, json)
         as Proficiency;
   }
 

@@ -47,7 +47,7 @@ class Unlockable extends Equatable {
   ];
 
   factory Unlockable.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Unlockable", _$UnlockableFromJson, json)
+    return MapperUtil.jsonToObject('Unlockable', _$UnlockableFromJson, json)
         as Unlockable;
   }
 

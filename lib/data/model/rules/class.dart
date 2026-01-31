@@ -26,7 +26,7 @@ class Class extends Feature {
 
   static const defaultBaseHitPoints = 10;
   static const defaultHitPointDie = DiceType.d8;
-  static const defaultIconId = "class-custom";
+  static const defaultIconId = 'class-custom';
   static const defaultProficiencyBonus = 2;
 
   const Class({
@@ -60,7 +60,7 @@ class Class extends Feature {
   ];
 
   factory Class.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Class", _$ClassFromJson, json) as Class;
+    return MapperUtil.jsonToObject('Class', _$ClassFromJson, json) as Class;
   }
 
   @override

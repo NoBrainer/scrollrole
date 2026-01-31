@@ -37,7 +37,7 @@ class SuggestedCharacteristics extends Equatable {
 
   factory SuggestedCharacteristics.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject(
-          "SuggestedCharacteristics",
+          'SuggestedCharacteristics',
           _$SuggestedCharacteristicsFromJson,
           json,
         )

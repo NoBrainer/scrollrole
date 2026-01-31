@@ -35,7 +35,7 @@ class RulesConfig extends Equatable {
   List<Object?> get props => [backgrounds, classes, lists, species];
 
   factory RulesConfig.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("RulesConfig", _$RulesConfigFromJson, json)
+    return MapperUtil.jsonToObject('RulesConfig', _$RulesConfigFromJson, json)
         as RulesConfig;
   }
 
@@ -57,7 +57,7 @@ class RulesConfig extends Equatable {
       var jsonMap = json.decode(jsonString);
       return RulesConfig.fromJson(jsonMap);
     } catch (e) {
-      LogUtil.print("Error parsing yaml: $e");
+      LogUtil.print('Error parsing yaml: $e');
       return null;
     }
   }

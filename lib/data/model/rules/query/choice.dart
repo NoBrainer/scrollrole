@@ -42,7 +42,7 @@ class Choice extends Equatable {
 
   factory Choice.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject(
-          "Choice",
+          'Choice',
           _$ChoiceFromJson,
           json,
           validate: (Choice parsedChoice) {

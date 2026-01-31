@@ -30,16 +30,16 @@ class RulesScreen extends StatelessWidget {
       canPop: true,
       child: Scaffold(
         appBar: StyledAppBar(
-          titleText: "Rules",
+          titleText: 'Rules',
           actions: [
             IconButton(
-              tooltip: "Edit",
+              tooltip: 'Edit',
               icon: const Icon(Icons.edit),
               onPressed: () {
-                DialogUtil.showLoadingSpinner(context, text: "Loading...");
+                DialogUtil.showLoadingSpinner(context, text: 'Loading...');
                 SnackbarUtil.showMessage(
                   context,
-                  "Edit Rules under construction.",
+                  'Edit Rules under construction.',
                 );
               },
             ),
@@ -50,37 +50,37 @@ class RulesScreen extends StatelessWidget {
             children: [
               BasicCard(
                 children: [
-                  BasicCardTitle(text: "Backgrounds"),
-                  BasicCardSection(children: [Text("TBD")]),
+                  BasicCardTitle(text: 'Backgrounds'),
+                  BasicCardSection(children: [Text('TBD')]),
                 ],
               ),
               BasicCard(
                 children: [
-                  BasicCardTitle(text: "Classes"),
-                  BasicCardSection(children: [Text("TBD")]),
+                  BasicCardTitle(text: 'Classes'),
+                  BasicCardSection(children: [Text('TBD')]),
                 ],
               ),
               BasicCard(
                 children: [
-                  BasicCardTitle(text: "Species"),
-                  BasicCardSection(children: [Text("TBD")]),
+                  BasicCardTitle(text: 'Species'),
+                  BasicCardSection(children: [Text('TBD')]),
                 ],
               ),
               BasicCard(
                 children: [
-                  BasicCardTitle(text: "Lists"),
+                  BasicCardTitle(text: 'Lists'),
                   BasicCardSection(
                     children: [
-                      Text("- Armor"),
-                      Text("- Background Features"),
-                      Text("- Equipment Packs"),
-                      Text("- Feats"),
-                      Text("- Gear"),
-                      Text("- Languages"),
-                      Text("- Proficiencies"),
-                      Text("- Spells"),
-                      Text("- Tools"),
-                      Text("- Weapons"),
+                      Text('- Armor'),
+                      Text('- Background Features'),
+                      Text('- Equipment Packs'),
+                      Text('- Feats'),
+                      Text('- Gear'),
+                      Text('- Languages'),
+                      Text('- Proficiencies'),
+                      Text('- Spells'),
+                      Text('- Tools'),
+                      Text('- Weapons'),
                     ],
                   ),
                 ],

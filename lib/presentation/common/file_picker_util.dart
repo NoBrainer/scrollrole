@@ -41,6 +41,6 @@ class FilePickerUtil {
 
   static void onLoadConfig(BuildContext context, File file, String content) {
     context.read<ConfigBloc>().add(ImportFile(content));
-    SnackbarUtil.showMessage(context, "Loaded game state from ${file.path}");
+    SnackbarUtil.showMessage(context, 'Loaded game state from ${file.path}');
   }
 }

@@ -19,7 +19,7 @@ class Language extends Equatable {
   const Language({
     this.isExotic = false,
     required this.name,
-    this.script = "",
+    this.script = '',
     this.typicalUsers = const [],
   });
 
@@ -27,7 +27,7 @@ class Language extends Equatable {
   List<Object?> get props => [isExotic, name, script, typicalUsers];
 
   factory Language.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Language", _$LanguageFromJson, json)
+    return MapperUtil.jsonToObject('Language', _$LanguageFromJson, json)
         as Language;
   }
 

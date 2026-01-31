@@ -12,7 +12,7 @@ class SnackbarUtil {
         context,
       ).showSnackBar(SnackBar(content: Text(message, style: textStyle)));
     } else {
-      LogUtil.print("No ScaffoldMessenger in context, ignoring");
+      LogUtil.print('No ScaffoldMessenger in context, ignoring');
     }
   }
 

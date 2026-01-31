@@ -31,7 +31,7 @@ class Armor extends Equatable {
     this.stealthDisadvantage = false,
     this.strengthRequirement,
     required this.type,
-    this.weight = "",
+    this.weight = '',
   });
 
   @override
@@ -48,7 +48,7 @@ class Armor extends Equatable {
   ];
 
   factory Armor.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Armor", _$ArmorFromJson, json) as Armor;
+    return MapperUtil.jsonToObject('Armor', _$ArmorFromJson, json) as Armor;
   }
 
   Map<String, dynamic> toJson() => _$ArmorToJson(this);

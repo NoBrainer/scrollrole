@@ -8,7 +8,7 @@ import 'package:url_launcher/url_launcher.dart';
 class AppBugsScreen extends StatelessWidget {
   static const String path = '/bugs';
   static const String issuesUrl =
-      "https://github.com/NoBrainer/scrollrole/issues";
+      'https://github.com/NoBrainer/scrollrole/issues';
 
   static GoRoute route() {
     return GoRoute(
@@ -28,7 +28,7 @@ class AppBugsScreen extends StatelessWidget {
     return PopScope(
       canPop: true,
       child: Scaffold(
-        appBar: StyledAppBar(titleText: "Report Issues & Bugs"),
+        appBar: StyledAppBar(titleText: 'Report Issues & Bugs'),
         body: Center(
           child: ListView(
             children: [
@@ -39,7 +39,7 @@ class AppBugsScreen extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text("Report issues in GitHub:"),
+                          const Text('Report issues in GitHub:'),
                           const SizedBox(height: 10),
                           Tooltip(
                             message: issuesUrl,
@@ -61,13 +61,13 @@ class AppBugsScreen extends StatelessWidget {
                                 } catch (e) {
                                   SnackbarUtil.showMessage(
                                     context,
-                                    "Unable to open issues link in browser.",
+                                    'Unable to open issues link in browser.',
                                   );
                                 }
                               },
                               child: const Row(
                                 children: [
-                                  Text("Open in Browser"),
+                                  Text('Open in Browser'),
                                   SizedBox(width: 4),
                                   Icon(Icons.open_in_new),
                                 ],

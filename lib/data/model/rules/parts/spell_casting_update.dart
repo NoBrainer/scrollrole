@@ -25,7 +25,7 @@ class SpellCastingUpdate extends Equatable {
 
   factory SpellCastingUpdate.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject(
-          "SpellCastingUpdate",
+          'SpellCastingUpdate',
           _$SpellCastingUpdateFromJson,
           json,
         )

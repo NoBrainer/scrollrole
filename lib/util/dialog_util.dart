@@ -11,23 +11,23 @@ class DialogUtil {
   }) {
     if (content == null && contentText == null) {
       title = null;
-      titleText = "DialogUtil Error";
+      titleText = 'DialogUtil Error';
       content = null;
       contentText = "DialogUtil.showAlert requires 'content' or 'contentText'";
     } else if (content != null && contentText != null) {
       title = null;
-      titleText = "DialogUtil Error";
+      titleText = 'DialogUtil Error';
       content = null;
       contentText =
           "DialogUtil.showAlert requires 'content' or 'contentText', but not both";
     } else if (title == null && titleText == null) {
       title = null;
-      titleText = "DialogUtil Error";
+      titleText = 'DialogUtil Error';
       content = null;
       contentText = "DialogUtil.showAlert requires 'title' or 'titleText'";
     } else if (title != null && titleText != null) {
       title = null;
-      titleText = "DialogUtil Error";
+      titleText = 'DialogUtil Error';
       content = null;
       contentText =
           "DialogUtil.showAlert requires 'title' or 'titleText', but not both";
@@ -45,7 +45,7 @@ class DialogUtil {
   }
 
   static void showErrorAlert(BuildContext context, String description) {
-    showAlert(context, titleText: "Error", contentText: description);
+    showAlert(context, titleText: 'Error', contentText: description);
   }
 
   static void showFeatureNotImplementedAlert(
@@ -54,7 +54,7 @@ class DialogUtil {
   ) {
     showAlert(
       context,
-      titleText: "Feature Not Implemented",
+      titleText: 'Feature Not Implemented',
       contentText: description,
     );
   }

@@ -5,12 +5,12 @@ part 'proficiency_type.g.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum ProficiencyType {
-  armor("Armor", "Armor Proficiency"),
-  language("Language", "Language Proficiency"),
-  savingThrow("Saving Throw", "Saving Throw Proficiency"),
-  skill("Skill", "Skill Proficiency"),
-  tool("Tool", "Tool Proficiency"),
-  weapon("Weapon", "Weapon Proficiency");
+  armor('Armor', 'Armor Proficiency'),
+  language('Language', 'Language Proficiency'),
+  savingThrow('Saving Throw', 'Saving Throw Proficiency'),
+  skill('Skill', 'Skill Proficiency'),
+  tool('Tool', 'Tool Proficiency'),
+  weapon('Weapon', 'Weapon Proficiency');
 
   final String display;
   final String displayLong;
@@ -19,7 +19,7 @@ enum ProficiencyType {
 
   factory ProficiencyType.fromJson(String json) {
     return MapperUtil.jsonToEnum(
-          "ProficiencyType",
+          'ProficiencyType',
           _$ProficiencyTypeEnumMap,
           json,
         )

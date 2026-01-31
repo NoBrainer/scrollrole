@@ -31,7 +31,7 @@ class ListQuery extends Equatable {
   List<Object?> get props => [classes, levels, list, requiredTags, tags, types];
 
   factory ListQuery.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("ListQuery", _$ListQueryFromJson, json)
+    return MapperUtil.jsonToObject('ListQuery', _$ListQueryFromJson, json)
         as ListQuery;
   }
 

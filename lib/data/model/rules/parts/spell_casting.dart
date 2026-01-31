@@ -38,7 +38,7 @@ class SpellCasting extends Equatable {
   ];
 
   factory SpellCasting.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("SpellCasting", _$SpellCastingFromJson, json)
+    return MapperUtil.jsonToObject('SpellCasting', _$SpellCastingFromJson, json)
         as SpellCasting;
   }
 

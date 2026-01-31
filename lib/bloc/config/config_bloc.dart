@@ -13,20 +13,20 @@ part 'config_event.dart';
 part 'config_state.dart';
 
 class ConfigBloc extends HydratedBloc<ConfigEvent, ConfigState> {
-  static const defaultConfigFile = "assets/config/default.yaml";
+  static const defaultConfigFile = 'assets/config/default.yaml';
 
   ConfigBloc() : super(ConfigState.initial()) {
     on<LoadDefaultConfigRequested>((event, emit) async {
-      LogUtil.print("on LoadDefaultConfigRequested");
+      LogUtil.print('on LoadDefaultConfigRequested');
       String yamlString = await rootBundle.loadString(defaultConfigFile);
       //TODO: save/cache this ConfigState
       // LogUtil.print("YAML:\n---\n$yamlString\n---\n");
       RulesConfig? rulesConfig = RulesConfig.fromYaml(yamlString);
       if (rulesConfig == null) {
-        LogUtil.print("YAML was empty from default config");
+        LogUtil.print('YAML was empty from default config');
         emit(state.copyWith(status: () => ConfigStatus.loadedFailure));
       } else {
-        LogUtil.print("RulesConfig loaded from: $defaultConfigFile");
+        LogUtil.print('RulesConfig loaded from: $defaultConfigFile');
         emit(
           state.copyWith(
             rulesConfig: () => rulesConfig,
@@ -36,26 +36,26 @@ class ConfigBloc extends HydratedBloc<ConfigEvent, ConfigState> {
       }
     });
     on<ForceSave>((event, emit) {
-      LogUtil.print("on ForceSave: $state");
+      LogUtil.print('on ForceSave: $state');
       HydratedBloc.storage.write(storageToken, toJson(state));
     });
     on<ForceReset>((event, emit) {
       final newState = ConfigState.initial().copyWith();
-      LogUtil.print("on ForceReset:\n```\n$newState```");
+      LogUtil.print('on ForceReset:\n```\n$newState```');
       HydratedBloc.storage.write(storageToken, toJson(newState));
       emit(newState);
     });
     on<ImportFile>((event, emit) {
-      LogUtil.print("on ImportFile:\n```\n${event.content}```");
+      LogUtil.print('on ImportFile:\n```\n${event.content}```');
       if (event.content.isEmpty) {
-        LogUtil.print("Ignoring empty file import");
+        LogUtil.print('Ignoring empty file import');
         return;
       }
       RulesConfig? importedRules = RulesConfig.fromYaml(event.content);
       if (importedRules == null) {
-        LogUtil.print("Empty imported rules. Ignoring.");
+        LogUtil.print('Empty imported rules. Ignoring.');
       } else {
-        LogUtil.print("RulesConfig: $importedRules");
+        LogUtil.print('RulesConfig: $importedRules');
         emit(
           state.copyWith(
             rulesConfig: () => importedRules,

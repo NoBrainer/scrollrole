@@ -23,15 +23,15 @@ class Weapon extends Equatable {
 
   const Weapon({
     this.cost = 0,
-    this.damage = "1d6",
-    this.damageType = "",
+    this.damage = '1d6',
+    this.damageType = '',
     required this.name,
     this.range = 0,
-    this.rangeUnits = "ft",
+    this.rangeUnits = 'ft',
     this.rangeWithDisadvantage = 0,
     this.tags = const [],
-    this.versatileDamage = "",
-    this.weight = "",
+    this.versatileDamage = '',
+    this.weight = '',
   });
 
   @override
@@ -49,7 +49,7 @@ class Weapon extends Equatable {
   ];
 
   factory Weapon.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Weapon", _$WeaponFromJson, json) as Weapon;
+    return MapperUtil.jsonToObject('Weapon', _$WeaponFromJson, json) as Weapon;
   }
 
   Map<String, dynamic> toJson() => _$WeaponToJson(this);

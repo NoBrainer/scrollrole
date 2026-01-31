@@ -19,14 +19,14 @@ class Tool extends Equatable {
     this.cost = 0,
     required this.name,
     this.tags = const [],
-    this.weight = "",
+    this.weight = '',
   });
 
   @override
   List<Object?> get props => [cost, name, tags, weight];
 
   factory Tool.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Tool", _$ToolFromJson, json) as Tool;
+    return MapperUtil.jsonToObject('Tool', _$ToolFromJson, json) as Tool;
   }
 
   Map<String, dynamic> toJson() => _$ToolToJson(this);

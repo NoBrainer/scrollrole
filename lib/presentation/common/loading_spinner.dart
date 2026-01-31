@@ -37,8 +37,8 @@ class LoadingSpinnerState extends State<LoadingSpinner>
         RotationTransition(
           turns: _animation,
           child: SvgPicture.asset(
-            "assets/d20-solid.svg",
-            semanticsLabel: "D20 Loading Spinner",
+            'assets/d20-solid.svg',
+            semanticsLabel: 'D20 Loading Spinner',
           ),
         ),
         if (widget.text != null && widget.text!.isNotEmpty)

@@ -34,146 +34,146 @@ class ColorSchemePreviewScreen extends StatelessWidget {
     return PopScope(
       canPop: true,
       child: Scaffold(
-        appBar: StyledAppBar(titleText: "Color Scheme Preview"),
+        appBar: StyledAppBar(titleText: 'Color Scheme Preview'),
         body: Center(
           child: ListView(
             children: [
-              _ColorRow(name: "primary", color: colorScheme.primary),
-              _ColorRow(name: "onPrimary", color: colorScheme.onPrimary),
+              _ColorRow(name: 'primary', color: colorScheme.primary),
+              _ColorRow(name: 'onPrimary', color: colorScheme.onPrimary),
               _ColorRow(
-                name: "primaryContainer",
+                name: 'primaryContainer',
                 color: colorScheme.primaryContainer,
               ),
               _ColorRow(
-                name: "onPrimaryContainer",
+                name: 'onPrimaryContainer',
                 color: colorScheme.onPrimaryContainer,
               ),
-              _ColorRow(name: "primaryFixed", color: colorScheme.primaryFixed),
+              _ColorRow(name: 'primaryFixed', color: colorScheme.primaryFixed),
               _ColorRow(
-                name: "primaryFixedDim",
+                name: 'primaryFixedDim',
                 color: colorScheme.primaryFixedDim,
               ),
               _ColorRow(
-                name: "onPrimaryFixed",
+                name: 'onPrimaryFixed',
                 color: colorScheme.onPrimaryFixed,
               ),
               _ColorRow(
-                name: "onPrimaryFixedVariant",
+                name: 'onPrimaryFixedVariant',
                 color: colorScheme.onPrimaryFixedVariant,
               ),
-              _ColorRow(name: "secondary", color: colorScheme.secondary),
-              _ColorRow(name: "onSecondary", color: colorScheme.onSecondary),
+              _ColorRow(name: 'secondary', color: colorScheme.secondary),
+              _ColorRow(name: 'onSecondary', color: colorScheme.onSecondary),
               _ColorRow(
-                name: "secondaryContainer",
+                name: 'secondaryContainer',
                 color: colorScheme.secondaryContainer,
               ),
               _ColorRow(
-                name: "onSecondaryContainer",
+                name: 'onSecondaryContainer',
                 color: colorScheme.onSecondaryContainer,
               ),
               _ColorRow(
-                name: "secondaryFixed",
+                name: 'secondaryFixed',
                 color: colorScheme.secondaryFixed,
               ),
               _ColorRow(
-                name: "secondaryFixedDim",
+                name: 'secondaryFixedDim',
                 color: colorScheme.secondaryFixedDim,
               ),
               _ColorRow(
-                name: "onSecondaryFixed",
+                name: 'onSecondaryFixed',
                 color: colorScheme.onSecondaryFixed,
               ),
               _ColorRow(
-                name: "onSecondaryFixedVariant",
+                name: 'onSecondaryFixedVariant',
                 color: colorScheme.onSecondaryFixedVariant,
               ),
-              _ColorRow(name: "tertiary", color: colorScheme.tertiary),
-              _ColorRow(name: "onTertiary", color: colorScheme.onTertiary),
+              _ColorRow(name: 'tertiary', color: colorScheme.tertiary),
+              _ColorRow(name: 'onTertiary', color: colorScheme.onTertiary),
               _ColorRow(
-                name: "tertiaryContainer",
+                name: 'tertiaryContainer',
                 color: colorScheme.tertiaryContainer,
               ),
               _ColorRow(
-                name: "onTertiaryContainer",
+                name: 'onTertiaryContainer',
                 color: colorScheme.onTertiaryContainer,
               ),
               _ColorRow(
-                name: "tertiaryFixed",
+                name: 'tertiaryFixed',
                 color: colorScheme.tertiaryFixed,
               ),
               _ColorRow(
-                name: "tertiaryFixedDim",
+                name: 'tertiaryFixedDim',
                 color: colorScheme.tertiaryFixedDim,
               ),
               _ColorRow(
-                name: "onTertiaryFixed",
+                name: 'onTertiaryFixed',
                 color: colorScheme.onTertiaryFixed,
               ),
               _ColorRow(
-                name: "onTertiaryFixedVariant",
+                name: 'onTertiaryFixedVariant',
                 color: colorScheme.onTertiaryFixedVariant,
               ),
-              _ColorRow(name: "error", color: colorScheme.error),
-              _ColorRow(name: "onError", color: colorScheme.onError),
+              _ColorRow(name: 'error', color: colorScheme.error),
+              _ColorRow(name: 'onError', color: colorScheme.onError),
               _ColorRow(
-                name: "errorContainer",
+                name: 'errorContainer',
                 color: colorScheme.errorContainer,
               ),
               _ColorRow(
-                name: "onErrorContainer",
+                name: 'onErrorContainer',
                 color: colorScheme.onErrorContainer,
               ),
-              _ColorRow(name: "surface", color: colorScheme.surface),
-              _ColorRow(name: "onSurface", color: colorScheme.onSurface),
-              _ColorRow(name: "surfaceDim", color: colorScheme.surfaceDim),
+              _ColorRow(name: 'surface', color: colorScheme.surface),
+              _ColorRow(name: 'onSurface', color: colorScheme.onSurface),
+              _ColorRow(name: 'surfaceDim', color: colorScheme.surfaceDim),
               _ColorRow(
-                name: "surfaceBright",
+                name: 'surfaceBright',
                 color: colorScheme.surfaceBright,
               ),
               _ColorRow(
-                name: "surfaceContainerLowest",
+                name: 'surfaceContainerLowest',
                 color: colorScheme.surfaceContainerLowest,
               ),
               _ColorRow(
-                name: "surfaceContainerLow",
+                name: 'surfaceContainerLow',
                 color: colorScheme.surfaceContainerLow,
               ),
               _ColorRow(
-                name: "surfaceContainer",
+                name: 'surfaceContainer',
                 color: colorScheme.surfaceContainer,
               ),
               _ColorRow(
-                name: "surfaceContainerHigh",
+                name: 'surfaceContainerHigh',
                 color: colorScheme.surfaceContainerHigh,
               ),
               _ColorRow(
-                name: "surfaceContainerHighest",
+                name: 'surfaceContainerHighest',
                 color: colorScheme.surfaceContainerHighest,
               ),
               _ColorRow(
-                name: "onSurfaceVariant",
+                name: 'onSurfaceVariant',
                 color: colorScheme.onSurfaceVariant,
               ),
-              _ColorRow(name: "outline", color: colorScheme.outline),
+              _ColorRow(name: 'outline', color: colorScheme.outline),
               _ColorRow(
-                name: "outlineVariant",
+                name: 'outlineVariant',
                 color: colorScheme.outlineVariant,
               ),
-              _ColorRow(name: "shadow", color: colorScheme.shadow),
-              _ColorRow(name: "scrim", color: colorScheme.scrim),
+              _ColorRow(name: 'shadow', color: colorScheme.shadow),
+              _ColorRow(name: 'scrim', color: colorScheme.scrim),
               _ColorRow(
-                name: "inverseSurface",
+                name: 'inverseSurface',
                 color: colorScheme.inverseSurface,
               ),
               _ColorRow(
-                name: "onInverseSurface",
+                name: 'onInverseSurface',
                 color: colorScheme.onInverseSurface,
               ),
               _ColorRow(
-                name: "inversePrimary",
+                name: 'inversePrimary',
                 color: colorScheme.inversePrimary,
               ),
-              _ColorRow(name: "surfaceTint", color: colorScheme.surfaceTint),
+              _ColorRow(name: 'surfaceTint', color: colorScheme.surfaceTint),
             ],
           ),
         ),
@@ -202,139 +202,139 @@ class _ColorRow extends StatelessWidget {
 }
 
 void _prettyDebugColorScheme(ColorScheme colorScheme) {
-  LogUtil.print("ColorScheme(");
-  LogUtil.print("  brightness: ${colorScheme.brightness},");
-  LogUtil.print("  primary: ${_toHexString(colorScheme.primary)},");
-  LogUtil.print("  onPrimary: ${_toHexString(colorScheme.onPrimary)},");
+  LogUtil.print('ColorScheme(');
+  LogUtil.print('  brightness: ${colorScheme.brightness},');
+  LogUtil.print('  primary: ${_toHexString(colorScheme.primary)},');
+  LogUtil.print('  onPrimary: ${_toHexString(colorScheme.onPrimary)},');
   LogUtil.print(
-    "  primaryContainer: "
-    "${_toHexString(colorScheme.primaryContainer)},",
+    '  primaryContainer: '
+    '${_toHexString(colorScheme.primaryContainer)},',
   );
   LogUtil.print(
-    "  onPrimaryContainer: "
-    "${_toHexString(colorScheme.onPrimaryContainer)},",
+    '  onPrimaryContainer: '
+    '${_toHexString(colorScheme.onPrimaryContainer)},',
   );
-  LogUtil.print("  primaryFixed: ${_toHexString(colorScheme.primaryFixed)},");
+  LogUtil.print('  primaryFixed: ${_toHexString(colorScheme.primaryFixed)},');
   LogUtil.print(
-    "  primaryFixedDim: "
-    "${_toHexString(colorScheme.primaryFixedDim)},",
-  );
-  LogUtil.print(
-    "  onPrimaryFixed: "
-    "${_toHexString(colorScheme.onPrimaryFixed)},",
+    '  primaryFixedDim: '
+    '${_toHexString(colorScheme.primaryFixedDim)},',
   );
   LogUtil.print(
-    "  onPrimaryFixedVariant: "
-    "${_toHexString(colorScheme.onPrimaryFixedVariant)},",
-  );
-  LogUtil.print("  secondary: ${_toHexString(colorScheme.secondary)},");
-  LogUtil.print("  onSecondary: ${_toHexString(colorScheme.onSecondary)},");
-  LogUtil.print(
-    "  secondaryContainer: "
-    "${_toHexString(colorScheme.secondaryContainer)},",
+    '  onPrimaryFixed: '
+    '${_toHexString(colorScheme.onPrimaryFixed)},',
   );
   LogUtil.print(
-    "  onSecondaryContainer: "
-    "${_toHexString(colorScheme.onSecondaryContainer)},",
+    '  onPrimaryFixedVariant: '
+    '${_toHexString(colorScheme.onPrimaryFixedVariant)},',
+  );
+  LogUtil.print('  secondary: ${_toHexString(colorScheme.secondary)},');
+  LogUtil.print('  onSecondary: ${_toHexString(colorScheme.onSecondary)},');
+  LogUtil.print(
+    '  secondaryContainer: '
+    '${_toHexString(colorScheme.secondaryContainer)},',
   );
   LogUtil.print(
-    "  secondaryFixed: "
-    "${_toHexString(colorScheme.secondaryFixed)},",
+    '  onSecondaryContainer: '
+    '${_toHexString(colorScheme.onSecondaryContainer)},',
   );
   LogUtil.print(
-    "  secondaryFixedDim: "
-    "${_toHexString(colorScheme.secondaryFixedDim)},",
+    '  secondaryFixed: '
+    '${_toHexString(colorScheme.secondaryFixed)},',
   );
   LogUtil.print(
-    "  onSecondaryFixed: "
-    "${_toHexString(colorScheme.onSecondaryFixed)},",
+    '  secondaryFixedDim: '
+    '${_toHexString(colorScheme.secondaryFixedDim)},',
   );
   LogUtil.print(
-    "  onSecondaryFixedVariant: "
-    "${_toHexString(colorScheme.onSecondaryFixedVariant)},",
-  );
-  LogUtil.print("  tertiary: ${_toHexString(colorScheme.tertiary)},");
-  LogUtil.print("  onTertiary: ${_toHexString(colorScheme.onTertiary)},");
-  LogUtil.print(
-    "  tertiaryContainer: "
-    "${_toHexString(colorScheme.tertiaryContainer)},",
+    '  onSecondaryFixed: '
+    '${_toHexString(colorScheme.onSecondaryFixed)},',
   );
   LogUtil.print(
-    "  onTertiaryContainer: "
-    "${_toHexString(colorScheme.onTertiaryContainer)},",
+    '  onSecondaryFixedVariant: '
+    '${_toHexString(colorScheme.onSecondaryFixedVariant)},',
   );
-  LogUtil.print("  tertiaryFixed: ${_toHexString(colorScheme.tertiaryFixed)},");
+  LogUtil.print('  tertiary: ${_toHexString(colorScheme.tertiary)},');
+  LogUtil.print('  onTertiary: ${_toHexString(colorScheme.onTertiary)},');
   LogUtil.print(
-    "  tertiaryFixedDim: "
-    "${_toHexString(colorScheme.tertiaryFixedDim)},",
-  );
-  LogUtil.print(
-    "  onTertiaryFixed: "
-    "${_toHexString(colorScheme.onTertiaryFixed)},",
+    '  tertiaryContainer: '
+    '${_toHexString(colorScheme.tertiaryContainer)},',
   );
   LogUtil.print(
-    "  onTertiaryFixedVariant: "
-    "${_toHexString(colorScheme.onTertiaryFixedVariant)},",
+    '  onTertiaryContainer: '
+    '${_toHexString(colorScheme.onTertiaryContainer)},',
   );
-  LogUtil.print("  error: ${_toHexString(colorScheme.error)},");
-  LogUtil.print("  onError: ${_toHexString(colorScheme.onError)},");
+  LogUtil.print('  tertiaryFixed: ${_toHexString(colorScheme.tertiaryFixed)},');
   LogUtil.print(
-    "  errorContainer: "
-    "${_toHexString(colorScheme.errorContainer)},",
-  );
-  LogUtil.print(
-    "  onErrorContainer: "
-    "${_toHexString(colorScheme.onErrorContainer)},",
-  );
-  LogUtil.print("  surface: ${_toHexString(colorScheme.surface)},");
-  LogUtil.print("  onSurface: ${_toHexString(colorScheme.onSurface)},");
-  LogUtil.print("  surfaceDim: ${_toHexString(colorScheme.surfaceDim)},");
-  LogUtil.print("  surfaceBright: ${_toHexString(colorScheme.surfaceBright)},");
-  LogUtil.print(
-    "  surfaceContainerLowest: "
-    "${_toHexString(colorScheme.surfaceContainerLowest)},",
+    '  tertiaryFixedDim: '
+    '${_toHexString(colorScheme.tertiaryFixedDim)},',
   );
   LogUtil.print(
-    "  surfaceContainerLow: "
-    "${_toHexString(colorScheme.surfaceContainerLow)},",
+    '  onTertiaryFixed: '
+    '${_toHexString(colorScheme.onTertiaryFixed)},',
   );
   LogUtil.print(
-    "  surfaceContainer: "
-    "${_toHexString(colorScheme.surfaceContainer)},",
+    '  onTertiaryFixedVariant: '
+    '${_toHexString(colorScheme.onTertiaryFixedVariant)},',
+  );
+  LogUtil.print('  error: ${_toHexString(colorScheme.error)},');
+  LogUtil.print('  onError: ${_toHexString(colorScheme.onError)},');
+  LogUtil.print(
+    '  errorContainer: '
+    '${_toHexString(colorScheme.errorContainer)},',
   );
   LogUtil.print(
-    "  surfaceContainerHigh: "
-    "${_toHexString(colorScheme.surfaceContainerHigh)},",
+    '  onErrorContainer: '
+    '${_toHexString(colorScheme.onErrorContainer)},',
+  );
+  LogUtil.print('  surface: ${_toHexString(colorScheme.surface)},');
+  LogUtil.print('  onSurface: ${_toHexString(colorScheme.onSurface)},');
+  LogUtil.print('  surfaceDim: ${_toHexString(colorScheme.surfaceDim)},');
+  LogUtil.print('  surfaceBright: ${_toHexString(colorScheme.surfaceBright)},');
+  LogUtil.print(
+    '  surfaceContainerLowest: '
+    '${_toHexString(colorScheme.surfaceContainerLowest)},',
   );
   LogUtil.print(
-    "  surfaceContainerHighest: "
-    "${_toHexString(colorScheme.surfaceContainerHighest)},",
+    '  surfaceContainerLow: '
+    '${_toHexString(colorScheme.surfaceContainerLow)},',
   );
   LogUtil.print(
-    "  onSurfaceVariant: "
-    "${_toHexString(colorScheme.onSurfaceVariant)},",
-  );
-  LogUtil.print("  outline: ${_toHexString(colorScheme.outline)},");
-  LogUtil.print(
-    "  outlineVariant: "
-    "${_toHexString(colorScheme.outlineVariant)},",
-  );
-  LogUtil.print("  shadow: ${_toHexString(colorScheme.shadow)},");
-  LogUtil.print("  scrim: ${_toHexString(colorScheme.scrim)},");
-  LogUtil.print(
-    "  inverseSurface: "
-    "${_toHexString(colorScheme.inverseSurface)},",
+    '  surfaceContainer: '
+    '${_toHexString(colorScheme.surfaceContainer)},',
   );
   LogUtil.print(
-    "  onInverseSurface: "
-    "${_toHexString(colorScheme.onInverseSurface)},",
+    '  surfaceContainerHigh: '
+    '${_toHexString(colorScheme.surfaceContainerHigh)},',
   );
   LogUtil.print(
-    "  inversePrimary: "
-    "${_toHexString(colorScheme.inversePrimary)},",
+    '  surfaceContainerHighest: '
+    '${_toHexString(colorScheme.surfaceContainerHighest)},',
   );
-  LogUtil.print("  surfaceTint: ${_toHexString(colorScheme.surfaceTint)},");
-  LogUtil.print(")");
+  LogUtil.print(
+    '  onSurfaceVariant: '
+    '${_toHexString(colorScheme.onSurfaceVariant)},',
+  );
+  LogUtil.print('  outline: ${_toHexString(colorScheme.outline)},');
+  LogUtil.print(
+    '  outlineVariant: '
+    '${_toHexString(colorScheme.outlineVariant)},',
+  );
+  LogUtil.print('  shadow: ${_toHexString(colorScheme.shadow)},');
+  LogUtil.print('  scrim: ${_toHexString(colorScheme.scrim)},');
+  LogUtil.print(
+    '  inverseSurface: '
+    '${_toHexString(colorScheme.inverseSurface)},',
+  );
+  LogUtil.print(
+    '  onInverseSurface: '
+    '${_toHexString(colorScheme.onInverseSurface)},',
+  );
+  LogUtil.print(
+    '  inversePrimary: '
+    '${_toHexString(colorScheme.inversePrimary)},',
+  );
+  LogUtil.print('  surfaceTint: ${_toHexString(colorScheme.surfaceTint)},');
+  LogUtil.print(')');
 }
 
 String _toHexString(Color c) {

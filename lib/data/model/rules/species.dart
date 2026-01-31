@@ -17,7 +17,7 @@ part 'species.g.dart';
 class Species extends Feature {
   final String iconId;
 
-  static const defaultIconId = "species-custom";
+  static const defaultIconId = 'species-custom';
 
   const Species({
     super.choices,
@@ -39,7 +39,7 @@ class Species extends Feature {
   List<Object?> get props => [...super.props, iconId];
 
   factory Species.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Species", _$SpeciesFromJson, json)
+    return MapperUtil.jsonToObject('Species', _$SpeciesFromJson, json)
         as Species;
   }
 

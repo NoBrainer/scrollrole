@@ -20,7 +20,7 @@ class Spell extends Equatable {
   List<Object?> get props => [classes, level, name];
 
   factory Spell.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Spell", _$SpellFromJson, json) as Spell;
+    return MapperUtil.jsonToObject('Spell', _$SpellFromJson, json) as Spell;
   }
 
   Map<String, dynamic> toJson() => _$SpellToJson(this);

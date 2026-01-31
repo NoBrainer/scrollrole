@@ -30,7 +30,7 @@ class AppSettingsScreen extends StatelessWidget {
     return PopScope(
       canPop: true,
       child: Scaffold(
-        appBar: const StyledAppBar(titleText: "App Settings"),
+        appBar: const StyledAppBar(titleText: 'App Settings'),
         body: Center(
           child: ListView(
             children: [_BackupRestoreCard(), _OrientationCard(), _VersionRow()],
@@ -44,7 +44,7 @@ class AppSettingsScreen extends StatelessWidget {
 class _BackupRestoreCard extends StatelessWidget {
   void cleanup() {
     FilePicker.platform.clearTemporaryFiles().then((removed) {
-      LogUtil.print("FilePicker.clearTemporaryFiles() Removed=$removed");
+      LogUtil.print('FilePicker.clearTemporaryFiles() Removed=$removed');
     });
   }
 
@@ -53,25 +53,25 @@ class _BackupRestoreCard extends StatelessWidget {
     final titleStyle = Theme.of(context).textTheme.titleLarge;
     return BasicCard(
       children: [
-        const BasicCardTitle(text: "Manual Back-up and Restore"),
+        const BasicCardTitle(text: 'Manual Back-up and Restore'),
         const BasicCardSection(
           children: [
             Text(
-              "Save your app state to a file. With that file, you can restore "
-              "your app to that state.",
+              'Save your app state to a file. With that file, you can restore '
+              'your app to that state.',
             ),
             SizedBox(height: 10),
             Text(
-              "WARNING: Restoring or resetting app state will replace your "
-              "current app state. This is irreversible.",
+              'WARNING: Restoring or resetting app state will replace your '
+              'current app state. This is irreversible.',
             ),
           ],
         ),
         Tooltip(
-          message: "Save Backup to File",
+          message: 'Save Backup to File',
           child: ListTile(
             leading: const Icon(Icons.file_download_outlined),
-            title: const Text("Save Backup to File"),
+            title: const Text('Save Backup to File'),
             onTap: () async {
               // TODO: Figure out if any of the permissions need to be updated
               // <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -100,7 +100,7 @@ class _BackupRestoreCard extends StatelessWidget {
                 // }
                 SnackbarUtil.showMessage(
                   context,
-                  "Nothing done. Feature under construction.",
+                  'Nothing done. Feature under construction.',
                 );
               }
               cleanup();
@@ -108,10 +108,10 @@ class _BackupRestoreCard extends StatelessWidget {
           ),
         ),
         Tooltip(
-          message: "Restore Backup from File",
+          message: 'Restore Backup from File',
           child: ListTile(
             leading: const Icon(Icons.file_upload_outlined),
-            title: const Text("Restore Backup from File"),
+            title: const Text('Restore Backup from File'),
             onTap: () {
               DialogUtil.showLoadingSpinner(context);
 
@@ -127,7 +127,7 @@ class _BackupRestoreCard extends StatelessWidget {
                         // context.read<ExampleBloc>().add(ImportFile(content));
                         SnackbarUtil.showMessage(
                           context,
-                          "Loaded app state from ${file.path}",
+                          'Loaded app state from ${file.path}',
                         );
                       }
                     });
@@ -143,26 +143,26 @@ class _BackupRestoreCard extends StatelessWidget {
         ),
         //TODO: Add button for validating backup file
         Tooltip(
-          message: "Reset App State",
+          message: 'Reset App State',
           child: ListTile(
             leading: const Icon(Icons.delete_forever_outlined),
-            title: const Text("Reset App State"),
+            title: const Text('Reset App State'),
             onTap: () {
               showDialog(
                 context: context,
                 builder: (BuildContext dialogContext) {
                   return AlertDialog(
-                    title: Text("WARNING!", style: titleStyle),
+                    title: Text('WARNING!', style: titleStyle),
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          "Are you sure you want to reset your app state? This "
-                          "is irreversible!",
+                          'Are you sure you want to reset your app state? This '
+                          'is irreversible!',
                         ),
                         SizedBox(height: 10),
                         Text(
-                          "You should backup your app state before proceeding.",
+                          'You should backup your app state before proceeding.',
                         ),
                       ],
                     ),
@@ -171,7 +171,7 @@ class _BackupRestoreCard extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(dialogContext).pop();
                         },
-                        child: Text("Cancel"),
+                        child: Text('Cancel'),
                       ),
                       TextButton(
                         onPressed: () {
@@ -180,10 +180,10 @@ class _BackupRestoreCard extends StatelessWidget {
                           // dialogContext.read<ExampleBloc>().add(ForceReset());
                           SnackbarUtil.showMessage(
                             dialogContext,
-                            "Reset app state",
+                            'Reset app state',
                           );
                         },
-                        child: Text("Reset"),
+                        child: Text('Reset'),
                       ),
                     ],
                   );
@@ -203,19 +203,19 @@ class _OrientationCard extends StatelessWidget {
     //TODO: Save this state in local storage or something similar
     final Orientation orientation = MediaQuery.of(context).orientation;
     final text = orientation == Orientation.portrait
-        ? "Switch to landscape"
-        : "Switch to portrait";
+        ? 'Switch to landscape'
+        : 'Switch to portrait';
     final nextOrientations = orientation == Orientation.portrait
         ? [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]
         : [DeviceOrientation.portraitUp];
 
     return BasicCard(
       children: [
-        const BasicCardTitle(text: "App Orientation"),
+        const BasicCardTitle(text: 'App Orientation'),
         const BasicCardSection(
           children: [
             Text(
-              "You can toggle the orientation between landscape and portrait.",
+              'You can toggle the orientation between landscape and portrait.',
             ),
           ],
         ),
@@ -240,7 +240,7 @@ class _VersionRow extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: Center(
-        child: SelectableText("Version ${App.version}+${App.buildNumber}"),
+        child: SelectableText('Version ${App.version}+${App.buildNumber}'),
       ),
     );
   }

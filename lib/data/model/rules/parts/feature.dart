@@ -37,7 +37,7 @@ class Feature extends Equatable {
     this.features = const [],
     required this.name,
     this.proficiencies = const [],
-    this.shortDescription = "",
+    this.shortDescription = '',
     this.speed,
     this.statModifiers = const [],
     this.suggestedCharacteristics,
@@ -62,7 +62,7 @@ class Feature extends Equatable {
   ];
 
   factory Feature.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Feature", _$FeatureFromJson, json)
+    return MapperUtil.jsonToObject('Feature', _$FeatureFromJson, json)
         as Feature;
   }
 

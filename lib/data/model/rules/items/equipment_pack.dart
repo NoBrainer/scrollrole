@@ -21,7 +21,7 @@ class EquipmentPack extends Equatable {
 
   factory EquipmentPack.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject(
-          "EquipmentPack",
+          'EquipmentPack',
           _$EquipmentPackFromJson,
           json,
         )

@@ -22,7 +22,7 @@ class Condition extends Equatable {
   List<Object?> get props => [feature, level, levels, proficiency];
 
   factory Condition.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Condition", _$ConditionFromJson, json)
+    return MapperUtil.jsonToObject('Condition', _$ConditionFromJson, json)
         as Condition;
   }
 

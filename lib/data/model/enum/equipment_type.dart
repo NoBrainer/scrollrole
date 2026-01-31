@@ -5,17 +5,17 @@ part 'equipment_type.g.dart';
 
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum EquipmentType {
-  armor("Armor"),
-  gear("Gear"),
-  weapon("Weapon"),
-  tool("Tool");
+  armor('Armor'),
+  gear('Gear'),
+  weapon('Weapon'),
+  tool('Tool');
 
   final String display;
 
   const EquipmentType(this.display);
 
   factory EquipmentType.fromJson(String json) {
-    return MapperUtil.jsonToEnum("EquipmentType", _$EquipmentTypeEnumMap, json)
+    return MapperUtil.jsonToEnum('EquipmentType', _$EquipmentTypeEnumMap, json)
         as EquipmentType;
   }
 

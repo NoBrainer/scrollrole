@@ -17,7 +17,7 @@ Armor _$ArmorFromJson(Map<String, dynamic> json) => Armor(
   stealthDisadvantage: json['stealthDisadvantage'] as bool? ?? false,
   strengthRequirement: (json['strengthRequirement'] as num?)?.toInt(),
   type: ArmorType.fromJson(json['type'] as String),
-  weight: json['weight'] as String? ?? "",
+  weight: json['weight'] as String? ?? '',
 );
 
 Map<String, dynamic> _$ArmorToJson(Armor instance) => <String, dynamic>{

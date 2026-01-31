@@ -22,20 +22,20 @@ class AppCreditsScreen extends StatelessWidget {
     return PopScope(
       canPop: true,
       child: Scaffold(
-        appBar: StyledAppBar(titleText: "Credits"),
+        appBar: StyledAppBar(titleText: 'Credits'),
         body: Center(
           child: ListView(
             children: [
               const BasicCard(
                 children: [
-                  BasicCardTitle(text: "People"),
+                  BasicCardTitle(text: 'People'),
                   BasicCardSection(
                     children: [
                       SelectableText.rich(
                         TextSpan(
                           children: [
                             TextSpan(
-                              text: "Vincent Incarvite - Developer, Designer",
+                              text: 'Vincent Incarvite - Developer, Designer',
                             ),
                           ],
                         ),
@@ -46,7 +46,7 @@ class AppCreditsScreen extends StatelessWidget {
               ),
               const BasicCard(
                 children: [
-                  BasicCardTitle(text: "Technology Stack"),
+                  BasicCardTitle(text: 'Technology Stack'),
                   BasicCardSection(
                     children: [
                       SelectableText.rich(
@@ -54,12 +54,12 @@ class AppCreditsScreen extends StatelessWidget {
                           children: [
                             TextSpan(
                               text:
-                                  "1. Bloc - State Management - "
-                                  "bloclibrary.dev",
+                                  '1. Bloc - State Management - '
+                                  'bloclibrary.dev',
                             ),
-                            TextSpan(text: "\n"),
+                            TextSpan(text: '\n'),
                             TextSpan(
-                              text: "2. Flutter - Framework - flutter.dev",
+                              text: '2. Flutter - Framework - flutter.dev',
                             ),
                           ],
                         ),
@@ -70,7 +70,7 @@ class AppCreditsScreen extends StatelessWidget {
               ),
               const BasicCard(
                 children: [
-                  BasicCardTitle(text: "Resources"),
+                  BasicCardTitle(text: 'Resources'),
                   BasicCardSection(
                     children: [
                       SelectableText.rich(
@@ -78,19 +78,19 @@ class AppCreditsScreen extends StatelessWidget {
                           children: [
                             TextSpan(
                               text:
-                                  "1. App Logo - Destinie Carbone \n"
-                                  "- rainleaf.studio",
+                                  '1. App Logo - Destinie Carbone \n'
+                                  '- rainleaf.studio',
                             ),
-                            TextSpan(text: "\n"),
-                            TextSpan(text: "2. D&D 5e SRD - dndbeyond.com/srd"),
-                            TextSpan(text: "\n"),
+                            TextSpan(text: '\n'),
+                            TextSpan(text: '2. D&D 5e SRD - dndbeyond.com/srd'),
+                            TextSpan(text: '\n'),
                             TextSpan(
                               text:
-                                  "3. Font Awesome Flutter\n - "
-                                  "fontawesome.com/icons",
+                                  '3. Font Awesome Flutter\n - '
+                                  'fontawesome.com/icons',
                             ),
-                            TextSpan(text: "\n"),
-                            TextSpan(text: "4. Game Icons - game-icons.net"),
+                            TextSpan(text: '\n'),
+                            TextSpan(text: '4. Game Icons - game-icons.net'),
                           ],
                         ),
                       ),

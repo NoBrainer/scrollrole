@@ -31,27 +31,27 @@ class AppMenuScreen extends StatelessWidget {
       canPop: false,
       child: Scaffold(
         appBar: StyledAppBar(
-          titleText: "",
+          titleText: '',
           automaticallyImplyLeading: false,
           actions: [
             IconButton(
-              tooltip: "Report Issues and Bugs",
+              tooltip: 'Report Issues and Bugs',
               icon: const Icon(Icons.bug_report_outlined),
               onPressed: () => context.push(AppBugsScreen.path),
             ),
             IconButton(
-              tooltip: "Credits",
+              tooltip: 'Credits',
               icon: const Icon(Icons.receipt_long_outlined),
               onPressed: () => context.push(AppCreditsScreen.path),
             ),
             IconButton(
-              tooltip: "App Settings",
+              tooltip: 'App Settings',
               icon: const Icon(Icons.settings),
               onPressed: () => context.push(AppSettingsScreen.path),
             ),
             if (PresentationLayer.debugMode)
               IconButton(
-                tooltip: "Color Scheme Preview",
+                tooltip: 'Color Scheme Preview',
                 icon: Icon(Icons.color_lens_outlined),
                 onPressed: () => context.push(ColorSchemePreviewScreen.path),
               ),
@@ -61,8 +61,8 @@ class AppMenuScreen extends StatelessWidget {
           child: Column(
             children: [
               SvgPicture.asset(
-                "assets/logo.svg",
-                semanticsLabel: "App Logo",
+                'assets/logo.svg',
+                semanticsLabel: 'App Logo',
                 height: 100,
               ),
               Expanded(
@@ -71,28 +71,28 @@ class AppMenuScreen extends StatelessWidget {
                   children: [
                     const Expanded(flex: 1, child: SizedBox.shrink()),
                     Tooltip(
-                      message: "Rules Screen",
+                      message: 'Rules Screen',
                       child: TextButton(
                         onPressed: () => context.push(RulesScreen.path),
                         child: Padding(
                           padding: const EdgeInsets.all(8),
-                          child: Text("Rules"),
+                          child: Text('Rules'),
                         ),
                       ),
                     ),
                     const Expanded(flex: 1, child: SizedBox.shrink()),
                     Tooltip(
-                      message: "Characters Screen",
+                      message: 'Characters Screen',
                       child: TextButton(
                         onPressed: () {
                           SnackbarUtil.showMessage(
                             context,
-                            "Characters Screen under construction.",
+                            'Characters Screen under construction.',
                           );
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8),
-                          child: Text("Characters"),
+                          child: Text('Characters'),
                         ),
                       ),
                     ),

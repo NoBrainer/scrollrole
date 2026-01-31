@@ -12,7 +12,7 @@ Tool _$ToolFromJson(Map<String, dynamic> json) => Tool(
   tags:
       (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ??
       const [],
-  weight: json['weight'] as String? ?? "",
+  weight: json['weight'] as String? ?? '',
 );
 
 Map<String, dynamic> _$ToolToJson(Tool instance) => <String, dynamic>{

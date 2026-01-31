@@ -25,7 +25,7 @@ class FeatureVariable extends Equatable {
 
   factory FeatureVariable.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject(
-          "FeatureVariable",
+          'FeatureVariable',
           _$FeatureVariableFromJson,
           json,
         )

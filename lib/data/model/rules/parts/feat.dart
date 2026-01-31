@@ -24,7 +24,7 @@ class Feat extends Equatable {
   List<Object?> get props => [description, name, prerequisites];
 
   factory Feat.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Feat", _$FeatFromJson, json) as Feat;
+    return MapperUtil.jsonToObject('Feat', _$FeatFromJson, json) as Feat;
   }
 
   Map<String, dynamic> toJson() => _$FeatToJson(this);
