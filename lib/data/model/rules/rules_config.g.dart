@@ -20,9 +20,9 @@ RulesConfig _$RulesConfigFromJson(Map<String, dynamic> json) => RulesConfig(
   lists: json['lists'] == null
       ? const ConfigLists.blank()
       : ConfigLists.fromJson(json['lists'] as Map<String, dynamic>),
-  races:
-      (json['races'] as List<dynamic>?)
-          ?.map((e) => Race.fromJson(e as Map<String, dynamic>))
+  species:
+      (json['species'] as List<dynamic>?)
+          ?.map((e) => Species.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
 );
@@ -32,5 +32,5 @@ Map<String, dynamic> _$RulesConfigToJson(RulesConfig instance) =>
       'backgrounds': instance.backgrounds.map((e) => e.toJson()).toList(),
       'classes': instance.classes.map((e) => e.toJson()).toList(),
       'lists': instance.lists.toJson(),
-      'races': instance.races.map((e) => e.toJson()).toList(),
+      'species': instance.species.map((e) => e.toJson()).toList(),
     };

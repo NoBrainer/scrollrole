@@ -62,7 +62,7 @@ class RulesScreen extends StatelessWidget {
               ),
               BasicCard(
                 children: [
-                  BasicCardTitle(text: "Races"),
+                  BasicCardTitle(text: "Species"),
                   BasicCardSection(children: [Text("TBD")]),
                 ],
               ),

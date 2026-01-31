@@ -31,9 +31,6 @@ class Background extends CommonRulesBase {
     super.unlockables,
   });
 
-  @override
-  List<Object?> get props => [...super.props];
-
   factory Background.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject("Background", _$BackgroundFromJson, json)
         as Background;

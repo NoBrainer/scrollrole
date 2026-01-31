@@ -800,12 +800,12 @@ classes:
   - name: Wizard
     iconId: class-wizard
 
-# Races
-races:
+# Species
+species:
 
   ## DWARF
   - name: Dwarf
-    iconId: race-dwarf
+    iconId: species-dwarf
     description:
       - Your dwarf character has an assortment of inborn abilities, part and parcel of dwarven nature.
       - >
@@ -873,7 +873,7 @@ races:
 
   ## ELF
   - name: Elf
-    iconId: race-elf
+    iconId: species-elf
     description:
       - Your elf character has a variety of natural abilities, the result of thousands of years of elven refinement.
       - >
@@ -918,7 +918,7 @@ races:
             As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many fantasy gaming
             worlds, there are two kinds of high elves. One type is haughty and reclusive, believing themselves to be
             superior to non-elves and even other elves. The other type is more common and more friendly, and often
-            encountered among humans and other races.
+            encountered among humans and other species.
         statModifiers:
           - { type: ABILITY_SCORE, name: INT, modifier: 1 }
         proficiencies:
@@ -942,7 +942,7 @@ races:
 
   ## HALFLING
   - name: Halfling
-    iconId: race-halfling
+    iconId: species-halfling
     description:
       - Your halfling character has a number of traits in common with all other halflings.
       - A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century.
@@ -978,7 +978,7 @@ races:
           - >
             As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined
             to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings,
-            and often dwell alongside other races or take up a nomadic life.
+            and often dwell alongside other species or take up a nomadic life.
         statModifiers:
           - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
         features:
@@ -990,7 +990,7 @@ races:
 
   ## HUMAN
   - name: Human
-    iconId: race-human
+    iconId: species-human
     description:
       - It's hard to make generalizations about humans, but your human character has these traits.
       - Humans reach adulthood in their late teens and live less than a century.
@@ -1021,7 +1021,7 @@ races:
 
   ## DRAGONBORN
   - name: Dragonborn
-    iconId: race-dragonborn
+    iconId: species-dragonborn
     description:
       - Your draconic heritage manifests in a variety of traits you share with other dragonborn.
       - >
@@ -1051,7 +1051,7 @@ races:
 
   ## GNOME
   - name: Gnome
-    iconId: race-gnome
+    iconId: species-gnome
     description:
       - Your gnome character has certain characteristics in common with all other gnomes.
       - >
@@ -1109,7 +1109,7 @@ races:
 
   ## HALF-ELF
   - name: Half-Elf
-    iconId: race-half-elf
+    iconId: species-half-elf
     description:
       - Your half-elf character has some qualities in common with elves and some that are unique to half-elves.
       - >
@@ -1162,7 +1162,7 @@ races:
 
   ## HALF-ORC
   - name: Half-Orc
-    iconId: race-half-orc
+    iconId: species-half-orc
     description:
       - Your half-orc character has certain traits deriving from your orc ancestry.
       - >
@@ -1205,7 +1205,7 @@ races:
 
   ## TIEFLING
   - name: Tiefling
-    iconId: race-tiefling
+    iconId: species-tiefling
     description:
       - Tieflings share certain racial traits as a result of their infernal descent.
       - Tieflings mature at the same rate as humans but live a few years longer.

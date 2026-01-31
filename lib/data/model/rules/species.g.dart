@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'race.dart';
+part of 'species.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Race _$RaceFromJson(Map<String, dynamic> json) => Race(
+Species _$SpeciesFromJson(Map<String, dynamic> json) => Species(
   choices:
       (json['choices'] as List<dynamic>?)
           ?.map((e) => Choice.fromJson(e as Map<String, dynamic>))
@@ -27,7 +27,7 @@ Race _$RaceFromJson(Map<String, dynamic> json) => Race(
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  iconId: json['iconId'] as String? ?? Race.defaultIconId,
+  iconId: json['iconId'] as String? ?? Species.defaultIconId,
   name: json['name'] as String,
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
@@ -52,7 +52,7 @@ Race _$RaceFromJson(Map<String, dynamic> json) => Race(
       const [],
 );
 
-Map<String, dynamic> _$RaceToJson(Race instance) => <String, dynamic>{
+Map<String, dynamic> _$SpeciesToJson(Species instance) => <String, dynamic>{
   'choices': instance.choices.map((e) => e.toJson()).toList(),
   'description': instance.description,
   'equipment': instance.equipment.map((e) => e.toJson()).toList(),

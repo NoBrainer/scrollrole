@@ -2,11 +2,9 @@
 
 # Task Priority
 
-1. Enhance data model
-   - Rework Race to Species (alias?)
-2. Implement viewing the default rules config
-3. Implement modifying the default rules config
-4. Implement import/export rules config
+1. Implement viewing the default rules config
+2. Implement modifying the default rules config
+3. Implement import/export rules config
 
 # Unprioritized Backlog
 

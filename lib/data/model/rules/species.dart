@@ -10,19 +10,19 @@ import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/unlockable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
-part 'race.g.dart';
+part 'species.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)
-class Race extends CommonRulesBase {
-  static const defaultIconId = 'race-custom';
+class Species extends CommonRulesBase {
+  static const defaultIconId = 'species-custom';
 
-  const Race({
+  const Species({
     super.choices,
     super.description,
     super.equipment,
     super.features,
-    super.iconId = Race.defaultIconId,
+    super.iconId = Species.defaultIconId,
     required super.name,
     super.proficiencies,
     super.speed,
@@ -31,13 +31,11 @@ class Race extends CommonRulesBase {
     super.unlockables,
   });
 
-  @override
-  List<Object?> get props => [...super.props];
-
-  factory Race.fromJson(Map<String, dynamic> json) {
-    return MapperUtil.jsonToObject("Race", _$RaceFromJson, json) as Race;
+  factory Species.fromJson(Map<String, dynamic> json) {
+    return MapperUtil.jsonToObject("Species", _$SpeciesFromJson, json)
+        as Species;
   }
 
   @override
-  Map<String, dynamic> toJson() => _$RaceToJson(this);
+  Map<String, dynamic> toJson() => _$SpeciesToJson(this);
 }
