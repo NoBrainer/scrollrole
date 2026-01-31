@@ -80,7 +80,7 @@ When upgrading Flutter, you will most likely need to also refresh your platform 
     flutter create --org=app .
 
     # or only recreate specific platforms:
-    flutter create --org=app --platforms=android .
+    flutter create --org=app --platforms=android,web .
 
     # check other options
     flutter create --help
