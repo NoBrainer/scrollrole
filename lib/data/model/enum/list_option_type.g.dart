@@ -9,6 +9,9 @@ part of 'list_option_type.dart';
 const _$ListOptionTypeEnumMap = {
   ListOptionType.abilityScore: 'ABILITY_SCORE',
   ListOptionType.equipment: 'EQUIPMENT',
+  ListOptionType.equipmentArmor: 'EQUIPMENT_ARMOR',
+  ListOptionType.equipmentTool: 'EQUIPMENT_TOOL',
+  ListOptionType.equipmentWeapon: 'EQUIPMENT_WEAPON',
   ListOptionType.feat: 'FEAT',
   ListOptionType.feature: 'FEATURE',
   ListOptionType.proficiency: 'PROFICIENCY',

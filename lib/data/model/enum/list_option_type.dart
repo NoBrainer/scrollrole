@@ -7,6 +7,9 @@ part 'list_option_type.g.dart';
 enum ListOptionType {
   abilityScore('Ability Score', 'Ability Score'),
   equipment('Equipment', 'Equipment'),
+  equipmentArmor('Armor', 'Armor'),
+  equipmentTool('Tool', 'Tool'),
+  equipmentWeapon('Weapon', 'Weapon'),
   feat('Feat', 'Feat'),
   feature('Feature', 'Feature'),
   proficiency('Proficiency', 'Proficiency'),

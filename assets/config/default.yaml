@@ -180,13 +180,13 @@ classes:
       - name: Equipment
         pick: 1
         options:
-          - { type: EQUIPMENT, name: greataxe }
-          - { type: EQUIPMENT, name: any martial melee weapon }
+          - { type: EQUIPMENT_WEAPON, name: greataxe }
+        query: { list: weapons, requiredTags: [ martial, melee ] }
       - name: Equipment
         pick: 1
         options:
-          - { type: EQUIPMENT, name: 2 handaxes }
-          - { type: EQUIPMENT, name: any simple weapon }
+          - { type: EQUIPMENT_WEAPON, name: 2 handaxes }
+        query: { list: weapons, requiredTags: [ simple ] }
     unlockables:
       - condition: { levels: [ 4, 8, 12, 16, 19 ] }
         choices:
@@ -194,12 +194,12 @@ classes:
             allowDuplicate: true
             pick: 2
             options:
-              - { name: CHA, type: ABILITY_SCORE, modifier: 1 }
-              - { name: CON, type: ABILITY_SCORE, modifier: 1 }
-              - { name: DEX, type: ABILITY_SCORE, modifier: 1 }
-              - { name: INT, type: ABILITY_SCORE, modifier: 1 }
-              - { name: STR, type: ABILITY_SCORE, modifier: 1 }
-              - { name: WIS, type: ABILITY_SCORE, modifier: 1 }
+              - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
+              - { type: ABILITY_SCORE, name: CON, modifier: 1 }
+              - { type: ABILITY_SCORE, name: DEX, modifier: 1 }
+              - { type: ABILITY_SCORE, name: INT, modifier: 1 }
+              - { type: ABILITY_SCORE, name: STR, modifier: 1 }
+              - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
       - condition: { level: 2 }
         features:
           - name: Reckless Attack
@@ -485,9 +485,9 @@ classes:
       - name: Equipment
         pick: 1
         options:
-          - { type: EQUIPMENT, name: rapier }
-          - { type: EQUIPMENT, name: longsword }
-          - { type: EQUIPMENT, name: any simple weapon }
+          - { type: EQUIPMENT_WEAPON, name: rapier }
+          - { type: EQUIPMENT_WEAPON, name: longsword }
+        query: { list: weapons, requiredTags: [ simple ] }
       - name: Equipment
         pick: 1
         options:
@@ -515,12 +515,12 @@ classes:
             allowDuplicate: true
             pick: 2
             options:
-              - { name: CHA, type: ABILITY_SCORE, modifier: 1 }
-              - { name: CON, type: ABILITY_SCORE, modifier: 1 }
-              - { name: DEX, type: ABILITY_SCORE, modifier: 1 }
-              - { name: INT, type: ABILITY_SCORE, modifier: 1 }
-              - { name: STR, type: ABILITY_SCORE, modifier: 1 }
-              - { name: WIS, type: ABILITY_SCORE, modifier: 1 }
+              - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
+              - { type: ABILITY_SCORE, name: CON, modifier: 1 }
+              - { type: ABILITY_SCORE, name: DEX, modifier: 1 }
+              - { type: ABILITY_SCORE, name: INT, modifier: 1 }
+              - { type: ABILITY_SCORE, name: STR, modifier: 1 }
+              - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
       - condition: { level: 2 }
         spellCastingUpdate:
           knownSpells: 5
@@ -859,7 +859,7 @@ species:
           - { type: PROFICIENCY_TOOL, name: mason's tools }
       - name: Dwarf Subrace
         pick: 1
-        query: { list: features, requiredTags: [ dwarf subrace ], types: [ FEATURE ] }
+        query: { list: features, requiredTags: [ dwarf subrace ] }
 
   ## ELF
   - name: Elf
@@ -904,7 +904,7 @@ species:
     choices:
       - name: Elf Subrace
         pick: 1
-        query: { list: features, requiredTags: [ elf subrace ], types: [ FEATURE ] }
+        query: { list: features, requiredTags: [ elf subrace ] }
 
   ## HALFLING
   - name: Halfling
@@ -941,7 +941,7 @@ species:
     choices:
       - name: Halfling Subrace
         pick: 1
-        query: { list: features, requiredTags: [ halfling subrace ], types: [ FEATURE ] }
+        query: { list: features, requiredTags: [ halfling subrace ] }
 
   ## HUMAN
   - name: Human
@@ -1038,7 +1038,7 @@ species:
     choices:
       - name: Gnome Subrace
         pick: 1
-        query: { list: features, requiredTags: [ gnome subrace ], types: [ FEATURE ] }
+        query: { list: features, requiredTags: [ gnome subrace ] }
 
   ## HALF-ELF
   - name: Half-Elf
