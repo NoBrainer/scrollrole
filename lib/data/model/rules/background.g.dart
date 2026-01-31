@@ -27,14 +27,13 @@ Background _$BackgroundFromJson(Map<String, dynamic> json) => Background(
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  iconId: json['iconId'] as String? ?? Background.defaultIconId,
   name: json['name'] as String,
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  shortDescription: json['shortDescription'] as String? ?? '',
+  shortDescription: json['shortDescription'] as String? ?? "",
   speed: (json['speed'] as num?)?.toInt(),
   statModifiers:
       (json['statModifiers'] as List<dynamic>?)
@@ -56,6 +55,7 @@ Background _$BackgroundFromJson(Map<String, dynamic> json) => Background(
           ?.map((e) => FeatureVariable.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  iconId: json['iconId'] as String? ?? Background.defaultIconId,
 );
 
 Map<String, dynamic> _$BackgroundToJson(Background instance) =>

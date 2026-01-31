@@ -27,14 +27,13 @@ Species _$SpeciesFromJson(Map<String, dynamic> json) => Species(
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  iconId: json['iconId'] as String? ?? Species.defaultIconId,
   name: json['name'] as String,
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  shortDescription: json['shortDescription'] as String? ?? '',
+  shortDescription: json['shortDescription'] as String? ?? "",
   speed: (json['speed'] as num?)?.toInt(),
   statModifiers:
       (json['statModifiers'] as List<dynamic>?)
@@ -56,6 +55,7 @@ Species _$SpeciesFromJson(Map<String, dynamic> json) => Species(
           ?.map((e) => FeatureVariable.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  iconId: json['iconId'] as String? ?? Species.defaultIconId,
 );
 
 Map<String, dynamic> _$SpeciesToJson(Species instance) => <String, dynamic>{

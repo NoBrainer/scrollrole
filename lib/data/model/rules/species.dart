@@ -17,14 +17,13 @@ part 'species.g.dart';
 class Species extends Feature {
   final String iconId;
 
-  static const defaultIconId = 'species-custom';
+  static const defaultIconId = "species-custom";
 
   const Species({
     super.choices,
     super.description,
     super.equipment,
     super.features,
-    this.iconId = Species.defaultIconId,
     required super.name,
     super.proficiencies,
     super.shortDescription,
@@ -33,6 +32,7 @@ class Species extends Feature {
     super.suggestedCharacteristics,
     super.unlockables,
     super.variables,
+    this.iconId = Species.defaultIconId,
   });
 
   @override

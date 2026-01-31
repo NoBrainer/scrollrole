@@ -14,9 +14,9 @@ class StyledAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String titleText;
 
   const StyledAppBar({
+    super.key,
     this.actions,
     this.automaticallyImplyLeading = true,
-    super.key,
     this.leading,
     this.preferredSize = defaultSize,
     required this.titleText,

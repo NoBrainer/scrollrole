@@ -7,8 +7,6 @@ part of 'class.dart';
 // **************************************************************************
 
 Class _$ClassFromJson(Map<String, dynamic> json) => Class(
-  baseHitPoints:
-      (json['baseHitPoints'] as num?)?.toInt() ?? Class.defaultBaseHitPoints,
   choices:
       (json['choices'] as List<dynamic>?)
           ?.map((e) => Choice.fromJson(e as Map<String, dynamic>))
@@ -29,24 +27,14 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  hitPointDie: json['hitPointDie'] == null
-      ? Class.defaultHitPointDie
-      : DiceType.fromJson(json['hitPointDie'] as String),
-  iconId: json['iconId'] as String? ?? Class.defaultIconId,
   name: json['name'] as String,
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  proficiencyBonus:
-      (json['proficiencyBonus'] as num?)?.toInt() ??
-      Class.defaultProficiencyBonus,
-  shortDescription: json['shortDescription'] as String? ?? '',
+  shortDescription: json['shortDescription'] as String? ?? "",
   speed: (json['speed'] as num?)?.toInt(),
-  spellCasting: json['spellCasting'] == null
-      ? null
-      : SpellCasting.fromJson(json['spellCasting'] as Map<String, dynamic>),
   statModifiers:
       (json['statModifiers'] as List<dynamic>?)
           ?.map((e) => StatModifier.fromJson(e as Map<String, dynamic>))
@@ -67,6 +55,18 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           ?.map((e) => FeatureVariable.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  baseHitPoints:
+      (json['baseHitPoints'] as num?)?.toInt() ?? Class.defaultBaseHitPoints,
+  hitPointDie: json['hitPointDie'] == null
+      ? Class.defaultHitPointDie
+      : DiceType.fromJson(json['hitPointDie'] as String),
+  iconId: json['iconId'] as String? ?? Class.defaultIconId,
+  proficiencyBonus:
+      (json['proficiencyBonus'] as num?)?.toInt() ??
+      Class.defaultProficiencyBonus,
+  spellCasting: json['spellCasting'] == null
+      ? null
+      : SpellCasting.fromJson(json['spellCasting'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{

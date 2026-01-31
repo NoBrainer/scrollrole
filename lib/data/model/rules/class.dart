@@ -26,27 +26,27 @@ class Class extends Feature {
 
   static const defaultBaseHitPoints = 10;
   static const defaultHitPointDie = DiceType.d8;
-  static const defaultIconId = 'class-custom';
+  static const defaultIconId = "class-custom";
   static const defaultProficiencyBonus = 2;
 
   const Class({
-    this.baseHitPoints = Class.defaultBaseHitPoints,
     super.choices,
     super.description,
     super.equipment,
     super.features,
-    this.hitPointDie = Class.defaultHitPointDie,
-    this.iconId = Class.defaultIconId,
     required super.name,
     super.proficiencies,
-    this.proficiencyBonus = Class.defaultProficiencyBonus,
     super.shortDescription,
     super.speed,
-    this.spellCasting,
     super.statModifiers,
     super.suggestedCharacteristics,
     super.unlockables,
     super.variables,
+    this.baseHitPoints = Class.defaultBaseHitPoints,
+    this.hitPointDie = Class.defaultHitPointDie,
+    this.iconId = Class.defaultIconId,
+    this.proficiencyBonus = Class.defaultProficiencyBonus,
+    this.spellCasting,
   });
 
   @override

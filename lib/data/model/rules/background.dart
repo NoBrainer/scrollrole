@@ -24,7 +24,6 @@ class Background extends Feature {
     super.description,
     super.equipment,
     super.features,
-    this.iconId = Background.defaultIconId,
     required super.name,
     super.proficiencies,
     super.shortDescription,
@@ -33,6 +32,7 @@ class Background extends Feature {
     super.suggestedCharacteristics,
     super.unlockables,
     super.variables,
+    this.iconId = Background.defaultIconId,
   });
 
   @override

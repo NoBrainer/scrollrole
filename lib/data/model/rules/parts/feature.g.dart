@@ -33,7 +33,7 @@ Feature _$FeatureFromJson(Map<String, dynamic> json) => Feature(
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  shortDescription: json['shortDescription'] as String? ?? '',
+  shortDescription: json['shortDescription'] as String? ?? "",
   speed: (json['speed'] as num?)?.toInt(),
   statModifiers:
       (json['statModifiers'] as List<dynamic>?)
