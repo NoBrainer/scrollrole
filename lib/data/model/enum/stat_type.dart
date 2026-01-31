@@ -8,6 +8,8 @@ part 'stat_type.g.dart';
 enum StatType {
   abilityScore("Ability Score", "Ability Score"),
   hitPoints("HP", "Hit Points"),
+  //TODO: Accomplish HP/LVL in a more generic way
+  hitPointsPerLevel("HP Per Level", "Hit Points Per Level"),
   proficiencyBonus("Proficiency Bonus", "Proficiency Bonus"),
   speed("Speed", "Speed");
 

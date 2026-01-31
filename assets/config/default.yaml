@@ -857,19 +857,9 @@ species:
           - { type: PROFICIENCY_TOOL, name: smith's tools }
           - { type: PROFICIENCY_TOOL, name: brewer's supplies }
           - { type: PROFICIENCY_TOOL, name: mason's tools }
-    subraces: #TODO: rework
-      - name: Hill Dwarf
-        description:
-          - As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.
-        statModifiers:
-          - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
-        features:
-          - name: Dwarven Toughness
-            description:
-              - Your hit point maximum increases by 1, and it increases 1 every time you gain a level.
-            stat: hp
-            modifier: 1
-            per: level
+      - name: Dwarf Subrace
+        pick: 1
+        query: { list: features, requiredTags: [ dwarf subrace ], types: [ FEATURE ] }
 
   ## ELF
   - name: Elf
@@ -911,34 +901,10 @@ species:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Elvish }
       - { type: SKILL,    name: perception }
-    subraces: #TODO: rework
-      - name: High Elf
-        description:
-          - >
-            As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many fantasy gaming
-            worlds, there are two kinds of high elves. One type is haughty and reclusive, believing themselves to be
-            superior to non-elves and even other elves. The other type is more common and more friendly, and often
-            encountered among humans and other species.
-        statModifiers:
-          - { type: ABILITY_SCORE, name: INT, modifier: 1 }
-        proficiencies:
-          - { type: WEAPON, name: longbow }
-          - { type: WEAPON, name: longsword }
-          - { type: WEAPON, name: shortbow }
-          - { type: WEAPON, name: shortsword }
-        choices:
-          - name: Cantrip
-            description:
-              - >
-                You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting
-                ability for it.
-            pick: 1
-            query: { list: spells, levels: [ 0 ], classes: [ Wizard ] }
-          - name: Languages
-            description:
-              - You can speak, read, and write one extra language of your choice.
-            pick: 1
-            query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
+    choices:
+      - name: Elf Subrace
+        pick: 1
+        query: { list: features, requiredTags: [ elf subrace ], types: [ FEATURE ] }
 
   ## HALFLING
   - name: Halfling
@@ -972,21 +938,10 @@ species:
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Halfling }
-    subraces: #TODO: rework
-      - name: Lightfoot
-        description:
-          - >
-            As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined
-            to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings,
-            and often dwell alongside other species or take up a nomadic life.
-        statModifiers:
-          - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
-        features:
-          - name: Naturally Stealthy
-            description:
-              - >
-                You can attempt to hide even when you are obscured only by a creature that is at least one size larger
-                than you.
+    choices:
+      - name: Halfling Subrace
+        pick: 1
+        query: { list: features, requiredTags: [ halfling subrace ], types: [ FEATURE ] }
 
   ## HUMAN
   - name: Human
@@ -1080,32 +1035,10 @@ species:
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Gnomish }
-    subraces: #TODO: rework
-      - name: Rock Gnome
-        description:
-          - As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.
-        statModifiers:
-          - { type: ABILITY_SCORE, name: CON, modifier: 1 }
-        features:
-          - name: Artificer's Lore
-            description:
-              - >
-                Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or
-                technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you
-                normally apply.
-        choices:
-          - name: Tinker
-            description:
-              - >
-                You have proficiency with artisan's tools (tinker's tools). Using these tools, you can spend 1 hour and
-                10gp worth of materials to construct a Tiny clockwork device (AC5, 1hp). The device ceases to function
-                after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use
-                your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have
-                up to three such devices active at one time.
-            pick: 1
-            query: { list: features, tags: [ tinker device ] }
-        proficiencies:
-          - { type: TOOL, name: tinker's tools }
+    choices:
+      - name: Gnome Subrace
+        pick: 1
+        query: { list: features, requiredTags: [ gnome subrace ], types: [ FEATURE ] }
 
   ## HALF-ELF
   - name: Half-Elf
@@ -1511,6 +1444,87 @@ lists:
         - >
           When opened, this music box plays a single song at a moderate volume. The box stops playing when it
           reaches the song's end or when it is closed.
+    - name: Hill Dwarf
+      tags: [ dwarf subrace ]
+      description:
+        - As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.
+      statModifiers:
+        - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
+      features:
+        - name: Dwarven Toughness
+          description:
+            - Your hit point maximum increases by 1, and it increases 1 every time you gain a level.
+          statModifiers:
+            - { type: HIT_POINTS_PER_LEVEL, name: HP Per Level, modifier: 1 }
+    - name: High Elf
+      tags: [ elf subrace ]
+      description:
+        - >
+          As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many fantasy gaming
+          worlds, there are two kinds of high elves. One type is haughty and reclusive, believing themselves to be
+          superior to non-elves and even other elves. The other type is more common and more friendly, and often
+          encountered among humans and other species.
+      statModifiers:
+        - { type: ABILITY_SCORE, name: INT, modifier: 1 }
+      proficiencies:
+        - { type: WEAPON, name: longbow }
+        - { type: WEAPON, name: longsword }
+        - { type: WEAPON, name: shortbow }
+        - { type: WEAPON, name: shortsword }
+      choices:
+        - name: Cantrip
+          description:
+            - >
+              You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting
+              ability for it.
+          pick: 1
+          query: { list: spells, levels: [ 0 ], classes: [ Wizard ] }
+        - name: Languages
+          description:
+            - You can speak, read, and write one extra language of your choice.
+          pick: 1
+          query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
+    - name: Lightfoot
+      tags: [ halfling subrace ]
+      description:
+        - >
+          As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined
+          to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings,
+          and often dwell alongside other species or take up a nomadic life.
+      statModifiers:
+        - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
+      features:
+        - name: Naturally Stealthy
+          description:
+            - >
+              You can attempt to hide even when you are obscured only by a creature that is at least one size larger
+              than you.
+    - name: Rock Gnome
+      tags: [ gnome subrace ]
+      description:
+        - As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.
+      statModifiers:
+        - { type: ABILITY_SCORE, name: CON, modifier: 1 }
+      features:
+        - name: Artificer's Lore
+          description:
+            - >
+              Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or
+              technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you
+              normally apply.
+      choices:
+        - name: Tinker
+          description:
+            - >
+              You have proficiency with artisan's tools (tinker's tools). Using these tools, you can spend 1 hour and
+              10gp worth of materials to construct a Tiny clockwork device (AC5, 1hp). The device ceases to function
+              after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use
+              your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have
+              up to three such devices active at one time.
+          pick: 1
+          query: { list: features, tags: [ tinker device ] }
+      proficiencies:
+        - { type: TOOL, name: tinker's tools }
 
   gear:
     #default { weight: "0 lb", per: "1" }
