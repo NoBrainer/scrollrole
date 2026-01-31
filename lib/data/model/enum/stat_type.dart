@@ -3,7 +3,6 @@ import 'package:scrollrole/util/mapper_util.dart';
 
 part 'stat_type.g.dart';
 
-// TODO: Use this to simplify ASI and other stat modification
 @JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
 enum StatType {
   abilityScore('Ability Score', 'Ability Score'),

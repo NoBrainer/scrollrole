@@ -8,7 +8,6 @@ import 'package:scrollrole/util/mapper_util.dart';
 
 part 'stat_modifier.g.dart';
 
-// TODO: Use this to simplify ASI and other stat modification
 @immutable
 @JsonSerializable(explicitToJson: true)
 class StatModifier extends Equatable {

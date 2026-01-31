@@ -9,7 +9,6 @@ import 'package:scrollrole/util/mapper_util.dart';
 
 part 'choice.g.dart';
 
-//TODO: Figure out how to incorporate StatModifier as options
 /// Must provide a query, hard-coded options, or both.
 @immutable
 @JsonSerializable(explicitToJson: true)

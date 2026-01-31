@@ -194,12 +194,12 @@ classes:
             allowDuplicate: true
             pick: 2
             options:
-              - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
-              - { type: ABILITY_SCORE, name: CON, modifier: 1 }
-              - { type: ABILITY_SCORE, name: DEX, modifier: 1 }
-              - { type: ABILITY_SCORE, name: INT, modifier: 1 }
-              - { type: ABILITY_SCORE, name: STR, modifier: 1 }
-              - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
+              - { type: FEATURE, name: CHA+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CHA, modifier: 1 ] } }
+              - { type: FEATURE, name: CON+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CON, modifier: 1 ] } }
+              - { type: FEATURE, name: DEX+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: DEX, modifier: 1 ] } }
+              - { type: FEATURE, name: INT+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: INT, modifier: 1 ] } }
+              - { type: FEATURE, name: STR+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: STR, modifier: 1 ] } }
+              - { type: FEATURE, name: WIS+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: WIS, modifier: 1 ] } }
       - condition: { level: 2 }
         features:
           - name: Reckless Attack
@@ -515,12 +515,12 @@ classes:
             allowDuplicate: true
             pick: 2
             options:
-              - { type: ABILITY_SCORE, name: CHA, modifier: 1 }
-              - { type: ABILITY_SCORE, name: CON, modifier: 1 }
-              - { type: ABILITY_SCORE, name: DEX, modifier: 1 }
-              - { type: ABILITY_SCORE, name: INT, modifier: 1 }
-              - { type: ABILITY_SCORE, name: STR, modifier: 1 }
-              - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
+              - { type: FEATURE, name: CHA+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CHA, modifier: 1 ] } }
+              - { type: FEATURE, name: CON+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CON, modifier: 1 ] } }
+              - { type: FEATURE, name: DEX+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: DEX, modifier: 1 ] } }
+              - { type: FEATURE, name: INT+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: INT, modifier: 1 ] } }
+              - { type: FEATURE, name: STR+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: STR, modifier: 1 ] } }
+              - { type: FEATURE, name: WIS+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: WIS, modifier: 1 ] } }
       - condition: { level: 2 }
         spellCastingUpdate:
           knownSpells: 5
@@ -1077,11 +1077,11 @@ species:
           - Two other ability scores of your choice increase by 1.
         pick: 2
         options:
-          - { type: ABILITY_SCORE, name: STR, modifier: 1 }
-          - { type: ABILITY_SCORE, name: DEX, modifier: 1 }
-          - { type: ABILITY_SCORE, name: CON, modifier: 1 }
-          - { type: ABILITY_SCORE, name: INT, modifier: 1 }
-          - { type: ABILITY_SCORE, name: WIS, modifier: 1 }
+          - { type: FEATURE, name: CON+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CON, modifier: 1 ] } }
+          - { type: FEATURE, name: DEX+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: DEX, modifier: 1 ] } }
+          - { type: FEATURE, name: INT+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: INT, modifier: 1 ] } }
+          - { type: FEATURE, name: STR+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: STR, modifier: 1 ] } }
+          - { type: FEATURE, name: WIS+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: WIS, modifier: 1 ] } }
       - name: Languages
         description:
           - You can speak, read, and write Common, Elvish, and one extra language of your choice.
