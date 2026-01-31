@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-import 'package:scrollrole/data/model/rules/common_rules_base.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
+import 'package:scrollrole/data/model/rules/parts/feature_variable.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
 import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
@@ -14,7 +14,9 @@ part 'species.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)
-class Species extends CommonRulesBase {
+class Species extends Feature {
+  final String iconId;
+
   static const defaultIconId = 'species-custom';
 
   const Species({
@@ -22,14 +24,19 @@ class Species extends CommonRulesBase {
     super.description,
     super.equipment,
     super.features,
-    super.iconId = Species.defaultIconId,
+    this.iconId = Species.defaultIconId,
     required super.name,
     super.proficiencies,
+    super.shortDescription,
     super.speed,
     super.statModifiers,
     super.suggestedCharacteristics,
     super.unlockables,
+    super.variables,
   });
+
+  @override
+  List<Object?> get props => [...super.props, iconId];
 
   factory Species.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject("Species", _$SpeciesFromJson, json)

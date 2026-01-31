@@ -17,6 +17,11 @@ Feature _$FeatureFromJson(Map<String, dynamic> json) => Feature(
           ?.map((e) => e as String)
           .toList() ??
       const [],
+  equipment:
+      (json['equipment'] as List<dynamic>?)
+          ?.map((e) => Equipment.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
   features:
       (json['features'] as List<dynamic>?)
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
@@ -28,10 +33,21 @@ Feature _$FeatureFromJson(Map<String, dynamic> json) => Feature(
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  shortDescription: json['shortDescription'] as String? ?? "",
+  shortDescription: json['shortDescription'] as String? ?? '',
+  speed: (json['speed'] as num?)?.toInt(),
   statModifiers:
       (json['statModifiers'] as List<dynamic>?)
           ?.map((e) => StatModifier.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  suggestedCharacteristics: json['suggestedCharacteristics'] == null
+      ? null
+      : SuggestedCharacteristics.fromJson(
+          json['suggestedCharacteristics'] as Map<String, dynamic>,
+        ),
+  unlockables:
+      (json['unlockables'] as List<dynamic>?)
+          ?.map((e) => Unlockable.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
   variables:
@@ -44,10 +60,14 @@ Feature _$FeatureFromJson(Map<String, dynamic> json) => Feature(
 Map<String, dynamic> _$FeatureToJson(Feature instance) => <String, dynamic>{
   'choices': instance.choices.map((e) => e.toJson()).toList(),
   'description': instance.description,
+  'equipment': instance.equipment.map((e) => e.toJson()).toList(),
   'features': instance.features.map((e) => e.toJson()).toList(),
   'name': instance.name,
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'shortDescription': instance.shortDescription,
+  'speed': instance.speed,
   'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
+  'suggestedCharacteristics': instance.suggestedCharacteristics?.toJson(),
+  'unlockables': instance.unlockables.map((e) => e.toJson()).toList(),
   'variables': instance.variables.map((e) => e.toJson()).toList(),
 };

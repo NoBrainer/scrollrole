@@ -42,6 +42,7 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
   proficiencyBonus:
       (json['proficiencyBonus'] as num?)?.toInt() ??
       Class.defaultProficiencyBonus,
+  shortDescription: json['shortDescription'] as String? ?? '',
   speed: (json['speed'] as num?)?.toInt(),
   spellCasting: json['spellCasting'] == null
       ? null
@@ -61,6 +62,11 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           ?.map((e) => Unlockable.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  variables:
+      (json['variables'] as List<dynamic>?)
+          ?.map((e) => FeatureVariable.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
 );
 
 Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
@@ -68,15 +74,17 @@ Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
   'description': instance.description,
   'equipment': instance.equipment.map((e) => e.toJson()).toList(),
   'features': instance.features.map((e) => e.toJson()).toList(),
-  'iconId': instance.iconId,
   'name': instance.name,
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
+  'shortDescription': instance.shortDescription,
   'speed': instance.speed,
   'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
   'suggestedCharacteristics': instance.suggestedCharacteristics?.toJson(),
   'unlockables': instance.unlockables.map((e) => e.toJson()).toList(),
+  'variables': instance.variables.map((e) => e.toJson()).toList(),
   'baseHitPoints': instance.baseHitPoints,
   'hitPointDie': instance.hitPointDie.toJson(),
+  'iconId': instance.iconId,
   'proficiencyBonus': instance.proficiencyBonus,
   'spellCasting': instance.spellCasting?.toJson(),
 };

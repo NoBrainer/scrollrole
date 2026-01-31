@@ -1,9 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/dice_type.dart';
-import 'package:scrollrole/data/model/rules/common_rules_base.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
+import 'package:scrollrole/data/model/rules/parts/feature_variable.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
 import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
@@ -16,9 +17,10 @@ part 'class.g.dart';
 
 @immutable
 @JsonSerializable(explicitToJson: true)
-class Class extends CommonRulesBase {
+class Class extends Feature {
   final int baseHitPoints;
   final DiceType hitPointDie;
+  final String iconId;
   final int proficiencyBonus;
   final SpellCasting? spellCasting;
 
@@ -34,15 +36,17 @@ class Class extends CommonRulesBase {
     super.equipment,
     super.features,
     this.hitPointDie = Class.defaultHitPointDie,
-    super.iconId = Class.defaultIconId,
+    this.iconId = Class.defaultIconId,
     required super.name,
     super.proficiencies,
     this.proficiencyBonus = Class.defaultProficiencyBonus,
+    super.shortDescription,
     super.speed,
     this.spellCasting,
     super.statModifiers,
     super.suggestedCharacteristics,
     super.unlockables,
+    super.variables,
   });
 
   @override
@@ -50,6 +54,7 @@ class Class extends CommonRulesBase {
     ...super.props,
     baseHitPoints,
     hitPointDie,
+    iconId,
     proficiencyBonus,
     spellCasting,
   ];
