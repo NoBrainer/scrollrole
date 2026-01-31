@@ -180,12 +180,12 @@ classes:
       - name: Equipment
         pick: 1
         options:
-          - { type: EQUIPMENT_WEAPON, name: greataxe }
+          - { type: EQUIPMENT_WEAPON, name: greataxe } # Note that this is included in the query but a good test case
         query: { list: weapons, requiredTags: [ martial, melee ] }
       - name: Equipment
         pick: 1
         options:
-          - { type: EQUIPMENT_WEAPON, name: 2 handaxes }
+          - { type: EQUIPMENT_WEAPON, name: handaxe, quantity: 2 }
         query: { list: weapons, requiredTags: [ simple ] }
     unlockables:
       - condition: { levels: [ 4, 8, 12, 16, 19 ] }

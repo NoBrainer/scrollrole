@@ -12,12 +12,13 @@ part 'list_option.g.dart';
 @JsonSerializable(explicitToJson: true)
 class ListOption extends Equatable {
   final String name;
+  final int? quantity;
   final ListOptionType type;
 
-  const ListOption({required this.name, required this.type});
+  const ListOption({required this.name, this.quantity, required this.type});
 
   @override
-  List<Object?> get props => [name, type];
+  List<Object?> get props => [name, quantity, type];
 
   factory ListOption.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject('ListOption', _$ListOptionFromJson, json)
