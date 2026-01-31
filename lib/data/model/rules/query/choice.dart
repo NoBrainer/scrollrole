@@ -10,7 +10,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'choice.g.dart';
 
 //TODO: Figure out how to incorporate StatModifier as options
-/// Must provide a query or hard-coded options, not both.
+/// Must provide a query, hard-coded options, or both.
 @immutable
 @JsonSerializable(explicitToJson: true)
 class Choice extends Equatable {
@@ -46,16 +46,10 @@ class Choice extends Equatable {
           _$ChoiceFromJson,
           json,
           validate: (Choice parsedChoice) {
-            // TODO: Consider allowing both and combining lists.
             // TODO: Handle these exceptions or change parsing strategies
             // Note: This works well as a developer but not a user.
             if (parsedChoice.options.isEmpty && parsedChoice.query == null) {
-              throw Exception("Choice must include 'option' or 'query'");
-            } else if (parsedChoice.options.isNotEmpty &&
-                parsedChoice.query != null) {
-              throw Exception(
-                "Choice must not include both 'option' and 'query'",
-              );
+              throw Exception("Choice must include 'option' and/or 'query'");
             }
           },
         )
