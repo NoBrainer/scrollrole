@@ -15,11 +15,8 @@ final class ConfigState extends Equatable {
     this.status = ConfigStatus.initial,
   });
 
-  const ConfigState.initial()
-    : this(
-        rulesConfig: const RulesConfig.blank(),
-        status: ConfigStatus.initial,
-      );
+  ConfigState.initial()
+    : this(rulesConfig: RulesConfig.blank(), status: ConfigStatus.initial);
 
   @override
   List<Object> get props => [rulesConfig, status];

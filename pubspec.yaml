@@ -73,6 +73,9 @@ dependencies:
 
   url_launcher: ^6.3.2
 
+  # Generates UUID's
+  uuid: ^4.5.2
+
   # Provide yaml serialization/deserialization
   yaml: ^3.1.2
   yaml_writer: ^2.0.0

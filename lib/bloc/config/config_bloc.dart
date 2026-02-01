@@ -13,7 +13,7 @@ part 'config_event.dart';
 part 'config_state.dart';
 
 class ConfigBloc extends HydratedBloc<ConfigEvent, ConfigState> {
-  static const defaultConfigFile = 'assets/config/default.yaml';
+  static const defaultConfigFile = 'assets/config/srd-2014.yaml';
 
   ConfigBloc() : super(ConfigState.initial()) {
     on<LoadDefaultConfigRequested>((event, emit) async {
