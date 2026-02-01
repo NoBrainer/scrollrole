@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
@@ -5,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:scrollrole/app.dart';
+import 'package:scrollrole/bloc/config/config_bloc.dart';
+import 'package:scrollrole/data/model/rules/rules_config.dart';
 import 'package:scrollrole/presentation/common/basic_card.dart';
 import 'package:scrollrole/presentation/common/styled_app_bar.dart';
 import 'package:scrollrole/util/dialog_util.dart';
@@ -80,28 +83,23 @@ class _BackupRestoreCard extends StatelessWidget {
 
               DialogUtil.showLoadingSpinner(context);
 
-              // TODO: get the state from bloc
-              // ExampleState state = context.read<ExampleBloc>().state;
-              // String fileName = "scrollrole-${DateUtil.currentDate()}.txt";
+              // TODO: Save the app state here and move this config state elsewhere
+              ConfigState state = getConfigState(context);
+              RulesConfig config = state.rulesConfig;
 
-              // String? savedFilePath = await FilePicker.platform.saveFile(
-              //   fileName: fileName,
-              //   bytes: utf8.encode(state.toYaml()),
-              // );
+              // String fileName = "scrollrole-${DateUtil.currentDate()}.txt";
+              String fileName = '${config.name}.yaml';
+
+              String? savedFilePath = await FilePicker.platform.saveFile(
+                fileName: fileName,
+                bytes: utf8.encode(config.toYaml()),
+              );
 
               if (context.mounted) {
                 DialogUtil.hideLoadingSpinner(context);
-                // TODO: show message on success
-                // if (savedFilePath != null) {
-                //   SnackbarUtil.showMessage(
-                //     context,
-                //     "Saved app state to $fileName",
-                //   );
-                // }
-                SnackbarUtil.showMessage(
-                  context,
-                  'Nothing done. Feature under construction.',
-                );
+                if (savedFilePath != null) {
+                  SnackbarUtil.showMessage(context, 'Saved rules to $fileName');
+                }
               }
               cleanup();
             },
@@ -123,8 +121,7 @@ class _BackupRestoreCard extends StatelessWidget {
                     File file = File(result.files.single.path!);
                     file.readAsString().then((String content) {
                       if (context.mounted) {
-                        // TODO: trigger load state from file
-                        // context.read<ExampleBloc>().add(ImportFile(content));
+                        triggerImportFile(context, content);
                         SnackbarUtil.showMessage(
                           context,
                           'Loaded app state from ${file.path}',
@@ -176,8 +173,7 @@ class _BackupRestoreCard extends StatelessWidget {
                       TextButton(
                         onPressed: () {
                           Navigator.of(dialogContext).pop();
-                          // TODO: trigger state reset
-                          // dialogContext.read<ExampleBloc>().add(ForceReset());
+                          triggerForceReset(dialogContext);
                           SnackbarUtil.showMessage(
                             dialogContext,
                             'Reset app state',

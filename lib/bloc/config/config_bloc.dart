@@ -80,3 +80,11 @@ class ConfigBloc extends HydratedBloc<ConfigEvent, ConfigState> {
 ConfigState getConfigState(BuildContext context) {
   return context.read<ConfigBloc>().state;
 }
+
+void triggerForceReset(BuildContext context) {
+  context.read<ConfigBloc>().add(ForceReset());
+}
+
+void triggerImportFile(BuildContext context, String content) {
+  context.read<ConfigBloc>().add(ImportFile(content));
+}
