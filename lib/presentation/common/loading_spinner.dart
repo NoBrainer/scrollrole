@@ -24,9 +24,9 @@ class LoadingSpinnerState extends State<LoadingSpinner>
   );
 
   @override
-  void dispose() {
-    super.dispose();
+  Future<void> dispose() async {
     _controller.dispose();
+    return super.dispose();
   }
 
   @override

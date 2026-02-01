@@ -41,8 +41,8 @@ class AppLifecycleStateObserverState extends State<AppLifecycleStateObserver>
   }
 
   @override
-  void dispose() {
-    super.dispose();
+  Future<void> dispose() async {
     WidgetsBinding.instance.removeObserver(this);
+    return super.dispose();
   }
 }
