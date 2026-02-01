@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
+import 'package:scrollrole/data/model/rules/query/proficiency_condition.dart';
+import 'package:scrollrole/data/model/rules/query/stat_condition.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'condition.g.dart';
@@ -17,14 +19,9 @@ class Condition extends Equatable {
   final String? hasClass;
   final String? hasFeat;
   final String? hasFeature;
-  final String? hasProficiency;
-  final String? hasProficiencyArmor;
-  final String? hasProficiencyLanguage;
-  final String? hasProficiencySavingThrow;
-  final String? hasProficiencySkill;
-  final String? hasProficiencyTool;
-  final String? hasProficiencyWeapon;
+  final List<ProficiencyCondition> hasProficiencies;
   final String? hasSpecies;
+  final List<StatCondition> hasStats;
 
   /// Combine conditions (all are required)
   final List<Condition> and;
@@ -39,14 +36,9 @@ class Condition extends Equatable {
     this.hasClass,
     this.hasFeat,
     this.hasFeature,
-    this.hasProficiency,
-    this.hasProficiencyArmor,
-    this.hasProficiencyLanguage,
-    this.hasProficiencySavingThrow,
-    this.hasProficiencySkill,
-    this.hasProficiencyTool,
-    this.hasProficiencyWeapon,
+    this.hasProficiencies = const [],
     this.hasSpecies,
+    this.hasStats = const [],
     this.or = const [],
   });
 
@@ -58,14 +50,9 @@ class Condition extends Equatable {
     hasClass,
     hasFeat,
     hasFeature,
-    hasProficiency,
-    hasProficiencyArmor,
-    hasProficiencyLanguage,
-    hasProficiencySavingThrow,
-    hasProficiencySkill,
-    hasProficiencyTool,
-    hasProficiencyWeapon,
+    hasProficiencies,
     hasSpecies,
+    hasStats,
     or,
   ];
 

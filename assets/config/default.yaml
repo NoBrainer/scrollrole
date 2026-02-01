@@ -1304,7 +1304,8 @@ lists:
           You can use your action to try to pin a creature grappled by you. To do so, make another grapple check. If you
           succeed, you and the creature are both restrained until the grapple ends.
       prerequisites:
-        - STR 13
+        - hasStats:
+            - { type: ABILITY_SCORE, name: STR, minimum: 13 }
 
   features:
     - name: Path of the Berserker
