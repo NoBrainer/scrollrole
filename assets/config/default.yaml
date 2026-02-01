@@ -44,7 +44,9 @@ backgrounds:
     choices:
       - name: Languages
         pick: 2
-        query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
+        query:
+          list: proficiencies
+          types: [PROFICIENCY_LANGUAGE]
     suggestedCharacteristics:
       description:
         - Pick two personality traits, one ideal, one bond, and one flaw.
@@ -102,17 +104,22 @@ backgrounds:
         description:
           - Choose any one feature from another background.
         pick: 1
-        query: { list: backgroundFeatures }
+        query:
+          list: backgroundFeatures
       - name: Skills
         description:
           - Choose any two skills.
         pick: 2
-        query: { list: proficiencies, types: [ PROFICIENCY_SKILL ] }
+        query:
+          list: proficiencies
+          types: [PROFICIENCY_SKILL]
       - name: Tool Proficiencies or Languages
         description:
           - Choose a total of two tool proficiencies or languages.
         pick: 2
-        query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE, PROFICIENCY_TOOL ] }
+        query:
+          list: proficiencies
+          types: [PROFICIENCY_LANGUAGE, PROFICIENCY_TOOL]
 
 # Classes
 classes:
@@ -181,26 +188,32 @@ classes:
         pick: 1
         options:
           - { type: EQUIPMENT_WEAPON, name: greataxe } # Note that this is included in the query but a good test case
-        query: { list: weapons, requiredTags: [ martial, melee ] }
+        query:
+          list: weapons
+          requiredTags: [martial, melee]
       - name: Equipment
         pick: 1
         options:
           - { type: EQUIPMENT_WEAPON, name: handaxe, quantity: 2 }
-        query: { list: weapons, requiredTags: [ simple ] }
+        query:
+          list: weapons
+          requiredTags: [simple]
     unlockables:
-      - condition: { atLevels: [ 4, 8, 12, 16, 19 ] }
+      - condition:
+          atLevels: [4, 8, 12, 16, 19]
         choices:
           - name: Ability Score Improvement
             allowDuplicate: true
             pick: 2
             options:
-              - { type: FEATURE, name: CHA+1, feature: { name: CHA+1, statModifiers: [ { type: ABILITY_SCORE, name: CHA, modifier: 1 } ] } }
-              - { type: FEATURE, name: CON+1, feature: { name: CON+1, statModifiers: [ { type: ABILITY_SCORE, name: CON, modifier: 1 } ] } }
-              - { type: FEATURE, name: DEX+1, feature: { name: DEX+1, statModifiers: [ { type: ABILITY_SCORE, name: DEX, modifier: 1 } ] } }
-              - { type: FEATURE, name: INT+1, feature: { name: INT+1, statModifiers: [ { type: ABILITY_SCORE, name: INT, modifier: 1 } ] } }
-              - { type: FEATURE, name: STR+1, feature: { name: STR+1, statModifiers: [ { type: ABILITY_SCORE, name: STR, modifier: 1 } ] } }
-              - { type: FEATURE, name: WIS+1, feature: { name: WIS+1, statModifiers: [ { type: ABILITY_SCORE, name: WIS, modifier: 1 } ] } }
-      - condition: { atLevels: [ 2 ] }
+              - { type: FEATURE, name: CHA+1, feature: { name: CHA+1, statModifiers: [{ type: ABILITY_SCORE, name: CHA, modifier: 1 }] } }
+              - { type: FEATURE, name: CON+1, feature: { name: CON+1, statModifiers: [{ type: ABILITY_SCORE, name: CON, modifier: 1 }] } }
+              - { type: FEATURE, name: DEX+1, feature: { name: DEX+1, statModifiers: [{ type: ABILITY_SCORE, name: DEX, modifier: 1 }] } }
+              - { type: FEATURE, name: INT+1, feature: { name: INT+1, statModifiers: [{ type: ABILITY_SCORE, name: INT, modifier: 1 }] } }
+              - { type: FEATURE, name: STR+1, feature: { name: STR+1, statModifiers: [{ type: ABILITY_SCORE, name: STR, modifier: 1 }] } }
+              - { type: FEATURE, name: WIS+1, feature: { name: WIS+1, statModifiers: [{ type: ABILITY_SCORE, name: WIS, modifier: 1 }] } }
+      - condition:
+          atLevels: [2]
         features:
           - name: Reckless Attack
             description:
@@ -217,7 +230,8 @@ classes:
               - >
                 You have advantage on Dexterity saving throws against effects that you can see, such as traps and
                 spells. To gain this benefit, you can't be blinded, deafened, or incapacitated.
-      - condition: { atLevels: [ 3 ] }
+      - condition:
+          atLevels: [3]
         features:
           - name: Rage Count
             variables:
@@ -232,8 +246,13 @@ classes:
                 the Path of the Totem Warrior, both detailed at the end of the class description. Your choice grants you
                 features at 3rd level and again at 6th, 10th, and 14th levels.
             pick: 1
-            query: { list: features, classes: [ Barbarian ], tags: [ primal path ] }
-      - condition: { atLevels: [ 3 ], hasFeature: Path of the Berserker }
+            query:
+              list: features
+              classes: [Barbarian]
+              tags: [primal path]
+      - condition:
+          atLevels: [3]
+          hasFeature: Path of the Berserker
         features:
           - name: Frenzy
             description:
@@ -242,7 +261,9 @@ classes:
                 you do so, for the duration of your rage you can make a single melee weapon attack as a
                 bonus action on each of your turns after this one. When your rage ends, you suffer one level
                 of exhaustion (as described in appendix PH-A).
-      - condition: { atLevels: [ 6 ], hasFeature: Path of the Berserker }
+      - condition:
+          atLevels: [6]
+          hasFeature: Path of the Berserker
         features:
           - name: Mindless Rage
             description:
@@ -250,7 +271,9 @@ classes:
                 Beginning at 6th level, you can't be charmed or frightened while raging. If you are charmed
                 or frightened when you enter your rage, the effect is suspended for the duration of the
                 rage.
-      - condition: { atLevels: [ 10 ], hasFeature: Path of the Berserker }
+      - condition:
+          atLevels: [10]
+          hasFeature: Path of the Berserker
         features:
           - name: Intimidating Presence
             description:
@@ -265,14 +288,17 @@ classes:
               - >
                 If the creature succeeds on its saving throw, you can't use this feature on that creature
                 again for 24 hours.
-      - condition: { atLevels: [ 14 ], hasFeature: Path of the Berserker }
+      - condition:
+          atLevels: [14]
+          hasFeature: Path of the Berserker
         features:
           - name: Retaliation
             description:
               - >
                 Starting at 14th level, when you take damage from a creature that is within 5 feet of you,
                 you can use your reaction to make a melee weapon attack against that creature.
-      - condition: { atLevels: [ 5 ] }
+      - condition:
+          atLevels: [5]
         statModifiers:
           - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         features:
@@ -284,14 +310,16 @@ classes:
           - name: Fast Movement
             description:
               - Starting at 5th level, your speed increases by 10 feet while you aren't wearing heavy armor.
-      - condition: { atLevels: [ 6 ] }
+      - condition:
+          atLevels: [6]
         features:
           - name: Rage Count
             variables:
               - displayName: Rage Count
                 key: RAGE_COUNT
                 value: 4
-      - condition: { atLevels: [ 7 ] }
+      - condition:
+          atLevels: [7]
         features:
           - name: Feral Instinct
             description:
@@ -300,7 +328,8 @@ classes:
               - >
                 Additionally, if you are surprised at the beginning of combat and aren't incapacitated, you can act
                 normally on your first turn, but only if you enter your rage before doing anything else on that turn.
-      - condition: { atLevels: [ 9 ] }
+      - condition:
+          atLevels: [9]
         statModifiers:
           - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         features:
@@ -320,7 +349,8 @@ classes:
               - displayName: Brutal Critical Dice
                 key: BRUTAL_CRITICAL_DICE
                 value: 1
-      - condition: { atLevels: [ 11 ] }
+      - condition:
+          atLevels: [11]
         features:
           - name: Relentless Rage
             description:
@@ -331,14 +361,16 @@ classes:
               - >
                 Each time you use this feature after the first, the DC increases by 5. When you finish a short or long
                 rest, the DC resets to 10.
-      - condition: { atLevels: [ 12 ] }
+      - condition:
+          atLevels: [12]
         features:
           - name: Rage Count
             variables:
               - displayName: Rage Count
                 key: RAGE_COUNT
                 value: 5
-      - condition: { atLevels: [ 13 ] }
+      - condition:
+          atLevels: [13]
         statModifiers:
           - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         features:
@@ -347,21 +379,24 @@ classes:
               - displayName: Brutal Critical Dice
                 key: BRUTAL_CRITICAL_DICE
                 value: 2
-      - condition: { atLevels: [ 15 ] }
+      - condition:
+          atLevels: [15]
         features:
           - name: Persistent Rage
             description:
               - >
                 Beginning at 15th level, your rage is so fierce that it ends early only if you fall unconscious or if
                 you choose to end it.
-      - condition: { atLevels: [ 16 ] }
+      - condition:
+          atLevels: [16]
         features:
           - name: Rage Damage
             variables:
               - displayName: Rage Damage
                 key: RAGE_DAMAGE
                 value: 4
-      - condition: { atLevels: [ 17 ] }
+      - condition:
+          atLevels: [17]
         statModifiers:
           - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         features:
@@ -375,14 +410,16 @@ classes:
               - displayName: Brutal Critical Dice
                 key: BRUTAL_CRITICAL_DICE
                 value: 3
-      - condition: { atLevels: [ 18 ] }
+      - condition:
+          atLevels: [18]
         features:
           - name: Indomitable Might
             description:
               - >
                 Beginning at 18th level, if your total for a Strength check is less than your Strength score, you can
                 use that score in place of the total.
-      - condition: { atLevels: [ 20 ] }
+      - condition:
+          atLevels: [20]
         features:
           - name: Rage Count
             variables:
@@ -476,18 +513,25 @@ classes:
         description:
           - Three musical instruments of your choice
         pick: 3
-        query: { list: proficiencies, types: [ PROFICIENCY_TOOL ], tags: [ musical instrument ] }
+        query:
+          list: proficiencies
+          types: [PROFICIENCY_TOOL]
+          tags: [musical instrument]
       - name: Skills
         description:
           - Choose any three
         pick: 3
-        query: { list: proficiencies, types: [ PROFICIENCY_SKILL ] }
+        query:
+          list: proficiencies
+          types: [PROFICIENCY_SKILL]
       - name: Equipment
         pick: 1
         options:
           - { type: EQUIPMENT_WEAPON, name: rapier }
           - { type: EQUIPMENT_WEAPON, name: longsword }
-        query: { list: weapons, requiredTags: [ simple ] }
+        query:
+          list: weapons
+          requiredTags: [simple]
       - name: Equipment
         pick: 1
         options:
@@ -495,33 +539,43 @@ classes:
           - { type: EQUIPMENT, name: entertainer's pack }
       - name: Equipment
         pick: 1
-        query: { list: tools, tags: [ musical instrument ] }
+        query:
+          list: tools
+          tags: [musical instrument]
       - name: Cantrips
         description:
           - >
             You know two cantrips of your choice from the bard spell list. You learn additional bard cantrips of your
             choice at higher levels.
         pick: 2
-        query: { list: spells, levels: [ 0 ], classes: [ Bard ] }
+        query:
+          list: spells
+          levels: [0]
+          classes: [Bard]
       - name: Spells Known
         description:
           - You know four 1st-level spells of your choice from the bard spell list.
         pick: 4
-        query: { list: spells, levels: [ 1 ], classes: [ Bard ] }
+        query:
+          list: spells
+          levels: [1]
+          classes: [Bard]
     unlockables:
-      - condition: { atLevels: [ 4, 8, 12, 16, 19 ] }
+      - condition:
+          atLevels: [4, 8, 12, 16, 19]
         choices:
           - name: Ability Score Improvement
             allowDuplicate: true
             pick: 2
             options:
-              - { type: FEATURE, name: CHA+1, feature: { name: CHA+1, statModifiers: [ { type: ABILITY_SCORE, name: CHA, modifier: 1 } ] } }
-              - { type: FEATURE, name: CON+1, feature: { name: CON+1, statModifiers: [ { type: ABILITY_SCORE, name: CON, modifier: 1 } ] } }
-              - { type: FEATURE, name: DEX+1, feature: { name: DEX+1, statModifiers: [ { type: ABILITY_SCORE, name: DEX, modifier: 1 } ] } }
-              - { type: FEATURE, name: INT+1, feature: { name: INT+1, statModifiers: [ { type: ABILITY_SCORE, name: INT, modifier: 1 } ] } }
-              - { type: FEATURE, name: STR+1, feature: { name: STR+1, statModifiers: [ { type: ABILITY_SCORE, name: STR, modifier: 1 } ] } }
-              - { type: FEATURE, name: WIS+1, feature: { name: WIS+1, statModifiers: [ { type: ABILITY_SCORE, name: WIS, modifier: 1 } ] } }
-      - condition: { atLevels: [ 2 ] }
+              - { type: FEATURE, name: CHA+1, feature: { name: CHA+1, statModifiers: [{ type: ABILITY_SCORE, name: CHA, modifier: 1 }] } }
+              - { type: FEATURE, name: CON+1, feature: { name: CON+1, statModifiers: [{ type: ABILITY_SCORE, name: CON, modifier: 1 }] } }
+              - { type: FEATURE, name: DEX+1, feature: { name: DEX+1, statModifiers: [{ type: ABILITY_SCORE, name: DEX, modifier: 1 }] } }
+              - { type: FEATURE, name: INT+1, feature: { name: INT+1, statModifiers: [{ type: ABILITY_SCORE, name: INT, modifier: 1 }] } }
+              - { type: FEATURE, name: STR+1, feature: { name: STR+1, statModifiers: [{ type: ABILITY_SCORE, name: STR, modifier: 1 }] } }
+              - { type: FEATURE, name: WIS+1, feature: { name: WIS+1, statModifiers: [{ type: ABILITY_SCORE, name: WIS, modifier: 1 }] } }
+      - condition:
+          atLevels: [2]
         spellCastingUpdate:
           knownSpells: 5
           spellSlots: { '1': 3 }
@@ -546,7 +600,8 @@ classes:
               - displayName: Song of Rest Bonus Hit Die
                 key: SONG_OF_REST_BONUS_HIT_DIE
                 value: 1d6
-      - condition: { atLevels: [ 3 ] }
+      - condition:
+          atLevels: [3]
         spellCastingUpdate:
           knownSpells: 6
           spellSlots: { '1': 4, '2': 2 }
@@ -565,8 +620,13 @@ classes:
                 At 3rd level, you delve into the advanced techniques of a bard college of your choice, such as the
                 College of Lore. Your choice grants you features at 3rd level and again at 6th and 14th level.
             pick: 1
-            query: { list: features, classes: [ Bard ], tags: [ bard college ] }
-      - condition: { atLevels: [ 3 ], hasFeature: College of Lore }
+            query:
+              list: features
+              classes: [Bard]
+              tags: [bard college]
+      - condition:
+          atLevels: [3]
+          hasFeature: College of Lore
         features:
           - name: Cutting Words
             description:
@@ -583,8 +643,12 @@ classes:
             description:
               - When you join the College of Lore at 3rd level, you gain proficiency with three skills of your choice.
             pick: 3
-            query: { list: proficiencies, types: [ PROFICIENCY_SKILL ] }
-      - condition: { atLevels: [ 6 ], hasFeature: College of Lore }
+            query:
+              list: proficiencies
+              types: [PROFICIENCY_SKILL]
+      - condition:
+          atLevels: [6]
+          hasFeature: College of Lore
         choices:
           - name: Additional Magical Secrets
             description:
@@ -593,8 +657,12 @@ classes:
                 you can cast or a cantrip. The chosen spells count as bard spells for you but don't count against the
                 number of bard spells you know.
             pick: 2
-            query: { list: spells, levels: [ 0, 1, 2, 3 ] }
-      - condition: { atLevels: [ 14 ], hasFeature: College of Lore }
+            query:
+              list: spells
+              levels: [0, 1, 2, 3]
+      - condition:
+          atLevels: [14]
+          hasFeature: College of Lore
         features:
           - name: Peerless Skill
             description:
@@ -602,12 +670,14 @@ classes:
                 Starting at 14th level, when you make an ability check, you can expend one use of Bardic Inspiration.
                 Roll a Bardic Inspiration die and add the number rolled to your ability check. You can choose to do so
                 after you roll the die for the ability check, but before the GM tells you whether you succeed or fail.
-      - condition: { atLevels: [ 4 ] }
+      - condition:
+          atLevels: [4]
         spellCastingUpdate:
           knownCantrips: 3
           knownSpells: 7
           spellSlots: { '2': 3 }
-      - condition: { atLevels: [ 5 ] }
+      - condition:
+          atLevels: [5]
         statModifiers:
           - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         spellCastingUpdate:
@@ -624,7 +694,8 @@ classes:
               - >
                 Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when
                 you finish a short or long rest.
-      - condition: { atLevels: [ 6 ] }
+      - condition:
+          atLevels: [6]
         spellCastingUpdate:
           knownSpells: 9
           spellSlots: { '3': 3 }
@@ -637,15 +708,18 @@ classes:
                 that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against
                 being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance
                 ends early if you are incapacitated or silenced or if you voluntarily end it (no action required).
-      - condition: { atLevels: [ 7 ] }
+      - condition:
+          atLevels: [7]
         spellCastingUpdate:
           knownSpells: 10
           spellSlots: { '4': 1 }
-      - condition: { atLevels: [ 8 ] }
+      - condition:
+          atLevels: [8]
         spellCastingUpdate:
           knownSpells: 11
           spellSlots: { '4': 2 }
-      - condition: { atLevels: [ 9 ] }
+      - condition:
+          atLevels: [9]
         statModifiers:
           - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         spellCastingUpdate:
@@ -657,7 +731,8 @@ classes:
               - displayName: Song of Rest Bonus Hit Die
                 key: SONG_OF_REST_BONUS_HIT_DIE
                 value: 1d8
-      - condition: { atLevels: [ 10 ] }
+      - condition:
+          atLevels: [10]
         spellCastingUpdate:
           knownCantrips: 4
           knownSpells: 14
@@ -681,12 +756,16 @@ classes:
               - >
                 You learn two additional spells from any class at 14th level and again at 18th level.
             pick: 2
-            query: { list: spells, levels: [ 0, 1, 2, 3, 4, 5 ] }
-      - condition: { atLevels: [ 11 ] }
+            query:
+              list: spells
+              levels: [0, 1, 2, 3, 4, 5]
+      - condition:
+          atLevels: [11]
         spellCastingUpdate:
           knownSpells: 15
           spellSlots: { '6': 1 }
-      - condition: { atLevels: [ 13 ] }
+      - condition:
+          atLevels: [13]
         statModifiers:
           - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         spellCastingUpdate:
@@ -698,7 +777,8 @@ classes:
               - displayName: Song of Rest Bonus Hit Die
                 key: SONG_OF_REST_BONUS_HIT_DIE
                 value: 1d10
-      - condition: { atLevels: [ 14 ] }
+      - condition:
+          atLevels: [14]
         spellCastingUpdate:
           knownSpells: 18
         choices:
@@ -710,8 +790,10 @@ classes:
               - >
                 The chosen spells count as bard spells for you and are included in the number in the Spells Known.
             pick: 2
-            query: { list: spells }
-      - condition: { atLevels: [ 15 ] }
+            query:
+              list: spells
+      - condition:
+          atLevels: [15]
         spellCastingUpdate:
           knownSpells: 19
           spellSlots: { '8': 1 }
@@ -721,7 +803,8 @@ classes:
               - displayName: Bardic Inspiration Die
                 key: BARDIC_INSPIRATION_DIE
                 value: 1d12
-      - condition: { atLevels: [ 17 ] }
+      - condition:
+          atLevels: [17]
         statModifiers:
           - { type: PROFICIENCY_BONUS, name: Proficiency Bonus, modifier: 1 }
         spellCastingUpdate:
@@ -733,7 +816,8 @@ classes:
               - displayName: Song of Rest Bonus Hit Die
                 key: SONG_OF_REST_BONUS_HIT_DIE
                 value: 1d12
-      - condition: { atLevels: [ 18 ] }
+      - condition:
+          atLevels: [18]
         spellCastingUpdate:
           knownSpells: 22
           spellSlots: { '5': 3 }
@@ -746,11 +830,14 @@ classes:
               - >
                 The chosen spells count as bard spells for you and are included in the number in the Spells Known.
             pick: 2
-            query: { list: spells }
-      - condition: { atLevels: [ 19 ] }
+            query:
+              list: spells
+      - condition:
+          atLevels: [19]
         spellCastingUpdate:
           spellSlots: { '6': 2 }
-      - condition: { atLevels: [ 20 ] }
+      - condition:
+          atLevels: [20]
         spellCastingUpdate:
           spellSlots: { '7': 2 }
         features:
@@ -859,7 +946,9 @@ species:
           - { type: PROFICIENCY_TOOL, name: mason's tools }
       - name: Dwarf Subrace
         pick: 1
-        query: { list: features, requiredTags: [ dwarf subrace ] }
+        query:
+          list: features
+          requiredTags: [dwarf subrace]
 
   ## ELF
   - name: Elf
@@ -904,7 +993,9 @@ species:
     choices:
       - name: Elf Subrace
         pick: 1
-        query: { list: features, requiredTags: [ elf subrace ] }
+        query:
+          list: features
+          requiredTags: [elf subrace]
 
   ## HALFLING
   - name: Halfling
@@ -941,7 +1032,9 @@ species:
     choices:
       - name: Halfling Subrace
         pick: 1
-        query: { list: features, requiredTags: [ halfling subrace ] }
+        query:
+          list: features
+          requiredTags: [halfling subrace]
 
   ## HUMAN
   - name: Human
@@ -972,7 +1065,9 @@ species:
             speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military
             phrases, and so on.
         pick: 1
-        query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
+        query:
+          list: proficiencies
+          types: [PROFICIENCY_LANGUAGE]
 
   ## DRAGONBORN
   - name: Dragonborn
@@ -1002,7 +1097,9 @@ species:
             You have draconic ancestry. Choose one Draconic Ancestry. Your breath weapon and damage resistance are
             determined by the dragon type.
         pick: 1
-        query: { list: features, tags: [ draconic ancestry ] }
+        query:
+          list: features
+          tags: [draconic ancestry]
 
   ## GNOME
   - name: Gnome
@@ -1038,7 +1135,9 @@ species:
     choices:
       - name: Gnome Subrace
         pick: 1
-        query: { list: features, requiredTags: [ gnome subrace ] }
+        query:
+          list: features
+          requiredTags: [gnome subrace]
 
   ## HALF-ELF
   - name: Half-Elf
@@ -1077,21 +1176,25 @@ species:
           - Two other ability scores of your choice increase by 1.
         pick: 2
         options:
-          - { type: FEATURE, name: CON+1, feature: { name: CON+1, statModifiers: [ { type: ABILITY_SCORE, name: CON, modifier: 1 } ] } }
-          - { type: FEATURE, name: DEX+1, feature: { name: DEX+1, statModifiers: [ { type: ABILITY_SCORE, name: DEX, modifier: 1 } ] } }
-          - { type: FEATURE, name: INT+1, feature: { name: INT+1, statModifiers: [ { type: ABILITY_SCORE, name: INT, modifier: 1 } ] } }
-          - { type: FEATURE, name: STR+1, feature: { name: STR+1, statModifiers: [ { type: ABILITY_SCORE, name: STR, modifier: 1 } ] } }
-          - { type: FEATURE, name: WIS+1, feature: { name: WIS+1, statModifiers: [ { type: ABILITY_SCORE, name: WIS, modifier: 1 } ] } }
+          - { type: FEATURE, name: CON+1, feature: { name: CON+1, statModifiers: [{ type: ABILITY_SCORE, name: CON, modifier: 1 }] } }
+          - { type: FEATURE, name: DEX+1, feature: { name: DEX+1, statModifiers: [{ type: ABILITY_SCORE, name: DEX, modifier: 1 }] } }
+          - { type: FEATURE, name: INT+1, feature: { name: INT+1, statModifiers: [{ type: ABILITY_SCORE, name: INT, modifier: 1 }] } }
+          - { type: FEATURE, name: STR+1, feature: { name: STR+1, statModifiers: [{ type: ABILITY_SCORE, name: STR, modifier: 1 }] } }
+          - { type: FEATURE, name: WIS+1, feature: { name: WIS+1, statModifiers: [{ type: ABILITY_SCORE, name: WIS, modifier: 1 }] } }
       - name: Languages
         description:
           - You can speak, read, and write Common, Elvish, and one extra language of your choice.
         pick: 1
-        query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
+        query:
+          list: proficiencies
+          types: [PROFICIENCY_LANGUAGE]
       - name: Skill Versatility
         description:
           - You gain proficiency in two skills of your choice.
         pick: 2
-        query: { list: proficiencies, types: [ PROFICIENCY_SKILL ] }
+        query:
+          list: proficiencies
+          types: [PROFICIENCY_SKILL]
 
   ## HALF-ORC
   - name: Half-Orc
@@ -1305,20 +1408,22 @@ lists:
           succeed, you and the creature are both restrained until the grapple ends.
       prerequisites:
         - hasStats:
-            - { type: ABILITY_SCORE, name: STR, minimum: 13 }
+            - type: ABILITY_SCORE
+              name: STR
+              minimum: 13
 
   features:
     - name: Path of the Berserker
-      classes: [ Barbarian ]
-      tags: [ primal path ]
+      classes: [Barbarian]
+      tags: [primal path]
       description:
         - >
           For some barbarians, rage is a means to an end - that end being violence. The Path of the Berserker
           is a path of untrammeled fury, slick with blood. As you enter the berserker's rage, you thrill in
           the chaos of battle, heedless of your own health or well-being.
     - name: College of Lore
-      classes: [ Bard ]
-      tags: [ bard college ]
+      classes: [Bard]
+      tags: [bard college]
       description:
         - >
           Bards of the College of Lore know something about most things, collecting bits of knowledge from
@@ -1337,7 +1442,7 @@ lists:
           state, where they can expose corruption, unravel lies, and poke fun at self-important figures of
           authority.
     - name: Draconic Ancestry - Black
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 acid damage in a
@@ -1346,7 +1451,7 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to acid damage.
     - name: Draconic Ancestry - Blue
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 lightning damage in a
@@ -1355,7 +1460,7 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to lightning damage.
     - name: Draconic Ancestry - Brass
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 fire damage in a
@@ -1364,7 +1469,7 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to fire damage.
     - name: Draconic Ancestry - Bronze
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 lightning damage in a
@@ -1373,7 +1478,7 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to lightning damage.
     - name: Draconic Ancestry - Copper
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 acid damage in a
@@ -1382,7 +1487,7 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to acid damage.
     - name: Draconic Ancestry - Gold
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 fire damage in a
@@ -1391,7 +1496,7 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to fire damage.
     - name: Draconic Ancestry - Green
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 poison damage in a
@@ -1400,7 +1505,7 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to poison damage.
     - name: Draconic Ancestry - Red
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 fire damage in a
@@ -1409,7 +1514,7 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to fire damage.
     - name: Draconic Ancestry - Silver
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 cold damage in a
@@ -1418,7 +1523,7 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to cold damage.
     - name: Draconic Ancestry - White
-      tags: [ draconic ancestry ]
+      tags: [draconic ancestry]
       description:
         - >
           Breath Weapon. You can use your action to exhale destructive energy. It deals 2d6 cold damage in a
@@ -1427,26 +1532,26 @@ lists:
           You cannot use your breath weapon again until you finish a short or long rest.
         - Damage Resistance. You have resistance to cold damage.
     - name: Clockwork Toy
-      tags: [ tinker device ]
+      tags: [tinker device]
       description:
         - >
           This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier.
           When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random
           direction. It makes noises as appropriate to the creature it represents.
     - name: Fire Starter
-      tags: [ tinker device ]
+      tags: [tinker device]
       description:
         - >
           The device produces a miniature flame, which you can use to light a candle, torch, or campfire.
           Using the device requires your action.
     - name: Music Box
-      tags: [ tinker device ]
+      tags: [tinker device]
       description:
         - >
           When opened, this music box plays a single song at a moderate volume. The box stops playing when it
           reaches the song's end or when it is closed.
     - name: Hill Dwarf
-      tags: [ dwarf subrace ]
+      tags: [dwarf subrace]
       description:
         - As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.
       statModifiers:
@@ -1458,7 +1563,7 @@ lists:
           statModifiers:
             - { type: HIT_POINTS_PER_LEVEL, name: HP Per Level, modifier: 1 }
     - name: High Elf
-      tags: [ elf subrace ]
+      tags: [elf subrace]
       description:
         - >
           As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many fantasy gaming
@@ -1479,14 +1584,19 @@ lists:
               You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting
               ability for it.
           pick: 1
-          query: { list: spells, levels: [ 0 ], classes: [ Wizard ] }
+          query:
+            list: spells
+            levels: [0]
+            classes: [Wizard]
         - name: Languages
           description:
             - You can speak, read, and write one extra language of your choice.
           pick: 1
-          query: { list: proficiencies, types: [ PROFICIENCY_LANGUAGE ] }
+          query:
+            list: proficiencies
+            types: [PROFICIENCY_LANGUAGE]
     - name: Lightfoot
-      tags: [ halfling subrace ]
+      tags: [halfling subrace]
       description:
         - >
           As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined
@@ -1501,7 +1611,7 @@ lists:
               You can attempt to hide even when you are obscured only by a creature that is at least one size larger
               than you.
     - name: Rock Gnome
-      tags: [ gnome subrace ]
+      tags: [gnome subrace]
       description:
         - As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.
       statModifiers:
@@ -1523,7 +1633,9 @@ lists:
               your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have
               up to three such devices active at one time.
           pick: 1
-          query: { list: features, tags: [ tinker device ] }
+          query:
+            list: features
+            tags: [tinker device]
       proficiencies:
         - { type: TOOL, name: tinker's tools }
 
@@ -1630,22 +1742,22 @@ lists:
 
   languages:
     #default { isExotic: false }
-    - { name: Common,       typicalSpeakers: [ humans ],              script: Common }
-    - { name: Dwarvish,     typicalSpeakers: [ dwarves ],             script: Dwarvish }
-    - { name: Elvish,       typicalSpeakers: [ elves ],               script: Elvish }
-    - { name: Giant,        typicalSpeakers: [ ogres, giants ],       script: Dwarvish }
-    - { name: Gnomish,      typicalSpeakers: [ gnomes ],              script: Dwarvish }
-    - { name: Goblin,       typicalSpeakers: [ goblinoids ],          script: Dwarvish }
-    - { name: Halfling,     typicalSpeakers: [ halflings ],           script: Common }
-    - { name: Orc,          typicalSpeakers: [ orcs ],                script: Dwarvish }
-    - { name: Abyssal,      typicalSpeakers: [ demons ],              script: Infernal,   isExotic: true }
-    - { name: Celestial,    typicalSpeakers: [ celestials ],          script: Celestial,  isExotic: true }
-    - { name: Draconic,     typicalSpeakers: [ dragons, dragonborn ], script: Draconic,   isExotic: true }
-    - { name: Deep Speech,  typicalSpeakers: [ aboleths, cloakers ],  script: 'n/a',      isExotic: true }
-    - { name: Infernal,     typicalSpeakers: [ devils ],              script: Infernal,   isExotic: true }
-    - { name: Primordial,   typicalSpeakers: [ elementals ],          script: Dwarvish,   isExotic: true }
-    - { name: Sylvan,       typicalSpeakers: [ fey creatures ],       script: Elvish,     isExotic: true }
-    - { name: Undercommon,  typicalSpeakers: [ underworld traders ],  script: Elvish,     isExotic: true }
+    - { name: Common,       typicalSpeakers: [humans],              script: Common }
+    - { name: Dwarvish,     typicalSpeakers: [dwarves],             script: Dwarvish }
+    - { name: Elvish,       typicalSpeakers: [elves],               script: Elvish }
+    - { name: Giant,        typicalSpeakers: [ogres, giants],       script: Dwarvish }
+    - { name: Gnomish,      typicalSpeakers: [gnomes],              script: Dwarvish }
+    - { name: Goblin,       typicalSpeakers: [goblinoids],          script: Dwarvish }
+    - { name: Halfling,     typicalSpeakers: [halflings],           script: Common }
+    - { name: Orc,          typicalSpeakers: [orcs],                script: Dwarvish }
+    - { name: Abyssal,      typicalSpeakers: [demons],              script: Infernal,   isExotic: true }
+    - { name: Celestial,    typicalSpeakers: [celestials],          script: Celestial,  isExotic: true }
+    - { name: Draconic,     typicalSpeakers: [dragons, dragonborn], script: Draconic,   isExotic: true }
+    - { name: Deep Speech,  typicalSpeakers: [aboleths, cloakers],  script: n/a,        isExotic: true }
+    - { name: Infernal,     typicalSpeakers: [devils],              script: Infernal,   isExotic: true }
+    - { name: Primordial,   typicalSpeakers: [elementals],          script: Dwarvish,   isExotic: true }
+    - { name: Sylvan,       typicalSpeakers: [fey creatures],       script: Elvish,     isExotic: true }
+    - { name: Undercommon,  typicalSpeakers: [underworld traders],  script: Elvish,     isExotic: true }
 
   proficiencies:
     - { type: ARMOR,        name: Light }
@@ -1692,478 +1804,478 @@ lists:
     - { type: SKILL,        name: "sleight of hand" }
     - { type: SKILL,        name: "stealth" }
     - { type: SKILL,        name: "survival" }
-    - { type: TOOL,         name: "alchemist's supplies",     tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "brewer's supplies",        tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "calligrapher's supplies",  tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "carpenter's tools",        tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "cartographer's tools",     tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "cobbler's tools",          tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "cook's utensils",          tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "glassblower's tools",      tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "jeweler's tools",          tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "leatherworker's tools",    tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "mason's tools",            tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "painter's supplies",       tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "potter's tools",           tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "smith's tools",            tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "tinker's tools",           tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "weaver's tools",           tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "woodcarver's tools",       tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "disguise kit",             tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "forgery kit",              tags: [ artisan's tools ] }
-    - { type: TOOL,         name: "dice set",                 tags: [ gaming set ] }
-    - { type: TOOL,         name: "playing card set",         tags: [ gaming set ] }
-    - { type: TOOL,         name: "bagpipes",                 tags: [ musical instrument ] }
-    - { type: TOOL,         name: "drum",                     tags: [ musical instrument ] }
-    - { type: TOOL,         name: "dulcimer",                 tags: [ musical instrument ] }
-    - { type: TOOL,         name: "flute",                    tags: [ musical instrument ] }
-    - { type: TOOL,         name: "lute",                     tags: [ musical instrument ] }
-    - { type: TOOL,         name: "lyre",                     tags: [ musical instrument ] }
-    - { type: TOOL,         name: "horn",                     tags: [ musical instrument ] }
-    - { type: TOOL,         name: "pan flute",                tags: [ musical instrument ] }
-    - { type: TOOL,         name: "shawm",                    tags: [ musical instrument ] }
-    - { type: TOOL,         name: "viol",                     tags: [ musical instrument ] }
+    - { type: TOOL,         name: "alchemist's supplies",     tags: [artisan's tools] }
+    - { type: TOOL,         name: "brewer's supplies",        tags: [artisan's tools] }
+    - { type: TOOL,         name: "calligrapher's supplies",  tags: [artisan's tools] }
+    - { type: TOOL,         name: "carpenter's tools",        tags: [artisan's tools] }
+    - { type: TOOL,         name: "cartographer's tools",     tags: [artisan's tools] }
+    - { type: TOOL,         name: "cobbler's tools",          tags: [artisan's tools] }
+    - { type: TOOL,         name: "cook's utensils",          tags: [artisan's tools] }
+    - { type: TOOL,         name: "glassblower's tools",      tags: [artisan's tools] }
+    - { type: TOOL,         name: "jeweler's tools",          tags: [artisan's tools] }
+    - { type: TOOL,         name: "leatherworker's tools",    tags: [artisan's tools] }
+    - { type: TOOL,         name: "mason's tools",            tags: [artisan's tools] }
+    - { type: TOOL,         name: "painter's supplies",       tags: [artisan's tools] }
+    - { type: TOOL,         name: "potter's tools",           tags: [artisan's tools] }
+    - { type: TOOL,         name: "smith's tools",            tags: [artisan's tools] }
+    - { type: TOOL,         name: "tinker's tools",           tags: [artisan's tools] }
+    - { type: TOOL,         name: "weaver's tools",           tags: [artisan's tools] }
+    - { type: TOOL,         name: "woodcarver's tools",       tags: [artisan's tools] }
+    - { type: TOOL,         name: "disguise kit",             tags: [artisan's tools] }
+    - { type: TOOL,         name: "forgery kit",              tags: [artisan's tools] }
+    - { type: TOOL,         name: "dice set",                 tags: [gaming set] }
+    - { type: TOOL,         name: "playing card set",         tags: [gaming set] }
+    - { type: TOOL,         name: "bagpipes",                 tags: [musical instrument] }
+    - { type: TOOL,         name: "drum",                     tags: [musical instrument] }
+    - { type: TOOL,         name: "dulcimer",                 tags: [musical instrument] }
+    - { type: TOOL,         name: "flute",                    tags: [musical instrument] }
+    - { type: TOOL,         name: "lute",                     tags: [musical instrument] }
+    - { type: TOOL,         name: "lyre",                     tags: [musical instrument] }
+    - { type: TOOL,         name: "horn",                     tags: [musical instrument] }
+    - { type: TOOL,         name: "pan flute",                tags: [musical instrument] }
+    - { type: TOOL,         name: "shawm",                    tags: [musical instrument] }
+    - { type: TOOL,         name: "viol",                     tags: [musical instrument] }
     - { type: TOOL,         name: "herbalism kit" }
     - { type: TOOL,         name: "navigator's tools" }
     - { type: TOOL,         name: "poisoner's kit" }
     - { type: TOOL,         name: "thieves' tools" }
     - { type: TOOL,         name: "vehicles (land)" }
     - { type: TOOL,         name: "vehicles (water)" }
-    - { type: WEAPON,       name: "club",                     tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "dagger",                   tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "greatclub",                tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "handaxe",                  tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "javelin",                  tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "light hammer",             tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "mace",                     tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "quarterstaff",             tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "sickle",                   tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "spear",                    tags: [ simple, melee ] }
-    - { type: WEAPON,       name: "crossbow, light",          tags: [ simple, ranged ] }
-    - { type: WEAPON,       name: "dart",                     tags: [ simple, ranged ] }
-    - { type: WEAPON,       name: "shortbow",                 tags: [ simple, ranged ] }
-    - { type: WEAPON,       name: "sling",                    tags: [ simple, ranged ] }
-    - { type: WEAPON,       name: "battleaxe",                tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "flail",                    tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "glaive",                   tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "greataxe",                 tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "greatsword",               tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "halberd",                  tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "lance",                    tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "longsword",                tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "maul",                     tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "morningstar",              tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "pike",                     tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "rapier",                   tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "scimitar",                 tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "shortsword",               tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "trident",                  tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "war pick",                 tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "warhammer",                tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "whip",                     tags: [ martial, melee ] }
-    - { type: WEAPON,       name: "blowgun",                  tags: [ martial, ranged ] }
-    - { type: WEAPON,       name: "crossbow, hand",           tags: [ martial, ranged ] }
-    - { type: WEAPON,       name: "crossbow, heavy",          tags: [ martial, ranged ] }
-    - { type: WEAPON,       name: "longbow",                  tags: [ martial, ranged ] }
-    - { type: WEAPON,       name: "net",                      tags: [ martial, ranged ] }
+    - { type: WEAPON,       name: "club",                     tags: [simple, melee] }
+    - { type: WEAPON,       name: "dagger",                   tags: [simple, melee] }
+    - { type: WEAPON,       name: "greatclub",                tags: [simple, melee] }
+    - { type: WEAPON,       name: "handaxe",                  tags: [simple, melee] }
+    - { type: WEAPON,       name: "javelin",                  tags: [simple, melee] }
+    - { type: WEAPON,       name: "light hammer",             tags: [simple, melee] }
+    - { type: WEAPON,       name: "mace",                     tags: [simple, melee] }
+    - { type: WEAPON,       name: "quarterstaff",             tags: [simple, melee] }
+    - { type: WEAPON,       name: "sickle",                   tags: [simple, melee] }
+    - { type: WEAPON,       name: "spear",                    tags: [simple, melee] }
+    - { type: WEAPON,       name: "crossbow, light",          tags: [simple, ranged] }
+    - { type: WEAPON,       name: "dart",                     tags: [simple, ranged] }
+    - { type: WEAPON,       name: "shortbow",                 tags: [simple, ranged] }
+    - { type: WEAPON,       name: "sling",                    tags: [simple, ranged] }
+    - { type: WEAPON,       name: "battleaxe",                tags: [martial, melee] }
+    - { type: WEAPON,       name: "flail",                    tags: [martial, melee] }
+    - { type: WEAPON,       name: "glaive",                   tags: [martial, melee] }
+    - { type: WEAPON,       name: "greataxe",                 tags: [martial, melee] }
+    - { type: WEAPON,       name: "greatsword",               tags: [martial, melee] }
+    - { type: WEAPON,       name: "halberd",                  tags: [martial, melee] }
+    - { type: WEAPON,       name: "lance",                    tags: [martial, melee] }
+    - { type: WEAPON,       name: "longsword",                tags: [martial, melee] }
+    - { type: WEAPON,       name: "maul",                     tags: [martial, melee] }
+    - { type: WEAPON,       name: "morningstar",              tags: [martial, melee] }
+    - { type: WEAPON,       name: "pike",                     tags: [martial, melee] }
+    - { type: WEAPON,       name: "rapier",                   tags: [martial, melee] }
+    - { type: WEAPON,       name: "scimitar",                 tags: [martial, melee] }
+    - { type: WEAPON,       name: "shortsword",               tags: [martial, melee] }
+    - { type: WEAPON,       name: "trident",                  tags: [martial, melee] }
+    - { type: WEAPON,       name: "war pick",                 tags: [martial, melee] }
+    - { type: WEAPON,       name: "warhammer",                tags: [martial, melee] }
+    - { type: WEAPON,       name: "whip",                     tags: [martial, melee] }
+    - { type: WEAPON,       name: "blowgun",                  tags: [martial, ranged] }
+    - { type: WEAPON,       name: "crossbow, hand",           tags: [martial, ranged] }
+    - { type: WEAPON,       name: "crossbow, heavy",          tags: [martial, ranged] }
+    - { type: WEAPON,       name: "longbow",                  tags: [martial, ranged] }
+    - { type: WEAPON,       name: "net",                      tags: [martial, ranged] }
 
   spells:
-    - { level: 0, name: Acid Splash,                    classes: [ Sorcerer, Wizard ] }
-    - { level: 0, name: Chill Touch,                    classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 0, name: Dancing Lights,                 classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 0, name: Druidcraft,                     classes: [ Druid ] }
-    - { level: 0, name: Eldritch Blast,                 classes: [ Warlock ] }
-    - { level: 0, name: Fire Bolt,                      classes: [ Sorcerer, Wizard ] }
-    - { level: 0, name: Guidance,                       classes: [ Cleric, Druid ] }
-    - { level: 0, name: Light,                          classes: [ Bard, Cleric, Sorcerer, Wizard ] }
-    - { level: 0, name: Mage Hand,                      classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 0, name: Mending,                        classes: [ Bard, Cleric, Druid, Sorcerer, Wizard ] }
-    - { level: 0, name: Message,                        classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 0, name: Minor Illusion,                 classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 0, name: Poison Spray,                   classes: [ Druid, Sorcerer, Warlock, Wizard ] }
-    - { level: 0, name: Prestidigitation,               classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 0, name: Produce Flame,                  classes: [ Druid ] }
-    - { level: 0, name: Ray of Frost,                   classes: [ Sorcerer, Wizard ] }
-    - { level: 0, name: Resistance,                     classes: [ Cleric, Druid ] }
-    - { level: 0, name: Sacred Flame,                   classes: [ Cleric ] }
-    - { level: 0, name: Shillelagh,                     classes: [ Druid ] }
-    - { level: 0, name: Shocking Grasp,                 classes: [ Sorcerer, Wizard ] }
-    - { level: 0, name: Spare the Dying,                classes: [ Cleric ] }
-    - { level: 0, name: Thaumaturgy,                    classes: [ Cleric ] }
-    - { level: 0, name: True Strike,                    classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 0, name: Vicious Mockery,                classes: [ Bard ] }
-    - { level: 1, name: Alarm,                          classes: [ Ranger, Wizard ] }
-    - { level: 1, name: Animal Friendship,              classes: [ Bard, Druid, Ranger ] }
-    - { level: 1, name: Bane,                           classes: [ Bard, Cleric ] }
-    - { level: 1, name: Bless,                          classes: [ Cleric, Paladin ] }
-    - { level: 1, name: Burning Hands,                  classes: [ Sorcerer, Wizard ] }
-    - { level: 1, name: Charm Person,                   classes: [ Bard, Druid, Sorcerer, Warlock, Wizard ] }
-    - { level: 1, name: Color Spray,                    classes: [ Sorcerer, Wizard ] }
-    - { level: 1, name: Command,                        classes: [ Cleric, Paladin ] }
-    - { level: 1, name: Comprehend Languages,           classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 1, name: Create or Destroy Water,        classes: [ Cleric, Druid ] }
-    - { level: 1, name: Cure Wounds,                    classes: [ Bard, Cleric, Druid, Paladin, Ranger ] }
-    - { level: 1, name: Detect Evil and Good,           classes: [ Cleric, Paladin ] }
-    - { level: 1, name: Detect Magic,                   classes: [ Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard ] }
-    - { level: 1, name: Detect Poison and Disease,      classes: [ Cleric, Druid, Paladin, Ranger ] }
-    - { level: 1, name: Disguise Self,                  classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 1, name: Divine Favor,                   classes: [ Paladin ] }
-    - { level: 1, name: Entangle,                       classes: [ Druid ] }
-    - { level: 1, name: Expeditious Retreat,            classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 1, name: Faerie Fire,                    classes: [ Bard, Druid ] }
-    - { level: 1, name: False Life,                     classes: [ Sorcerer, Wizard ] }
-    - { level: 1, name: Feather Fall,                   classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 1, name: Find Familiar,                  classes: [ Wizard ] }
-    - { level: 1, name: Floating Disk,                  classes: [ Wizard ] }
-    - { level: 1, name: Fog Cloud,                      classes: [ Druid, Ranger, Sorcerer, Wizard ] }
-    - { level: 1, name: Goodberry,                      classes: [ Druid, Ranger ] }
-    - { level: 1, name: Grease,                         classes: [ Wizard ] }
-    - { level: 1, name: Guiding Bolt,                   classes: [ Cleric ] }
-    - { level: 1, name: Healing Word,                   classes: [ Bard, Cleric, Druid ] }
-    - { level: 1, name: Hellish Rebuke,                 classes: [ Warlock ] }
-    - { level: 1, name: Heroism,                        classes: [ Bard, Paladin ] }
-    - { level: 1, name: Hideous Laughter,               classes: [ Bard, Wizard ] }
-    - { level: 1, name: Hunter's Mark,                  classes: [ Ranger ] }
-    - { level: 1, name: Identify,                       classes: [ Bard, Wizard ] }
-    - { level: 1, name: Illusory Script,                classes: [ Bard, Warlock, Wizard ] }
-    - { level: 1, name: Inflict Wounds,                 classes: [ Cleric ] }
-    - { level: 1, name: Jump,                           classes: [ Druid, Ranger, Sorcerer, Wizard ] }
-    - { level: 1, name: Longstrider,                    classes: [ Bard, Druid, Ranger, Wizard ] }
-    - { level: 1, name: Mage Armor,                     classes: [ Sorcerer, Wizard ] }
-    - { level: 1, name: Magic Missile,                  classes: [ Sorcerer, Wizard ] }
-    - { level: 1, name: Protection from Evil and Good,  classes: [ Cleric, Paladin, Warlock, Wizard ] }
-    - { level: 1, name: Purify Food and Drink,          classes: [ Cleric, Druid, Paladin ] }
-    - { level: 1, name: Sanctuary,                      classes: [ Cleric ] }
-    - { level: 1, name: Shield,                         classes: [ Sorcerer, Wizard ] }
-    - { level: 1, name: Shield of Faith,                classes: [ Cleric, Paladin ] }
-    - { level: 1, name: Silent Image,                   classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 1, name: Sleep,                          classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 1, name: Speak with Animals,             classes: [ Bard, Druid, Ranger ] }
-    - { level: 1, name: Thunderwave,                    classes: [ Bard, Druid, Sorcerer, Wizard ] }
-    - { level: 1, name: Unseen Servant,                 classes: [ Bard, Warlock, Wizard ] }
-    - { level: 2, name: Acid Arrow,                     classes: [ Wizard ] }
-    - { level: 2, name: Aid,                            classes: [ Cleric, Paladin ] }
-    - { level: 2, name: Alter Self,                     classes: [ Sorcerer, Wizard ] }
-    - { level: 2, name: Animal Messenger,               classes: [ Bard, Druid, Ranger ] }
-    - { level: 2, name: Arcane Lock,                    classes: [ Wizard ] }
-    - { level: 2, name: Arcanist's Magic Aura,          classes: [ Wizard ] }
-    - { level: 2, name: Augury,                         classes: [ Cleric ] }
-    - { level: 2, name: Barkskin,                       classes: [ Druid, Ranger ] }
-    - { level: 2, name: Blindness/Deafness,             classes: [ Bard, Cleric, Sorcerer, Wizard ] }
-    - { level: 2, name: Blur,                           classes: [ Sorcerer, Wizard ] }
-    - { level: 2, name: Branding Smite,                 classes: [ Paladin ] }
-    - { level: 2, name: Calm Emotions,                  classes: [ Bard, Cleric ] }
-    - { level: 2, name: Continual Flame,                classes: [ Cleric, Wizard ] }
-    - { level: 2, name: Darkness,                       classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 2, name: Darkvision,                     classes: [ Druid, Ranger, Sorcerer, Wizard ] }
-    - { level: 2, name: Detect Thoughts,                classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 2, name: Enhance Ability,                classes: [ Bard, Cleric, Druid, Sorcerer ] }
-    - { level: 2, name: Enlarge/Reduce,                 classes: [ Sorcerer, Wizard ] }
-    - { level: 2, name: Enthrall,                       classes: [ Bard, Warlock ] }
-    - { level: 2, name: Find Steed,                     classes: [ Paladin ] }
-    - { level: 2, name: Find Traps,                     classes: [ Cleric, Druid, Ranger ] }
-    - { level: 2, name: Flame Blade,                    classes: [ Druid ] }
-    - { level: 2, name: Flaming Sphere,                 classes: [ Druid, Wizard ] }
-    - { level: 2, name: Gentle Repose,                  classes: [ Cleric, Wizard ] }
-    - { level: 2, name: Gust of Wind,                   classes: [ Druid, Sorcerer, Wizard ] }
-    - { level: 2, name: Heat Metal,                     classes: [ Bard, Druid ] }
-    - { level: 2, name: Hold Person,                    classes: [ Bard, Cleric, Druid, Sorcerer, Warlock, Wizard ] }
-    - { level: 2, name: Invisibility,                   classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 2, name: Knock,                          classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 2, name: Lesser Restoration,             classes: [ Bard, Cleric, Druid, Paladin, Ranger ] }
-    - { level: 2, name: Levitate,                       classes: [ Sorcerer, Wizard ] }
-    - { level: 2, name: Locate Animals or Plants,       classes: [ Bard, Druid, Ranger ] }
-    - { level: 2, name: Locate Object,                  classes: [ Bard, Cleric, Druid, Paladin, Ranger, Wizard ] }
-    - { level: 2, name: Magic Mouth,                    classes: [ Bard, Wizard ] }
-    - { level: 2, name: Magic Weapon,                   classes: [ Paladin, Wizard ] }
-    - { level: 2, name: Mirror Image,                   classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 2, name: Misty Step,                     classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 2, name: Moonbeam,                       classes: [ Druid ] }
-    - { level: 2, name: Pass without Trace,             classes: [ Druid, Ranger ] }
-    - { level: 2, name: Prayer of Healing,              classes: [ Cleric ] }
-    - { level: 2, name: Protection from Poison,         classes: [ Cleric, Druid, Paladin, Ranger ] }
-    - { level: 2, name: Ray of Enfeeblement,            classes: [ Warlock, Wizard ] }
-    - { level: 2, name: Rope Trick,                     classes: [ Wizard ] }
-    - { level: 2, name: Scorching Ray,                  classes: [ Sorcerer, Wizard ] }
-    - { level: 2, name: See Invisibility,               classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 2, name: Shatter,                        classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 2, name: Silence,                        classes: [ Bard, Cleric, Ranger ] }
-    - { level: 2, name: Spider Climb,                   classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 2, name: Spike Growth,                   classes: [ Druid, Ranger ] }
-    - { level: 2, name: Spiritual Weapon,               classes: [ Cleric ] }
-    - { level: 2, name: Suggestion,                     classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 2, name: Warding Bond,                   classes: [ Cleric ] }
-    - { level: 2, name: Web,                            classes: [ Sorcerer, Wizard ] }
-    - { level: 2, name: Zone of Truth,                  classes: [ Bard, Cleric, Paladin ] }
-    - { level: 3, name: Animate Dead,                   classes: [ Cleric, Wizard ] }
-    - { level: 3, name: Beacon of Hope,                 classes: [ Cleric ] }
-    - { level: 3, name: Bestow Curse,                   classes: [ Bard, Cleric, Wizard ] }
-    - { level: 3, name: Blink,                          classes: [ Sorcerer, Wizard ] }
-    - { level: 3, name: Call Lightning,                 classes: [ Druid ] }
-    - { level: 3, name: Clairvoyance,                   classes: [ Bard, Cleric, Sorcerer, Wizard ] }
-    - { level: 3, name: Conjure Animals,                classes: [ Druid, Ranger ] }
-    - { level: 3, name: Counterspell,                   classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 3, name: Create Food and Water,          classes: [ Cleric, Paladin ] }
-    - { level: 3, name: Daylight,                       classes: [ Cleric, Druid, Paladin, Ranger, Sorcerer ] }
-    - { level: 3, name: Dispel Magic,                   classes: [ Bard, Cleric, Druid, Paladin, Sorcerer, Warlock, Wizard ] }
-    - { level: 3, name: Fear,                           classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 3, name: Fireball,                       classes: [ Sorcerer, Wizard ] }
-    - { level: 3, name: Fly,                            classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 3, name: Gaseous Form,                   classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 3, name: Glyph of Warding,               classes: [ Bard, Cleric, Wizard ] }
-    - { level: 3, name: Haste,                          classes: [ Sorcerer, Wizard ] }
-    - { level: 3, name: Hypnotic Pattern,               classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 3, name: Lightning Bolt,                 classes: [ Sorcerer, Wizard ] }
-    - { level: 3, name: Magic Circle,                   classes: [ Cleric, Paladin, Warlock, Wizard ] }
-    - { level: 3, name: Major Image,                    classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 3, name: Mass Healing Word,              classes: [ Cleric ] }
-    - { level: 3, name: Meld into Stone,                classes: [ Cleric, Druid ] }
-    - { level: 3, name: Nondetection,                   classes: [ Bard, Ranger, Wizard ] }
-    - { level: 3, name: Phantom Steed,                  classes: [ Wizard ] }
-    - { level: 3, name: Plant Growth,                   classes: [ Bard, Druid, Ranger ] }
-    - { level: 3, name: Protection from Energy,         classes: [ Cleric, Druid, Ranger, Sorcerer, Wizard ] }
-    - { level: 3, name: Remove Curse,                   classes: [ Cleric, Paladin, Warlock, Wizard ] }
-    - { level: 3, name: Revivify,                       classes: [ Cleric, Paladin ] }
-    - { level: 3, name: Sending,                        classes: [ Bard, Cleric, Wizard ] }
-    - { level: 3, name: Sleet Storm,                    classes: [ Druid, Sorcerer, Wizard ] }
-    - { level: 3, name: Slow,                           classes: [ Sorcerer, Wizard ] }
-    - { level: 3, name: Speak with Dead,                classes: [ Bard, Cleric ] }
-    - { level: 3, name: Speak with Plants,              classes: [ Bard, Druid, Ranger ] }
-    - { level: 3, name: Spirit Guardians,               classes: [ Cleric ] }
-    - { level: 3, name: Stinking Cloud,                 classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 3, name: Tiny Hut,                       classes: [ Bard, Wizard ] }
-    - { level: 3, name: Tongues,                        classes: [ Bard, Cleric, Sorcerer, Warlock, Wizard ] }
-    - { level: 3, name: Vampiric Touch,                 classes: [ Warlock, Wizard ] }
-    - { level: 3, name: Water Breathing,                classes: [ Druid, Ranger, Sorcerer, Wizard ] }
-    - { level: 3, name: Water Walk,                     classes: [ Cleric, Druid, Ranger, Sorcerer ] }
-    - { level: 3, name: Wind Wall,                      classes: [ Druid, Ranger ] }
-    - { level: 4, name: Arcane Eye,                     classes: [ Wizard ] }
-    - { level: 4, name: Banishment,                     classes: [ Cleric, Paladin, Sorcerer, Warlock, Wizard ] }
-    - { level: 4, name: Black Tentacles,                classes: [ Wizard ] }
-    - { level: 4, name: Blight,                         classes: [ Druid, Sorcerer, Warlock, Wizard ] }
-    - { level: 4, name: Compulsion,                     classes: [ Bard ] }
-    - { level: 4, name: Confusion,                      classes: [ Bard, Druid, Sorcerer, Wizard ] }
-    - { level: 4, name: Conjure Minor Elementals,       classes: [ Druid, Wizard ] }
-    - { level: 4, name: Conjure Woodland Beings,        classes: [ Druid, Ranger ] }
-    - { level: 4, name: Control Water,                  classes: [ Cleric, Druid, Wizard ] }
-    - { level: 4, name: Death Ward,                     classes: [ Cleric, Paladin ] }
-    - { level: 4, name: Dimension Door,                 classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 4, name: Divination,                     classes: [ Cleric ] }
-    - { level: 4, name: Dominate Beast,                 classes: [ Druid, Sorcerer ] }
-    - { level: 4, name: Fabricate,                      classes: [ Wizard ] }
-    - { level: 4, name: Faithful Hound,                 classes: [ Wizard ] }
-    - { level: 4, name: Fire Shield,                    classes: [ Wizard ] }
-    - { level: 4, name: Freedom of Movement,            classes: [ Bard, Cleric, Druid, Ranger ] }
-    - { level: 4, name: Giant Insect,                   classes: [ Druid ] }
-    - { level: 4, name: Greater Invisibility,           classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 4, name: Guardian of Faith,              classes: [ Cleric ] }
-    - { level: 4, name: Hallucinatory Terrain,          classes: [ Bard, Druid, Warlock, Wizard ] }
-    - { level: 4, name: Ice Storm,                      classes: [ Druid, Sorcerer, Wizard ] }
-    - { level: 4, name: Locate Creature,                classes: [ Bard, Cleric, Druid, Paladin, Ranger, Wizard ] }
-    - { level: 4, name: Phantasmal Killer,              classes: [ Wizard ] }
-    - { level: 4, name: Polymorph,                      classes: [ Bard, Druid, Sorcerer, Wizard ] }
-    - { level: 4, name: Private Sanctum,                classes: [ Wizard ] }
-    - { level: 4, name: Resilient Sphere,               classes: [ Wizard ] }
-    - { level: 4, name: Secret Chest,                   classes: [ Wizard ] }
-    - { level: 4, name: Stone Shape,                    classes: [ Cleric, Druid, Wizard ] }
-    - { level: 4, name: Stoneskin,                      classes: [ Druid, Ranger, Sorcerer, Wizard ] }
-    - { level: 4, name: Wall of Fire,                   classes: [ Druid, Sorcerer, Wizard ] }
-    - { level: 5, name: Animate Objects,                classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 5, name: Antilife Shell,                 classes: [ Druid ] }
-    - { level: 5, name: Arcane Hand,                    classes: [ Wizard ] }
-    - { level: 5, name: Awaken,                         classes: [ Bard, Druid ] }
-    - { level: 5, name: Cloudkill,                      classes: [ Sorcerer, Wizard ] }
-    - { level: 5, name: Commune,                        classes: [ Cleric ] }
-    - { level: 5, name: Commune with Nature,            classes: [ Druid, Ranger ] }
-    - { level: 5, name: Cone of Cold,                   classes: [ Sorcerer, Wizard ] }
-    - { level: 5, name: Conjure Elemental,              classes: [ Druid, Wizard ] }
-    - { level: 5, name: Contact Other Plane,            classes: [ Warlock, Wizard ] }
-    - { level: 5, name: Contagion,                      classes: [ Cleric, Druid ] }
-    - { level: 5, name: Creation,                       classes: [ Sorcerer, Wizard ] }
-    - { level: 5, name: Dispel Evil and Good,           classes: [ Cleric, Paladin ] }
-    - { level: 5, name: Dominate Person,                classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 5, name: Dream,                          classes: [ Bard, Warlock, Wizard ] }
-    - { level: 5, name: Flame Strike,                   classes: [ Cleric ] }
-    - { level: 5, name: Geas,                           classes: [ Bard, Cleric, Druid, Paladin, Wizard ] }
-    - { level: 5, name: Greater Restoration,            classes: [ Bard, Cleric, Druid ] }
-    - { level: 5, name: Hallow,                         classes: [ Cleric ] }
-    - { level: 5, name: Hold Monster,                   classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 5, name: Insect Plague,                  classes: [ Cleric, Druid, Sorcerer ] }
-    - { level: 5, name: Legend Lore,                    classes: [ Bard, Cleric, Wizard ] }
-    - { level: 5, name: Mass Cure Wounds,               classes: [ Bard, Cleric, Druid ] }
-    - { level: 5, name: Mislead,                        classes: [ Bard, Wizard ] }
-    - { level: 5, name: Modify Memory,                  classes: [ Bard, Wizard ] }
-    - { level: 5, name: Passwall,                       classes: [ Wizard ] }
-    - { level: 5, name: Planar Binding,                 classes: [ Bard, Cleric, Druid, Wizard ] }
-    - { level: 5, name: Raise Dead,                     classes: [ Bard, Cleric, Paladin ] }
-    - { level: 5, name: Reincarnate,                    classes: [ Druid ] }
-    - { level: 5, name: Scrying,                        classes: [ Bard, Cleric, Druid, Warlock, Wizard ] }
-    - { level: 5, name: Seeming,                        classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 5, name: Telekinesis,                    classes: [ Sorcerer, Wizard ] }
-    - { level: 5, name: Telepathic Bond,                classes: [ Wizard ] }
-    - { level: 5, name: Teleportation Circle,           classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 5, name: Tree Stride,                    classes: [ Druid, Ranger ] }
-    - { level: 5, name: Wall of Force,                  classes: [ Wizard ] }
-    - { level: 5, name: Wall of Stone,                  classes: [ Druid, Sorcerer, Wizard ] }
-    - { level: 6, name: Blade Barrier,                  classes: [ Cleric ] }
-    - { level: 6, name: Chain Lightning,                classes: [ Sorcerer, Wizard ] }
-    - { level: 6, name: Circle of Death,                classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 6, name: Conjure Fey,                    classes: [ Druid, Warlock ] }
-    - { level: 6, name: Contingency,                    classes: [ Wizard ] }
-    - { level: 6, name: Create Undead,                  classes: [ Cleric, Warlock, Wizard ] }
-    - { level: 6, name: Disintegrate,                   classes: [ Sorcerer, Wizard ] }
-    - { level: 6, name: Eyebite,                        classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 6, name: Find the Path,                  classes: [ Bard, Cleric, Druid ] }
-    - { level: 6, name: Flesh to Stone,                 classes: [ Warlock, Wizard ] }
-    - { level: 6, name: Forbiddance,                    classes: [ Cleric ] }
-    - { level: 6, name: Freezing Sphere,                classes: [ Wizard ] }
-    - { level: 6, name: Globe of Invulnerability,       classes: [ Sorcerer, Wizard ] }
-    - { level: 6, name: Guards and Wards,               classes: [ Bard, Wizard ] }
-    - { level: 6, name: Harm,                           classes: [ Cleric ] }
-    - { level: 6, name: Heal,                           classes: [ Cleric, Druid ] }
-    - { level: 6, name: Heroes' Feast,                  classes: [ Cleric, Druid ] }
-    - { level: 6, name: Instant Summons,                classes: [ Wizard ] }
-    - { level: 6, name: Irresistible Dance,             classes: [ Bard, Wizard ] }
-    - { level: 6, name: Magic Jar,                      classes: [ Wizard ] }
-    - { level: 6, name: Mass Suggestion,                classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 6, name: Move Earth,                     classes: [ Druid, Sorcerer, Wizard ] }
-    - { level: 6, name: Planar Ally,                    classes: [ Cleric ] }
-    - { level: 6, name: Programmed Illusion,            classes: [ Bard, Wizard ] }
-    - { level: 6, name: Sunbeam,                        classes: [ Druid, Sorcerer, Wizard ] }
-    - { level: 6, name: Transport via Plants,           classes: [ Druid ] }
-    - { level: 6, name: True Seeing,                    classes: [ Bard, Cleric, Sorcerer, Warlock, Wizard ] }
-    - { level: 6, name: Wall of Ice,                    classes: [ Wizard ] }
-    - { level: 6, name: Wall of Thorns,                 classes: [ Druid ] }
-    - { level: 6, name: Wind Walk,                      classes: [ Druid ] }
-    - { level: 6, name: Word of Recall,                 classes: [ Cleric ] }
-    - { level: 7, name: Arcane Sword,                   classes: [ Bard, Wizard ] }
-    - { level: 7, name: Conjure Celestial,              classes: [ Cleric ] }
-    - { level: 7, name: Delayed Blast Fireball,         classes: [ Sorcerer, Wizard ] }
-    - { level: 7, name: Divine Word,                    classes: [ Cleric ] }
-    - { level: 7, name: Etherealness,                   classes: [ Bard, Cleric, Sorcerer, Warlock, Wizard ] }
-    - { level: 7, name: Finger of Death,                classes: [ Sorcerer, Warlock, Wizard ] }
-    - { level: 7, name: Fire Storm,                     classes: [ Cleric, Druid, Sorcerer ] }
-    - { level: 7, name: Forcecage,                      classes: [ Bard, Warlock, Wizard ] }
-    - { level: 7, name: Magnificent Mansion,            classes: [ Bard, Wizard ] }
-    - { level: 7, name: Mirage Arcane,                  classes: [ Bard, Druid, Wizard ] }
-    - { level: 7, name: Plane Shift,                    classes: [ Cleric, Druid, Sorcerer, Warlock, Wizard ] }
-    - { level: 7, name: Prismatic Spray,                classes: [ Sorcerer, Wizard ] }
-    - { level: 7, name: Project Image,                  classes: [ Bard, Wizard ] }
-    - { level: 7, name: Regenerate,                     classes: [ Bard, Cleric, Druid ] }
-    - { level: 7, name: Resurrection,                   classes: [ Bard, Cleric ] }
-    - { level: 7, name: Reverse Gravity,                classes: [ Druid, Sorcerer, Wizard ] }
-    - { level: 7, name: Sequester,                      classes: [ Wizard ] }
-    - { level: 7, name: Simulacrum,                     classes: [ Wizard ] }
-    - { level: 7, name: Symbol,                         classes: [ Bard, Cleric, Wizard ] }
-    - { level: 7, name: Teleport,                       classes: [ Bard, Sorcerer, Wizard ] }
-    - { level: 8, name: Animal Shapes,                  classes: [ Druid ] }
-    - { level: 8, name: Antimagic Field,                classes: [ Cleric, Wizard ] }
-    - { level: 8, name: Antipathy/Sympathy,             classes: [ Druid, Wizard ] }
-    - { level: 8, name: Clone,                          classes: [ Wizard ] }
-    - { level: 8, name: Control Weather,                classes: [ Cleric, Druid, Wizard ] }
-    - { level: 8, name: Demiplane,                      classes: [ Warlock, Wizard ] }
-    - { level: 8, name: Dominate Monster,               classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 8, name: Earthquake,                     classes: [ Cleric, Druid, Sorcerer ] }
-    - { level: 8, name: Feeblemind,                     classes: [ Bard, Druid, Warlock, Wizard ] }
-    - { level: 8, name: Glibness,                       classes: [ Bard, Warlock ] }
-    - { level: 8, name: Holy Aura,                      classes: [ Cleric ] }
-    - { level: 8, name: Incendiary Cloud,               classes: [ Sorcerer, Wizard ] }
-    - { level: 8, name: Maze,                           classes: [ Wizard ] }
-    - { level: 8, name: Mind Blank,                     classes: [ Bard, Wizard ] }
-    - { level: 8, name: Power Word Stun,                classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 8, name: Sunburst,                       classes: [ Druid, Sorcerer, Wizard ] }
-    - { level: 9, name: Astral Projection,              classes: [ Cleric, Warlock, Wizard ] }
-    - { level: 9, name: Foresight,                      classes: [ Bard, Druid, Warlock, Wizard ] }
-    - { level: 9, name: Gate,                           classes: [ Cleric, Sorcerer, Wizard ] }
-    - { level: 9, name: Imprisonment,                   classes: [ Warlock, Wizard ] }
-    - { level: 9, name: Mass Heal,                      classes: [ Cleric ] }
-    - { level: 9, name: Meteor Swarm,                   classes: [ Sorcerer, Wizard ] }
-    - { level: 9, name: Power Word Kill,                classes: [ Bard, Sorcerer, Warlock, Wizard ] }
-    - { level: 9, name: Prismatic Wall,                 classes: [ Wizard ] }
-    - { level: 9, name: Shapechange,                    classes: [ Druid, Wizard ] }
-    - { level: 9, name: Storm of Vengeance,             classes: [ Druid ] }
-    - { level: 9, name: Time Stop,                      classes: [ Sorcerer, Wizard ] }
-    - { level: 9, name: True Polymorph,                 classes: [ Bard, Warlock, Wizard ] }
-    - { level: 9, name: True Resurrection,              classes: [ Cleric, Druid ] }
-    - { level: 9, name: Weird,                          classes: [ Wizard ] }
-    - { level: 9, name: Wish,                           classes: [ Sorcerer, Wizard ] }
+    - { level: 0, name: Acid Splash,                    classes: [Sorcerer, Wizard] }
+    - { level: 0, name: Chill Touch,                    classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 0, name: Dancing Lights,                 classes: [Bard, Sorcerer, Wizard] }
+    - { level: 0, name: Druidcraft,                     classes: [Druid] }
+    - { level: 0, name: Eldritch Blast,                 classes: [Warlock] }
+    - { level: 0, name: Fire Bolt,                      classes: [Sorcerer, Wizard] }
+    - { level: 0, name: Guidance,                       classes: [Cleric, Druid] }
+    - { level: 0, name: Light,                          classes: [Bard, Cleric, Sorcerer, Wizard] }
+    - { level: 0, name: Mage Hand,                      classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 0, name: Mending,                        classes: [Bard, Cleric, Druid, Sorcerer, Wizard] }
+    - { level: 0, name: Message,                        classes: [Bard, Sorcerer, Wizard] }
+    - { level: 0, name: Minor Illusion,                 classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 0, name: Poison Spray,                   classes: [Druid, Sorcerer, Warlock, Wizard] }
+    - { level: 0, name: Prestidigitation,               classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 0, name: Produce Flame,                  classes: [Druid] }
+    - { level: 0, name: Ray of Frost,                   classes: [Sorcerer, Wizard] }
+    - { level: 0, name: Resistance,                     classes: [Cleric, Druid] }
+    - { level: 0, name: Sacred Flame,                   classes: [Cleric] }
+    - { level: 0, name: Shillelagh,                     classes: [Druid] }
+    - { level: 0, name: Shocking Grasp,                 classes: [Sorcerer, Wizard] }
+    - { level: 0, name: Spare the Dying,                classes: [Cleric] }
+    - { level: 0, name: Thaumaturgy,                    classes: [Cleric] }
+    - { level: 0, name: True Strike,                    classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 0, name: Vicious Mockery,                classes: [Bard] }
+    - { level: 1, name: Alarm,                          classes: [Ranger, Wizard] }
+    - { level: 1, name: Animal Friendship,              classes: [Bard, Druid, Ranger] }
+    - { level: 1, name: Bane,                           classes: [Bard, Cleric] }
+    - { level: 1, name: Bless,                          classes: [Cleric, Paladin] }
+    - { level: 1, name: Burning Hands,                  classes: [Sorcerer, Wizard] }
+    - { level: 1, name: Charm Person,                   classes: [Bard, Druid, Sorcerer, Warlock, Wizard] }
+    - { level: 1, name: Color Spray,                    classes: [Sorcerer, Wizard] }
+    - { level: 1, name: Command,                        classes: [Cleric, Paladin] }
+    - { level: 1, name: Comprehend Languages,           classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 1, name: Create or Destroy Water,        classes: [Cleric, Druid] }
+    - { level: 1, name: Cure Wounds,                    classes: [Bard, Cleric, Druid, Paladin, Ranger] }
+    - { level: 1, name: Detect Evil and Good,           classes: [Cleric, Paladin] }
+    - { level: 1, name: Detect Magic,                   classes: [Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard] }
+    - { level: 1, name: Detect Poison and Disease,      classes: [Cleric, Druid, Paladin, Ranger] }
+    - { level: 1, name: Disguise Self,                  classes: [Bard, Sorcerer, Wizard] }
+    - { level: 1, name: Divine Favor,                   classes: [Paladin] }
+    - { level: 1, name: Entangle,                       classes: [Druid] }
+    - { level: 1, name: Expeditious Retreat,            classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 1, name: Faerie Fire,                    classes: [Bard, Druid] }
+    - { level: 1, name: False Life,                     classes: [Sorcerer, Wizard] }
+    - { level: 1, name: Feather Fall,                   classes: [Bard, Sorcerer, Wizard] }
+    - { level: 1, name: Find Familiar,                  classes: [Wizard] }
+    - { level: 1, name: Floating Disk,                  classes: [Wizard] }
+    - { level: 1, name: Fog Cloud,                      classes: [Druid, Ranger, Sorcerer, Wizard] }
+    - { level: 1, name: Goodberry,                      classes: [Druid, Ranger] }
+    - { level: 1, name: Grease,                         classes: [Wizard] }
+    - { level: 1, name: Guiding Bolt,                   classes: [Cleric] }
+    - { level: 1, name: Healing Word,                   classes: [Bard, Cleric, Druid] }
+    - { level: 1, name: Hellish Rebuke,                 classes: [Warlock] }
+    - { level: 1, name: Heroism,                        classes: [Bard, Paladin] }
+    - { level: 1, name: Hideous Laughter,               classes: [Bard, Wizard] }
+    - { level: 1, name: Hunter's Mark,                  classes: [Ranger] }
+    - { level: 1, name: Identify,                       classes: [Bard, Wizard] }
+    - { level: 1, name: Illusory Script,                classes: [Bard, Warlock, Wizard] }
+    - { level: 1, name: Inflict Wounds,                 classes: [Cleric] }
+    - { level: 1, name: Jump,                           classes: [Druid, Ranger, Sorcerer, Wizard] }
+    - { level: 1, name: Longstrider,                    classes: [Bard, Druid, Ranger, Wizard] }
+    - { level: 1, name: Mage Armor,                     classes: [Sorcerer, Wizard] }
+    - { level: 1, name: Magic Missile,                  classes: [Sorcerer, Wizard] }
+    - { level: 1, name: Protection from Evil and Good,  classes: [Cleric, Paladin, Warlock, Wizard] }
+    - { level: 1, name: Purify Food and Drink,          classes: [Cleric, Druid, Paladin] }
+    - { level: 1, name: Sanctuary,                      classes: [Cleric] }
+    - { level: 1, name: Shield,                         classes: [Sorcerer, Wizard] }
+    - { level: 1, name: Shield of Faith,                classes: [Cleric, Paladin] }
+    - { level: 1, name: Silent Image,                   classes: [Bard, Sorcerer, Wizard] }
+    - { level: 1, name: Sleep,                          classes: [Bard, Sorcerer, Wizard] }
+    - { level: 1, name: Speak with Animals,             classes: [Bard, Druid, Ranger] }
+    - { level: 1, name: Thunderwave,                    classes: [Bard, Druid, Sorcerer, Wizard] }
+    - { level: 1, name: Unseen Servant,                 classes: [Bard, Warlock, Wizard] }
+    - { level: 2, name: Acid Arrow,                     classes: [Wizard] }
+    - { level: 2, name: Aid,                            classes: [Cleric, Paladin] }
+    - { level: 2, name: Alter Self,                     classes: [Sorcerer, Wizard] }
+    - { level: 2, name: Animal Messenger,               classes: [Bard, Druid, Ranger] }
+    - { level: 2, name: Arcane Lock,                    classes: [Wizard] }
+    - { level: 2, name: Arcanist's Magic Aura,          classes: [Wizard] }
+    - { level: 2, name: Augury,                         classes: [Cleric] }
+    - { level: 2, name: Barkskin,                       classes: [Druid, Ranger] }
+    - { level: 2, name: Blindness/Deafness,             classes: [Bard, Cleric, Sorcerer, Wizard] }
+    - { level: 2, name: Blur,                           classes: [Sorcerer, Wizard] }
+    - { level: 2, name: Branding Smite,                 classes: [Paladin] }
+    - { level: 2, name: Calm Emotions,                  classes: [Bard, Cleric] }
+    - { level: 2, name: Continual Flame,                classes: [Cleric, Wizard] }
+    - { level: 2, name: Darkness,                       classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 2, name: Darkvision,                     classes: [Druid, Ranger, Sorcerer, Wizard] }
+    - { level: 2, name: Detect Thoughts,                classes: [Bard, Sorcerer, Wizard] }
+    - { level: 2, name: Enhance Ability,                classes: [Bard, Cleric, Druid, Sorcerer] }
+    - { level: 2, name: Enlarge/Reduce,                 classes: [Sorcerer, Wizard] }
+    - { level: 2, name: Enthrall,                       classes: [Bard, Warlock] }
+    - { level: 2, name: Find Steed,                     classes: [Paladin] }
+    - { level: 2, name: Find Traps,                     classes: [Cleric, Druid, Ranger] }
+    - { level: 2, name: Flame Blade,                    classes: [Druid] }
+    - { level: 2, name: Flaming Sphere,                 classes: [Druid, Wizard] }
+    - { level: 2, name: Gentle Repose,                  classes: [Cleric, Wizard] }
+    - { level: 2, name: Gust of Wind,                   classes: [Druid, Sorcerer, Wizard] }
+    - { level: 2, name: Heat Metal,                     classes: [Bard, Druid] }
+    - { level: 2, name: Hold Person,                    classes: [Bard, Cleric, Druid, Sorcerer, Warlock, Wizard] }
+    - { level: 2, name: Invisibility,                   classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 2, name: Knock,                          classes: [Bard, Sorcerer, Wizard] }
+    - { level: 2, name: Lesser Restoration,             classes: [Bard, Cleric, Druid, Paladin, Ranger] }
+    - { level: 2, name: Levitate,                       classes: [Sorcerer, Wizard] }
+    - { level: 2, name: Locate Animals or Plants,       classes: [Bard, Druid, Ranger] }
+    - { level: 2, name: Locate Object,                  classes: [Bard, Cleric, Druid, Paladin, Ranger, Wizard] }
+    - { level: 2, name: Magic Mouth,                    classes: [Bard, Wizard] }
+    - { level: 2, name: Magic Weapon,                   classes: [Paladin, Wizard] }
+    - { level: 2, name: Mirror Image,                   classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 2, name: Misty Step,                     classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 2, name: Moonbeam,                       classes: [Druid] }
+    - { level: 2, name: Pass without Trace,             classes: [Druid, Ranger] }
+    - { level: 2, name: Prayer of Healing,              classes: [Cleric] }
+    - { level: 2, name: Protection from Poison,         classes: [Cleric, Druid, Paladin, Ranger] }
+    - { level: 2, name: Ray of Enfeeblement,            classes: [Warlock, Wizard] }
+    - { level: 2, name: Rope Trick,                     classes: [Wizard] }
+    - { level: 2, name: Scorching Ray,                  classes: [Sorcerer, Wizard] }
+    - { level: 2, name: See Invisibility,               classes: [Bard, Sorcerer, Wizard] }
+    - { level: 2, name: Shatter,                        classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 2, name: Silence,                        classes: [Bard, Cleric, Ranger] }
+    - { level: 2, name: Spider Climb,                   classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 2, name: Spike Growth,                   classes: [Druid, Ranger] }
+    - { level: 2, name: Spiritual Weapon,               classes: [Cleric] }
+    - { level: 2, name: Suggestion,                     classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 2, name: Warding Bond,                   classes: [Cleric] }
+    - { level: 2, name: Web,                            classes: [Sorcerer, Wizard] }
+    - { level: 2, name: Zone of Truth,                  classes: [Bard, Cleric, Paladin] }
+    - { level: 3, name: Animate Dead,                   classes: [Cleric, Wizard] }
+    - { level: 3, name: Beacon of Hope,                 classes: [Cleric] }
+    - { level: 3, name: Bestow Curse,                   classes: [Bard, Cleric, Wizard] }
+    - { level: 3, name: Blink,                          classes: [Sorcerer, Wizard] }
+    - { level: 3, name: Call Lightning,                 classes: [Druid] }
+    - { level: 3, name: Clairvoyance,                   classes: [Bard, Cleric, Sorcerer, Wizard] }
+    - { level: 3, name: Conjure Animals,                classes: [Druid, Ranger] }
+    - { level: 3, name: Counterspell,                   classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 3, name: Create Food and Water,          classes: [Cleric, Paladin] }
+    - { level: 3, name: Daylight,                       classes: [Cleric, Druid, Paladin, Ranger, Sorcerer] }
+    - { level: 3, name: Dispel Magic,                   classes: [Bard, Cleric, Druid, Paladin, Sorcerer, Warlock, Wizard] }
+    - { level: 3, name: Fear,                           classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 3, name: Fireball,                       classes: [Sorcerer, Wizard] }
+    - { level: 3, name: Fly,                            classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 3, name: Gaseous Form,                   classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 3, name: Glyph of Warding,               classes: [Bard, Cleric, Wizard] }
+    - { level: 3, name: Haste,                          classes: [Sorcerer, Wizard] }
+    - { level: 3, name: Hypnotic Pattern,               classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 3, name: Lightning Bolt,                 classes: [Sorcerer, Wizard] }
+    - { level: 3, name: Magic Circle,                   classes: [Cleric, Paladin, Warlock, Wizard] }
+    - { level: 3, name: Major Image,                    classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 3, name: Mass Healing Word,              classes: [Cleric] }
+    - { level: 3, name: Meld into Stone,                classes: [Cleric, Druid] }
+    - { level: 3, name: Nondetection,                   classes: [Bard, Ranger, Wizard] }
+    - { level: 3, name: Phantom Steed,                  classes: [Wizard] }
+    - { level: 3, name: Plant Growth,                   classes: [Bard, Druid, Ranger] }
+    - { level: 3, name: Protection from Energy,         classes: [Cleric, Druid, Ranger, Sorcerer, Wizard] }
+    - { level: 3, name: Remove Curse,                   classes: [Cleric, Paladin, Warlock, Wizard] }
+    - { level: 3, name: Revivify,                       classes: [Cleric, Paladin] }
+    - { level: 3, name: Sending,                        classes: [Bard, Cleric, Wizard] }
+    - { level: 3, name: Sleet Storm,                    classes: [Druid, Sorcerer, Wizard] }
+    - { level: 3, name: Slow,                           classes: [Sorcerer, Wizard] }
+    - { level: 3, name: Speak with Dead,                classes: [Bard, Cleric] }
+    - { level: 3, name: Speak with Plants,              classes: [Bard, Druid, Ranger] }
+    - { level: 3, name: Spirit Guardians,               classes: [Cleric] }
+    - { level: 3, name: Stinking Cloud,                 classes: [Bard, Sorcerer, Wizard] }
+    - { level: 3, name: Tiny Hut,                       classes: [Bard, Wizard] }
+    - { level: 3, name: Tongues,                        classes: [Bard, Cleric, Sorcerer, Warlock, Wizard] }
+    - { level: 3, name: Vampiric Touch,                 classes: [Warlock, Wizard] }
+    - { level: 3, name: Water Breathing,                classes: [Druid, Ranger, Sorcerer, Wizard] }
+    - { level: 3, name: Water Walk,                     classes: [Cleric, Druid, Ranger, Sorcerer] }
+    - { level: 3, name: Wind Wall,                      classes: [Druid, Ranger] }
+    - { level: 4, name: Arcane Eye,                     classes: [Wizard] }
+    - { level: 4, name: Banishment,                     classes: [Cleric, Paladin, Sorcerer, Warlock, Wizard] }
+    - { level: 4, name: Black Tentacles,                classes: [Wizard] }
+    - { level: 4, name: Blight,                         classes: [Druid, Sorcerer, Warlock, Wizard] }
+    - { level: 4, name: Compulsion,                     classes: [Bard] }
+    - { level: 4, name: Confusion,                      classes: [Bard, Druid, Sorcerer, Wizard] }
+    - { level: 4, name: Conjure Minor Elementals,       classes: [Druid, Wizard] }
+    - { level: 4, name: Conjure Woodland Beings,        classes: [Druid, Ranger] }
+    - { level: 4, name: Control Water,                  classes: [Cleric, Druid, Wizard] }
+    - { level: 4, name: Death Ward,                     classes: [Cleric, Paladin] }
+    - { level: 4, name: Dimension Door,                 classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 4, name: Divination,                     classes: [Cleric] }
+    - { level: 4, name: Dominate Beast,                 classes: [Druid, Sorcerer] }
+    - { level: 4, name: Fabricate,                      classes: [Wizard] }
+    - { level: 4, name: Faithful Hound,                 classes: [Wizard] }
+    - { level: 4, name: Fire Shield,                    classes: [Wizard] }
+    - { level: 4, name: Freedom of Movement,            classes: [Bard, Cleric, Druid, Ranger] }
+    - { level: 4, name: Giant Insect,                   classes: [Druid] }
+    - { level: 4, name: Greater Invisibility,           classes: [Bard, Sorcerer, Wizard] }
+    - { level: 4, name: Guardian of Faith,              classes: [Cleric] }
+    - { level: 4, name: Hallucinatory Terrain,          classes: [Bard, Druid, Warlock, Wizard] }
+    - { level: 4, name: Ice Storm,                      classes: [Druid, Sorcerer, Wizard] }
+    - { level: 4, name: Locate Creature,                classes: [Bard, Cleric, Druid, Paladin, Ranger, Wizard] }
+    - { level: 4, name: Phantasmal Killer,              classes: [Wizard] }
+    - { level: 4, name: Polymorph,                      classes: [Bard, Druid, Sorcerer, Wizard] }
+    - { level: 4, name: Private Sanctum,                classes: [Wizard] }
+    - { level: 4, name: Resilient Sphere,               classes: [Wizard] }
+    - { level: 4, name: Secret Chest,                   classes: [Wizard] }
+    - { level: 4, name: Stone Shape,                    classes: [Cleric, Druid, Wizard] }
+    - { level: 4, name: Stoneskin,                      classes: [Druid, Ranger, Sorcerer, Wizard] }
+    - { level: 4, name: Wall of Fire,                   classes: [Druid, Sorcerer, Wizard] }
+    - { level: 5, name: Animate Objects,                classes: [Bard, Sorcerer, Wizard] }
+    - { level: 5, name: Antilife Shell,                 classes: [Druid] }
+    - { level: 5, name: Arcane Hand,                    classes: [Wizard] }
+    - { level: 5, name: Awaken,                         classes: [Bard, Druid] }
+    - { level: 5, name: Cloudkill,                      classes: [Sorcerer, Wizard] }
+    - { level: 5, name: Commune,                        classes: [Cleric] }
+    - { level: 5, name: Commune with Nature,            classes: [Druid, Ranger] }
+    - { level: 5, name: Cone of Cold,                   classes: [Sorcerer, Wizard] }
+    - { level: 5, name: Conjure Elemental,              classes: [Druid, Wizard] }
+    - { level: 5, name: Contact Other Plane,            classes: [Warlock, Wizard] }
+    - { level: 5, name: Contagion,                      classes: [Cleric, Druid] }
+    - { level: 5, name: Creation,                       classes: [Sorcerer, Wizard] }
+    - { level: 5, name: Dispel Evil and Good,           classes: [Cleric, Paladin] }
+    - { level: 5, name: Dominate Person,                classes: [Bard, Sorcerer, Wizard] }
+    - { level: 5, name: Dream,                          classes: [Bard, Warlock, Wizard] }
+    - { level: 5, name: Flame Strike,                   classes: [Cleric] }
+    - { level: 5, name: Geas,                           classes: [Bard, Cleric, Druid, Paladin, Wizard] }
+    - { level: 5, name: Greater Restoration,            classes: [Bard, Cleric, Druid] }
+    - { level: 5, name: Hallow,                         classes: [Cleric] }
+    - { level: 5, name: Hold Monster,                   classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 5, name: Insect Plague,                  classes: [Cleric, Druid, Sorcerer] }
+    - { level: 5, name: Legend Lore,                    classes: [Bard, Cleric, Wizard] }
+    - { level: 5, name: Mass Cure Wounds,               classes: [Bard, Cleric, Druid] }
+    - { level: 5, name: Mislead,                        classes: [Bard, Wizard] }
+    - { level: 5, name: Modify Memory,                  classes: [Bard, Wizard] }
+    - { level: 5, name: Passwall,                       classes: [Wizard] }
+    - { level: 5, name: Planar Binding,                 classes: [Bard, Cleric, Druid, Wizard] }
+    - { level: 5, name: Raise Dead,                     classes: [Bard, Cleric, Paladin] }
+    - { level: 5, name: Reincarnate,                    classes: [Druid] }
+    - { level: 5, name: Scrying,                        classes: [Bard, Cleric, Druid, Warlock, Wizard] }
+    - { level: 5, name: Seeming,                        classes: [Bard, Sorcerer, Wizard] }
+    - { level: 5, name: Telekinesis,                    classes: [Sorcerer, Wizard] }
+    - { level: 5, name: Telepathic Bond,                classes: [Wizard] }
+    - { level: 5, name: Teleportation Circle,           classes: [Bard, Sorcerer, Wizard] }
+    - { level: 5, name: Tree Stride,                    classes: [Druid, Ranger] }
+    - { level: 5, name: Wall of Force,                  classes: [Wizard] }
+    - { level: 5, name: Wall of Stone,                  classes: [Druid, Sorcerer, Wizard] }
+    - { level: 6, name: Blade Barrier,                  classes: [Cleric] }
+    - { level: 6, name: Chain Lightning,                classes: [Sorcerer, Wizard] }
+    - { level: 6, name: Circle of Death,                classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 6, name: Conjure Fey,                    classes: [Druid, Warlock] }
+    - { level: 6, name: Contingency,                    classes: [Wizard] }
+    - { level: 6, name: Create Undead,                  classes: [Cleric, Warlock, Wizard] }
+    - { level: 6, name: Disintegrate,                   classes: [Sorcerer, Wizard] }
+    - { level: 6, name: Eyebite,                        classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 6, name: Find the Path,                  classes: [Bard, Cleric, Druid] }
+    - { level: 6, name: Flesh to Stone,                 classes: [Warlock, Wizard] }
+    - { level: 6, name: Forbiddance,                    classes: [Cleric] }
+    - { level: 6, name: Freezing Sphere,                classes: [Wizard] }
+    - { level: 6, name: Globe of Invulnerability,       classes: [Sorcerer, Wizard] }
+    - { level: 6, name: Guards and Wards,               classes: [Bard, Wizard] }
+    - { level: 6, name: Harm,                           classes: [Cleric] }
+    - { level: 6, name: Heal,                           classes: [Cleric, Druid] }
+    - { level: 6, name: Heroes' Feast,                  classes: [Cleric, Druid] }
+    - { level: 6, name: Instant Summons,                classes: [Wizard] }
+    - { level: 6, name: Irresistible Dance,             classes: [Bard, Wizard] }
+    - { level: 6, name: Magic Jar,                      classes: [Wizard] }
+    - { level: 6, name: Mass Suggestion,                classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 6, name: Move Earth,                     classes: [Druid, Sorcerer, Wizard] }
+    - { level: 6, name: Planar Ally,                    classes: [Cleric] }
+    - { level: 6, name: Programmed Illusion,            classes: [Bard, Wizard] }
+    - { level: 6, name: Sunbeam,                        classes: [Druid, Sorcerer, Wizard] }
+    - { level: 6, name: Transport via Plants,           classes: [Druid] }
+    - { level: 6, name: True Seeing,                    classes: [Bard, Cleric, Sorcerer, Warlock, Wizard] }
+    - { level: 6, name: Wall of Ice,                    classes: [Wizard] }
+    - { level: 6, name: Wall of Thorns,                 classes: [Druid] }
+    - { level: 6, name: Wind Walk,                      classes: [Druid] }
+    - { level: 6, name: Word of Recall,                 classes: [Cleric] }
+    - { level: 7, name: Arcane Sword,                   classes: [Bard, Wizard] }
+    - { level: 7, name: Conjure Celestial,              classes: [Cleric] }
+    - { level: 7, name: Delayed Blast Fireball,         classes: [Sorcerer, Wizard] }
+    - { level: 7, name: Divine Word,                    classes: [Cleric] }
+    - { level: 7, name: Etherealness,                   classes: [Bard, Cleric, Sorcerer, Warlock, Wizard] }
+    - { level: 7, name: Finger of Death,                classes: [Sorcerer, Warlock, Wizard] }
+    - { level: 7, name: Fire Storm,                     classes: [Cleric, Druid, Sorcerer] }
+    - { level: 7, name: Forcecage,                      classes: [Bard, Warlock, Wizard] }
+    - { level: 7, name: Magnificent Mansion,            classes: [Bard, Wizard] }
+    - { level: 7, name: Mirage Arcane,                  classes: [Bard, Druid, Wizard] }
+    - { level: 7, name: Plane Shift,                    classes: [Cleric, Druid, Sorcerer, Warlock, Wizard] }
+    - { level: 7, name: Prismatic Spray,                classes: [Sorcerer, Wizard] }
+    - { level: 7, name: Project Image,                  classes: [Bard, Wizard] }
+    - { level: 7, name: Regenerate,                     classes: [Bard, Cleric, Druid] }
+    - { level: 7, name: Resurrection,                   classes: [Bard, Cleric] }
+    - { level: 7, name: Reverse Gravity,                classes: [Druid, Sorcerer, Wizard] }
+    - { level: 7, name: Sequester,                      classes: [Wizard] }
+    - { level: 7, name: Simulacrum,                     classes: [Wizard] }
+    - { level: 7, name: Symbol,                         classes: [Bard, Cleric, Wizard] }
+    - { level: 7, name: Teleport,                       classes: [Bard, Sorcerer, Wizard] }
+    - { level: 8, name: Animal Shapes,                  classes: [Druid] }
+    - { level: 8, name: Antimagic Field,                classes: [Cleric, Wizard] }
+    - { level: 8, name: Antipathy/Sympathy,             classes: [Druid, Wizard] }
+    - { level: 8, name: Clone,                          classes: [Wizard] }
+    - { level: 8, name: Control Weather,                classes: [Cleric, Druid, Wizard] }
+    - { level: 8, name: Demiplane,                      classes: [Warlock, Wizard] }
+    - { level: 8, name: Dominate Monster,               classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 8, name: Earthquake,                     classes: [Cleric, Druid, Sorcerer] }
+    - { level: 8, name: Feeblemind,                     classes: [Bard, Druid, Warlock, Wizard] }
+    - { level: 8, name: Glibness,                       classes: [Bard, Warlock] }
+    - { level: 8, name: Holy Aura,                      classes: [Cleric] }
+    - { level: 8, name: Incendiary Cloud,               classes: [Sorcerer, Wizard] }
+    - { level: 8, name: Maze,                           classes: [Wizard] }
+    - { level: 8, name: Mind Blank,                     classes: [Bard, Wizard] }
+    - { level: 8, name: Power Word Stun,                classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 8, name: Sunburst,                       classes: [Druid, Sorcerer, Wizard] }
+    - { level: 9, name: Astral Projection,              classes: [Cleric, Warlock, Wizard] }
+    - { level: 9, name: Foresight,                      classes: [Bard, Druid, Warlock, Wizard] }
+    - { level: 9, name: Gate,                           classes: [Cleric, Sorcerer, Wizard] }
+    - { level: 9, name: Imprisonment,                   classes: [Warlock, Wizard] }
+    - { level: 9, name: Mass Heal,                      classes: [Cleric] }
+    - { level: 9, name: Meteor Swarm,                   classes: [Sorcerer, Wizard] }
+    - { level: 9, name: Power Word Kill,                classes: [Bard, Sorcerer, Warlock, Wizard] }
+    - { level: 9, name: Prismatic Wall,                 classes: [Wizard] }
+    - { level: 9, name: Shapechange,                    classes: [Druid, Wizard] }
+    - { level: 9, name: Storm of Vengeance,             classes: [Druid] }
+    - { level: 9, name: Time Stop,                      classes: [Sorcerer, Wizard] }
+    - { level: 9, name: True Polymorph,                 classes: [Bard, Warlock, Wizard] }
+    - { level: 9, name: True Resurrection,              classes: [Cleric, Druid] }
+    - { level: 9, name: Weird,                          classes: [Wizard] }
+    - { level: 9, name: Wish,                           classes: [Sorcerer, Wizard] }
 
   tools:
     #default { weight: "0 lb" }
-    - { name: alchemist's supplies,     tags: [ artisan's tools ],    cost: 5000, weight: "8 lb" }
-    - { name: brewer's supplies,        tags: [ artisan's tools ],    cost: 2000, weight: "9 lb" }
-    - { name: calligrapher's supplies,  tags: [ artisan's tools ],    cost: 1000, weight: "5 lb" }
-    - { name: carpenter's tools,        tags: [ artisan's tools ],    cost:  800, weight: "6 lb" }
-    - { name: cartographer's tools,     tags: [ artisan's tools ],    cost: 1500, weight: "6 lb" }
-    - { name: cobbler's tools,          tags: [ artisan's tools ],    cost:  500, weight: "5 lb" }
-    - { name: cook's utensils,          tags: [ artisan's tools ],    cost:  100, weight: "8 lb" }
-    - { name: glassblower's tools,      tags: [ artisan's tools ],    cost: 3000, weight: "5 lb" }
-    - { name: jeweler's tools,          tags: [ artisan's tools ],    cost: 2500, weight: "2 lb" }
-    - { name: leatherworker's tools,    tags: [ artisan's tools ],    cost:  500, weight: "5 lb" }
-    - { name: mason's tools,            tags: [ artisan's tools ],    cost: 1000, weight: "8 lb" }
-    - { name: painter's supplies,       tags: [ artisan's tools ],    cost: 1000, weight: "5 lb" }
-    - { name: potter's tools,           tags: [ artisan's tools ],    cost: 1000, weight: "3 lb" }
-    - { name: smith's tools,            tags: [ artisan's tools ],    cost: 2000, weight: "8 lb" }
-    - { name: tinker's tools,           tags: [ artisan's tools ],    cost: 5000, weight: "10 lb" }
-    - { name: weaver's tools,           tags: [ artisan's tools ],    cost:  100, weight: "5 lb" }
-    - { name: woodcarver's tools,       tags: [ artisan's tools ],    cost:  100, weight: "5 lb" }
-    - { name: disguise kit,             tags: [ artisan's tools ],    cost: 2500, weight: "3 lb" }
-    - { name: forgery kit,              tags: [ artisan's tools ],    cost: 1500, weight: "5 lb" }
-    - { name: dice set,                 tags: [ gaming set ],         cost:   10 }
-    - { name: playing card set,         tags: [ gaming set ],         cost:   50 }
-    - { name: herbalism kit,                                          cost:  500, weight: "3 lb" }
-    - { name: bagpipes,                 tags: [ musical instrument ], cost: 3000, weight: "6 lb" }
-    - { name: drum,                     tags: [ musical instrument ], cost:  600, weight: "3 lb" }
-    - { name: dulcimer,                 tags: [ musical instrument ], cost: 2500, weight: "10 lb" }
-    - { name: flute,                    tags: [ musical instrument ], cost:  200, weight: "1 lb" }
-    - { name: lute,                     tags: [ musical instrument ], cost: 3500, weight: "2 lb" }
-    - { name: lyre,                     tags: [ musical instrument ], cost: 3000, weight: "2 lb" }
-    - { name: horn,                     tags: [ musical instrument ], cost:  300, weight: "2 lb" }
-    - { name: pan flute,                tags: [ musical instrument ], cost: 1200, weight: "2 lb" }
-    - { name: shawm,                    tags: [ musical instrument ], cost:  200, weight: "1 lb" }
-    - { name: viol,                     tags: [ musical instrument ], cost: 3000, weight: "1 lb" }
-    - { name: navigator's tools,                                      cost: 2500, weight: "2 lb" }
-    - { name: poisoner's kit,                                         cost: 5000, weight: "2 lb" }
-    - { name: thieves' tools,                                         cost: 2500, weight: "1 lb" }
-    - { name: vehicles (land),                                                    weight: "*" }
-    - { name: vehicles (water),                                                   weight: "*" }
+    - { name: alchemist's supplies,     tags: [artisan's tools],    cost: 5000, weight: "8 lb" }
+    - { name: brewer's supplies,        tags: [artisan's tools],    cost: 2000, weight: "9 lb" }
+    - { name: calligrapher's supplies,  tags: [artisan's tools],    cost: 1000, weight: "5 lb" }
+    - { name: carpenter's tools,        tags: [artisan's tools],    cost:  800, weight: "6 lb" }
+    - { name: cartographer's tools,     tags: [artisan's tools],    cost: 1500, weight: "6 lb" }
+    - { name: cobbler's tools,          tags: [artisan's tools],    cost:  500, weight: "5 lb" }
+    - { name: cook's utensils,          tags: [artisan's tools],    cost:  100, weight: "8 lb" }
+    - { name: glassblower's tools,      tags: [artisan's tools],    cost: 3000, weight: "5 lb" }
+    - { name: jeweler's tools,          tags: [artisan's tools],    cost: 2500, weight: "2 lb" }
+    - { name: leatherworker's tools,    tags: [artisan's tools],    cost:  500, weight: "5 lb" }
+    - { name: mason's tools,            tags: [artisan's tools],    cost: 1000, weight: "8 lb" }
+    - { name: painter's supplies,       tags: [artisan's tools],    cost: 1000, weight: "5 lb" }
+    - { name: potter's tools,           tags: [artisan's tools],    cost: 1000, weight: "3 lb" }
+    - { name: smith's tools,            tags: [artisan's tools],    cost: 2000, weight: "8 lb" }
+    - { name: tinker's tools,           tags: [artisan's tools],    cost: 5000, weight: "10 lb" }
+    - { name: weaver's tools,           tags: [artisan's tools],    cost:  100, weight: "5 lb" }
+    - { name: woodcarver's tools,       tags: [artisan's tools],    cost:  100, weight: "5 lb" }
+    - { name: disguise kit,             tags: [artisan's tools],    cost: 2500, weight: "3 lb" }
+    - { name: forgery kit,              tags: [artisan's tools],    cost: 1500, weight: "5 lb" }
+    - { name: dice set,                 tags: [gaming set],         cost:   10 }
+    - { name: playing card set,         tags: [gaming set],         cost:   50 }
+    - { name: herbalism kit,                                        cost:  500, weight: "3 lb" }
+    - { name: bagpipes,                 tags: [musical instrument], cost: 3000, weight: "6 lb" }
+    - { name: drum,                     tags: [musical instrument], cost:  600, weight: "3 lb" }
+    - { name: dulcimer,                 tags: [musical instrument], cost: 2500, weight: "10 lb" }
+    - { name: flute,                    tags: [musical instrument], cost:  200, weight: "1 lb" }
+    - { name: lute,                     tags: [musical instrument], cost: 3500, weight: "2 lb" }
+    - { name: lyre,                     tags: [musical instrument], cost: 3000, weight: "2 lb" }
+    - { name: horn,                     tags: [musical instrument], cost:  300, weight: "2 lb" }
+    - { name: pan flute,                tags: [musical instrument], cost: 1200, weight: "2 lb" }
+    - { name: shawm,                    tags: [musical instrument], cost:  200, weight: "1 lb" }
+    - { name: viol,                     tags: [musical instrument], cost: 3000, weight: "1 lb" }
+    - { name: navigator's tools,                                    cost: 2500, weight: "2 lb" }
+    - { name: poisoner's kit,                                       cost: 5000, weight: "2 lb" }
+    - { name: thieves' tools,                                       cost: 2500, weight: "1 lb" }
+    - { name: vehicles (land),                                                  weight: "*" }
+    - { name: vehicles (water),                                                 weight: "*" }
 
   weapons:
     #default { weight: "0 lb" }
-    - { name: "club",             tags: [ simple, melee, light ],                                     cost:   10, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
-    - { name: "dagger",           tags: [ simple, melee, light, finesse, thrown ],                    cost:  200, weight: "1 lb",     damage: 1d4,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60 }
-    - { name: "greatclub",        tags: [ simple, melee, two-handed ],                                cost:   20, weight: "10 lb",    damage: 1d8,  damageType: bludgeoning }
-    - { name: "handaxe",          tags: [ simple, melee, light, thrown ],                             cost:  500, weight: "2 lb",     damage: 1d6,  damageType: slashing,     range:  20, rangeWithDisadvantage:  60 }
-    - { name: "javelin",          tags: [ simple, melee, thrown ],                                    cost:   50, weight: "2 lb",     damage: 1d6,  damageType: piercing,     range:  30, rangeWithDisadvantage: 120 }
-    - { name: "light hammer",     tags: [ simple, melee, light, thrown ],                             cost:  200, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning,  range:  20, rangeWithDisadvantage:  60 }
-    - { name: "mace",             tags: [ simple, melee ],                                            cost:  500, weight: "4 lb",     damage: 1d6,  damageType: bludgeoning }
-    - { name: "quarterstaff",     tags: [ simple, melee, versatile ],                                 cost:   20, weight: "4 lb",     damage: 1d6,  damageType: bludgeoning,                                          versatileDamage: 1d8 }
-    - { name: "sickle",           tags: [ simple, melee, light ],                                     cost:  100, weight: "2 lb",     damage: 1d4,  damageType: slashing }
-    - { name: "spear",            tags: [ simple, melee, thrown, versatile ],                         cost:  100, weight: "3 lb",     damage: 1d6,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60, versatileDamage: 1d8 }
-    - { name: "crossbow, light",  tags: [ simple, ranged, ammunition, loading, two-handed ],          cost: 2500, weight: "5 lb",     damage: 1d8,  damageType: piercing,     range:  80, rangeWithDisadvantage: 320 }
-    - { name: "dart",             tags: [ simple, ranged, finesse, thrown ],                          cost:    5, weight: "0.25 lb",  damage: 1d4,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60 }
-    - { name: "shortbow",         tags: [ simple, ranged, ammunition, two-handed ],                   cost: 2500, weight: "2 lb",     damage: 1d6,  damageType: piercing,     range:  80, rangeWithDisadvantage: 320 }
-    - { name: "sling",            tags: [ simple, ranged, ammunition ],                               cost:   10,                     damage: 1d4,  damageType: bludgeoning,  range:  30, rangeWithDisadvantage: 120 }
-    - { name: "battleaxe",        tags: [ martial, melee, versatile ],                                cost: 1000, weight: "4 lb",     damage: 1d8,  damageType: slashing,                                             versatileDamage: 1d10 }
-    - { name: "flail",            tags: [ martial, melee ],                                           cost: 1000, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
-    - { name: "glaive",           tags: [ martial, melee, heavy, reach, two-handed ],                 cost: 2000, weight: "6 lb",     damage: 1d10, damageType: slashing }
-    - { name: "greataxe",         tags: [ martial, melee, heavy, two-handed ],                        cost: 3000, weight: "7 lb",     damage: 1d12, damageType: slashing }
-    - { name: "greatsword",       tags: [ martial, melee, heavy, two-handed ],                        cost: 5000, weight: "6 lb",     damage: 2d6,  damageType: slashing }
-    - { name: "halberd",          tags: [ martial, melee, heavy, reach, two-handed ],                 cost: 2000, weight: "6 lb",     damage: 1d10, damageType: slashing }
-    - { name: "lance",            tags: [ martial, melee, reach, special ],                           cost: 1000, weight: "6 lb",     damage: 1d12, damageType: piercing }
-    - { name: "longsword",        tags: [ martial, melee, versatile ],                                cost: 1500, weight: "3 lb",     damage: 1d8,  damageType: slashing,                                             versatileDamage: 1d10 }
-    - { name: "maul",             tags: [ martial, melee, heavy, two-handed ],                        cost: 1000, weight: "10 lb",    damage: 2d6,  damageType: bludgeoning }
-    - { name: "morningstar",      tags: [ martial, melee ],                                           cost: 1500, weight: "4 lb",     damage: 1d8,  damageType: piercing }
-    - { name: "pike",             tags: [ martial, melee, heavy, reach, two-handed ],                 cost:  500, weight: "18 lb",    damage: 1d10, damageType: piercing }
-    - { name: "rapier",           tags: [ martial, melee, finesse ],                                  cost: 2500, weight: "2 lb",     damage: 1d8,  damageType: piercing }
-    - { name: "scimitar",         tags: [ martial, melee, finesse, light ],                           cost: 2500, weight: "3 lb",     damage: 1d6,  damageType: slashing }
-    - { name: "shortsword",       tags: [ martial, melee, finesse, light ],                           cost: 1000, weight: "2 lb",     damage: 1d6,  damageType: piercing }
-    - { name: "trident",          tags: [ martial, melee, thrown, versatile ],                        cost:  500, weight: "4 lb",     damage: 1d6,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60, versatileDamage: 1d8 }
-    - { name: "war pick",         tags: [ martial, melee ],                                           cost:  500, weight: "2 lb",     damage: 1d8,  damageType: piercing }
-    - { name: "warhammer",        tags: [ martial, melee, versatile ],                                cost: 1500, weight: "2 lb",     damage: 1d8,  damageType: bludgeoning,                                          versatileDamage: 1d10 }
-    - { name: "whip",             tags: [ martial, melee, finesse, reach ],                           cost:  200, weight: "3 lb",     damage: 1d4,  damageType: slashing }
-    - { name: "blowgun",          tags: [ martial, ranged, ammunition, loading ],                     cost: 1000, weight: "1 lb",     damage: "1",  damageType: piercing,     range:  25, rangeWithDisadvantage: 100 }
-    - { name: "crossbow, hand",   tags: [ martial, ranged, ammunition, light, loading ],              cost: 7500, weight: "3 lb",     damage: 1d6,  damageType: piercing,     range:  30, rangeWithDisadvantage: 120 }
-    - { name: "crossbow, heavy",  tags: [ martial, ranged, ammunition, heavy, loading, two-handed ],  cost: 5000, weight: "18 lb",    damage: 1d10, damageType: piercing,     range: 100, rangeWithDisadvantage: 400 }
-    - { name: "longbow",          tags: [ martial, ranged, ammunition, heavy, two-handed ],           cost: 5000, weight: "2 lb",     damage: 1d8,  damageType: piercing,     range: 150, rangeWithDisadvantage: 600 }
-    - { name: "net",              tags: [ martial, ranged, special, thrown ],                         cost:  100, weight: "3 lb",     damage: "0",                            range:   5, rangeWithDisadvantage:  15 }
+    - { name: "club",             tags: [simple, melee, light],                                     cost:   10, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
+    - { name: "dagger",           tags: [simple, melee, light, finesse, thrown],                    cost:  200, weight: "1 lb",     damage: 1d4,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60 }
+    - { name: "greatclub",        tags: [simple, melee, two-handed],                                cost:   20, weight: "10 lb",    damage: 1d8,  damageType: bludgeoning }
+    - { name: "handaxe",          tags: [simple, melee, light, thrown],                             cost:  500, weight: "2 lb",     damage: 1d6,  damageType: slashing,     range:  20, rangeWithDisadvantage:  60 }
+    - { name: "javelin",          tags: [simple, melee, thrown],                                    cost:   50, weight: "2 lb",     damage: 1d6,  damageType: piercing,     range:  30, rangeWithDisadvantage: 120 }
+    - { name: "light hammer",     tags: [simple, melee, light, thrown],                             cost:  200, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning,  range:  20, rangeWithDisadvantage:  60 }
+    - { name: "mace",             tags: [simple, melee],                                            cost:  500, weight: "4 lb",     damage: 1d6,  damageType: bludgeoning }
+    - { name: "quarterstaff",     tags: [simple, melee, versatile],                                 cost:   20, weight: "4 lb",     damage: 1d6,  damageType: bludgeoning,                                          versatileDamage: 1d8 }
+    - { name: "sickle",           tags: [simple, melee, light],                                     cost:  100, weight: "2 lb",     damage: 1d4,  damageType: slashing }
+    - { name: "spear",            tags: [simple, melee, thrown, versatile],                         cost:  100, weight: "3 lb",     damage: 1d6,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60, versatileDamage: 1d8 }
+    - { name: "crossbow, light",  tags: [simple, ranged, ammunition, loading, two-handed],          cost: 2500, weight: "5 lb",     damage: 1d8,  damageType: piercing,     range:  80, rangeWithDisadvantage: 320 }
+    - { name: "dart",             tags: [simple, ranged, finesse, thrown],                          cost:    5, weight: "0.25 lb",  damage: 1d4,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60 }
+    - { name: "shortbow",         tags: [simple, ranged, ammunition, two-handed],                   cost: 2500, weight: "2 lb",     damage: 1d6,  damageType: piercing,     range:  80, rangeWithDisadvantage: 320 }
+    - { name: "sling",            tags: [simple, ranged, ammunition],                               cost:   10,                     damage: 1d4,  damageType: bludgeoning,  range:  30, rangeWithDisadvantage: 120 }
+    - { name: "battleaxe",        tags: [martial, melee, versatile],                                cost: 1000, weight: "4 lb",     damage: 1d8,  damageType: slashing,                                             versatileDamage: 1d10 }
+    - { name: "flail",            tags: [martial, melee],                                           cost: 1000, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
+    - { name: "glaive",           tags: [martial, melee, heavy, reach, two-handed],                 cost: 2000, weight: "6 lb",     damage: 1d10, damageType: slashing }
+    - { name: "greataxe",         tags: [martial, melee, heavy, two-handed],                        cost: 3000, weight: "7 lb",     damage: 1d12, damageType: slashing }
+    - { name: "greatsword",       tags: [martial, melee, heavy, two-handed],                        cost: 5000, weight: "6 lb",     damage: 2d6,  damageType: slashing }
+    - { name: "halberd",          tags: [martial, melee, heavy, reach, two-handed],                 cost: 2000, weight: "6 lb",     damage: 1d10, damageType: slashing }
+    - { name: "lance",            tags: [martial, melee, reach, special],                           cost: 1000, weight: "6 lb",     damage: 1d12, damageType: piercing }
+    - { name: "longsword",        tags: [martial, melee, versatile],                                cost: 1500, weight: "3 lb",     damage: 1d8,  damageType: slashing,                                             versatileDamage: 1d10 }
+    - { name: "maul",             tags: [martial, melee, heavy, two-handed],                        cost: 1000, weight: "10 lb",    damage: 2d6,  damageType: bludgeoning }
+    - { name: "morningstar",      tags: [martial, melee],                                           cost: 1500, weight: "4 lb",     damage: 1d8,  damageType: piercing }
+    - { name: "pike",             tags: [martial, melee, heavy, reach, two-handed],                 cost:  500, weight: "18 lb",    damage: 1d10, damageType: piercing }
+    - { name: "rapier",           tags: [martial, melee, finesse],                                  cost: 2500, weight: "2 lb",     damage: 1d8,  damageType: piercing }
+    - { name: "scimitar",         tags: [martial, melee, finesse, light],                           cost: 2500, weight: "3 lb",     damage: 1d6,  damageType: slashing }
+    - { name: "shortsword",       tags: [martial, melee, finesse, light],                           cost: 1000, weight: "2 lb",     damage: 1d6,  damageType: piercing }
+    - { name: "trident",          tags: [martial, melee, thrown, versatile],                        cost:  500, weight: "4 lb",     damage: 1d6,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60, versatileDamage: 1d8 }
+    - { name: "war pick",         tags: [martial, melee],                                           cost:  500, weight: "2 lb",     damage: 1d8,  damageType: piercing }
+    - { name: "warhammer",        tags: [martial, melee, versatile],                                cost: 1500, weight: "2 lb",     damage: 1d8,  damageType: bludgeoning,                                          versatileDamage: 1d10 }
+    - { name: "whip",             tags: [martial, melee, finesse, reach],                           cost:  200, weight: "3 lb",     damage: 1d4,  damageType: slashing }
+    - { name: "blowgun",          tags: [martial, ranged, ammunition, loading],                     cost: 1000, weight: "1 lb",     damage: "1",  damageType: piercing,     range:  25, rangeWithDisadvantage: 100 }
+    - { name: "crossbow, hand",   tags: [martial, ranged, ammunition, light, loading],              cost: 7500, weight: "3 lb",     damage: 1d6,  damageType: piercing,     range:  30, rangeWithDisadvantage: 120 }
+    - { name: "crossbow, heavy",  tags: [martial, ranged, ammunition, heavy, loading, two-handed],  cost: 5000, weight: "18 lb",    damage: 1d10, damageType: piercing,     range: 100, rangeWithDisadvantage: 400 }
+    - { name: "longbow",          tags: [martial, ranged, ammunition, heavy, two-handed],           cost: 5000, weight: "2 lb",     damage: 1d8,  damageType: piercing,     range: 150, rangeWithDisadvantage: 600 }
+    - { name: "net",              tags: [martial, ranged, special, thrown],                         cost:  100, weight: "3 lb",     damage: "0",                            range:   5, rangeWithDisadvantage:  15 }
