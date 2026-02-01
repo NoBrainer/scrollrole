@@ -1,6 +1,6 @@
 part of 'config_bloc.dart';
 
-enum ConfigStatus { initial, loading, loadedSuccess, loadedFailure }
+enum ConfigStatus { initial, loading, success, failure }
 
 @immutable
 @JsonSerializable(explicitToJson: true)

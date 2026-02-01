@@ -26,10 +26,10 @@ class PresentationLayer extends StatelessWidget {
   }
 
   static void loadDefaultConfig(BuildContext context) {
-    ConfigState configState = context.read<ConfigBloc>().state;
+    ConfigState configState = getConfigState(context);
     if ([
       ConfigStatus.initial,
-      ConfigStatus.loadedFailure,
+      ConfigStatus.failure,
     ].contains(configState.status)) {
       context.read<ConfigBloc>().add(LoadDefaultConfigRequested());
     }

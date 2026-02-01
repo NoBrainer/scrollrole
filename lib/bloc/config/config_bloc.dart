@@ -1,11 +1,13 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:scrollrole/data/model/rules/rules_config.dart';
+import 'package:scrollrole/data/repository/config_repository.dart';
 import 'package:scrollrole/util/log_util.dart';
 
 part 'config_bloc.g.dart';
@@ -13,57 +15,49 @@ part 'config_event.dart';
 part 'config_state.dart';
 
 class ConfigBloc extends HydratedBloc<ConfigEvent, ConfigState> {
-  static const defaultConfigFile = 'assets/config/srd-2014.yaml';
+  final ConfigRepository _configRepository;
+  late StreamSubscription<ConfigStatus> _configStatusSubscription;
 
-  ConfigBloc() : super(ConfigState.initial()) {
+  ConfigBloc(this._configRepository) : super(ConfigState.initial()) {
+    on<ConfigStatusChanged>(_onConfigStatusChanged);
     on<LoadDefaultConfigRequested>((event, emit) async {
-      LogUtil.print('on LoadDefaultConfigRequested');
-      String yamlString = await rootBundle.loadString(defaultConfigFile);
-      //TODO: save/cache this ConfigState
-      // LogUtil.print("YAML:\n---\n$yamlString\n---\n");
-      RulesConfig? rulesConfig = RulesConfig.fromYaml(yamlString);
-      if (rulesConfig == null) {
-        LogUtil.print('YAML was empty from default config');
-        emit(state.copyWith(status: () => ConfigStatus.loadedFailure));
-      } else {
-        LogUtil.print('RulesConfig loaded from: $defaultConfigFile');
-        emit(
-          state.copyWith(
-            rulesConfig: () => rulesConfig,
-            status: () => ConfigStatus.loadedSuccess,
-          ),
-        );
-      }
+      _configRepository.loadDefaultConfig();
     });
     on<ForceSave>((event, emit) {
       LogUtil.print('on ForceSave: $state');
       HydratedBloc.storage.write(storageToken, toJson(state));
     });
     on<ForceReset>((event, emit) {
-      final newState = ConfigState.initial().copyWith();
-      LogUtil.print('on ForceReset:\n```\n$newState```');
-      HydratedBloc.storage.write(storageToken, toJson(newState));
-      emit(newState);
+      LogUtil.print('on ForceReset');
+      _configRepository.reset().then((_) {
+        final newState = ConfigState.initial().copyWith();
+        HydratedBloc.storage.write(storageToken, toJson(newState));
+      });
     });
     on<ImportFile>((event, emit) {
-      LogUtil.print('on ImportFile:\n```\n${event.content}```');
-      if (event.content.isEmpty) {
-        LogUtil.print('Ignoring empty file import');
-        return;
-      }
-      RulesConfig? importedRules = RulesConfig.fromYaml(event.content);
-      if (importedRules == null) {
-        LogUtil.print('Empty imported rules. Ignoring.');
-      } else {
-        LogUtil.print('RulesConfig: $importedRules');
-        emit(
-          state.copyWith(
-            rulesConfig: () => importedRules,
-            status: () => ConfigStatus.loadedSuccess,
-          ),
-        );
-      }
+      _configRepository.importConfig(event.content);
     });
+
+    _configStatusSubscription = _configRepository.status.listen((status) {
+      LogUtil.print('ConfigStatus change detected: $status');
+      add(ConfigStatusChanged(status));
+    });
+  }
+
+  Future<void> _onConfigStatusChanged(
+    ConfigStatusChanged event,
+    Emitter<ConfigState> emit,
+  ) async {
+    if ([ConfigStatus.loading, ConfigStatus.failure].contains(event.status)) {
+      emit(state.copyWith(status: () => event.status));
+    } else {
+      emit(
+        state.copyWith(
+          rulesConfig: () => _configRepository.rulesConfig,
+          status: () => event.status,
+        ),
+      );
+    }
   }
 
   @override
@@ -75,4 +69,14 @@ class ConfigBloc extends HydratedBloc<ConfigEvent, ConfigState> {
   Map<String, dynamic>? toJson(ConfigState state) {
     return state.toJson();
   }
+
+  @override
+  Future<void> close() {
+    _configStatusSubscription.cancel();
+    return super.close();
+  }
+}
+
+ConfigState getConfigState(BuildContext context) {
+  return context.read<ConfigBloc>().state;
 }
