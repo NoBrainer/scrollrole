@@ -19,11 +19,11 @@ part 'feature.g.dart';
 class Feature extends Equatable {
   final List<Choice> choices;
   final List<String> description;
+  final String descriptionShort;
   final List<Equipment> equipment;
   final List<Feature> features;
   final String name;
   final List<Proficiency> proficiencies;
-  final String shortDescription;
   final int? speed;
   final List<StatModifier> statModifiers;
   final SuggestedCharacteristics? suggestedCharacteristics;
@@ -33,11 +33,11 @@ class Feature extends Equatable {
   const Feature({
     this.choices = const [],
     this.description = const [],
+    this.descriptionShort = '',
     this.equipment = const [],
     this.features = const [],
     required this.name,
     this.proficiencies = const [],
-    this.shortDescription = '',
     this.speed,
     this.statModifiers = const [],
     this.suggestedCharacteristics,
@@ -49,11 +49,11 @@ class Feature extends Equatable {
   List<Object?> get props => [
     choices,
     description,
+    descriptionShort,
     equipment,
     features,
     name,
     proficiencies,
-    shortDescription,
     speed,
     statModifiers,
     suggestedCharacteristics,

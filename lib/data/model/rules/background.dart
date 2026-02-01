@@ -22,11 +22,11 @@ class Background extends Feature {
   const Background({
     super.choices,
     super.description,
+    super.descriptionShort,
     super.equipment,
     super.features,
     required super.name,
     super.proficiencies,
-    super.shortDescription,
     super.speed,
     super.statModifiers,
     super.suggestedCharacteristics,

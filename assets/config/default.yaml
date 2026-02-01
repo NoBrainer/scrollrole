@@ -194,12 +194,12 @@ classes:
             allowDuplicate: true
             pick: 2
             options:
-              - { type: FEATURE, name: CHA+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CHA, modifier: 1 ] } }
-              - { type: FEATURE, name: CON+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CON, modifier: 1 ] } }
-              - { type: FEATURE, name: DEX+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: DEX, modifier: 1 ] } }
-              - { type: FEATURE, name: INT+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: INT, modifier: 1 ] } }
-              - { type: FEATURE, name: STR+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: STR, modifier: 1 ] } }
-              - { type: FEATURE, name: WIS+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: WIS, modifier: 1 ] } }
+              - { type: FEATURE, name: CHA+1, feature: { name: CHA+1, statModifiers: [ { type: ABILITY_SCORE, name: CHA, modifier: 1 } ] } }
+              - { type: FEATURE, name: CON+1, feature: { name: CON+1, statModifiers: [ { type: ABILITY_SCORE, name: CON, modifier: 1 } ] } }
+              - { type: FEATURE, name: DEX+1, feature: { name: DEX+1, statModifiers: [ { type: ABILITY_SCORE, name: DEX, modifier: 1 } ] } }
+              - { type: FEATURE, name: INT+1, feature: { name: INT+1, statModifiers: [ { type: ABILITY_SCORE, name: INT, modifier: 1 } ] } }
+              - { type: FEATURE, name: STR+1, feature: { name: STR+1, statModifiers: [ { type: ABILITY_SCORE, name: STR, modifier: 1 } ] } }
+              - { type: FEATURE, name: WIS+1, feature: { name: WIS+1, statModifiers: [ { type: ABILITY_SCORE, name: WIS, modifier: 1 } ] } }
       - condition: { level: 2 }
         features:
           - name: Reckless Attack
@@ -515,12 +515,12 @@ classes:
             allowDuplicate: true
             pick: 2
             options:
-              - { type: FEATURE, name: CHA+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CHA, modifier: 1 ] } }
-              - { type: FEATURE, name: CON+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CON, modifier: 1 ] } }
-              - { type: FEATURE, name: DEX+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: DEX, modifier: 1 ] } }
-              - { type: FEATURE, name: INT+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: INT, modifier: 1 ] } }
-              - { type: FEATURE, name: STR+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: STR, modifier: 1 ] } }
-              - { type: FEATURE, name: WIS+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: WIS, modifier: 1 ] } }
+              - { type: FEATURE, name: CHA+1, feature: { name: CHA+1, statModifiers: [ { type: ABILITY_SCORE, name: CHA, modifier: 1 } ] } }
+              - { type: FEATURE, name: CON+1, feature: { name: CON+1, statModifiers: [ { type: ABILITY_SCORE, name: CON, modifier: 1 } ] } }
+              - { type: FEATURE, name: DEX+1, feature: { name: DEX+1, statModifiers: [ { type: ABILITY_SCORE, name: DEX, modifier: 1 } ] } }
+              - { type: FEATURE, name: INT+1, feature: { name: INT+1, statModifiers: [ { type: ABILITY_SCORE, name: INT, modifier: 1 } ] } }
+              - { type: FEATURE, name: STR+1, feature: { name: STR+1, statModifiers: [ { type: ABILITY_SCORE, name: STR, modifier: 1 } ] } }
+              - { type: FEATURE, name: WIS+1, feature: { name: WIS+1, statModifiers: [ { type: ABILITY_SCORE, name: WIS, modifier: 1 } ] } }
       - condition: { level: 2 }
         spellCastingUpdate:
           knownSpells: 5
@@ -827,18 +827,18 @@ species:
             Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim
             light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't
             discern color in darkness, only shades of gray.
-        shortDescription: darkvision 60ft
+        descriptionShort: darkvision 60ft
       - name: Dwarven Resilience
         description:
           - You have advantage on saving throws against poison, and you have resistance against poison damage.
-        shortDescription: ADV on poison saving throws, resistance to poison
+        descriptionShort: ADV on poison saving throws, resistance to poison
       - name: Stonecunning
         description:
           - >
             Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered
             proficient in the History skill and add double your proficiency bonus to the check, instead of your normal
             proficiency bonus.
-        shortDescription: x2 proficiency bonus + ADV on History checks involving origin of stonework
+        descriptionShort: x2 proficiency bonus + ADV on History checks involving origin of stonework
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Dwarvish }
@@ -884,11 +884,11 @@ species:
             Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can
             see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light.
             You can't discern color in darkness.
-        shortDescription: darkvision 60ft
+        descriptionShort: darkvision 60ft
       - name: Fey Ancestry
         description:
           - You have advantage on saving throws against being charmed, and magic can't put you to sleep.
-        shortDescription: ADV vs being charmed, immune to sleep magic
+        descriptionShort: ADV vs being charmed, immune to sleep magic
       - name: Trance
         description:
           - >
@@ -896,7 +896,7 @@ species:
             Common word for such meditation is "trance".) While meditating, you can dream after a fashion; such dreams
             are actually mental exercises that have become reflexive through years of practice. After resting in this
             way, you gain the same benefit that a human does after 8 hours of sleep.
-        shortDescription: long rest only takes 4 hours
+        descriptionShort: long rest only takes 4 hours
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Elvish }
@@ -926,15 +926,15 @@ species:
           - >
             When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and
             must use the new roll.
-        shortDescription: free d20 reroll for attack, ability check, or saving throw
+        descriptionShort: free d20 reroll for attack, ability check, or saving throw
       - name: Brave
         description:
           - You have advantage on saving throws against being frightened.
-        shortDescription: ADV vs being frightened
+        descriptionShort: ADV vs being frightened
       - name: Halfling Nimbleness
         description:
           - You can move through the space of any creature that is of a size larger than yours.
-        shortDescription: can move through space of a larger creature
+        descriptionShort: can move through space of a larger creature
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Halfling }
@@ -1027,11 +1027,11 @@ species:
             Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim
             light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't
             discern color in darkness, only shades of gray.
-        shortDescription: darkvision 60ft
+        descriptionShort: darkvision 60ft
       - name: Gnome Cunning
         description:
           - You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.
-        shortDescription: ADV on INT, WIS, & CHA saving throws vs magic
+        descriptionShort: ADV on INT, WIS, & CHA saving throws vs magic
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Gnomish }
@@ -1063,25 +1063,25 @@ species:
             Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light
             within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern
             color in darkness, only shades of gray.
-        shortDescription: darkvision 60ft
+        descriptionShort: darkvision 60ft
       - name: Fey Ancestry
         description:
           - You have advantage on saving throws against being charmed, and magic can't put you to sleep.
-        shortDescription: ADV vs being charmed, immune to sleep magic
+        descriptionShort: ADV vs being charmed, immune to sleep magic
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Elvish }
     choices:
-      - name: Ability Score Adjustment
+      - name: Ability Score Improvement
         description:
           - Two other ability scores of your choice increase by 1.
         pick: 2
         options:
-          - { type: FEATURE, name: CON+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: CON, modifier: 1 ] } }
-          - { type: FEATURE, name: DEX+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: DEX, modifier: 1 ] } }
-          - { type: FEATURE, name: INT+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: INT, modifier: 1 ] } }
-          - { type: FEATURE, name: STR+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: STR, modifier: 1 ] } }
-          - { type: FEATURE, name: WIS+1, feature: { statModifiers: [ type: ABILITY_SCORE, name: WIS, modifier: 1 ] } }
+          - { type: FEATURE, name: CON+1, feature: { name: CON+1, statModifiers: [ { type: ABILITY_SCORE, name: CON, modifier: 1 } ] } }
+          - { type: FEATURE, name: DEX+1, feature: { name: DEX+1, statModifiers: [ { type: ABILITY_SCORE, name: DEX, modifier: 1 } ] } }
+          - { type: FEATURE, name: INT+1, feature: { name: INT+1, statModifiers: [ { type: ABILITY_SCORE, name: INT, modifier: 1 } ] } }
+          - { type: FEATURE, name: STR+1, feature: { name: STR+1, statModifiers: [ { type: ABILITY_SCORE, name: STR, modifier: 1 } ] } }
+          - { type: FEATURE, name: WIS+1, feature: { name: WIS+1, statModifiers: [ { type: ABILITY_SCORE, name: WIS, modifier: 1 } ] } }
       - name: Languages
         description:
           - You can speak, read, and write Common, Elvish, and one extra language of your choice.
@@ -1118,19 +1118,19 @@ species:
             Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light
             within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern
             color in darkness, only shades of gray.
-        shortDescription: darkvision 60ft
+        descriptionShort: darkvision 60ft
       - name: Relentless Endurance
         description:
           - >
             When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't
             use this feature again until you finish a long rest.
-        shortDescription: drop to 1hp instead of 0 if not outright killed, once per long rest
+        descriptionShort: drop to 1hp instead of 0 if not outright killed, once per long rest
       - name: Savage Attacks
         description:
           - >
             When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one
             additional time and add it to the extra damage of the critical hit.
-        shortDescription: add another weapon damage dice to critical hit damage
+        descriptionShort: add another weapon damage dice to critical hit damage
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Orc }
@@ -1157,11 +1157,11 @@ species:
             Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim
             light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't
             discern color in darkness, only shades of gray.
-        shortDescription: darkvision 60ft
+        descriptionShort: darkvision 60ft
       - name: Hellish Resistance
         description:
           - You have resistance to fire damage.
-        shortDescription: resistance to fire damage
+        descriptionShort: resistance to fire damage
       - name: Infernal Legacy
         description:
           - >
@@ -1169,7 +1169,7 @@ species:
             2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you
             reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when
             you finish a long rest. Charisma is your spellcasting ability for these spells.
-        shortDescription: >
+        descriptionShort: >
           thaumaturgy cantrip; at 3rd level can cast hellish rebuke once per long rest; at 5th level can
           cast darkness once per long rest
     proficiencies:

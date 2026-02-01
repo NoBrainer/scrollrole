@@ -17,6 +17,7 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           ?.map((e) => e as String)
           .toList() ??
       const [],
+  descriptionShort: json['descriptionShort'] as String? ?? '',
   equipment:
       (json['equipment'] as List<dynamic>?)
           ?.map((e) => Equipment.fromJson(e as Map<String, dynamic>))
@@ -33,7 +34,6 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  shortDescription: json['shortDescription'] as String? ?? '',
   speed: (json['speed'] as num?)?.toInt(),
   statModifiers:
       (json['statModifiers'] as List<dynamic>?)
@@ -72,11 +72,11 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
 Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
   'choices': instance.choices.map((e) => e.toJson()).toList(),
   'description': instance.description,
+  'descriptionShort': instance.descriptionShort,
   'equipment': instance.equipment.map((e) => e.toJson()).toList(),
   'features': instance.features.map((e) => e.toJson()).toList(),
   'name': instance.name,
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
-  'shortDescription': instance.shortDescription,
   'speed': instance.speed,
   'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
   'suggestedCharacteristics': instance.suggestedCharacteristics?.toJson(),
