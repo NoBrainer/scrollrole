@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:scrollrole/presentation/common/basic_card.dart';
 import 'package:scrollrole/presentation/common/styled_app_bar.dart';
+import 'package:scrollrole/presentation/screen/rules/rules_body.dart';
 import 'package:scrollrole/util/dialog_util.dart';
 import 'package:scrollrole/util/snackbar_util.dart';
 
@@ -21,11 +21,6 @@ class RulesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Show loading spinner while parsing
-    // TODO: Load default config
-    // TODO: Display default config
-    // TODO: Save state in blocs
-    // TODO: Gracefully handle parsing issues
     return PopScope(
       canPop: true,
       child: Scaffold(
@@ -45,49 +40,7 @@ class RulesScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: Center(
-          child: ListView(
-            children: [
-              BasicCard(
-                children: [
-                  BasicCardTitle(text: 'Backgrounds'),
-                  BasicCardSection(children: [Text('TBD')]),
-                ],
-              ),
-              BasicCard(
-                children: [
-                  BasicCardTitle(text: 'Classes'),
-                  BasicCardSection(children: [Text('TBD')]),
-                ],
-              ),
-              BasicCard(
-                children: [
-                  BasicCardTitle(text: 'Species'),
-                  BasicCardSection(children: [Text('TBD')]),
-                ],
-              ),
-              BasicCard(
-                children: [
-                  BasicCardTitle(text: 'Lists'),
-                  BasicCardSection(
-                    children: [
-                      Text('- Armor'),
-                      Text('- Background Features'),
-                      Text('- Equipment Packs'),
-                      Text('- Feats'),
-                      Text('- Gear'),
-                      Text('- Languages'),
-                      Text('- Proficiencies'),
-                      Text('- Spells'),
-                      Text('- Tools'),
-                      Text('- Weapons'),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
+        body: RulesBody(),
       ),
     );
   }

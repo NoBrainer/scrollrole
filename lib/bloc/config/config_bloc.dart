@@ -81,6 +81,10 @@ ConfigState getConfigState(BuildContext context) {
   return context.read<ConfigBloc>().state;
 }
 
+RulesConfig getRulesConfig(BuildContext context) {
+  return getConfigState(context).rulesConfig;
+}
+
 void triggerForceReset(BuildContext context) {
   context.read<ConfigBloc>().add(ForceReset());
 }

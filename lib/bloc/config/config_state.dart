@@ -1,6 +1,13 @@
 part of 'config_bloc.dart';
 
-enum ConfigStatus { initial, loading, success, failure }
+enum ConfigStatus {
+  initial,
+  loading,
+  success,
+  failure;
+
+  bool isLoading() => [initial, loading].contains(this);
+}
 
 @immutable
 @JsonSerializable(explicitToJson: true)
