@@ -8,16 +8,23 @@ class RulesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RulesConfig rulesConfig = getRulesConfig(context);
-    String name = rulesConfig.name;
-    String description = rulesConfig.description;
-    String url = rulesConfig.url;
+    final RulesConfig rulesConfig = getRulesConfig(context);
+    final String name = rulesConfig.name;
+    final String description = rulesConfig.description;
+    final String url = rulesConfig.url;
+
+    final bool hasDescription = description.trim().isNotEmpty;
+    final bool hasUrl = url.trim().isNotEmpty;
 
     return BasicCard(
       children: [
         BasicCardTitle(text: name),
         BasicCardSection(
-          children: [Text(description), SizedBox(height: 4), Text(url)],
+          children: [
+            hasDescription ? Text(description) : SizedBox.shrink(),
+            hasDescription && hasUrl ? SizedBox.shrink() : SizedBox(height: 4),
+            hasUrl ? Text(url) : SizedBox.shrink(),
+          ],
         ),
       ],
     );

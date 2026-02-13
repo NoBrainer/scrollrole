@@ -1,37 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:scrollrole/bloc/config/config_bloc.dart';
-import 'package:scrollrole/data/model/rules/rules_config.dart';
-import 'package:scrollrole/presentation/common/basic_card.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/presentation/screen/rules/body/rules_list_card.dart';
 
 class RulesLists extends StatelessWidget {
+  static final List<String> _names = [
+    'Armor',
+    'Background Features',
+    'Equipment Packs',
+    'Feats',
+    'Features',
+    'Gear',
+    'Languages',
+    'Proficiencies',
+    'Spells',
+    'Tools',
+    'Weapons',
+  ];
+
   const RulesLists({super.key});
 
   @override
   Widget build(BuildContext context) {
-    RulesConfig rulesConfig = getRulesConfig(context);
-    var lists = rulesConfig.lists;
-    LogUtil.print('Displaying lists: ${lists.props}');
-
-    //TODO: Display lists
-    return BasicCard(
-      children: [
-        BasicCardTitle(text: 'Lists'),
-        BasicCardSection(
-          children: [
-            Text('- Armor'),
-            Text('- Background Features'),
-            Text('- Equipment Packs'),
-            Text('- Feats'),
-            Text('- Gear'),
-            Text('- Languages'),
-            Text('- Proficiencies'),
-            Text('- Spells'),
-            Text('- Tools'),
-            Text('- Weapons'),
-          ],
-        ),
-      ],
+    //TODO: Show list details
+    return RulesListCard(
+      title: 'Lists',
+      items: _names.map((name) => name).toList(),
     );
   }
 }

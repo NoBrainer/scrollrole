@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:scrollrole/bloc/config/config_bloc.dart';
+import 'package:scrollrole/data/model/rules/background.dart';
 import 'package:scrollrole/data/model/rules/rules_config.dart';
-import 'package:scrollrole/presentation/common/basic_card.dart';
-import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/presentation/screen/rules/body/rules_list_card.dart';
 
 class RulesBackgrounds extends StatelessWidget {
   const RulesBackgrounds({super.key});
 
   @override
   Widget build(BuildContext context) {
-    RulesConfig rulesConfig = getRulesConfig(context);
-    var backgrounds = rulesConfig.backgrounds;
-    LogUtil.print('Displaying ${backgrounds.length} backgrounds');
+    final RulesConfig rulesConfig = getRulesConfig(context);
+    final List<Background> backgrounds = rulesConfig.backgrounds;
 
-    //TODO: Display backgrounds
-    return BasicCard(
-      children: [
-        BasicCardTitle(text: 'Backgrounds'),
-        BasicCardSection(children: [Text('TBD')]),
-      ],
+    //TODO: Show background details
+    return RulesListCard(
+      title: 'Backgrounds',
+      items: backgrounds.map((b) => b.name).toList(),
     );
   }
 }
