@@ -34,13 +34,13 @@ class AppBugsScreen extends StatelessWidget {
             children: [
               BasicCard(
                 children: [
+                  BasicCardTitle(text: 'Report issues in GitHub:'),
                   BasicCardSection(
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text('Report issues in GitHub:'),
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 4),
                           Tooltip(
                             message: issuesUrl,
                             child: TextButton(

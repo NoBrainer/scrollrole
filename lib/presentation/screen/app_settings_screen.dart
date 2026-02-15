@@ -53,28 +53,33 @@ class _BackupRestoreCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final titleStyle = Theme.of(context).textTheme.titleLarge;
+    final theme = Theme.of(context);
+    final textColor = theme.colorScheme.onPrimaryContainer;
+    final textStyle = theme.textTheme.displayMedium?.copyWith(color: textColor);
+
     return BasicCard(
       children: [
         const BasicCardTitle(text: 'Manual Back-up and Restore'),
-        const BasicCardSection(
+        BasicCardSection(
           children: [
             Text(
               'Save your app state to a file. With that file, you can restore '
               'your app to that state.',
+              style: textStyle,
             ),
-            SizedBox(height: 10),
+            SizedBox(height: BasicCard.paddingNum),
             Text(
               'WARNING: Restoring or resetting app state will replace your '
               'current app state. This is irreversible.',
+              style: textStyle,
             ),
           ],
         ),
         Tooltip(
           message: 'Save Backup to File',
           child: ListTile(
-            leading: const Icon(Icons.file_download_outlined),
-            title: const Text('Save Backup to File'),
+            leading: Icon(Icons.file_download_outlined, color: textColor),
+            title: Text('Save Backup to File', style: textStyle),
             onTap: () async {
               // TODO: Figure out if any of the permissions need to be updated
               // <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -108,8 +113,8 @@ class _BackupRestoreCard extends StatelessWidget {
         Tooltip(
           message: 'Restore Backup from File',
           child: ListTile(
-            leading: const Icon(Icons.file_upload_outlined),
-            title: const Text('Restore Backup from File'),
+            leading: Icon(Icons.file_upload_outlined, color: textColor),
+            title: Text('Restore Backup from File', style: textStyle),
             onTap: () {
               DialogUtil.showLoadingSpinner(context);
 
@@ -142,14 +147,14 @@ class _BackupRestoreCard extends StatelessWidget {
         Tooltip(
           message: 'Reset App State',
           child: ListTile(
-            leading: const Icon(Icons.delete_forever_outlined),
-            title: const Text('Reset App State'),
+            leading: Icon(Icons.delete_forever_outlined, color: textColor),
+            title: Text('Reset App State', style: textStyle),
             onTap: () {
               showDialog(
                 context: context,
                 builder: (BuildContext dialogContext) {
                   return AlertDialog(
-                    title: Text('WARNING!', style: titleStyle),
+                    title: Text('WARNING!'),
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -157,7 +162,7 @@ class _BackupRestoreCard extends StatelessWidget {
                           'Are you sure you want to reset your app state? This '
                           'is irreversible!',
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: BasicCard.paddingNum),
                         Text(
                           'You should backup your app state before proceeding.',
                         ),
@@ -205,21 +210,26 @@ class _OrientationCard extends StatelessWidget {
         ? [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]
         : [DeviceOrientation.portraitUp];
 
+    final theme = Theme.of(context);
+    final textColor = theme.colorScheme.onPrimaryContainer;
+    final textStyle = theme.textTheme.displayMedium?.copyWith(color: textColor);
+
     return BasicCard(
       children: [
         const BasicCardTitle(text: 'App Orientation'),
-        const BasicCardSection(
+        BasicCardSection(
           children: [
             Text(
               'You can toggle the orientation between landscape and portrait.',
+              style: textStyle,
             ),
           ],
         ),
         Tooltip(
           message: text,
           child: ListTile(
-            leading: Icon(Icons.rotate_right_outlined),
-            title: Text(text),
+            leading: Icon(Icons.rotate_right_outlined, color: textColor),
+            title: Text(text, style: textStyle),
             onTap: () async {
               SystemChrome.setPreferredOrientations(nextOrientations);
             },
@@ -234,7 +244,7 @@ class _VersionRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.only(top: BasicCard.paddingNum),
       child: Center(
         child: SelectableText('Version ${App.version}+${App.buildNumber}'),
       ),

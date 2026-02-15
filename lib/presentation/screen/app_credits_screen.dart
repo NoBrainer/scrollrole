@@ -19,6 +19,10 @@ class AppCreditsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textColor = theme.colorScheme.onPrimaryContainer;
+    final textStyle = theme.textTheme.displayMedium?.copyWith(color: textColor);
+
     return PopScope(
       canPop: true,
       child: Scaffold(
@@ -26,13 +30,14 @@ class AppCreditsScreen extends StatelessWidget {
         body: Center(
           child: ListView(
             children: [
-              const BasicCard(
+              BasicCard(
                 children: [
                   BasicCardTitle(text: 'People'),
                   BasicCardSection(
                     children: [
                       SelectableText.rich(
                         TextSpan(
+                          style: textStyle,
                           children: [
                             TextSpan(
                               text: 'Vincent Incarvite - Developer, Designer',
@@ -44,13 +49,14 @@ class AppCreditsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const BasicCard(
+              BasicCard(
                 children: [
                   BasicCardTitle(text: 'Technology Stack'),
                   BasicCardSection(
                     children: [
                       SelectableText.rich(
                         TextSpan(
+                          style: textStyle,
                           children: [
                             TextSpan(
                               text:
@@ -68,13 +74,14 @@ class AppCreditsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const BasicCard(
+              BasicCard(
                 children: [
                   BasicCardTitle(text: 'Resources'),
                   BasicCardSection(
                     children: [
                       SelectableText.rich(
                         TextSpan(
+                          style: textStyle,
                           children: [
                             TextSpan(
                               text:
