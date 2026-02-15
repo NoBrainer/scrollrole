@@ -27,6 +27,11 @@ class AppMenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final titleStyle = theme.textTheme.titleMedium?.copyWith(
+      color: Colors.white,
+    );
+
     return PopScope(
       canPop: false,
       child: Scaffold(
@@ -76,7 +81,7 @@ class AppMenuScreen extends StatelessWidget {
                         onPressed: () => context.push(RulesScreen.path),
                         child: Padding(
                           padding: const EdgeInsets.all(8),
-                          child: Text('Rules'),
+                          child: Text('Rules', style: titleStyle),
                         ),
                       ),
                     ),
@@ -92,7 +97,7 @@ class AppMenuScreen extends StatelessWidget {
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8),
-                          child: Text('Characters'),
+                          child: Text('Characters', style: titleStyle),
                         ),
                       ),
                     ),
