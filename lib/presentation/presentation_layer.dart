@@ -9,6 +9,10 @@ import 'package:scrollrole/presentation/screen/app_menu_screen.dart';
 import 'package:scrollrole/presentation/screen/app_settings_screen.dart';
 import 'package:scrollrole/presentation/screen/color_scheme_preview_screen.dart';
 import 'package:scrollrole/presentation/screen/rules/rules_screen.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/rules_background_screen.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/rules_class_screen.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/rules_list_screen.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/rules_species_screen.dart';
 
 class PresentationLayer extends StatelessWidget {
   static const debugMode = false;
@@ -46,12 +50,18 @@ class PresentationLayer extends StatelessWidget {
       routerConfig: GoRouter(
         initialLocation: defaultPath,
         routes: [
+          // Path: /
           AppBugsScreen.route(),
           AppCreditsScreen.route(),
           AppMenuScreen.route(),
           AppSettingsScreen.route(),
           RulesScreen.route(),
           if (debugMode) ColorSchemePreviewScreen.route(),
+          // Path: /rules
+          RulesBackgroundScreen.route(),
+          RulesClassScreen.route(),
+          RulesListScreen.route(),
+          RulesSpeciesScreen.route(),
         ],
       ),
     );

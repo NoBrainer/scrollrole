@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:scrollrole/bloc/config/config_bloc.dart';
 import 'package:scrollrole/data/model/rules/class.dart';
 import 'package:scrollrole/data/model/rules/rules_config.dart';
 import 'package:scrollrole/presentation/screen/rules/body/rules_list_card.dart';
-import 'package:scrollrole/util/snackbar_util.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/rules_class_screen.dart';
 
 class RulesClasses extends StatelessWidget {
   const RulesClasses({super.key});
@@ -16,9 +17,8 @@ class RulesClasses extends StatelessWidget {
     return RulesListCard(
       title: 'Classes',
       items: classes.map((c) => c.name).toList(),
-      onView: () {
-        //TODO: Implement view classes
-        SnackbarUtil.showMessage(context, "View 'Classes' under construction");
+      onView: (String? name) {
+        context.push(RulesClassScreen.path, extra: name);
       },
     );
   }

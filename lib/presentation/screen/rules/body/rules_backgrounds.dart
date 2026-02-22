@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:scrollrole/bloc/config/config_bloc.dart';
 import 'package:scrollrole/data/model/rules/background.dart';
 import 'package:scrollrole/data/model/rules/rules_config.dart';
 import 'package:scrollrole/presentation/screen/rules/body/rules_list_card.dart';
-import 'package:scrollrole/util/snackbar_util.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/rules_background_screen.dart';
 
 class RulesBackgrounds extends StatelessWidget {
   const RulesBackgrounds({super.key});
@@ -16,12 +17,8 @@ class RulesBackgrounds extends StatelessWidget {
     return RulesListCard(
       title: 'Backgrounds',
       items: backgrounds.map((b) => b.name).toList(),
-      onView: () {
-        //TODO: Implement view backgrounds
-        SnackbarUtil.showMessage(
-          context,
-          "View 'Backgrounds' under construction",
-        );
+      onView: (String? name) {
+        context.push(RulesBackgroundScreen.path, extra: name);
       },
     );
   }

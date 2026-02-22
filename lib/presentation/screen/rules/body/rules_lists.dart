@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:scrollrole/presentation/screen/rules/body/rules_list_card.dart';
-import 'package:scrollrole/util/snackbar_util.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/rules_list_screen.dart';
 
 class RulesLists extends StatelessWidget {
   static final List<String> _names = [
@@ -24,9 +25,8 @@ class RulesLists extends StatelessWidget {
     return RulesListCard(
       title: 'Lists',
       items: _names.map((name) => name).toList(),
-      onView: () {
-        //TODO: Implement view lists
-        SnackbarUtil.showMessage(context, "View 'Lists' under construction");
+      onView: (String? name) {
+        context.push(RulesListScreen.path, extra: name);
       },
     );
   }
