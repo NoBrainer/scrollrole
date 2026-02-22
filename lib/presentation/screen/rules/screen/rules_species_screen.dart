@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:scrollrole/presentation/common/basic_card.dart';
 import 'package:scrollrole/presentation/common/styled_app_bar.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/species/all_species_body.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/species/single_species_body.dart';
 import 'package:scrollrole/util/snackbar_util.dart';
 
 class RulesSpeciesScreen extends StatelessWidget {
@@ -41,12 +42,7 @@ class RulesSpeciesScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: BasicCard(
-          children: [
-            BasicCardTitle(text: name ?? 'All Species'),
-            BasicCardSection(children: [Text('Under Construction')]),
-          ],
-        ),
+        body: name == null ? AllSpeciesBody() : SingleSpeciesBody(name: name),
       ),
     );
   }

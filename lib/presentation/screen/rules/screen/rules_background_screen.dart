@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:scrollrole/presentation/common/basic_card.dart';
 import 'package:scrollrole/presentation/common/styled_app_bar.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/background/all_backgrounds_body.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/background/single_background_body.dart';
 import 'package:scrollrole/util/snackbar_util.dart';
 
 class RulesBackgroundScreen extends StatelessWidget {
@@ -41,12 +42,9 @@ class RulesBackgroundScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: BasicCard(
-          children: [
-            BasicCardTitle(text: name ?? 'All Backgrounds'),
-            BasicCardSection(children: [Text('Under Construction')]),
-          ],
-        ),
+        body: name == null
+            ? AllBackgroundsBody()
+            : SingleBackgroundBody(name: name),
       ),
     );
   }

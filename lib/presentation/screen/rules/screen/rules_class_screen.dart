@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:scrollrole/presentation/common/basic_card.dart';
 import 'package:scrollrole/presentation/common/styled_app_bar.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/class/all_classes_body.dart';
+import 'package:scrollrole/presentation/screen/rules/screen/class/single_class_body.dart';
 import 'package:scrollrole/util/snackbar_util.dart';
 
 class RulesClassScreen extends StatelessWidget {
@@ -41,12 +42,7 @@ class RulesClassScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: BasicCard(
-          children: [
-            BasicCardTitle(text: name ?? 'All Classes'),
-            BasicCardSection(children: [Text('Under Construction')]),
-          ],
-        ),
+        body: name == null ? AllClassesBody() : SingleClassBody(name: name),
       ),
     );
   }
