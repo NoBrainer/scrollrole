@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:scrollrole/presentation/common/basic_card.dart';
+import 'package:scrollrole/bloc/config/config_bloc.dart';
+import 'package:scrollrole/data/model/rules/species.dart';
+import 'package:scrollrole/presentation/screen/rules/details/common/rules_feature_cards.dart';
+import 'package:scrollrole/presentation/screen/rules/details/common/rules_name_card.dart';
 
 class RulesSpeciesBody extends StatelessWidget {
   final String name;
@@ -8,10 +11,13 @@ class RulesSpeciesBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BasicCard(
+    final Species species = getSpeciesByName(context, name)!;
+
+    return ListView(
+      shrinkWrap: true,
       children: [
-        BasicCardTitle(text: name),
-        BasicCardSection(children: [Text('Under Construction')]),
+        RulesNameCard(iconId: species.iconId, name: name),
+        RulesFeatureCards(feature: species),
       ],
     );
   }

@@ -9,6 +9,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:scrollrole/data/model/rules/background.dart';
 import 'package:scrollrole/data/model/rules/class.dart';
 import 'package:scrollrole/data/model/rules/rules_config.dart';
+import 'package:scrollrole/data/model/rules/species.dart';
 import 'package:scrollrole/data/repository/config_repository.dart';
 import 'package:scrollrole/util/log_util.dart';
 
@@ -110,6 +111,20 @@ Class? getClassByName(BuildContext context, String name) {
   for (Class c in getClasses(context)) {
     if (c.name == name) {
       return c;
+    }
+  }
+  return null;
+}
+
+List<Species> getSpecies(BuildContext context) {
+  var config = getRulesConfig(context);
+  return config.species;
+}
+
+Species? getSpeciesByName(BuildContext context, String name) {
+  for (Species s in getSpecies(context)) {
+    if (s.name == name) {
+      return s;
     }
   }
   return null;
