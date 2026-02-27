@@ -56,7 +56,7 @@ class AppTheme {
       ),
       titleSmall: const TextStyle().copyWith(
         fontSize: _titleFontSize,
-        fontWeight: FontWeight.w200,
+        fontWeight: FontWeight.w300,
       ),
       // Text
       displayLarge: const TextStyle().copyWith(
@@ -69,7 +69,7 @@ class AppTheme {
       ),
       displaySmall: const TextStyle().copyWith(
         fontSize: _textFontSize,
-        fontWeight: FontWeight.w200,
+        fontWeight: FontWeight.w300,
       ),
       bodyLarge: const TextStyle().copyWith(
         fontSize: _textFontSize,
@@ -81,7 +81,7 @@ class AppTheme {
       ),
       bodySmall: const TextStyle().copyWith(
         fontSize: _textFontSize,
-        fontWeight: FontWeight.w200,
+        fontWeight: FontWeight.w300,
       ),
       labelLarge: const TextStyle().copyWith(
         fontSize: _textFontSize,
@@ -93,7 +93,7 @@ class AppTheme {
       ),
       labelSmall: const TextStyle().copyWith(
         fontSize: _textFontSize,
-        fontWeight: FontWeight.w200,
+        fontWeight: FontWeight.w300,
       ),
     ),
     tooltipTheme: const TooltipThemeData(preferBelow: false),
