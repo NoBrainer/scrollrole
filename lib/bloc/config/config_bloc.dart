@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:scrollrole/data/model/rules/background.dart';
+import 'package:scrollrole/data/model/rules/class.dart';
 import 'package:scrollrole/data/model/rules/rules_config.dart';
 import 'package:scrollrole/data/repository/config_repository.dart';
 import 'package:scrollrole/util/log_util.dart';
@@ -95,6 +96,20 @@ Background? getBackgroundByName(BuildContext context, String name) {
   for (Background b in getBackgrounds(context)) {
     if (b.name == name) {
       return b;
+    }
+  }
+  return null;
+}
+
+List<Class> getClasses(BuildContext context) {
+  var config = getRulesConfig(context);
+  return config.classes;
+}
+
+Class? getClassByName(BuildContext context, String name) {
+  for (Class c in getClasses(context)) {
+    if (c.name == name) {
+      return c;
     }
   }
   return null;
