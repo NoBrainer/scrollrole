@@ -12,7 +12,7 @@ class RulesSuggestedCharacteristicsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Finish SuggestedCharacteristicsRulesCard
+    // TODO: Finish RulesSuggestedCharacteristicsCard
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Suggested Characteristics'),

@@ -9,7 +9,7 @@ class RulesEquipmentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Finish EquipmentRulesCard
+    // TODO: Finish RulesEquipmentCard
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Equipment'),

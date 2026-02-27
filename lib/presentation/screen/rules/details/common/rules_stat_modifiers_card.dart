@@ -9,7 +9,7 @@ class RulesStatModifiersCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Finish StatModifiersRulesCard
+    // TODO: Finish RulesStatModifiersCard
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Stat Modifiers'),

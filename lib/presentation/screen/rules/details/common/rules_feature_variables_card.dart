@@ -9,7 +9,7 @@ class RulesFeatureVariablesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Finish FeatureVariablesRulesCard
+    // TODO: Finish RulesFeatureVariablesCard
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Feature Variables'),

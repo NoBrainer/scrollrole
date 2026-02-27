@@ -8,7 +8,7 @@ class RulesSpeedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Finish SpeedRulesCard
+    // TODO: Finish RulesSpeedCard
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Speed'),

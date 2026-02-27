@@ -9,7 +9,7 @@ class RulesUnlockablesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Finish UnlockablesRulesCard
+    // TODO: Finish RulesUnlockablesCard
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Unlockables'),
