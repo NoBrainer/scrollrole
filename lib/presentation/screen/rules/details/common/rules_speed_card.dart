@@ -8,6 +8,12 @@ class RulesSpeedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (speed == null) {
+      return SizedBox.shrink();
+    }
+
+    // TODO: Support flying & swimming speed
+
     // TODO: Finish RulesSpeedCard
     return BasicCard(
       children: [

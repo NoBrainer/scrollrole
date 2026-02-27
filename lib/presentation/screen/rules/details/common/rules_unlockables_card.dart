@@ -9,6 +9,10 @@ class RulesUnlockablesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (unlockables.isEmpty) {
+      return SizedBox.shrink();
+    }
+
     // TODO: Finish RulesUnlockablesCard
     return BasicCard(
       children: [

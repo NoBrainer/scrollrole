@@ -9,6 +9,10 @@ class RulesSpellCastingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (spellCasting == null) {
+      return SizedBox.shrink();
+    }
+
     // TODO: Finish RulesSpellCastingCard
     return BasicCard(
       children: [

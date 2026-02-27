@@ -9,6 +9,10 @@ class RulesProficienciesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (proficiencies.isEmpty) {
+      return SizedBox.shrink();
+    }
+
     // TODO: Finish RulesProficienciesCard
     return BasicCard(
       children: [

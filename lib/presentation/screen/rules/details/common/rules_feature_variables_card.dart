@@ -9,6 +9,10 @@ class RulesFeatureVariablesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (variables.isEmpty) {
+      return SizedBox.shrink();
+    }
+
     // TODO: Finish RulesFeatureVariablesCard
     return BasicCard(
       children: [

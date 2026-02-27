@@ -14,11 +14,16 @@ class RulesDescriptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool hasAbbreviation = abbreviation.isNotEmpty;
+
+    if (paragraphs.isEmpty && !hasAbbreviation) {
+      return SizedBox.shrink();
+    }
+
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Description'),
         BasicCardSection(children: [...paragraphs.map((d) => Text(d))]),
-        if (hasAbbreviation) BasicCardTitle(text: 'Description (short)'),
+        if (hasAbbreviation) BasicCardTitle(text: 'Shorthand'),
         if (hasAbbreviation) BasicCardSection(children: [Text(abbreviation)]),
       ],
     );

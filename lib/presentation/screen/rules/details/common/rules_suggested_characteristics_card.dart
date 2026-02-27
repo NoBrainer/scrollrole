@@ -12,6 +12,10 @@ class RulesSuggestedCharacteristicsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (suggestedCharacteristics == null) {
+      return SizedBox.shrink();
+    }
+
     // TODO: Finish RulesSuggestedCharacteristicsCard
     return BasicCard(
       children: [

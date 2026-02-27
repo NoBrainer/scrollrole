@@ -9,6 +9,10 @@ class RulesEquipmentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (equipment.isEmpty) {
+      return SizedBox.shrink();
+    }
+
     // TODO: Finish RulesEquipmentCard
     return BasicCard(
       children: [

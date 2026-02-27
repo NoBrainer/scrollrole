@@ -9,6 +9,10 @@ class RulesChoicesCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (choices.isEmpty) {
+      return SizedBox.shrink();
+    }
+
     // TODO: Finish RulesChoicesCard
     return BasicCard(
       children: [

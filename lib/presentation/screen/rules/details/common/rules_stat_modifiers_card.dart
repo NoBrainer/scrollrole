@@ -9,6 +9,10 @@ class RulesStatModifiersCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (statModifiers.isEmpty) {
+      return SizedBox.shrink();
+    }
+
     // TODO: Finish RulesStatModifiersCard
     return BasicCard(
       children: [
