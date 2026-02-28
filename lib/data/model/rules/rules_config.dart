@@ -16,7 +16,7 @@ import 'package:yaml_writer/yaml_writer.dart';
 part 'rules_config.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class RulesConfig extends Equatable {
   final List<Background> backgrounds;
   final List<Class> classes;

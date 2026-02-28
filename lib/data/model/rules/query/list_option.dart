@@ -10,7 +10,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'list_option.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class ListOption extends Equatable {
   final Feature? feature;
   final String name;

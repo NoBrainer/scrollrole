@@ -17,28 +17,32 @@ RulesConfig _$RulesConfigFromJson(Map<String, dynamic> json) => RulesConfig(
           ?.map((e) => Class.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  description: json['description'] as String? ?? '',
-  uuid: json['id'],
+  description: json['description'] == null
+      ? ''
+      : const StringTrimConverter().fromJson(json['description'] as String),
   lists: json['lists'] == null
       ? const ConfigLists.blank()
       : ConfigLists.fromJson(json['lists'] as Map<String, dynamic>),
-  name: json['name'] as String,
+  name: const StringTrimConverter().fromJson(json['name'] as String),
   species:
       (json['species'] as List<dynamic>?)
           ?.map((e) => Species.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  url: json['url'] as String? ?? '',
+  url: json['url'] == null
+      ? ''
+      : const StringTrimConverter().fromJson(json['url'] as String),
+  uuid: json['uuid'],
 );
 
 Map<String, dynamic> _$RulesConfigToJson(RulesConfig instance) =>
     <String, dynamic>{
       'backgrounds': instance.backgrounds.map((e) => e.toJson()).toList(),
       'classes': instance.classes.map((e) => e.toJson()).toList(),
-      'description': instance.description,
-      'id': instance.uuid,
+      'description': const StringTrimConverter().toJson(instance.description),
       'lists': instance.lists.toJson(),
-      'name': instance.name,
+      'name': const StringTrimConverter().toJson(instance.name),
       'species': instance.species.map((e) => e.toJson()).toList(),
-      'url': instance.url,
+      'url': const StringTrimConverter().toJson(instance.url),
+      'uuid': const StringTrimConverter().toJson(instance.uuid),
     };

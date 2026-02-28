@@ -21,5 +21,7 @@ Map<String, dynamic> _$SpellCastingUpdateToJson(SpellCastingUpdate instance) =>
     <String, dynamic>{
       'knownCantrips': instance.knownCantrips,
       'knownSpells': instance.knownSpells,
-      'spellSlots': instance.spellSlots,
+      'spellSlots': instance.spellSlots.map(
+        (k, e) => MapEntry(const StringTrimConverter().toJson(k), e),
+      ),
     };

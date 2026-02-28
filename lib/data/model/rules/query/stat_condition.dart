@@ -9,7 +9,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'stat_condition.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class StatCondition extends Equatable {
   final int minimum;
   final String name;

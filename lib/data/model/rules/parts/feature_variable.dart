@@ -8,7 +8,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'feature_variable.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class FeatureVariable extends Equatable {
   final String displayName;
   final String key;

@@ -13,7 +13,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'background.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Background extends Feature {
   final String iconId;
 

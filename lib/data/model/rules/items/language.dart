@@ -9,7 +9,7 @@ part 'language.g.dart';
 
 // TODO: Simplify language
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Language extends Equatable {
   final bool isExotic;
   final String name;

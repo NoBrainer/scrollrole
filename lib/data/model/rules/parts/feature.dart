@@ -15,7 +15,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'feature.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Feature extends Equatable {
   final List<Choice> choices;
   final List<String> description;

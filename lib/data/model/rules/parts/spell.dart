@@ -8,7 +8,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'spell.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Spell extends Equatable {
   final List<String> classes;
   final int level;

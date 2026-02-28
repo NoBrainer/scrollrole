@@ -8,7 +8,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'suggested_characteristics.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class SuggestedCharacteristics extends Equatable {
   final List<String> bonds;
   final List<String> description;

@@ -16,7 +16,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'class.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Class extends Feature {
   final int baseHitPoints;
   final DiceType hitPointDie;

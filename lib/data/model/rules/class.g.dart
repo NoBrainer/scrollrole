@@ -14,10 +14,14 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
       const [],
   description:
       (json['description'] as List<dynamic>?)
-          ?.map((e) => e as String)
+          ?.map((e) => const StringTrimConverter().fromJson(e as String))
           .toList() ??
       const [],
-  descriptionShort: json['descriptionShort'] as String? ?? '',
+  descriptionShort: json['descriptionShort'] == null
+      ? ''
+      : const StringTrimConverter().fromJson(
+          json['descriptionShort'] as String,
+        ),
   equipment:
       (json['equipment'] as List<dynamic>?)
           ?.map((e) => Equipment.fromJson(e as Map<String, dynamic>))
@@ -28,7 +32,7 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
           ?.map((e) => Feature.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  name: json['name'] as String,
+  name: const StringTrimConverter().fromJson(json['name'] as String),
   proficiencies:
       (json['proficiencies'] as List<dynamic>?)
           ?.map((e) => Proficiency.fromJson(e as Map<String, dynamic>))
@@ -59,8 +63,12 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
       (json['baseHitPoints'] as num?)?.toInt() ?? Class.defaultBaseHitPoints,
   hitPointDie: json['hitPointDie'] == null
       ? Class.defaultHitPointDie
-      : DiceType.fromJson(json['hitPointDie'] as String),
-  iconId: json['iconId'] as String? ?? Class.defaultIconId,
+      : DiceType.fromJson(
+          const StringTrimConverter().fromJson(json['hitPointDie'] as String),
+        ),
+  iconId: json['iconId'] == null
+      ? Class.defaultIconId
+      : const StringTrimConverter().fromJson(json['iconId'] as String),
   proficiencyBonus:
       (json['proficiencyBonus'] as num?)?.toInt() ??
       Class.defaultProficiencyBonus,
@@ -71,11 +79,15 @@ Class _$ClassFromJson(Map<String, dynamic> json) => Class(
 
 Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
   'choices': instance.choices.map((e) => e.toJson()).toList(),
-  'description': instance.description,
-  'descriptionShort': instance.descriptionShort,
+  'description': instance.description
+      .map(const StringTrimConverter().toJson)
+      .toList(),
+  'descriptionShort': const StringTrimConverter().toJson(
+    instance.descriptionShort,
+  ),
   'equipment': instance.equipment.map((e) => e.toJson()).toList(),
   'features': instance.features.map((e) => e.toJson()).toList(),
-  'name': instance.name,
+  'name': const StringTrimConverter().toJson(instance.name),
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'speed': instance.speed,
   'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
@@ -84,7 +96,7 @@ Map<String, dynamic> _$ClassToJson(Class instance) => <String, dynamic>{
   'variables': instance.variables.map((e) => e.toJson()).toList(),
   'baseHitPoints': instance.baseHitPoints,
   'hitPointDie': instance.hitPointDie.toJson(),
-  'iconId': instance.iconId,
+  'iconId': const StringTrimConverter().toJson(instance.iconId),
   'proficiencyBonus': instance.proficiencyBonus,
   'spellCasting': instance.spellCasting?.toJson(),
 };

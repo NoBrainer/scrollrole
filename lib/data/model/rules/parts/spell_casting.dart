@@ -9,7 +9,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'spell_casting.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class SpellCasting extends Equatable {
   final Ability ability;
   final List<String> description;

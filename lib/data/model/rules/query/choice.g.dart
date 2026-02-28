@@ -10,10 +10,10 @@ Choice _$ChoiceFromJson(Map<String, dynamic> json) => Choice(
   allowDuplicate: json['allowDuplicate'] as bool? ?? false,
   description:
       (json['description'] as List<dynamic>?)
-          ?.map((e) => e as String)
+          ?.map((e) => const StringTrimConverter().fromJson(e as String))
           .toList() ??
       const [],
-  name: json['name'] as String,
+  name: const StringTrimConverter().fromJson(json['name'] as String),
   options:
       (json['options'] as List<dynamic>?)
           ?.map((e) => ListOption.fromJson(e as Map<String, dynamic>))
@@ -27,8 +27,10 @@ Choice _$ChoiceFromJson(Map<String, dynamic> json) => Choice(
 
 Map<String, dynamic> _$ChoiceToJson(Choice instance) => <String, dynamic>{
   'allowDuplicate': instance.allowDuplicate,
-  'description': instance.description,
-  'name': instance.name,
+  'description': instance.description
+      .map(const StringTrimConverter().toJson)
+      .toList(),
+  'name': const StringTrimConverter().toJson(instance.name),
   'options': instance.options.map((e) => e.toJson()).toList(),
   'pick': instance.pick,
   'query': instance.query?.toJson(),

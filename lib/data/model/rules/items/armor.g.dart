@@ -12,12 +12,20 @@ Armor _$ArmorFromJson(Map<String, dynamic> json) => Armor(
   maxModifier: (json['maxModifier'] as num?)?.toInt(),
   modifierAbility: json['modifierAbility'] == null
       ? Ability.dex
-      : Ability.fromJson(json['modifierAbility'] as String),
-  name: json['name'] as String,
+      : Ability.fromJson(
+          const StringTrimConverter().fromJson(
+            json['modifierAbility'] as String,
+          ),
+        ),
+  name: const StringTrimConverter().fromJson(json['name'] as String),
   stealthDisadvantage: json['stealthDisadvantage'] as bool? ?? false,
   strengthRequirement: (json['strengthRequirement'] as num?)?.toInt(),
-  type: ArmorType.fromJson(json['type'] as String),
-  weight: json['weight'] as String? ?? '',
+  type: ArmorType.fromJson(
+    const StringTrimConverter().fromJson(json['type'] as String),
+  ),
+  weight: json['weight'] == null
+      ? ''
+      : const StringTrimConverter().fromJson(json['weight'] as String),
 );
 
 Map<String, dynamic> _$ArmorToJson(Armor instance) => <String, dynamic>{
@@ -25,9 +33,9 @@ Map<String, dynamic> _$ArmorToJson(Armor instance) => <String, dynamic>{
   'cost': instance.cost,
   'maxModifier': instance.maxModifier,
   'modifierAbility': instance.modifierAbility.toJson(),
-  'name': instance.name,
+  'name': const StringTrimConverter().toJson(instance.name),
   'stealthDisadvantage': instance.stealthDisadvantage,
   'strengthRequirement': instance.strengthRequirement,
   'type': instance.type.toJson(),
-  'weight': instance.weight,
+  'weight': const StringTrimConverter().toJson(instance.weight),
 };

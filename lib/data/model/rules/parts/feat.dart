@@ -9,7 +9,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'feat.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Feat extends Equatable {
   final List<String> description;
   final String descriptionShort;

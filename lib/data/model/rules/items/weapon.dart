@@ -8,7 +8,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'weapon.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Weapon extends Equatable {
   final int cost;
   final String damage;

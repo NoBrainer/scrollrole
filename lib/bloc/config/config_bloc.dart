@@ -12,6 +12,7 @@ import 'package:scrollrole/data/model/rules/rules_config.dart';
 import 'package:scrollrole/data/model/rules/species.dart';
 import 'package:scrollrole/data/repository/config_repository.dart';
 import 'package:scrollrole/util/log_util.dart';
+import 'package:scrollrole/util/mapper_util.dart';
 
 part 'config_bloc.g.dart';
 part 'config_event.dart';

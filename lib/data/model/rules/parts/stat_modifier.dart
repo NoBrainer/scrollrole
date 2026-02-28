@@ -9,7 +9,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'stat_modifier.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class StatModifier extends Equatable {
   final int modifier;
   final String name;

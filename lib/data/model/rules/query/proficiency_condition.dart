@@ -9,7 +9,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'proficiency_condition.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class ProficiencyCondition extends Equatable {
   final String name;
   final List<String> tags;

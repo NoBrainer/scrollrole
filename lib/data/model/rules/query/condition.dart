@@ -12,7 +12,7 @@ part 'condition.g.dart';
 /// Every field must be true.
 /// To construct more complicated conditions, use `and` and/or `or` fields.
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Condition extends Equatable {
   final List<int>? atLevels;
   final String? hasBackground;

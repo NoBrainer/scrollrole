@@ -18,7 +18,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'config_lists.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class ConfigLists extends Equatable {
   final List<Armor> armor;
   final List<Feature> backgroundFeatures;

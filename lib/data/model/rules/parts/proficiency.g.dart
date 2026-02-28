@@ -7,16 +7,20 @@ part of 'proficiency.dart';
 // **************************************************************************
 
 Proficiency _$ProficiencyFromJson(Map<String, dynamic> json) => Proficiency(
-  name: json['name'] as String,
+  name: const StringTrimConverter().fromJson(json['name'] as String),
   tags:
-      (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      (json['tags'] as List<dynamic>?)
+          ?.map((e) => const StringTrimConverter().fromJson(e as String))
+          .toList() ??
       const [],
-  type: ProficiencyType.fromJson(json['type'] as String),
+  type: ProficiencyType.fromJson(
+    const StringTrimConverter().fromJson(json['type'] as String),
+  ),
 );
 
 Map<String, dynamic> _$ProficiencyToJson(Proficiency instance) =>
     <String, dynamic>{
-      'name': instance.name,
-      'tags': instance.tags,
+      'name': const StringTrimConverter().toJson(instance.name),
+      'tags': instance.tags.map(const StringTrimConverter().toJson).toList(),
       'type': instance.type.toJson(),
     };

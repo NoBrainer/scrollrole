@@ -15,7 +15,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'unlockable.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Unlockable extends Equatable {
   final List<Choice> choices;
   final Condition condition;

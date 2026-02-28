@@ -49,4 +49,21 @@ class MapperUtil {
   static Map<String, dynamic> stringToJson(String jsonString) {
     return _decoder.convert(jsonString);
   }
+
+  static const List<JsonConverter> commonConverters = [StringTrimConverter()];
+}
+
+/// Ensure Strings are trimmed when serialized and deserialized.
+class StringTrimConverter implements JsonConverter<String, String> {
+  const StringTrimConverter();
+
+  @override
+  String fromJson(String json) {
+    return json.trim();
+  }
+
+  @override
+  String toJson(String str) {
+    return str.trim();
+  }
 }

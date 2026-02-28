@@ -8,7 +8,7 @@ part of 'equipment_pack.dart';
 
 EquipmentPack _$EquipmentPackFromJson(Map<String, dynamic> json) =>
     EquipmentPack(
-      name: json['name'] as String,
+      name: const StringTrimConverter().fromJson(json['name'] as String),
       items:
           (json['items'] as List<dynamic>?)
               ?.map((e) => Equipment.fromJson(e as Map<String, dynamic>))
@@ -18,6 +18,6 @@ EquipmentPack _$EquipmentPackFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$EquipmentPackToJson(EquipmentPack instance) =>
     <String, dynamic>{
-      'name': instance.name,
+      'name': const StringTrimConverter().toJson(instance.name),
       'items': instance.items.map((e) => e.toJson()).toList(),
     };

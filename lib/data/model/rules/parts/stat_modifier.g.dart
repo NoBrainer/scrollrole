@@ -8,13 +8,15 @@ part of 'stat_modifier.dart';
 
 StatModifier _$StatModifierFromJson(Map<String, dynamic> json) => StatModifier(
   modifier: (json['modifier'] as num).toInt(),
-  name: json['name'] as String,
-  type: StatType.fromJson(json['type'] as String),
+  name: const StringTrimConverter().fromJson(json['name'] as String),
+  type: StatType.fromJson(
+    const StringTrimConverter().fromJson(json['type'] as String),
+  ),
 );
 
 Map<String, dynamic> _$StatModifierToJson(StatModifier instance) =>
     <String, dynamic>{
       'modifier': instance.modifier,
-      'name': instance.name,
+      'name': const StringTrimConverter().toJson(instance.name),
       'type': instance.type.toJson(),
     };

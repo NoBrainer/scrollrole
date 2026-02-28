@@ -10,7 +10,7 @@ enum ConfigStatus {
 }
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 final class ConfigState extends Equatable {
   final RulesConfig rulesConfig;
 

@@ -8,7 +8,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'equipment.g.dart';
 
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Equipment extends Equatable {
   final String name;
   final double quantity;

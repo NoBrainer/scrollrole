@@ -11,7 +11,7 @@ part 'choice.g.dart';
 
 /// Must provide a query, hard-coded options, or both.
 @immutable
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
 class Choice extends Equatable {
   final bool allowDuplicate;
   final List<String> description;

@@ -8,14 +8,18 @@ part of 'gear.dart';
 
 Gear _$GearFromJson(Map<String, dynamic> json) => Gear(
   cost: (json['cost'] as num?)?.toInt() ?? 0,
-  name: json['name'] as String,
-  per: json['per'] as String? ?? '1',
-  weight: json['weight'] as String? ?? '',
+  name: const StringTrimConverter().fromJson(json['name'] as String),
+  per: json['per'] == null
+      ? '1'
+      : const StringTrimConverter().fromJson(json['per'] as String),
+  weight: json['weight'] == null
+      ? ''
+      : const StringTrimConverter().fromJson(json['weight'] as String),
 );
 
 Map<String, dynamic> _$GearToJson(Gear instance) => <String, dynamic>{
   'cost': instance.cost,
-  'name': instance.name,
-  'per': instance.per,
-  'weight': instance.weight,
+  'name': const StringTrimConverter().toJson(instance.name),
+  'per': const StringTrimConverter().toJson(instance.per),
+  'weight': const StringTrimConverter().toJson(instance.weight),
 };

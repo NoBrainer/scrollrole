@@ -8,16 +8,20 @@ part of 'tool.dart';
 
 Tool _$ToolFromJson(Map<String, dynamic> json) => Tool(
   cost: (json['cost'] as num?)?.toInt() ?? 0,
-  name: json['name'] as String,
+  name: const StringTrimConverter().fromJson(json['name'] as String),
   tags:
-      (json['tags'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      (json['tags'] as List<dynamic>?)
+          ?.map((e) => const StringTrimConverter().fromJson(e as String))
+          .toList() ??
       const [],
-  weight: json['weight'] as String? ?? '',
+  weight: json['weight'] == null
+      ? ''
+      : const StringTrimConverter().fromJson(json['weight'] as String),
 );
 
 Map<String, dynamic> _$ToolToJson(Tool instance) => <String, dynamic>{
   'cost': instance.cost,
-  'name': instance.name,
-  'tags': instance.tags,
-  'weight': instance.weight,
+  'name': const StringTrimConverter().toJson(instance.name),
+  'tags': instance.tags.map(const StringTrimConverter().toJson).toList(),
+  'weight': const StringTrimConverter().toJson(instance.weight),
 };
