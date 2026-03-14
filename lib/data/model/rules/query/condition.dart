@@ -1,18 +1,16 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/query/proficiency_condition.dart';
 import 'package:scrollrole/data/model/rules/query/stat_condition.dart';
+import 'package:scrollrole/util/config/default_json_serializable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'condition.g.dart';
 
 /// Every field must be true.
 /// To construct more complicated conditions, use `and` and/or `or` fields.
-@immutable
-@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
+@DefaultJsonSerializable()
 class Condition extends Equatable {
   final List<int>? atLevels;
   final String? hasBackground;

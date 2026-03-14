@@ -1,9 +1,9 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:scrollrole/util/config/default_json_enum.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'list_option_type.g.dart';
 
-@JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
+@DefaultJsonEnum()
 enum ListOptionType {
   abilityScore('Ability Score', 'Ability Score'),
   equipment('Equipment', 'Equipment'),

@@ -1,11 +1,11 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:scrollrole/util/config/default_json_enum.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'dice_type.g.dart';
 
 /// Dice types supported with a standard set of dice.
 /// The non-standard dice types can be be simulated by halving a standard die.
-@JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
+@DefaultJsonEnum()
 enum DiceType {
   d2('D2'),
   d3('D3'),

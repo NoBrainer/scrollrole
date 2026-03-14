@@ -9,8 +9,7 @@ enum ConfigStatus {
   bool isLoading() => [initial, loading].contains(this);
 }
 
-@immutable
-@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
+@DefaultJsonSerializable()
 final class ConfigState extends Equatable {
   final RulesConfig rulesConfig;
 

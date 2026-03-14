@@ -1,9 +1,9 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:scrollrole/util/config/default_json_enum.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'ability.g.dart';
 
-@JsonEnum(alwaysCreate: true, fieldRename: FieldRename.screamingSnake)
+@DefaultJsonEnum()
 enum Ability {
   cha('CHA', 'Charisma'),
   con('CON', 'Constitution'),

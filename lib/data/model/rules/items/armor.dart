@@ -1,16 +1,14 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/enum/ability.dart';
 import 'package:scrollrole/data/model/enum/armor_type.dart';
+import 'package:scrollrole/util/config/default_json_serializable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'armor.g.dart';
 
-@immutable
-@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
+@DefaultJsonSerializable()
 class Armor extends Equatable {
   final int baseAc;
   final int cost;

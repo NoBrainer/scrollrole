@@ -1,12 +1,11 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/background.dart';
 import 'package:scrollrole/data/model/rules/class.dart';
 import 'package:scrollrole/data/model/rules/config_lists.dart';
 import 'package:scrollrole/data/model/rules/species.dart';
+import 'package:scrollrole/util/config/default_json_serializable.dart';
 import 'package:scrollrole/util/log_util.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 import 'package:scrollrole/util/uuid_util.dart';
@@ -15,8 +14,7 @@ import 'package:yaml_writer/yaml_writer.dart';
 
 part 'rules_config.g.dart';
 
-@immutable
-@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
+@DefaultJsonSerializable()
 class RulesConfig extends Equatable {
   final List<Background> backgrounds;
   final List<Class> classes;

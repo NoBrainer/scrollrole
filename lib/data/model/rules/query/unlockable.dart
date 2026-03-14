@@ -1,8 +1,6 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
-import 'package:meta/meta.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
@@ -10,12 +8,12 @@ import 'package:scrollrole/data/model/rules/parts/spell_casting_update.dart';
 import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/condition.dart';
+import 'package:scrollrole/util/config/default_json_serializable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'unlockable.g.dart';
 
-@immutable
-@JsonSerializable(explicitToJson: true, converters: MapperUtil.commonConverters)
+@DefaultJsonSerializable()
 class Unlockable extends Equatable {
   final List<Choice> choices;
   final Condition condition;
