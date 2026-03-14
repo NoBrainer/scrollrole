@@ -19,10 +19,19 @@ class RulesDescriptionCard extends StatelessWidget {
       return SizedBox.shrink();
     }
 
+    // Add space between each paragraph
+    List<Widget> paragraphWidgets = [];
+    for (var paragraph in paragraphs) {
+      if (paragraphWidgets.isNotEmpty) {
+        paragraphWidgets.add(SizedBox(height: 8));
+      }
+      paragraphWidgets.add(Text(paragraph));
+    }
+
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Description'),
-        BasicCardSection(children: [...paragraphs.map((d) => Text(d))]),
+        BasicCardSection(children: paragraphWidgets),
         if (hasAbbreviation) BasicCardTitle(text: 'Shorthand'),
         if (hasAbbreviation) BasicCardSection(children: [Text(abbreviation)]),
       ],
