@@ -13,12 +13,33 @@ class RulesEquipmentCard extends StatelessWidget {
       return SizedBox.shrink();
     }
 
-    // TODO: Finish RulesEquipmentCard
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Equipment'),
-        BasicCardSection(children: [Text('TBD')]),
+        BasicCardSection(
+          children: equipment.map((e) => _EquipmentItem(equipment: e)).toList(),
+        ),
       ],
     );
+  }
+}
+
+class _EquipmentItem extends StatelessWidget {
+  final Equipment equipment;
+
+  const _EquipmentItem({required this.equipment});
+
+  @override
+  Widget build(BuildContext context) {
+    double quantity = equipment.quantity;
+    String name = equipment.name;
+    String? units = equipment.units;
+
+    String quantityStr = quantity.truncateToDouble() == quantity
+        ? '${quantity.toInt()}'
+        : '$quantity';
+    String unitsStr = units == null ? '' : '$units ';
+
+    return Text('$quantityStr $unitsStr$name');
   }
 }

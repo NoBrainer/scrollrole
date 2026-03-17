@@ -29,8 +29,8 @@ backgrounds:
       - { name: prayer book or prayer wheel }
       - { name: sticks of incense, quantity: 5 }
       - { name: vestments }
-      - { name: a set of common clothes }
-      - { name: a pouch containing 15gp }
+      - { name: set of common clothes }
+      - { name: pouch containing 15gp }
     features:
       - name: Shelter of the Faithful
         description:
