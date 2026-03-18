@@ -23,9 +23,7 @@ class Spell extends Equatable implements Comparable<Spell> {
 
   Map<String, dynamic> toJson() => _$SpellToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 
   @override
   int compareTo(other) => name.compareTo(other.name);

@@ -29,9 +29,7 @@ class StatModifier extends Equatable implements Comparable<StatModifier> {
 
   Map<String, dynamic> toJson() => _$StatModifierToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 
   @override
   int compareTo(other) => name.compareTo(other.name);

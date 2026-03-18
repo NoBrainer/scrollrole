@@ -29,9 +29,7 @@ class Proficiency extends Equatable implements Comparable<Proficiency> {
 
   Map<String, dynamic> toJson() => _$ProficiencyToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 
   String toDisplay() {
     String display = name;

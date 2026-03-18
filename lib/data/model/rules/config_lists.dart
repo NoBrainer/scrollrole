@@ -68,7 +68,5 @@ class ConfigLists extends Equatable {
 
   Map<String, dynamic> toJson() => _$ConfigListsToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 }

@@ -24,9 +24,7 @@ class Equipment extends Equatable implements Comparable<Equipment> {
 
   Map<String, dynamic> toJson() => _$EquipmentToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 
   @override
   int compareTo(other) => name.compareTo(other.name);

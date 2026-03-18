@@ -32,9 +32,7 @@ class FeatureVariable extends Equatable implements Comparable<FeatureVariable> {
 
   Map<String, dynamic> toJson() => _$FeatureVariableToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 
   @override
   int compareTo(other) => displayName.compareTo(other.displayName);

@@ -51,7 +51,5 @@ class Unlockable extends Equatable {
 
   Map<String, dynamic> toJson() => _$UnlockableToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 }

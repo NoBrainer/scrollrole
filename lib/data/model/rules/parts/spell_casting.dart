@@ -42,7 +42,5 @@ class SpellCasting extends Equatable {
 
   Map<String, dynamic> toJson() => _$SpellCastingToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 }

@@ -45,7 +45,5 @@ final class ConfigState extends Equatable {
     return _$ConfigStateToJson(this);
   }
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 }

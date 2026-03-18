@@ -44,7 +44,5 @@ class SuggestedCharacteristics extends Equatable {
 
   Map<String, dynamic> toJson() => _$SuggestedCharacteristicsToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 }

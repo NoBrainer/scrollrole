@@ -31,9 +31,7 @@ class Language extends Equatable implements Comparable<Language> {
 
   Map<String, dynamic> toJson() => _$LanguageToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 
   @override
   int compareTo(other) => name.compareTo(other.name);

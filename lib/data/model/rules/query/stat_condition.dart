@@ -33,9 +33,7 @@ class StatCondition extends Equatable implements Comparable<StatCondition> {
 
   Map<String, dynamic> toJson() => _$StatConditionToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 
   @override
   int compareTo(other) => name.compareTo(other.name);

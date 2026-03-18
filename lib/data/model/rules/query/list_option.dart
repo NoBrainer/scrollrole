@@ -32,9 +32,7 @@ class ListOption extends Equatable implements Comparable<ListOption> {
 
   Map<String, dynamic> toJson() => _$ListOptionToJson(this);
 
-  String toJsonString() {
-    return jsonEncode(toJson());
-  }
+  String toJsonString() => jsonEncode(toJson());
 
   @override
   int compareTo(other) => name.compareTo(other.name);
