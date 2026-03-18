@@ -4,7 +4,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'armor_type.g.dart';
 
 @DefaultJsonEnum()
-enum ArmorType {
+enum ArmorType implements Comparable<ArmorType> {
   light('Light', 'Light Armor'),
   medium('Medium', 'Medium Armor'),
   heavy('Heavy', 'Heavy Armor'),
@@ -21,4 +21,7 @@ enum ArmorType {
   }
 
   String toJson() => _$ArmorTypeEnumMap[this]!;
+
+  @override
+  int compareTo(other) => display.compareTo(other.display);
 }

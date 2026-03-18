@@ -4,7 +4,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'list_option_type.g.dart';
 
 @DefaultJsonEnum()
-enum ListOptionType {
+enum ListOptionType implements Comparable<ListOptionType> {
   abilityScore('Ability Score', 'Ability Score'),
   equipment('Equipment', 'Equipment'),
   equipmentArmor('Armor', 'Armor'),
@@ -36,4 +36,7 @@ enum ListOptionType {
   }
 
   String toJson() => _$ListOptionTypeEnumMap[this]!;
+
+  @override
+  int compareTo(other) => display.compareTo(other.display);
 }

@@ -4,7 +4,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'proficiency_type.g.dart';
 
 @DefaultJsonEnum()
-enum ProficiencyType implements Comparable {
+enum ProficiencyType implements Comparable<ProficiencyType> {
   armor('Armor', 'Armor Proficiency'),
   language('Language', 'Language Proficiency'),
   savingThrow('Saving Throw', 'Saving Throw Proficiency'),
@@ -29,7 +29,5 @@ enum ProficiencyType implements Comparable {
   String toJson() => _$ProficiencyTypeEnumMap[this]!;
 
   @override
-  int compareTo(other) {
-    return display.compareTo(other.display);
-  }
+  int compareTo(other) => display.compareTo(other.display);
 }

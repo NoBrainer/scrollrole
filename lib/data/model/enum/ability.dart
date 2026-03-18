@@ -4,7 +4,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'ability.g.dart';
 
 @DefaultJsonEnum()
-enum Ability {
+enum Ability implements Comparable<Ability> {
   cha('CHA', 'Charisma'),
   con('CON', 'Constitution'),
   dex('DEX', 'Dexterity'),
@@ -22,4 +22,7 @@ enum Ability {
   }
 
   String toJson() => _$AbilityEnumMap[this]!;
+
+  @override
+  compareTo(other) => display.compareTo(other.display);
 }

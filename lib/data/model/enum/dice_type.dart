@@ -6,7 +6,7 @@ part 'dice_type.g.dart';
 /// Dice types supported with a standard set of dice.
 /// The non-standard dice types can be be simulated by halving a standard die.
 @DefaultJsonEnum()
-enum DiceType {
+enum DiceType implements Comparable<DiceType> {
   d2('D2'),
   d3('D3'),
   d4('D4'),
@@ -30,4 +30,7 @@ enum DiceType {
   }
 
   String toJson() => _$DiceTypeEnumMap[this]!;
+
+  @override
+  int compareTo(other) => display.compareTo(other.display);
 }

@@ -4,7 +4,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'stat_type.g.dart';
 
 @DefaultJsonEnum()
-enum StatType {
+enum StatType implements Comparable<StatType> {
   abilityScore('Ability Score', 'Ability Score'),
   hitPoints('HP', 'Hit Points'),
   //TODO: Accomplish HP/LVL in a more generic way
@@ -23,4 +23,7 @@ enum StatType {
   }
 
   String toJson() => _$StatTypeEnumMap[this]!;
+
+  @override
+  int compareTo(other) => display.compareTo(other.display);
 }
