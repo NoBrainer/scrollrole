@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:scrollrole/data/model/enum/proficiency_type.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/presentation/common/basic_card.dart';
-import 'package:scrollrole/util/string_util.dart';
 
 class RulesProficienciesCard extends StatelessWidget {
   final List<Proficiency> proficiencies;
@@ -15,36 +14,43 @@ class RulesProficienciesCard extends StatelessWidget {
       return SizedBox.shrink();
     }
 
+    List<ProficiencyType> types = proficiencies.map((p) => p.type).toList();
+    types.sort();
+
+    Map<ProficiencyType, List<Proficiency>> typeMap = {};
+    for (var p in proficiencies) {
+      typeMap.update(p.type, (list) {
+        list.add(p);
+        return list;
+      }, ifAbsent: () => [p]);
+    }
+
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Proficiencies'),
         BasicCardSection(
-          children: proficiencies
-              .map((p) => _ProficiencyItem(proficiency: p))
-              .toList(),
+          children: typeMap.keys.map((type) {
+            return _ProficiencyType(proficiencies: typeMap[type]!, type: type);
+          }).toList(),
         ),
       ],
     );
   }
 }
 
-class _ProficiencyItem extends StatelessWidget {
-  final Proficiency proficiency;
+class _ProficiencyType extends StatelessWidget {
+  final List<Proficiency> proficiencies;
+  final ProficiencyType type;
 
-  const _ProficiencyItem({required this.proficiency});
+  const _ProficiencyType({required this.proficiencies, required this.type});
 
   @override
   Widget build(BuildContext context) {
-    String name = proficiency.name;
-    ProficiencyType type = proficiency.type;
-    List<String> tags = proficiency.tags;
+    String label = type.display;
 
-    String nameStr = StringUtil.capitalize(name);
-    String tagStr = '';
-    if (tags.isNotEmpty) {
-      tagStr = ' [tags: ${tags.join(',')}]';
-    }
+    proficiencies.sort();
+    String listStr = proficiencies.map((p) => p.toDisplay()).join(', ');
 
-    return Text('$nameStr (${type.display})$tagStr');
+    return Text('- $label: $listStr');
   }
 }
