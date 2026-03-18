@@ -10,7 +10,7 @@ part 'choice.g.dart';
 
 /// Must provide a query, hard-coded options, or both.
 @DefaultJsonSerializable()
-class Choice extends Equatable {
+class Choice extends Equatable implements Comparable<Choice> {
   final bool allowDuplicate;
   final List<String> description;
   final String name;
@@ -58,4 +58,7 @@ class Choice extends Equatable {
   String toJsonString() {
     return jsonEncode(toJson());
   }
+
+  @override
+  int compareTo(other) => name.compareTo(other.name);
 }

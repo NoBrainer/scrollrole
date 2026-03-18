@@ -8,7 +8,8 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'proficiency_condition.g.dart';
 
 @DefaultJsonSerializable()
-class ProficiencyCondition extends Equatable {
+class ProficiencyCondition extends Equatable
+    implements Comparable<ProficiencyCondition> {
   final String name;
   final List<String> tags;
   final ProficiencyType type;
@@ -36,4 +37,7 @@ class ProficiencyCondition extends Equatable {
   String toJsonString() {
     return jsonEncode(toJson());
   }
+
+  @override
+  int compareTo(other) => name.compareTo(other.name);
 }

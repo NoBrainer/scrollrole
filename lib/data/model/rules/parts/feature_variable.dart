@@ -7,7 +7,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'feature_variable.g.dart';
 
 @DefaultJsonSerializable()
-class FeatureVariable extends Equatable {
+class FeatureVariable extends Equatable implements Comparable<FeatureVariable> {
   final String displayName;
   final String key;
   final dynamic value;
@@ -35,4 +35,7 @@ class FeatureVariable extends Equatable {
   String toJsonString() {
     return jsonEncode(toJson());
   }
+
+  @override
+  int compareTo(other) => displayName.compareTo(other.displayName);
 }

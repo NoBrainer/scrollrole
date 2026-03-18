@@ -8,7 +8,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'stat_condition.g.dart';
 
 @DefaultJsonSerializable()
-class StatCondition extends Equatable {
+class StatCondition extends Equatable implements Comparable<StatCondition> {
   final int minimum;
   final String name;
   final StatType type;
@@ -36,4 +36,7 @@ class StatCondition extends Equatable {
   String toJsonString() {
     return jsonEncode(toJson());
   }
+
+  @override
+  int compareTo(other) => name.compareTo(other.name);
 }

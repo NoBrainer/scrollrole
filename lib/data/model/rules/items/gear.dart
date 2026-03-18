@@ -7,7 +7,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'gear.g.dart';
 
 @DefaultJsonSerializable()
-class Gear extends Equatable {
+class Gear extends Equatable implements Comparable<Gear> {
   final int cost;
   final String name;
   final String per;
@@ -32,4 +32,7 @@ class Gear extends Equatable {
   String toJsonString() {
     return jsonEncode(toJson());
   }
+
+  @override
+  int compareTo(other) => name.compareTo(other.name);
 }

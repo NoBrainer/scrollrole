@@ -9,7 +9,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'armor.g.dart';
 
 @DefaultJsonSerializable()
-class Armor extends Equatable {
+class Armor extends Equatable implements Comparable<Armor> {
   final int baseAc;
   final int cost;
   final int? maxModifier;
@@ -54,4 +54,7 @@ class Armor extends Equatable {
   String toJsonString() {
     return jsonEncode(toJson());
   }
+
+  @override
+  int compareTo(other) => name.compareTo(other.name);
 }

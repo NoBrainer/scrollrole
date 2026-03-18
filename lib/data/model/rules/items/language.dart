@@ -8,7 +8,7 @@ part 'language.g.dart';
 
 // TODO: Simplify language
 @DefaultJsonSerializable()
-class Language extends Equatable {
+class Language extends Equatable implements Comparable<Language> {
   final bool isExotic;
   final String name;
   final String script;
@@ -34,4 +34,7 @@ class Language extends Equatable {
   String toJsonString() {
     return jsonEncode(toJson());
   }
+
+  @override
+  int compareTo(other) => name.compareTo(other.name);
 }

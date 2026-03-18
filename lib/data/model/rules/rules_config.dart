@@ -15,7 +15,7 @@ import 'package:yaml_writer/yaml_writer.dart';
 part 'rules_config.g.dart';
 
 @DefaultJsonSerializable()
-class RulesConfig extends Equatable {
+class RulesConfig extends Equatable implements Comparable<RulesConfig> {
   final List<Background> backgrounds;
   final List<Class> classes;
   final String description;
@@ -60,6 +60,9 @@ class RulesConfig extends Equatable {
   String toJsonString() {
     return jsonEncode(toJson());
   }
+
+  @override
+  int compareTo(other) => name.compareTo(other.name);
 
   String toYaml() {
     var writer = YamlWriter();

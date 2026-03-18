@@ -8,7 +8,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'stat_modifier.g.dart';
 
 @DefaultJsonSerializable()
-class StatModifier extends Equatable {
+class StatModifier extends Equatable implements Comparable<StatModifier> {
   final int modifier;
   final String name;
   final StatType type;
@@ -32,4 +32,7 @@ class StatModifier extends Equatable {
   String toJsonString() {
     return jsonEncode(toJson());
   }
+
+  @override
+  int compareTo(other) => name.compareTo(other.name);
 }
