@@ -141,7 +141,7 @@ classes:
       - { type: SAVING_THROW,   name: STR }
       - { type: SAVING_THROW,   name: CON }
     equipment:
-      - { name: explorer's pack }
+      - { name: Explorer's Pack }
       - { name: javelins, quantity: 4 }
     proficiencyBonus: 2
     features:
@@ -190,14 +190,14 @@ classes:
       - name: Equipment
         pick: 1
         options:
-          - { type: EQUIPMENT_WEAPON, name: greataxe } # Note that this is included in the query but a good test case
+          - { type: EQUIPMENT_WEAPON, name: Greataxe } # Note that this is included in the query but a good test case
         query:
           list: weapons
           requiredTags: [martial, melee]
       - name: Equipment
         pick: 1
         options:
-          - { type: EQUIPMENT_WEAPON, name: handaxe, quantity: 2 }
+          - { type: EQUIPMENT_WEAPON, name: Handaxe, quantity: 2 }
         query:
           list: weapons
           requiredTags: [simple]
@@ -454,8 +454,8 @@ classes:
       - { type: SAVING_THROW, name: DEX }
       - { type: SAVING_THROW, name: CHA }
     equipment:
-      - { name: leather armor }
-      - { name: dagger }
+      - { name: Leather Armor }
+      - { name: Dagger }
     proficiencyBonus: 2
     spellCasting:
       description:
@@ -530,16 +530,16 @@ classes:
       - name: Equipment
         pick: 1
         options:
-          - { type: EQUIPMENT_WEAPON, name: rapier }
-          - { type: EQUIPMENT_WEAPON, name: longsword }
+          - { type: EQUIPMENT_WEAPON, name: Rapier }
+          - { type: EQUIPMENT_WEAPON, name: Longsword }
         query:
           list: weapons
           requiredTags: [simple]
       - name: Equipment
         pick: 1
         options:
-          - { type: EQUIPMENT, name: diplomat's pack }
-          - { type: EQUIPMENT, name: entertainer's pack }
+          - { type: EQUIPMENT, name: Diplomat's Pack }
+          - { type: EQUIPMENT, name: Entertainer's Pack }
       - name: Equipment
         pick: 1
         query:
@@ -932,10 +932,10 @@ species:
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Dwarvish }
-      - { type: WEAPON,   name: battleaxe }
-      - { type: WEAPON,   name: handaxe }
-      - { type: WEAPON,   name: light hammer }
-      - { type: WEAPON,   name: warhammer }
+      - { type: WEAPON,   name: Battleaxe }
+      - { type: WEAPON,   name: Handaxe }
+      - { type: WEAPON,   name: Light Hammer }
+      - { type: WEAPON,   name: Warhammer }
     choices:
       - name: Tool Proficiency
         description:
@@ -944,9 +944,9 @@ species:
             tools.
         pick: 1
         options:
-          - { type: PROFICIENCY_TOOL, name: smith's tools }
-          - { type: PROFICIENCY_TOOL, name: brewer's supplies }
-          - { type: PROFICIENCY_TOOL, name: mason's tools }
+          - { type: PROFICIENCY_TOOL, name: Smith's Tools }
+          - { type: PROFICIENCY_TOOL, name: Brewer's Supplies }
+          - { type: PROFICIENCY_TOOL, name: Mason's Tools }
       - name: Dwarf Subrace
         pick: 1
         query:
@@ -992,7 +992,7 @@ species:
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Elvish }
-      - { type: SKILL,    name: perception }
+      - { type: SKILL,    name: Perception }
     choices:
       - name: Elf Subrace
         pick: 1
@@ -1240,7 +1240,7 @@ species:
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Orc }
-      - { type: SKILL,    name: intimidation }
+      - { type: SKILL,    name: Intimidation }
 
   ## TIEFLING
   - name: Tiefling
@@ -1287,19 +1287,19 @@ lists:
 
   armor:
     #default { strengthRequirement: null, stealthDisadvantage: false }
-    - { name: "padded",          type: LIGHT,   cost:    500, weight: "8 lb",   baseAc: 11, modifierAbility: "DEX",                 stealthDisadvantage: true }
-    - { name: "leather",         type: LIGHT,   cost:   1000, weight: "10 lb",  baseAc: 11, modifierAbility: "DEX" }
-    - { name: "studded leather", type: LIGHT,   cost:   4500, weight: "13 lb",  baseAc: 12, modifierAbility: "DEX" }
-    - { name: "hide",            type: MEDIUM,  cost:   1000, weight: "12 lb",  baseAc: 12, modifierAbility: "DEX", maxModifier: 2 }
-    - { name: "chain shirt",     type: MEDIUM,  cost:   5000, weight: "20 lb",  baseAc: 13, modifierAbility: "DEX", maxModifier: 2 }
-    - { name: "scale mail",      type: MEDIUM,  cost:   5000, weight: "45 lb",  baseAc: 14, modifierAbility: "DEX", maxModifier: 2, stealthDisadvantage: true }
-    - { name: "breastplate",     type: MEDIUM,  cost:  40000, weight: "20 lb",  baseAc: 14, modifierAbility: "DEX", maxModifier: 2 }
-    - { name: "half plate",      type: MEDIUM,  cost:  75000, weight: "40 lb",  baseAc: 15, modifierAbility: "DEX", maxModifier: 2, stealthDisadvantage: true }
-    - { name: "ring mail",       type: HEAVY,   cost:   3000, weight: "40 lb",  baseAc: 14,                                         stealthDisadvantage: true }
-    - { name: "chain mail",      type: HEAVY,   cost:   7500, weight: "55 lb",  baseAc: 16,                                         stealthDisadvantage: true, strengthRequirement: 13 }
-    - { name: "splint",          type: HEAVY,   cost:  20000, weight: "60 lb",  baseAc: 17,                                         stealthDisadvantage: true, strengthRequirement: 15 }
-    - { name: "plate",           type: HEAVY,   cost: 150000, weight: "65 lb",  baseAc: 18,                                         stealthDisadvantage: true, strengthRequirement: 15 }
-    - { name: "shield",          type: SHIELD,  cost:   1000, weight: "6 lb",   baseAc: 2 }
+    - { name: "Padded",          type: LIGHT,   cost:    500, weight: "8 lb",   baseAc: 11, modifierAbility: "DEX",                 stealthDisadvantage: true }
+    - { name: "Leather",         type: LIGHT,   cost:   1000, weight: "10 lb",  baseAc: 11, modifierAbility: "DEX" }
+    - { name: "Studded Leather", type: LIGHT,   cost:   4500, weight: "13 lb",  baseAc: 12, modifierAbility: "DEX" }
+    - { name: "Hide",            type: MEDIUM,  cost:   1000, weight: "12 lb",  baseAc: 12, modifierAbility: "DEX", maxModifier: 2 }
+    - { name: "Chain Shirt",     type: MEDIUM,  cost:   5000, weight: "20 lb",  baseAc: 13, modifierAbility: "DEX", maxModifier: 2 }
+    - { name: "Scale Mail",      type: MEDIUM,  cost:   5000, weight: "45 lb",  baseAc: 14, modifierAbility: "DEX", maxModifier: 2, stealthDisadvantage: true }
+    - { name: "Breastplate",     type: MEDIUM,  cost:  40000, weight: "20 lb",  baseAc: 14, modifierAbility: "DEX", maxModifier: 2 }
+    - { name: "Half Plate",      type: MEDIUM,  cost:  75000, weight: "40 lb",  baseAc: 15, modifierAbility: "DEX", maxModifier: 2, stealthDisadvantage: true }
+    - { name: "Ring Mail",       type: HEAVY,   cost:   3000, weight: "40 lb",  baseAc: 14,                                         stealthDisadvantage: true }
+    - { name: "Chain Mail",      type: HEAVY,   cost:   7500, weight: "55 lb",  baseAc: 16,                                         stealthDisadvantage: true, strengthRequirement: 13 }
+    - { name: "Splint",          type: HEAVY,   cost:  20000, weight: "60 lb",  baseAc: 17,                                         stealthDisadvantage: true, strengthRequirement: 15 }
+    - { name: "Plate",           type: HEAVY,   cost: 150000, weight: "65 lb",  baseAc: 18,                                         stealthDisadvantage: true, strengthRequirement: 15 }
+    - { name: "Shield",          type: SHIELD,  cost:   1000, weight: "6 lb",   baseAc: 2 }
 
   backgroundFeatures:
     - name: Shelter of the Faithful
@@ -1317,86 +1317,86 @@ lists:
           provided the assistance you ask for is not hazardous and you remain in good standing with your temple.
 
   equipmentPacks:
-    - name: burglar's pack
+    - name: Burglar's Pack
       items:
-        - { name: "backpack" }
-        - { name: "ball bearings",          quantity: 1,  units: "bags of 1000" }
-        - { name: "string",                 quantity: 10, units: "feet" }
-        - { name: "bell" }
-        - { name: "candles",                quantity: 5 }
-        - { name: "crowbar" }
-        - { name: "hammer" }
-        - { name: "pitons",                 quantity: 10 }
-        - { name: "lantern, hooded" }
-        - { name: "oil",                    quantity: 2,  units: "flasks" }
-        - { name: "rations",                quantity: 5,  units: "days" }
-        - { name: "tinderbox" }
-        - { name: "waterskin" }
-        - { name: "rope, hempen",           quantity: 50, units: "feet" }
-    - name: diplomat's pack
+        - { name: "Backpack" }
+        - { name: "Ball Bearings",          quantity: 1,  units: "bags of 1000" }
+        - { name: "String",                 quantity: 10, units: "feet" }
+        - { name: "Bell" }
+        - { name: "Candles",                quantity: 5 }
+        - { name: "Crowbar" }
+        - { name: "Hammer" }
+        - { name: "Pitons",                 quantity: 10 }
+        - { name: "Lantern, Hooded" }
+        - { name: "Oil",                    quantity: 2,  units: "flasks" }
+        - { name: "Rations",                quantity: 5,  units: "days" }
+        - { name: "Tinderbox" }
+        - { name: "Waterskin" }
+        - { name: "Rope, Hempen",           quantity: 50, units: "feet" }
+    - name: Diplomat's Pack
       items:
-        - { name: "chest" }
-        - { name: "cases, maps or scrolls", quantity: 2 }
-        - { name: "clothes, fine",          quantity: 1,  units: "sets" }
-        - { name: "ink",                    quantity: 1,  units: "one-ounce bottles" }
-        - { name: "ink pen" }
-        - { name: "lamp" }
-        - { name: "oil",                    quantity: 2,  units: "flasks" }
-        - { name: "paper",                  quantity: 5,  units: "sheets" }
-        - { name: "perfume",                quantity: 1,  units: "vials" }
-        - { name: "sealing wax" }
-        - { name: "soap" }
-    - name: dungeoneer's pack
+        - { name: "Chest" }
+        - { name: "Cases, Maps or Scrolls", quantity: 2 }
+        - { name: "Clothes, Fine",          quantity: 1,  units: "sets" }
+        - { name: "Ink",                    quantity: 1,  units: "one-ounce bottles" }
+        - { name: "Ink Pen" }
+        - { name: "Lamp" }
+        - { name: "Oil",                    quantity: 2,  units: "flasks" }
+        - { name: "Paper",                  quantity: 5,  units: "sheets" }
+        - { name: "Perfume",                quantity: 1,  units: "vials" }
+        - { name: "Sealing Wax" }
+        - { name: "Soap" }
+    - name: Dungeoneer's Pack
       items:
-        - { name: "backpack" }
-        - { name: "crowbar" }
-        - { name: "hammer" }
-        - { name: "pitons",                 quantity: 10 }
-        - { name: "torches",                quantity: 10 }
-        - { name: "tinderbox" }
-        - { name: "rations",                quantity: 10, units: "days" }
-        - { name: "waterskin" }
-        - { name: "rope, hempen",           quantity: 50, units: "feet" }
-    - name: entertainer's pack
+        - { name: "Backpack" }
+        - { name: "Crowbar" }
+        - { name: "Hammer" }
+        - { name: "Pitons",                 quantity: 10 }
+        - { name: "Torches",                quantity: 10 }
+        - { name: "Tinderbox" }
+        - { name: "Rations",                quantity: 10, units: "days" }
+        - { name: "Waterskin" }
+        - { name: "Rope, Hempen",           quantity: 50, units: "feet" }
+    - name: Entertainer's Pack
       items:
-        - { name: "backpack" }
-        - { name: "bedroll" }
-        - { name: "clothes, costume",       quantity: 2,  units: "sets" }
-        - { name: "candles",                quantity: 5 }
-        - { name: "rations",                quantity: 5,  units: "days" }
-        - { name: "waterskin" }
-        - { name: "disguise kit" }
-    - name: explorer's pack
+        - { name: "Backpack" }
+        - { name: "Bedroll" }
+        - { name: "Clothes, Costume",       quantity: 2,  units: "sets" }
+        - { name: "Candles",                quantity: 5 }
+        - { name: "Rations",                quantity: 5,  units: "days" }
+        - { name: "Waterskin" }
+        - { name: "Disguise Kit" }
+    - name: Explorer's Pack
       items:
-        - { name: "backpack" }
-        - { name: "bedroll" }
-        - { name: "mess kit" }
-        - { name: "tinderbox" }
-        - { name: "torches",                quantity: 10 }
-        - { name: "rations",                quantity: 10, units: "days" }
-        - { name: "waterskin" }
-        - { name: "rope, hempen",           quantity: 50, units: "feet" }
-    - name: priest's pack
+        - { name: "Backpack" }
+        - { name: "Bedroll" }
+        - { name: "Mess Kit" }
+        - { name: "Tinderbox" }
+        - { name: "Torches",                quantity: 10 }
+        - { name: "Rations",                quantity: 10, units: "days" }
+        - { name: "Waterskin" }
+        - { name: "Rope, Hempen",           quantity: 50, units: "feet" }
+    - name: Priest's Pack
       items:
-        - { name: "backpack" }
-        - { name: "blanket" }
-        - { name: "candles",                quantity: 10 }
-        - { name: "tinderbox" }
-        - { name: "alms box" }
-        - { name: "incense",                quantity: 2,  units: "blocks" }
-        - { name: "censer" }
-        - { name: "vestments" }
-        - { name: "rations",                quantity: 2,  units: "days" }
-        - { name: "waterskin" }
-    - name: scholar's pack
+        - { name: "Backpack" }
+        - { name: "Blanket" }
+        - { name: "Candles",                quantity: 10 }
+        - { name: "Tinderbox" }
+        - { name: "Alms Box" }
+        - { name: "Incense",                quantity: 2,  units: "blocks" }
+        - { name: "Censer" }
+        - { name: "Vestments" }
+        - { name: "Rations",                quantity: 2,  units: "days" }
+        - { name: "Waterskin" }
+    - name: Scholar's Pack
       items:
-        - { name: "backpack" }
-        - { name: "book of lore" }
-        - { name: "ink",                    quantity: 1,  units: "one-ounce bottles" }
-        - { name: "ink pen" }
-        - { name: "parchment",              quantity: 10, units: "sheets" }
-        - { name: "little bag of sand" }
-        - { name: "small knife" }
+        - { name: "Backpack" }
+        - { name: "Book of Lore" }
+        - { name: "Ink",                    quantity: 1,  units: "one-ounce bottles" }
+        - { name: "Ink Pen" }
+        - { name: "Parchment",              quantity: 10, units: "sheets" }
+        - { name: "Little Bag of Sand" }
+        - { name: "Small Knife" }
 
   feats:
     - name: Grappler
@@ -1576,10 +1576,10 @@ lists:
       statModifiers:
         - { type: ABILITY_SCORE, name: INT, modifier: 1 }
       proficiencies:
-        - { type: WEAPON, name: longbow }
-        - { type: WEAPON, name: longsword }
-        - { type: WEAPON, name: shortbow }
-        - { type: WEAPON, name: shortsword }
+        - { type: WEAPON, name: Longbow }
+        - { type: WEAPON, name: Longsword }
+        - { type: WEAPON, name: Shortbow }
+        - { type: WEAPON, name: Shortsword }
       choices:
         - name: Cantrip
           description:
@@ -1640,108 +1640,110 @@ lists:
             list: features
             tags: [tinker device]
       proficiencies:
-        - { type: TOOL, name: tinker's tools }
+        - { type: TOOL, name: Tinker's Tools }
 
   gear:
     #default { weight: "0 lb", per: "1" }
-    - { name: "abacus",                             cost:    200, weight: "2 lb" }
-    - { name: "acid",                               cost:   2500, weight: "1 lb",     per: "1 vial" }
-    - { name: "alchemist's fire",                   cost:   5000, weight: "1 lb",     per: "1 flask" }
-    - { name: "arrows",                             cost:    100, weight: "1 lb",     per: "20" }
-    - { name: "blowgun needles",                    cost:    100, weight: "1 lb",     per: "50" }
-    - { name: "crossbow bolts",                     cost:    100, weight: "1.5 lb",   per: "20" }
-    - { name: "sling bullets",                      cost:      4, weight: "1.5 lb",   per: "20" }
-    - { name: "antitoxin",                          cost:   5000,                     per: "1 vial" }
-    - { name: "crystal (arcane focus)",             cost:   1000, weight: "1 lb" }
-    - { name: "orb (arcane focus)",                 cost:   2000, weight: "3 lb" }
-    - { name: "rod (arcane focus)",                 cost:   1000, weight: "2 lb" }
-    - { name: "staff (arcane focus)",               cost:    500, weight: "4 lb" }
-    - { name: "wand (arcane focus)",                cost:   1000, weight: "1 lb" }
-    - { name: "backpack",                           cost:    200, weight: "5 lb" }
-    - { name: "ball bearings",                      cost:    100, weight: "2 lb",     per: "bag of 1000" }
-    - { name: "barrel",                             cost:    200, weight: "70 lb" }
-    - { name: "basket",                             cost:     40, weight: "2 lb" }
-    - { name: "bedroll",                            cost:    100, weight: "7 lb" }
-    - { name: "bell",                               cost:    100 }
-    - { name: "blanket",                            cost:     50, weight: "3 lb" }
-    - { name: "block and tackle",                   cost:    100, weight: "5 lb" }
-    - { name: "book",                               cost:   2500, weight: "5 lb" }
-    - { name: "bottle, glass",                      cost:    200, weight: "2 lb" }
-    - { name: "bucket",                             cost:      5, weight: "2 lb" }
-    - { name: "caltrops",                           cost:    100, weight: "2 lb",     per: "bag of 20" }
-    - { name: "candle",                             cost:      1 }
-    - { name: "case, crossbow bolt",                cost:    100, weight: "1 lb" }
-    - { name: "case, map or scroll",                cost:    100, weight: "1 lb" }
-    - { name: "chain",                              cost:    500, weight: "10 lb",    per: "10ft" }
-    - { name: "chalk",                              cost:      1,                     per: "1 piece" }
-    - { name: "chest",                              cost:    500, weight: "25 lb" }
-    - { name: "climber's kit",                      cost:   2500, weight: "12 lb" }
-    - { name: "clothes, common",                    cost:     50, weight: "3 lb",     per: "1 set" }
-    - { name: "clothes, costume",                   cost:    500, weight: "4 lb",     per: "1 set" }
-    - { name: "clothes, fine",                      cost:   1500, weight: "6 lb",     per: "1 set" }
-    - { name: "clothes, traveler's",                cost:    200, weight: "4 lb",     per: "1 set" }
-    - { name: "component pouch",                    cost:   2500, weight: "2 lb" }
-    - { name: "crowbar",                            cost:    200, weight: "5 lb" }
-    - { name: "sprig of mistletoe (druidic focus)", cost:    100 }
-    - { name: "totem (druidic focus)",              cost:    100 }
-    - { name: "wooden staff (druidic focus)",       cost:    500, weight: "4 lb" }
-    - { name: "yew wand (druidic focus)",           cost:   1000, weight: "1 lb" }
-    - { name: "fishing tackle",                     cost:    100, weight: "4 lb" }
-    - { name: "flask or tankard",                   cost:      2, weight: "1 lb" }
-    - { name: "grappling hook",                     cost:    200, weight: "4 lb" }
-    - { name: "hammer",                             cost:    100, weight: "3 lb" }
-    - { name: "hammer, sledge",                     cost:    200, weight: "10 lb" }
-    - { name: "healer's kit",                       cost:    500, weight: "3 lb" }
-    - { name: "amulet (holy symbol)",               cost:    500, weight: "1 lb" }
-    - { name: "emblem (holy symbol)",               cost:    500 }
-    - { name: "reliquary (holy symbol)",            cost:    500, weight: "2 lb" }
-    - { name: "holy water",                         cost:   2500, weight: "1 lb",     per: "1 flask" }
-    - { name: "hourglass",                          cost:   2500, weight: "1 lb" }
-    - { name: "hunting trap",                       cost:    500, weight: "25 lb" }
-    - { name: "ink",                                cost:   1000,                     per: "1 ounce bottle" }
-    - { name: "ink pen",                            cost:      2 }
-    - { name: "jug or pitcher",                     cost:      2, weight: "4 lb" }
-    - { name: "ladder (10ft)",                      cost:     10, weight: "25 lb" }
-    - { name: "lamp",                               cost:     50, weight: "1 lb" }
-    - { name: "lantern, bullseye",                  cost:   1000, weight: "2 lb" }
-    - { name: "lantern, hooded",                    cost:    500, weight: "2 lb" }
-    - { name: "lock",                               cost:   1000, weight: "1 lb" }
-    - { name: "magnifying glass",                   cost:  10000 }
-    - { name: "manacles",                           cost:    200, weight: "6 lb" }
-    - { name: "mess kit",                           cost:     20, weight: "1 lb" }
-    - { name: "mirror, steel",                      cost:    500, weight: "0.5 lb" }
-    - { name: "oil",                                cost:     10, weight: "1 lb",     per: "1 flask" }
-    - { name: "paper",                              cost:     20,                     per: "1 sheet" }
-    - { name: "parchment",                          cost:     20,                     per: "1 sheet" }
-    - { name: "perfume",                            cost:    500,                     per: "1 vial" }
-    - { name: "pick, miner's",                      cost:    200, weight: "10 lb" }
-    - { name: "piton",                              cost:    500, weight: "0.25 lb" }
-    - { name: "poison, basic",                      cost:  10000,                     per: "1 vial" }
-    - { name: "pole (10ft)",                        cost:      5, weight: "7 lb" }
-    - { name: "pot, iron",                          cost:    200, weight: "10 lb" }
-    - { name: "potion of healing",                  cost:   5000, weight: "0.5 lb" }
-    - { name: "pouch",                              cost:     50, weight: "1 lb" }
-    - { name: "quiver",                             cost:    100, weight: "1 lb" }
-    - { name: "ram, portable",                      cost:    400, weight: "35 lb" }
-    - { name: "rations",                            cost:     50, weight: "2 lb",     per: "1 day" }
-    - { name: "robes",                              cost:    100, weight: "4 lb" }
-    - { name: "rope, hempen",                       cost:    100, weight: "10 lb",    per: "50ft" }
-    - { name: "sack",                               cost:      1, weight: "0.5 lb" }
-    - { name: "scale, merchant's",                  cost:    500, weight: "3 lb" }
-    - { name: "sealing wax",                        cost:     50 }
-    - { name: "shovel",                             cost:    200, weight: "5 lb" }
-    - { name: "signal whistle",                     cost:      5 }
-    - { name: "signet ring",                        cost:    500 }
-    - { name: "soap",                               cost:      2 }
-    - { name: "spellbook",                          cost:   5000, weight: "3 lb" }
-    - { name: "spikes, iron",                       cost:    100, weight: "5 lb",     per: "10" }
-    - { name: "spyglass",                           cost: 100000, weight: "1 lb" }
-    - { name: "tent, two-person",                   cost:    200, weight: "20 lb" }
-    - { name: "tinderbox",                          cost:     50, weight: "1 lb" }
-    - { name: "torch",                              cost:      1, weight: "1 lb" }
-    - { name: "vial",                               cost:    100 }
-    - { name: "waterskin",                          cost:     20, weight: "5 lb" }
-    - { name: "whetstone",                          cost:      1, weight: "1 lb" }
+    - { name: "Abacus",                             cost:    200, weight: "2 lb" }
+    - { name: "Acid",                               cost:   2500, weight: "1 lb",     per: "1 vial" }
+    - { name: "Alchemist's Fire",                   cost:   5000, weight: "1 lb",     per: "1 flask" }
+    - { name: "Arrows",                             cost:    100, weight: "1 lb",     per: "20" }
+    - { name: "Blowgun Needles",                    cost:    100, weight: "1 lb",     per: "50" }
+    - { name: "Crossbow Bolts",                     cost:    100, weight: "1.5 lb",   per: "20" }
+    - { name: "Sling Bullets",                      cost:      4, weight: "1.5 lb",   per: "20" }
+    - { name: "Antitoxin",                          cost:   5000,                     per: "1 vial" }
+    - { name: "Crystal (Arcane Focus)",             cost:   1000, weight: "1 lb" }
+    - { name: "Orb (Arcane Focus)",                 cost:   2000, weight: "3 lb" }
+    - { name: "Rod (Arcane Focus)",                 cost:   1000, weight: "2 lb" }
+    - { name: "Staff (Arcane Focus)",               cost:    500, weight: "4 lb" }
+    - { name: "Wand (Arcane Focus)",                cost:   1000, weight: "1 lb" }
+    - { name: "Backpack",                           cost:    200, weight: "5 lb" }
+    - { name: "Ball Bearings",                      cost:    100, weight: "2 lb",     per: "bag of 1000" }
+    - { name: "Barrel",                             cost:    200, weight: "70 lb" }
+    - { name: "Basket",                             cost:     40, weight: "2 lb" }
+    - { name: "Bedroll",                            cost:    100, weight: "7 lb" }
+    - { name: "Bell",                               cost:    100 }
+    - { name: "Blanket",                            cost:     50, weight: "3 lb" }
+    - { name: "Block and Tackle",                   cost:    100, weight: "5 lb" }
+    - { name: "Book",                               cost:   2500, weight: "5 lb" }
+    - { name: "Bottle, Glass",                      cost:    200, weight: "2 lb" }
+    - { name: "Bucket",                             cost:      5, weight: "2 lb" }
+    - { name: "Caltrops",                           cost:    100, weight: "2 lb",     per: "bag of 20" }
+    - { name: "Candle",                             cost:      1 }
+    - { name: "Case, Crossbow Bolt",                cost:    100, weight: "1 lb" }
+    - { name: "Case, Map or Scroll",                cost:    100, weight: "1 lb" }
+    - { name: "Chain",                              cost:    500, weight: "10 lb",    per: "10ft" }
+    - { name: "Chalk",                              cost:      1,                     per: "1 piece" }
+    - { name: "Chest",                              cost:    500, weight: "25 lb" }
+    - { name: "Climber's Kit",                      cost:   2500, weight: "12 lb" }
+    - { name: "Clothes, Common",                    cost:     50, weight: "3 lb",     per: "1 set" }
+    - { name: "Clothes, Costume",                   cost:    500, weight: "4 lb",     per: "1 set" }
+    - { name: "Clothes, Fine",                      cost:   1500, weight: "6 lb",     per: "1 set" }
+    - { name: "Clothes, Traveler's",                cost:    200, weight: "4 lb",     per: "1 set" }
+    - { name: "Component Pouch",                    cost:   2500, weight: "2 lb" }
+    - { name: "Crowbar",                            cost:    200, weight: "5 lb" }
+    - { name: "Sprig of Mistletoe (Druidic Focus)", cost:    100 }
+    - { name: "Totem (Druidic Focus)",              cost:    100 }
+    - { name: "Wooden Staff (Druidic Focus)",       cost:    500, weight: "4 lb" }
+    - { name: "Yew Wand (Druidic Focus)",           cost:   1000, weight: "1 lb" }
+    - { name: "Fishing Tackle",                     cost:    100, weight: "4 lb" }
+    - { name: "Flask",                              cost:      2, weight: "1 lb" }
+    - { name: "Grappling Hook",                     cost:    200, weight: "4 lb" }
+    - { name: "Hammer",                             cost:    100, weight: "3 lb" }
+    - { name: "Hammer, Sledge",                     cost:    200, weight: "10 lb" }
+    - { name: "Healer's Kit",                       cost:    500, weight: "3 lb" }
+    - { name: "Amulet (Holy Symbol)",               cost:    500, weight: "1 lb" }
+    - { name: "Emblem (Holy Symbol)",               cost:    500 }
+    - { name: "Reliquary (Holy Symbol)",            cost:    500, weight: "2 lb" }
+    - { name: "Holy Water",                         cost:   2500, weight: "1 lb",     per: "1 flask" }
+    - { name: "Hourglass",                          cost:   2500, weight: "1 lb" }
+    - { name: "Hunting Trap",                       cost:    500, weight: "25 lb" }
+    - { name: "Ink",                                cost:   1000,                     per: "1 ounce bottle" }
+    - { name: "Ink Pen",                            cost:      2 }
+    - { name: "Jug",                                cost:      2, weight: "4 lb" }
+    - { name: "Ladder (10ft)",                      cost:     10, weight: "25 lb" }
+    - { name: "Lamp",                               cost:     50, weight: "1 lb" }
+    - { name: "Lantern, Bullseye",                  cost:   1000, weight: "2 lb" }
+    - { name: "Lantern, Hooded",                    cost:    500, weight: "2 lb" }
+    - { name: "Lock",                               cost:   1000, weight: "1 lb" }
+    - { name: "Magnifying Glass",                   cost:  10000 }
+    - { name: "Manacles",                           cost:    200, weight: "6 lb" }
+    - { name: "Mess Kit",                           cost:     20, weight: "1 lb" }
+    - { name: "Mirror, Steel",                      cost:    500, weight: "0.5 lb" }
+    - { name: "Oil",                                cost:     10, weight: "1 lb",     per: "1 flask" }
+    - { name: "Paper",                              cost:     20,                     per: "1 sheet" }
+    - { name: "Parchment",                          cost:     20,                     per: "1 sheet" }
+    - { name: "Perfume",                            cost:    500,                     per: "1 vial" }
+    - { name: "Pick, Miner's",                      cost:    200, weight: "10 lb" }
+    - { name: "Pitcher",                            cost:      2, weight: "4 lb" }
+    - { name: "Piton",                              cost:    500, weight: "0.25 lb" }
+    - { name: "Poison, Basic",                      cost:  10000,                     per: "1 vial" }
+    - { name: "Pole (10ft)",                        cost:      5, weight: "7 lb" }
+    - { name: "Pot, Iron",                          cost:    200, weight: "10 lb" }
+    - { name: "Potion of Healing",                  cost:   5000, weight: "0.5 lb" }
+    - { name: "Pouch",                              cost:     50, weight: "1 lb" }
+    - { name: "Quiver",                             cost:    100, weight: "1 lb" }
+    - { name: "Ram, Portable",                      cost:    400, weight: "35 lb" }
+    - { name: "Rations",                            cost:     50, weight: "2 lb",     per: "1 day" }
+    - { name: "Robes",                              cost:    100, weight: "4 lb" }
+    - { name: "Rope, Hempen",                       cost:    100, weight: "10 lb",    per: "50ft" }
+    - { name: "Sack",                               cost:      1, weight: "0.5 lb" }
+    - { name: "Scale, Merchant's",                  cost:    500, weight: "3 lb" }
+    - { name: "Sealing Wax",                        cost:     50 }
+    - { name: "Shovel",                             cost:    200, weight: "5 lb" }
+    - { name: "Signal Whistle",                     cost:      5 }
+    - { name: "Signet Ring",                        cost:    500 }
+    - { name: "Soap",                               cost:      2 }
+    - { name: "Spellbook",                          cost:   5000, weight: "3 lb" }
+    - { name: "Spikes, Iron",                       cost:    100, weight: "5 lb",     per: "10" }
+    - { name: "Spyglass",                           cost: 100000, weight: "1 lb" }
+    - { name: "Tankard",                            cost:      2, weight: "1 lb" }
+    - { name: "Tent, Two-Person",                   cost:    200, weight: "20 lb" }
+    - { name: "Tinderbox",                          cost:     50, weight: "1 lb" }
+    - { name: "Torch",                              cost:      1, weight: "1 lb" }
+    - { name: "Vial",                               cost:    100 }
+    - { name: "Waterskin",                          cost:     20, weight: "5 lb" }
+    - { name: "Whetstone",                          cost:      1, weight: "1 lb" }
 
   languages:
     #default { isExotic: false }
@@ -1789,98 +1791,98 @@ lists:
     - { type: SAVING_THROW, name: INT }
     - { type: SAVING_THROW, name: STR }
     - { type: SAVING_THROW, name: WIS }
-    - { type: SKILL,        name: "acrobatics" }
-    - { type: SKILL,        name: "animal handling" }
-    - { type: SKILL,        name: "arcana" }
-    - { type: SKILL,        name: "athletics" }
-    - { type: SKILL,        name: "deception" }
-    - { type: SKILL,        name: "history" }
-    - { type: SKILL,        name: "insight" }
-    - { type: SKILL,        name: "intimidation" }
-    - { type: SKILL,        name: "investigation" }
-    - { type: SKILL,        name: "medicine" }
-    - { type: SKILL,        name: "nature" }
-    - { type: SKILL,        name: "perception" }
-    - { type: SKILL,        name: "performance" }
-    - { type: SKILL,        name: "persuasion" }
-    - { type: SKILL,        name: "religion" }
-    - { type: SKILL,        name: "sleight of hand" }
-    - { type: SKILL,        name: "stealth" }
-    - { type: SKILL,        name: "survival" }
-    - { type: TOOL,         name: "alchemist's supplies",     tags: [artisan's tools] }
-    - { type: TOOL,         name: "brewer's supplies",        tags: [artisan's tools] }
-    - { type: TOOL,         name: "calligrapher's supplies",  tags: [artisan's tools] }
-    - { type: TOOL,         name: "carpenter's tools",        tags: [artisan's tools] }
-    - { type: TOOL,         name: "cartographer's tools",     tags: [artisan's tools] }
-    - { type: TOOL,         name: "cobbler's tools",          tags: [artisan's tools] }
-    - { type: TOOL,         name: "cook's utensils",          tags: [artisan's tools] }
-    - { type: TOOL,         name: "glassblower's tools",      tags: [artisan's tools] }
-    - { type: TOOL,         name: "jeweler's tools",          tags: [artisan's tools] }
-    - { type: TOOL,         name: "leatherworker's tools",    tags: [artisan's tools] }
-    - { type: TOOL,         name: "mason's tools",            tags: [artisan's tools] }
-    - { type: TOOL,         name: "painter's supplies",       tags: [artisan's tools] }
-    - { type: TOOL,         name: "potter's tools",           tags: [artisan's tools] }
-    - { type: TOOL,         name: "smith's tools",            tags: [artisan's tools] }
-    - { type: TOOL,         name: "tinker's tools",           tags: [artisan's tools] }
-    - { type: TOOL,         name: "weaver's tools",           tags: [artisan's tools] }
-    - { type: TOOL,         name: "woodcarver's tools",       tags: [artisan's tools] }
-    - { type: TOOL,         name: "disguise kit",             tags: [artisan's tools] }
-    - { type: TOOL,         name: "forgery kit",              tags: [artisan's tools] }
-    - { type: TOOL,         name: "dice set",                 tags: [gaming set] }
-    - { type: TOOL,         name: "playing card set",         tags: [gaming set] }
-    - { type: TOOL,         name: "bagpipes",                 tags: [musical instrument] }
-    - { type: TOOL,         name: "drum",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "dulcimer",                 tags: [musical instrument] }
-    - { type: TOOL,         name: "flute",                    tags: [musical instrument] }
-    - { type: TOOL,         name: "lute",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "lyre",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "horn",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "pan flute",                tags: [musical instrument] }
-    - { type: TOOL,         name: "shawm",                    tags: [musical instrument] }
-    - { type: TOOL,         name: "viol",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "herbalism kit" }
-    - { type: TOOL,         name: "navigator's tools" }
-    - { type: TOOL,         name: "poisoner's kit" }
-    - { type: TOOL,         name: "thieves' tools" }
-    - { type: TOOL,         name: "vehicles (land)" }
-    - { type: TOOL,         name: "vehicles (water)" }
-    - { type: WEAPON,       name: "club",                     tags: [simple, melee] }
-    - { type: WEAPON,       name: "dagger",                   tags: [simple, melee] }
-    - { type: WEAPON,       name: "greatclub",                tags: [simple, melee] }
-    - { type: WEAPON,       name: "handaxe",                  tags: [simple, melee] }
-    - { type: WEAPON,       name: "javelin",                  tags: [simple, melee] }
-    - { type: WEAPON,       name: "light hammer",             tags: [simple, melee] }
-    - { type: WEAPON,       name: "mace",                     tags: [simple, melee] }
-    - { type: WEAPON,       name: "quarterstaff",             tags: [simple, melee] }
-    - { type: WEAPON,       name: "sickle",                   tags: [simple, melee] }
-    - { type: WEAPON,       name: "spear",                    tags: [simple, melee] }
-    - { type: WEAPON,       name: "crossbow, light",          tags: [simple, ranged] }
-    - { type: WEAPON,       name: "dart",                     tags: [simple, ranged] }
-    - { type: WEAPON,       name: "shortbow",                 tags: [simple, ranged] }
-    - { type: WEAPON,       name: "sling",                    tags: [simple, ranged] }
-    - { type: WEAPON,       name: "battleaxe",                tags: [martial, melee] }
-    - { type: WEAPON,       name: "flail",                    tags: [martial, melee] }
-    - { type: WEAPON,       name: "glaive",                   tags: [martial, melee] }
-    - { type: WEAPON,       name: "greataxe",                 tags: [martial, melee] }
-    - { type: WEAPON,       name: "greatsword",               tags: [martial, melee] }
-    - { type: WEAPON,       name: "halberd",                  tags: [martial, melee] }
-    - { type: WEAPON,       name: "lance",                    tags: [martial, melee] }
-    - { type: WEAPON,       name: "longsword",                tags: [martial, melee] }
-    - { type: WEAPON,       name: "maul",                     tags: [martial, melee] }
-    - { type: WEAPON,       name: "morningstar",              tags: [martial, melee] }
-    - { type: WEAPON,       name: "pike",                     tags: [martial, melee] }
-    - { type: WEAPON,       name: "rapier",                   tags: [martial, melee] }
-    - { type: WEAPON,       name: "scimitar",                 tags: [martial, melee] }
-    - { type: WEAPON,       name: "shortsword",               tags: [martial, melee] }
-    - { type: WEAPON,       name: "trident",                  tags: [martial, melee] }
-    - { type: WEAPON,       name: "war pick",                 tags: [martial, melee] }
-    - { type: WEAPON,       name: "warhammer",                tags: [martial, melee] }
-    - { type: WEAPON,       name: "whip",                     tags: [martial, melee] }
-    - { type: WEAPON,       name: "blowgun",                  tags: [martial, ranged] }
-    - { type: WEAPON,       name: "crossbow, hand",           tags: [martial, ranged] }
-    - { type: WEAPON,       name: "crossbow, heavy",          tags: [martial, ranged] }
-    - { type: WEAPON,       name: "longbow",                  tags: [martial, ranged] }
-    - { type: WEAPON,       name: "net",                      tags: [martial, ranged] }
+    - { type: SKILL,        name: "Acrobatics" }
+    - { type: SKILL,        name: "Animal Handling" }
+    - { type: SKILL,        name: "Arcana" }
+    - { type: SKILL,        name: "Athletics" }
+    - { type: SKILL,        name: "Deception" }
+    - { type: SKILL,        name: "History" }
+    - { type: SKILL,        name: "Insight" }
+    - { type: SKILL,        name: "Intimidation" }
+    - { type: SKILL,        name: "Investigation" }
+    - { type: SKILL,        name: "Medicine" }
+    - { type: SKILL,        name: "Nature" }
+    - { type: SKILL,        name: "Perception" }
+    - { type: SKILL,        name: "Performance" }
+    - { type: SKILL,        name: "Persuasion" }
+    - { type: SKILL,        name: "Religion" }
+    - { type: SKILL,        name: "Sleight of Hand" }
+    - { type: SKILL,        name: "Stealth" }
+    - { type: SKILL,        name: "Survival" }
+    - { type: TOOL,         name: "Alchemist's Supplies",     tags: [artisan's tools] }
+    - { type: TOOL,         name: "Brewer's Supplies",        tags: [artisan's tools] }
+    - { type: TOOL,         name: "Calligrapher's Supplies",  tags: [artisan's tools] }
+    - { type: TOOL,         name: "Carpenter's Tools",        tags: [artisan's tools] }
+    - { type: TOOL,         name: "Cartographer's Tools",     tags: [artisan's tools] }
+    - { type: TOOL,         name: "Cobbler's Tools",          tags: [artisan's tools] }
+    - { type: TOOL,         name: "Cook's Utensils",          tags: [artisan's tools] }
+    - { type: TOOL,         name: "Glassblower's Tools",      tags: [artisan's tools] }
+    - { type: TOOL,         name: "Jeweler's Tools",          tags: [artisan's tools] }
+    - { type: TOOL,         name: "Leatherworker's Tools",    tags: [artisan's tools] }
+    - { type: TOOL,         name: "Mason's Tools",            tags: [artisan's tools] }
+    - { type: TOOL,         name: "Painter's Supplies",       tags: [artisan's tools] }
+    - { type: TOOL,         name: "Potter's Tools",           tags: [artisan's tools] }
+    - { type: TOOL,         name: "Smith's Tools",            tags: [artisan's tools] }
+    - { type: TOOL,         name: "Tinker's Tools",           tags: [artisan's tools] }
+    - { type: TOOL,         name: "Weaver's Tools",           tags: [artisan's tools] }
+    - { type: TOOL,         name: "Woodcarver's Tools",       tags: [artisan's tools] }
+    - { type: TOOL,         name: "Disguise Kit",             tags: [artisan's tools] }
+    - { type: TOOL,         name: "Forgery Kit",              tags: [artisan's tools] }
+    - { type: TOOL,         name: "Dice Set",                 tags: [gaming set] }
+    - { type: TOOL,         name: "Playing Card Set",         tags: [gaming set] }
+    - { type: TOOL,         name: "Bagpipes",                 tags: [musical instrument] }
+    - { type: TOOL,         name: "Drum",                     tags: [musical instrument] }
+    - { type: TOOL,         name: "Dulcimer",                 tags: [musical instrument] }
+    - { type: TOOL,         name: "Flute",                    tags: [musical instrument] }
+    - { type: TOOL,         name: "Lute",                     tags: [musical instrument] }
+    - { type: TOOL,         name: "Lyre",                     tags: [musical instrument] }
+    - { type: TOOL,         name: "Horn",                     tags: [musical instrument] }
+    - { type: TOOL,         name: "Pan Flute",                tags: [musical instrument] }
+    - { type: TOOL,         name: "Shawm",                    tags: [musical instrument] }
+    - { type: TOOL,         name: "Viol",                     tags: [musical instrument] }
+    - { type: TOOL,         name: "Herbalism Kit" }
+    - { type: TOOL,         name: "Navigator's Tools" }
+    - { type: TOOL,         name: "Poisoner's Kit" }
+    - { type: TOOL,         name: "Thieves' Tools" }
+    - { type: TOOL,         name: "Vehicles (Land)" }
+    - { type: TOOL,         name: "Vehicles (Water)" }
+    - { type: WEAPON,       name: "Club",                     tags: [simple, melee] }
+    - { type: WEAPON,       name: "Dagger",                   tags: [simple, melee] }
+    - { type: WEAPON,       name: "Greatclub",                tags: [simple, melee] }
+    - { type: WEAPON,       name: "Handaxe",                  tags: [simple, melee] }
+    - { type: WEAPON,       name: "Javelin",                  tags: [simple, melee] }
+    - { type: WEAPON,       name: "Light Hammer",             tags: [simple, melee] }
+    - { type: WEAPON,       name: "Mace",                     tags: [simple, melee] }
+    - { type: WEAPON,       name: "Quarterstaff",             tags: [simple, melee] }
+    - { type: WEAPON,       name: "Sickle",                   tags: [simple, melee] }
+    - { type: WEAPON,       name: "Spear",                    tags: [simple, melee] }
+    - { type: WEAPON,       name: "Crossbow, Light",          tags: [simple, ranged] }
+    - { type: WEAPON,       name: "Dart",                     tags: [simple, ranged] }
+    - { type: WEAPON,       name: "Shortbow",                 tags: [simple, ranged] }
+    - { type: WEAPON,       name: "Sling",                    tags: [simple, ranged] }
+    - { type: WEAPON,       name: "Battleaxe",                tags: [martial, melee] }
+    - { type: WEAPON,       name: "Flail",                    tags: [martial, melee] }
+    - { type: WEAPON,       name: "Glaive",                   tags: [martial, melee] }
+    - { type: WEAPON,       name: "Greataxe",                 tags: [martial, melee] }
+    - { type: WEAPON,       name: "Greatsword",               tags: [martial, melee] }
+    - { type: WEAPON,       name: "Halberd",                  tags: [martial, melee] }
+    - { type: WEAPON,       name: "Lance",                    tags: [martial, melee] }
+    - { type: WEAPON,       name: "Longsword",                tags: [martial, melee] }
+    - { type: WEAPON,       name: "Maul",                     tags: [martial, melee] }
+    - { type: WEAPON,       name: "Morningstar",              tags: [martial, melee] }
+    - { type: WEAPON,       name: "Pike",                     tags: [martial, melee] }
+    - { type: WEAPON,       name: "Rapier",                   tags: [martial, melee] }
+    - { type: WEAPON,       name: "Scimitar",                 tags: [martial, melee] }
+    - { type: WEAPON,       name: "Shortsword",               tags: [martial, melee] }
+    - { type: WEAPON,       name: "Trident",                  tags: [martial, melee] }
+    - { type: WEAPON,       name: "War Pick",                 tags: [martial, melee] }
+    - { type: WEAPON,       name: "Warhammer",                tags: [martial, melee] }
+    - { type: WEAPON,       name: "Whip",                     tags: [martial, melee] }
+    - { type: WEAPON,       name: "Blowgun",                  tags: [martial, ranged] }
+    - { type: WEAPON,       name: "Crossbow, Hand",           tags: [martial, ranged] }
+    - { type: WEAPON,       name: "Crossbow, Heavy",          tags: [martial, ranged] }
+    - { type: WEAPON,       name: "Longbow",                  tags: [martial, ranged] }
+    - { type: WEAPON,       name: "Net",                      tags: [martial, ranged] }
 
   spells:
     - { level: 0, name: Acid Splash,                    classes: [Sorcerer, Wizard] }
@@ -2205,80 +2207,80 @@ lists:
 
   tools:
     #default { weight: "0 lb" }
-    - { name: alchemist's supplies,     tags: [artisan's tools],    cost: 5000, weight: "8 lb" }
-    - { name: brewer's supplies,        tags: [artisan's tools],    cost: 2000, weight: "9 lb" }
-    - { name: calligrapher's supplies,  tags: [artisan's tools],    cost: 1000, weight: "5 lb" }
-    - { name: carpenter's tools,        tags: [artisan's tools],    cost:  800, weight: "6 lb" }
-    - { name: cartographer's tools,     tags: [artisan's tools],    cost: 1500, weight: "6 lb" }
-    - { name: cobbler's tools,          tags: [artisan's tools],    cost:  500, weight: "5 lb" }
-    - { name: cook's utensils,          tags: [artisan's tools],    cost:  100, weight: "8 lb" }
-    - { name: glassblower's tools,      tags: [artisan's tools],    cost: 3000, weight: "5 lb" }
-    - { name: jeweler's tools,          tags: [artisan's tools],    cost: 2500, weight: "2 lb" }
-    - { name: leatherworker's tools,    tags: [artisan's tools],    cost:  500, weight: "5 lb" }
-    - { name: mason's tools,            tags: [artisan's tools],    cost: 1000, weight: "8 lb" }
-    - { name: painter's supplies,       tags: [artisan's tools],    cost: 1000, weight: "5 lb" }
-    - { name: potter's tools,           tags: [artisan's tools],    cost: 1000, weight: "3 lb" }
-    - { name: smith's tools,            tags: [artisan's tools],    cost: 2000, weight: "8 lb" }
-    - { name: tinker's tools,           tags: [artisan's tools],    cost: 5000, weight: "10 lb" }
-    - { name: weaver's tools,           tags: [artisan's tools],    cost:  100, weight: "5 lb" }
-    - { name: woodcarver's tools,       tags: [artisan's tools],    cost:  100, weight: "5 lb" }
-    - { name: disguise kit,             tags: [artisan's tools],    cost: 2500, weight: "3 lb" }
-    - { name: forgery kit,              tags: [artisan's tools],    cost: 1500, weight: "5 lb" }
-    - { name: dice set,                 tags: [gaming set],         cost:   10 }
-    - { name: playing card set,         tags: [gaming set],         cost:   50 }
-    - { name: herbalism kit,                                        cost:  500, weight: "3 lb" }
-    - { name: bagpipes,                 tags: [musical instrument], cost: 3000, weight: "6 lb" }
-    - { name: drum,                     tags: [musical instrument], cost:  600, weight: "3 lb" }
-    - { name: dulcimer,                 tags: [musical instrument], cost: 2500, weight: "10 lb" }
-    - { name: flute,                    tags: [musical instrument], cost:  200, weight: "1 lb" }
-    - { name: lute,                     tags: [musical instrument], cost: 3500, weight: "2 lb" }
-    - { name: lyre,                     tags: [musical instrument], cost: 3000, weight: "2 lb" }
-    - { name: horn,                     tags: [musical instrument], cost:  300, weight: "2 lb" }
-    - { name: pan flute,                tags: [musical instrument], cost: 1200, weight: "2 lb" }
-    - { name: shawm,                    tags: [musical instrument], cost:  200, weight: "1 lb" }
-    - { name: viol,                     tags: [musical instrument], cost: 3000, weight: "1 lb" }
-    - { name: navigator's tools,                                    cost: 2500, weight: "2 lb" }
-    - { name: poisoner's kit,                                       cost: 5000, weight: "2 lb" }
-    - { name: thieves' tools,                                       cost: 2500, weight: "1 lb" }
-    - { name: vehicles (land),                                                  weight: "*" }
-    - { name: vehicles (water),                                                 weight: "*" }
+    - { name: Alchemist's Supplies,     tags: [artisan's tools],    cost: 5000, weight: "8 lb" }
+    - { name: Brewer's Supplies,        tags: [artisan's tools],    cost: 2000, weight: "9 lb" }
+    - { name: Calligrapher's Supplies,  tags: [artisan's tools],    cost: 1000, weight: "5 lb" }
+    - { name: Carpenter's Tools,        tags: [artisan's tools],    cost:  800, weight: "6 lb" }
+    - { name: Cartographer's Tools,     tags: [artisan's tools],    cost: 1500, weight: "6 lb" }
+    - { name: Cobbler's Tools,          tags: [artisan's tools],    cost:  500, weight: "5 lb" }
+    - { name: Cook's Utensils,          tags: [artisan's tools],    cost:  100, weight: "8 lb" }
+    - { name: Glassblower's Tools,      tags: [artisan's tools],    cost: 3000, weight: "5 lb" }
+    - { name: Jeweler's Tools,          tags: [artisan's tools],    cost: 2500, weight: "2 lb" }
+    - { name: Leatherworker's Tools,    tags: [artisan's tools],    cost:  500, weight: "5 lb" }
+    - { name: Mason's Tools,            tags: [artisan's tools],    cost: 1000, weight: "8 lb" }
+    - { name: Painter's Supplies,       tags: [artisan's tools],    cost: 1000, weight: "5 lb" }
+    - { name: Potter's Tools,           tags: [artisan's tools],    cost: 1000, weight: "3 lb" }
+    - { name: Smith's Tools,            tags: [artisan's tools],    cost: 2000, weight: "8 lb" }
+    - { name: Tinker's Tools,           tags: [artisan's tools],    cost: 5000, weight: "10 lb" }
+    - { name: Weaver's Tools,           tags: [artisan's tools],    cost:  100, weight: "5 lb" }
+    - { name: Woodcarver's Tools,       tags: [artisan's tools],    cost:  100, weight: "5 lb" }
+    - { name: Disguise Kit,             tags: [artisan's tools],    cost: 2500, weight: "3 lb" }
+    - { name: Forgery Kit,              tags: [artisan's tools],    cost: 1500, weight: "5 lb" }
+    - { name: Dice Set,                 tags: [gaming set],         cost:   10 }
+    - { name: Playing Card Set,         tags: [gaming set],         cost:   50 }
+    - { name: Herbalism Kit,                                        cost:  500, weight: "3 lb" }
+    - { name: Bagpipes,                 tags: [musical instrument], cost: 3000, weight: "6 lb" }
+    - { name: Drum,                     tags: [musical instrument], cost:  600, weight: "3 lb" }
+    - { name: Dulcimer,                 tags: [musical instrument], cost: 2500, weight: "10 lb" }
+    - { name: Flute,                    tags: [musical instrument], cost:  200, weight: "1 lb" }
+    - { name: Lute,                     tags: [musical instrument], cost: 3500, weight: "2 lb" }
+    - { name: Lyre,                     tags: [musical instrument], cost: 3000, weight: "2 lb" }
+    - { name: Horn,                     tags: [musical instrument], cost:  300, weight: "2 lb" }
+    - { name: Pan Flute,                tags: [musical instrument], cost: 1200, weight: "2 lb" }
+    - { name: Shawm,                    tags: [musical instrument], cost:  200, weight: "1 lb" }
+    - { name: Viol,                     tags: [musical instrument], cost: 3000, weight: "1 lb" }
+    - { name: Navigator's Tools,                                    cost: 2500, weight: "2 lb" }
+    - { name: Poisoner's Kit,                                       cost: 5000, weight: "2 lb" }
+    - { name: Thieves' Tools,                                       cost: 2500, weight: "1 lb" }
+    - { name: Vehicles (Land),                                                  weight: "*" }
+    - { name: Vehicles (Water),                                                 weight: "*" }
 
   weapons:
     #default { weight: "0 lb" }
-    - { name: "club",             tags: [simple, melee, light],                                     cost:   10, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
-    - { name: "dagger",           tags: [simple, melee, light, finesse, thrown],                    cost:  200, weight: "1 lb",     damage: 1d4,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60 }
-    - { name: "greatclub",        tags: [simple, melee, two-handed],                                cost:   20, weight: "10 lb",    damage: 1d8,  damageType: bludgeoning }
-    - { name: "handaxe",          tags: [simple, melee, light, thrown],                             cost:  500, weight: "2 lb",     damage: 1d6,  damageType: slashing,     range:  20, rangeWithDisadvantage:  60 }
-    - { name: "javelin",          tags: [simple, melee, thrown],                                    cost:   50, weight: "2 lb",     damage: 1d6,  damageType: piercing,     range:  30, rangeWithDisadvantage: 120 }
-    - { name: "light hammer",     tags: [simple, melee, light, thrown],                             cost:  200, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning,  range:  20, rangeWithDisadvantage:  60 }
-    - { name: "mace",             tags: [simple, melee],                                            cost:  500, weight: "4 lb",     damage: 1d6,  damageType: bludgeoning }
-    - { name: "quarterstaff",     tags: [simple, melee, versatile],                                 cost:   20, weight: "4 lb",     damage: 1d6,  damageType: bludgeoning,                                          versatileDamage: 1d8 }
-    - { name: "sickle",           tags: [simple, melee, light],                                     cost:  100, weight: "2 lb",     damage: 1d4,  damageType: slashing }
-    - { name: "spear",            tags: [simple, melee, thrown, versatile],                         cost:  100, weight: "3 lb",     damage: 1d6,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60, versatileDamage: 1d8 }
-    - { name: "crossbow, light",  tags: [simple, ranged, ammunition, loading, two-handed],          cost: 2500, weight: "5 lb",     damage: 1d8,  damageType: piercing,     range:  80, rangeWithDisadvantage: 320 }
-    - { name: "dart",             tags: [simple, ranged, finesse, thrown],                          cost:    5, weight: "0.25 lb",  damage: 1d4,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60 }
-    - { name: "shortbow",         tags: [simple, ranged, ammunition, two-handed],                   cost: 2500, weight: "2 lb",     damage: 1d6,  damageType: piercing,     range:  80, rangeWithDisadvantage: 320 }
-    - { name: "sling",            tags: [simple, ranged, ammunition],                               cost:   10,                     damage: 1d4,  damageType: bludgeoning,  range:  30, rangeWithDisadvantage: 120 }
-    - { name: "battleaxe",        tags: [martial, melee, versatile],                                cost: 1000, weight: "4 lb",     damage: 1d8,  damageType: slashing,                                             versatileDamage: 1d10 }
-    - { name: "flail",            tags: [martial, melee],                                           cost: 1000, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
-    - { name: "glaive",           tags: [martial, melee, heavy, reach, two-handed],                 cost: 2000, weight: "6 lb",     damage: 1d10, damageType: slashing }
-    - { name: "greataxe",         tags: [martial, melee, heavy, two-handed],                        cost: 3000, weight: "7 lb",     damage: 1d12, damageType: slashing }
-    - { name: "greatsword",       tags: [martial, melee, heavy, two-handed],                        cost: 5000, weight: "6 lb",     damage: 2d6,  damageType: slashing }
-    - { name: "halberd",          tags: [martial, melee, heavy, reach, two-handed],                 cost: 2000, weight: "6 lb",     damage: 1d10, damageType: slashing }
-    - { name: "lance",            tags: [martial, melee, reach, special],                           cost: 1000, weight: "6 lb",     damage: 1d12, damageType: piercing }
-    - { name: "longsword",        tags: [martial, melee, versatile],                                cost: 1500, weight: "3 lb",     damage: 1d8,  damageType: slashing,                                             versatileDamage: 1d10 }
-    - { name: "maul",             tags: [martial, melee, heavy, two-handed],                        cost: 1000, weight: "10 lb",    damage: 2d6,  damageType: bludgeoning }
-    - { name: "morningstar",      tags: [martial, melee],                                           cost: 1500, weight: "4 lb",     damage: 1d8,  damageType: piercing }
-    - { name: "pike",             tags: [martial, melee, heavy, reach, two-handed],                 cost:  500, weight: "18 lb",    damage: 1d10, damageType: piercing }
-    - { name: "rapier",           tags: [martial, melee, finesse],                                  cost: 2500, weight: "2 lb",     damage: 1d8,  damageType: piercing }
-    - { name: "scimitar",         tags: [martial, melee, finesse, light],                           cost: 2500, weight: "3 lb",     damage: 1d6,  damageType: slashing }
-    - { name: "shortsword",       tags: [martial, melee, finesse, light],                           cost: 1000, weight: "2 lb",     damage: 1d6,  damageType: piercing }
-    - { name: "trident",          tags: [martial, melee, thrown, versatile],                        cost:  500, weight: "4 lb",     damage: 1d6,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60, versatileDamage: 1d8 }
-    - { name: "war pick",         tags: [martial, melee],                                           cost:  500, weight: "2 lb",     damage: 1d8,  damageType: piercing }
-    - { name: "warhammer",        tags: [martial, melee, versatile],                                cost: 1500, weight: "2 lb",     damage: 1d8,  damageType: bludgeoning,                                          versatileDamage: 1d10 }
-    - { name: "whip",             tags: [martial, melee, finesse, reach],                           cost:  200, weight: "3 lb",     damage: 1d4,  damageType: slashing }
-    - { name: "blowgun",          tags: [martial, ranged, ammunition, loading],                     cost: 1000, weight: "1 lb",     damage: "1",  damageType: piercing,     range:  25, rangeWithDisadvantage: 100 }
-    - { name: "crossbow, hand",   tags: [martial, ranged, ammunition, light, loading],              cost: 7500, weight: "3 lb",     damage: 1d6,  damageType: piercing,     range:  30, rangeWithDisadvantage: 120 }
-    - { name: "crossbow, heavy",  tags: [martial, ranged, ammunition, heavy, loading, two-handed],  cost: 5000, weight: "18 lb",    damage: 1d10, damageType: piercing,     range: 100, rangeWithDisadvantage: 400 }
-    - { name: "longbow",          tags: [martial, ranged, ammunition, heavy, two-handed],           cost: 5000, weight: "2 lb",     damage: 1d8,  damageType: piercing,     range: 150, rangeWithDisadvantage: 600 }
-    - { name: "net",              tags: [martial, ranged, special, thrown],                         cost:  100, weight: "3 lb",     damage: "0",                            range:   5, rangeWithDisadvantage:  15 }
+    - { name: "Club",             tags: [simple, melee, light],                                     cost:   10, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
+    - { name: "Dagger",           tags: [simple, melee, light, finesse, thrown],                    cost:  200, weight: "1 lb",     damage: 1d4,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60 }
+    - { name: "Greatclub",        tags: [simple, melee, two-handed],                                cost:   20, weight: "10 lb",    damage: 1d8,  damageType: bludgeoning }
+    - { name: "Handaxe",          tags: [simple, melee, light, thrown],                             cost:  500, weight: "2 lb",     damage: 1d6,  damageType: slashing,     range:  20, rangeWithDisadvantage:  60 }
+    - { name: "Javelin",          tags: [simple, melee, thrown],                                    cost:   50, weight: "2 lb",     damage: 1d6,  damageType: piercing,     range:  30, rangeWithDisadvantage: 120 }
+    - { name: "Light Hammer",     tags: [simple, melee, light, thrown],                             cost:  200, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning,  range:  20, rangeWithDisadvantage:  60 }
+    - { name: "Mace",             tags: [simple, melee],                                            cost:  500, weight: "4 lb",     damage: 1d6,  damageType: bludgeoning }
+    - { name: "Quarterstaff",     tags: [simple, melee, versatile],                                 cost:   20, weight: "4 lb",     damage: 1d6,  damageType: bludgeoning,                                          versatileDamage: 1d8 }
+    - { name: "Sickle",           tags: [simple, melee, light],                                     cost:  100, weight: "2 lb",     damage: 1d4,  damageType: slashing }
+    - { name: "Spear",            tags: [simple, melee, thrown, versatile],                         cost:  100, weight: "3 lb",     damage: 1d6,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60, versatileDamage: 1d8 }
+    - { name: "Crossbow, Light",  tags: [simple, ranged, ammunition, loading, two-handed],          cost: 2500, weight: "5 lb",     damage: 1d8,  damageType: piercing,     range:  80, rangeWithDisadvantage: 320 }
+    - { name: "Dart",             tags: [simple, ranged, finesse, thrown],                          cost:    5, weight: "0.25 lb",  damage: 1d4,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60 }
+    - { name: "Shortbow",         tags: [simple, ranged, ammunition, two-handed],                   cost: 2500, weight: "2 lb",     damage: 1d6,  damageType: piercing,     range:  80, rangeWithDisadvantage: 320 }
+    - { name: "Sling",            tags: [simple, ranged, ammunition],                               cost:   10,                     damage: 1d4,  damageType: bludgeoning,  range:  30, rangeWithDisadvantage: 120 }
+    - { name: "Battleaxe",        tags: [martial, melee, versatile],                                cost: 1000, weight: "4 lb",     damage: 1d8,  damageType: slashing,                                             versatileDamage: 1d10 }
+    - { name: "Flail",            tags: [martial, melee],                                           cost: 1000, weight: "2 lb",     damage: 1d4,  damageType: bludgeoning }
+    - { name: "Glaive",           tags: [martial, melee, heavy, reach, two-handed],                 cost: 2000, weight: "6 lb",     damage: 1d10, damageType: slashing }
+    - { name: "Greataxe",         tags: [martial, melee, heavy, two-handed],                        cost: 3000, weight: "7 lb",     damage: 1d12, damageType: slashing }
+    - { name: "Greatsword",       tags: [martial, melee, heavy, two-handed],                        cost: 5000, weight: "6 lb",     damage: 2d6,  damageType: slashing }
+    - { name: "Halberd",          tags: [martial, melee, heavy, reach, two-handed],                 cost: 2000, weight: "6 lb",     damage: 1d10, damageType: slashing }
+    - { name: "Lance",            tags: [martial, melee, reach, special],                           cost: 1000, weight: "6 lb",     damage: 1d12, damageType: piercing }
+    - { name: "Longsword",        tags: [martial, melee, versatile],                                cost: 1500, weight: "3 lb",     damage: 1d8,  damageType: slashing,                                             versatileDamage: 1d10 }
+    - { name: "Maul",             tags: [martial, melee, heavy, two-handed],                        cost: 1000, weight: "10 lb",    damage: 2d6,  damageType: bludgeoning }
+    - { name: "Morningstar",      tags: [martial, melee],                                           cost: 1500, weight: "4 lb",     damage: 1d8,  damageType: piercing }
+    - { name: "Pike",             tags: [martial, melee, heavy, reach, two-handed],                 cost:  500, weight: "18 lb",    damage: 1d10, damageType: piercing }
+    - { name: "Rapier",           tags: [martial, melee, finesse],                                  cost: 2500, weight: "2 lb",     damage: 1d8,  damageType: piercing }
+    - { name: "Scimitar",         tags: [martial, melee, finesse, light],                           cost: 2500, weight: "3 lb",     damage: 1d6,  damageType: slashing }
+    - { name: "Shortsword",       tags: [martial, melee, finesse, light],                           cost: 1000, weight: "2 lb",     damage: 1d6,  damageType: piercing }
+    - { name: "Trident",          tags: [martial, melee, thrown, versatile],                        cost:  500, weight: "4 lb",     damage: 1d6,  damageType: piercing,     range:  20, rangeWithDisadvantage:  60, versatileDamage: 1d8 }
+    - { name: "War Pick",         tags: [martial, melee],                                           cost:  500, weight: "2 lb",     damage: 1d8,  damageType: piercing }
+    - { name: "Warhammer",        tags: [martial, melee, versatile],                                cost: 1500, weight: "2 lb",     damage: 1d8,  damageType: bludgeoning,                                          versatileDamage: 1d10 }
+    - { name: "Whip",             tags: [martial, melee, finesse, reach],                           cost:  200, weight: "3 lb",     damage: 1d4,  damageType: slashing }
+    - { name: "Blowgun",          tags: [martial, ranged, ammunition, loading],                     cost: 1000, weight: "1 lb",     damage: "1",  damageType: piercing,     range:  25, rangeWithDisadvantage: 100 }
+    - { name: "Crossbow, Hand",   tags: [martial, ranged, ammunition, light, loading],              cost: 7500, weight: "3 lb",     damage: 1d6,  damageType: piercing,     range:  30, rangeWithDisadvantage: 120 }
+    - { name: "Crossbow, Heavy",  tags: [martial, ranged, ammunition, heavy, loading, two-handed],  cost: 5000, weight: "18 lb",    damage: 1d10, damageType: piercing,     range: 100, rangeWithDisadvantage: 400 }
+    - { name: "Longbow",          tags: [martial, ranged, ammunition, heavy, two-handed],           cost: 5000, weight: "2 lb",     damage: 1d8,  damageType: piercing,     range: 150, rangeWithDisadvantage: 600 }
+    - { name: "Net",              tags: [martial, ranged, special, thrown],                         cost:  100, weight: "3 lb",     damage: "0",                            range:   5, rangeWithDisadvantage:  15 }
