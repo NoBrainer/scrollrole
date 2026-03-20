@@ -30,7 +30,10 @@ class RulesProficienciesCard extends StatelessWidget {
         BasicCardTitle(text: 'Proficiencies'),
         BasicCardSection(
           children: typeMap.keys.map((type) {
-            return _ProficiencyType(proficiencies: typeMap[type]!, type: type);
+            return _ProficiencyTypeSection(
+              type: type,
+              proficiencies: typeMap[type]!,
+            );
           }).toList(),
         ),
       ],
@@ -38,11 +41,14 @@ class RulesProficienciesCard extends StatelessWidget {
   }
 }
 
-class _ProficiencyType extends StatelessWidget {
+class _ProficiencyTypeSection extends StatelessWidget {
   final List<Proficiency> proficiencies;
   final ProficiencyType type;
 
-  const _ProficiencyType({required this.proficiencies, required this.type});
+  const _ProficiencyTypeSection({
+    required this.proficiencies,
+    required this.type,
+  });
 
   @override
   Widget build(BuildContext context) {

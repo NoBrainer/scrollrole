@@ -30,7 +30,7 @@ class RulesStatModifiersCard extends StatelessWidget {
         BasicCardTitle(text: 'Stat Modifiers'),
         BasicCardSection(
           children: typeMap.keys.map((type) {
-            return _StatType(modifiers: typeMap[type]!, type: type);
+            return _StatTypeSection(type: type, modifiers: typeMap[type]!);
           }).toList(),
         ),
       ],
@@ -38,11 +38,11 @@ class RulesStatModifiersCard extends StatelessWidget {
   }
 }
 
-class _StatType extends StatelessWidget {
+class _StatTypeSection extends StatelessWidget {
   final List<StatModifier> modifiers;
   final StatType type;
 
-  const _StatType({required this.modifiers, required this.type});
+  const _StatTypeSection({required this.modifiers, required this.type});
 
   @override
   Widget build(BuildContext context) {

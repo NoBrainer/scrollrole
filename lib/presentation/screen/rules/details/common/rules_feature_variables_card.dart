@@ -18,7 +18,7 @@ class RulesFeatureVariablesCard extends StatelessWidget {
         BasicCardTitle(text: 'Feature Variables'),
         BasicCardSection(
           children: variables
-              .map((v) => _FeatureVariable(variable: v))
+              .map((v) => _FeatureVariableItem(variable: v))
               .toList(),
         ),
       ],
@@ -26,10 +26,10 @@ class RulesFeatureVariablesCard extends StatelessWidget {
   }
 }
 
-class _FeatureVariable extends StatelessWidget {
+class _FeatureVariableItem extends StatelessWidget {
   final FeatureVariable variable;
 
-  const _FeatureVariable({required this.variable});
+  const _FeatureVariableItem({required this.variable});
 
   @override
   Widget build(BuildContext context) {

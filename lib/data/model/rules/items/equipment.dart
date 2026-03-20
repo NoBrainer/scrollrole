@@ -26,6 +26,15 @@ class Equipment extends Equatable implements Comparable<Equipment> {
 
   String toJsonString() => jsonEncode(toJson());
 
+  String toDisplay() {
+    String quantityStr = quantity.truncateToDouble() == quantity
+        ? '${quantity.toInt()}'
+        : '$quantity';
+    String unitsStr = units == null ? '' : '$units ';
+
+    return '$quantityStr $unitsStr$name';
+  }
+
   @override
   int compareTo(other) => name.compareTo(other.name);
 }

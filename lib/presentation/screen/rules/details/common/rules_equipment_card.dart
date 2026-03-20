@@ -31,15 +31,6 @@ class _EquipmentItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double quantity = equipment.quantity;
-    String name = equipment.name;
-    String? units = equipment.units;
-
-    String quantityStr = quantity.truncateToDouble() == quantity
-        ? '${quantity.toInt()}'
-        : '$quantity';
-    String unitsStr = units == null ? '' : '$units ';
-
-    return Text('$quantityStr $unitsStr$name');
+    return Text(equipment.toDisplay());
   }
 }
