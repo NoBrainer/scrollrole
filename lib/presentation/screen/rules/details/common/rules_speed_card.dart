@@ -14,11 +14,10 @@ class RulesSpeedCard extends StatelessWidget {
 
     // TODO: Support flying & swimming speed
 
-    // TODO: Finish RulesSpeedCard
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Speed'),
-        BasicCardSection(children: [Text('TBD')]),
+        BasicCardSection(children: [Text('$speed feet')]),
       ],
     );
   }
