@@ -22,4 +22,8 @@ const _$ListOptionTypeEnumMap = {
   ListOptionType.proficiencyTool: 'PROFICIENCY_TOOL',
   ListOptionType.proficiencyWeapon: 'PROFICIENCY_WEAPON',
   ListOptionType.spell: 'SPELL',
+  ListOptionType.suggestedBond: 'SUGGESTED_BOND',
+  ListOptionType.suggestedFlaw: 'SUGGESTED_FLAW',
+  ListOptionType.suggestedIdeal: 'SUGGESTED_IDEAL',
+  ListOptionType.suggestedPersonalityTrait: 'SUGGESTED_PERSONALITY_TRAIT',
 };

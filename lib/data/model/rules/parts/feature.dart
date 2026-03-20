@@ -5,7 +5,6 @@ import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature_variable.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
-import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/unlockable.dart';
 import 'package:scrollrole/util/config/default_json_serializable.dart';
@@ -24,7 +23,6 @@ class Feature extends Equatable implements Comparable<Feature> {
   final List<Proficiency> proficiencies;
   final int? speed;
   final List<StatModifier> statModifiers;
-  final SuggestedCharacteristics? suggestedCharacteristics;
   final List<Unlockable> unlockables;
   final List<FeatureVariable> variables;
 
@@ -38,7 +36,6 @@ class Feature extends Equatable implements Comparable<Feature> {
     this.proficiencies = const [],
     this.speed,
     this.statModifiers = const [],
-    this.suggestedCharacteristics,
     this.unlockables = const [],
     this.variables = const [],
   });
@@ -54,7 +51,6 @@ class Feature extends Equatable implements Comparable<Feature> {
     proficiencies,
     speed,
     statModifiers,
-    suggestedCharacteristics,
     unlockables,
     variables,
   ];

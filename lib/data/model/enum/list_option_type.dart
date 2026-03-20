@@ -19,7 +19,11 @@ enum ListOptionType implements Comparable<ListOptionType> {
   proficiencySkill('Skill', 'Skill Proficiency'),
   proficiencyTool('Tool', 'Tool Proficiency'),
   proficiencyWeapon('Weapon', 'Weapon Proficiency'),
-  spell('Spell', 'Spell');
+  spell('Spell', 'Spell'),
+  suggestedBond('Bond', 'Suggested Bond'),
+  suggestedFlaw('Flaw', 'Suggested Flaw'),
+  suggestedIdeal('Ideal', 'Suggested Ideal'),
+  suggestedPersonalityTrait('Personality Trait', 'Suggested Personality Trait');
 
   final String display;
   final String displayLong;

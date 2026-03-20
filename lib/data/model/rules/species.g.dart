@@ -44,11 +44,6 @@ Species _$SpeciesFromJson(Map<String, dynamic> json) => Species(
           ?.map((e) => StatModifier.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
-  suggestedCharacteristics: json['suggestedCharacteristics'] == null
-      ? null
-      : SuggestedCharacteristics.fromJson(
-          json['suggestedCharacteristics'] as Map<String, dynamic>,
-        ),
   unlockables:
       (json['unlockables'] as List<dynamic>?)
           ?.map((e) => Unlockable.fromJson(e as Map<String, dynamic>))
@@ -78,7 +73,6 @@ Map<String, dynamic> _$SpeciesToJson(Species instance) => <String, dynamic>{
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'speed': instance.speed,
   'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
-  'suggestedCharacteristics': instance.suggestedCharacteristics?.toJson(),
   'unlockables': instance.unlockables.map((e) => e.toJson()).toList(),
   'variables': instance.variables.map((e) => e.toJson()).toList(),
   'iconId': const StringTrimConverter().toJson(instance.iconId),

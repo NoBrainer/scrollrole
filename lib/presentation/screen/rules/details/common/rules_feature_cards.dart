@@ -8,7 +8,6 @@ import 'package:scrollrole/presentation/screen/rules/details/common/rules_featur
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_proficiencies_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_speed_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_stat_modifiers_card.dart';
-import 'package:scrollrole/presentation/screen/rules/details/common/rules_suggested_characteristics_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_unlockables_card.dart';
 
 class RulesFeatureCards extends StatelessWidget {
@@ -31,9 +30,6 @@ class RulesFeatureCards extends StatelessWidget {
         RulesSpeedCard(speed: feature.speed),
         RulesStatModifiersCard(statModifiers: feature.statModifiers),
         RulesFeatureVariablesCard(variables: feature.variables),
-        RulesSuggestedCharacteristicsCard(
-          suggestedCharacteristics: feature.suggestedCharacteristics,
-        ),
         RulesChoicesCard(choices: feature.choices),
         RulesUnlockablesCard(unlockables: feature.unlockables),
         if (hasFeatures) _NestedFeaturesWrapper(features: feature.features),

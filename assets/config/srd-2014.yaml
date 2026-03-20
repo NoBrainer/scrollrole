@@ -51,45 +51,44 @@ backgrounds:
         query:
           list: proficiencies
           types: [PROFICIENCY_LANGUAGE]
-    suggestedCharacteristics:
-      description:
-        - Pick two personality traits, one ideal, one bond, and one flaw.
-      personalityTraits:
-        - I idolize a particular hero of my faith, and constantly refer to that person's deeds and example.
-        - I can find common ground between the fiercest enemies, empathizing with them and always working toward peace.
-        - I see omens in every event and action. The gods try to speak to us, we just need to listen.
-        - Nothing can shake my optimistic attitude.
-        - I quote (or misquote) sacred texts and proverbs in almost every situation.
-        - I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.
-        - I've enjoyed fine food, drink, and high society among my temple's elite. Rough living grates on me.
-        - >
-          I've spent so long in the temple that I have little practical experience dealing with people in the outside
-          world.
-      ideals:
-        - Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)
-        - Charity. I always try to help those in need, no matter what the personal cost. (Good)
-        - Change. We must help bring about the changes the gods are constantly working in the world. (Chaos)
-        - Power. I hope to one day rise to the top of my faith's religious hierarchy. (Lawful)
-        - >
-          Faith. I trust that my deity will guide my actions. I have faith that if I work hard, things will go well.
-          (Lawful)
-        - >
-          Aspiration. I seek to prove myself worthy of my god's favor by matching my actions against his or her
-          teachings. (Any)
-      bonds:
-        - I would die to recover an ancient relic of my faith that was lost long ago.
-        - I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.
-        - I owe my life to the priest who took me in when my parents died.
-        - Everything I do is for the common people.
-        - I will do anything to protect the temple where I served.
-        - I seek to preserve a sacred text that my enemies consider heretical and seek to destroy.
-      flaws:
-        - I judge others harshly, and myself even more severely.
-        - I put too much trust in those who wield power within my temple's hierarchy.
-        - My piety sometimes leads me to blindly trust those that profess faith in my god.
-        - I am inflexible in my thinking.
-        - I am suspicious of strangers and expect the worst of them.
-        - Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.
+      - name: Suggested Personality Traits
+        pick: 2
+        options:
+          - { type: SUGGESTED_PERSONALITY_TRAIT, name: "I idolize a particular hero of my faith, and constantly refer to that person's deeds and example." }
+          - { type: SUGGESTED_PERSONALITY_TRAIT, name: "I can find common ground between the fiercest enemies, empathizing with them and always working toward peace." }
+          - { type: SUGGESTED_PERSONALITY_TRAIT, name: "I see omens in every event and action. The gods try to speak to us, we just need to listen." }
+          - { type: SUGGESTED_PERSONALITY_TRAIT, name: "Nothing can shake my optimistic attitude." }
+          - { type: SUGGESTED_PERSONALITY_TRAIT, name: "I quote (or misquote) sacred texts and proverbs in almost every situation." }
+          - { type: SUGGESTED_PERSONALITY_TRAIT, name: "I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods." }
+          - { type: SUGGESTED_PERSONALITY_TRAIT, name: "I've enjoyed fine food, drink, and high society among my temple's elite. Rough living grates on me." }
+          - { type: SUGGESTED_PERSONALITY_TRAIT, name: "I've spent so long in the temple that I have little practical experience dealing with people in the outside world." }
+      - name: Suggested Ideals
+        pick: 1
+        options:
+          - { type: SUGGESTED_IDEAL, name: "Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)" }
+          - { type: SUGGESTED_IDEAL, name: "Charity. I always try to help those in need, no matter what the personal cost. (Good)" }
+          - { type: SUGGESTED_IDEAL, name: "Change. We must help bring about the changes the gods are constantly working in the world. (Chaos)" }
+          - { type: SUGGESTED_IDEAL, name: "Power. I hope to one day rise to the top of my faith's religious hierarchy. (Lawful)" }
+          - { type: SUGGESTED_IDEAL, name: "Faith. I trust that my deity will guide my actions. I have faith that if I work hard, things will go well. (Lawful)" }
+          - { type: SUGGESTED_IDEAL, name: "Aspiration. I seek to prove myself worthy of my god's favor by matching my actions against his or her teachings. (Any)" }
+      - name: Suggested Bonds
+        pick: 1
+        options:
+          - { type: SUGGESTED_BOND, name: "I would die to recover an ancient relic of my faith that was lost long ago." }
+          - { type: SUGGESTED_BOND, name: "I will someday get revenge on the corrupt temple hierarchy who branded me a heretic." }
+          - { type: SUGGESTED_BOND, name: "I owe my life to the priest who took me in when my parents died." }
+          - { type: SUGGESTED_BOND, name: "Everything I do is for the common people." }
+          - { type: SUGGESTED_BOND, name: "I will do anything to protect the temple where I served." }
+          - { type: SUGGESTED_BOND, name: "I seek to preserve a sacred text that my enemies consider heretical and seek to destroy." }
+      - name: Suggested Flaws
+        pick: 1
+        options:
+          - { type: SUGGESTED_FLAW, name: "I judge others harshly, and myself even more severely." }
+          - { type: SUGGESTED_FLAW, name: "I put too much trust in those who wield power within my temple's hierarchy." }
+          - { type: SUGGESTED_FLAW, name: "My piety sometimes leads me to blindly trust those that profess faith in my god." }
+          - { type: SUGGESTED_FLAW, name: "I am inflexible in my thinking." }
+          - { type: SUGGESTED_FLAW, name: "I am suspicious of strangers and expect the worst of them." }
+          - { type: SUGGESTED_FLAW, name: "Once I pick a goal, I become obsessed with it to the detriment of everything else in my life." }
 
   ## CUSTOMIZED BACKGROUND
   - name: Customized Background

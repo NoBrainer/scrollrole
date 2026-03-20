@@ -5,7 +5,6 @@ import 'package:scrollrole/data/model/rules/parts/feature_variable.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
 import 'package:scrollrole/data/model/rules/parts/spell_casting.dart';
 import 'package:scrollrole/data/model/rules/parts/stat_modifier.dart';
-import 'package:scrollrole/data/model/rules/parts/suggested_characteristics.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
 import 'package:scrollrole/data/model/rules/query/unlockable.dart';
 import 'package:scrollrole/util/config/default_json_serializable.dart';
@@ -36,7 +35,6 @@ class Class extends Feature {
     super.proficiencies,
     super.speed,
     super.statModifiers,
-    super.suggestedCharacteristics,
     super.unlockables,
     super.variables,
     this.baseHitPoints = Class.defaultBaseHitPoints,
