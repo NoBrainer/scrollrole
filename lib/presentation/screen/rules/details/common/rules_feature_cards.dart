@@ -31,11 +31,11 @@ class RulesFeatureCards extends StatelessWidget {
         RulesSpeedCard(speed: feature.speed),
         RulesStatModifiersCard(statModifiers: feature.statModifiers),
         RulesFeatureVariablesCard(variables: feature.variables),
-        RulesChoicesCard(choices: feature.choices),
-        RulesUnlockablesCard(unlockables: feature.unlockables),
         RulesSuggestedCharacteristicsCard(
           suggestedCharacteristics: feature.suggestedCharacteristics,
         ),
+        RulesChoicesCard(choices: feature.choices),
+        RulesUnlockablesCard(unlockables: feature.unlockables),
         if (hasFeatures) _NestedFeaturesWrapper(features: feature.features),
       ],
     );
