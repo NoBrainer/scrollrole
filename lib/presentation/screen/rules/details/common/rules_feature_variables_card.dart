@@ -13,12 +13,32 @@ class RulesFeatureVariablesCard extends StatelessWidget {
       return SizedBox.shrink();
     }
 
-    // TODO: Finish RulesFeatureVariablesCard
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Feature Variables'),
-        BasicCardSection(children: [Text('TBD')]),
+        BasicCardSection(
+          children: variables
+              .map((v) => _FeatureVariable(variable: v))
+              .toList(),
+        ),
       ],
     );
+  }
+}
+
+class _FeatureVariable extends StatelessWidget {
+  final FeatureVariable variable;
+
+  const _FeatureVariable({required this.variable});
+
+  @override
+  Widget build(BuildContext context) {
+    String displayName = variable.displayName;
+    String key = variable.key;
+    dynamic value = variable.value;
+
+    String label = displayName.isEmpty ? key : displayName;
+
+    return Text('- $label: $value');
   }
 }
