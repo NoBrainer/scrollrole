@@ -31,6 +31,11 @@ class StatModifier extends Equatable implements Comparable<StatModifier> {
 
   String toJsonString() => jsonEncode(toJson());
 
+  String toDisplay() {
+    String sign = modifier >= 0 ? '+' : '';
+    return '$sign$modifier $name';
+  }
+
   @override
   int compareTo(other) => name.compareTo(other.name);
 }
