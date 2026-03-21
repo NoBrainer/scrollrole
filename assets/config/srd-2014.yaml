@@ -133,11 +133,11 @@ classes:
     hitPointDie: D12
     baseHitPoints: 12
     proficiencies:
-      - { type: ARMOR,          name: light armor }
-      - { type: ARMOR,          name: medium armor }
-      - { type: ARMOR,          name: shields }
-      - { type: WEAPON,         name: simple weapons }
-      - { type: WEAPON,         name: martial weapons }
+      - { type: ARMOR,          name: Light Armor,      tags: [light] }
+      - { type: ARMOR,          name: Medium Armor,     tags: [medium] }
+      - { type: ARMOR,          name: Shields,          tags: [shield] }
+      - { type: WEAPON,         name: Simple Weapons,   tags: [simple] }
+      - { type: WEAPON,         name: Martial Weapons,  tags: [martial] }
       - { type: SAVING_THROW,   name: STR }
       - { type: SAVING_THROW,   name: CON }
     equipment:
@@ -445,12 +445,12 @@ classes:
     hitPointDie: D8
     baseHitPoints: 8
     proficiencies:
-      - { type: ARMOR,        name: light armor }
-      - { type: WEAPON,       name: simple weapons }
-      - { type: WEAPON,       name: hand crossbows }
-      - { type: WEAPON,       name: longswords }
-      - { type: WEAPON,       name: rapiers }
-      - { type: WEAPON,       name: shortswords }
+      - { type: ARMOR,        name: Light Armor,    tags: [light] }
+      - { type: WEAPON,       name: Simple Weapons, tags: [simple] }
+      - { type: WEAPON,       name: Hand Crossbows, tags: [hand crossbow] }
+      - { type: WEAPON,       name: Longswords,     tags: [longsword] }
+      - { type: WEAPON,       name: Rapiers,        tags: [rapier] }
+      - { type: WEAPON,       name: Shortswords,    tags: [shortsword] }
       - { type: SAVING_THROW, name: DEX }
       - { type: SAVING_THROW, name: CHA }
     equipment:
@@ -932,10 +932,10 @@ species:
     proficiencies:
       - { type: LANGUAGE, name: Common }
       - { type: LANGUAGE, name: Dwarvish }
-      - { type: WEAPON,   name: Battleaxe }
-      - { type: WEAPON,   name: Handaxe }
-      - { type: WEAPON,   name: Light Hammer }
-      - { type: WEAPON,   name: Warhammer }
+      - { type: WEAPON,   name: Battleaxes,     tags: [battleaxe] }
+      - { type: WEAPON,   name: Handaxes,       tags: [handaxe] }
+      - { type: WEAPON,   name: Light Hammers,  tags: [light hammer] }
+      - { type: WEAPON,   name: Warhammers,     tags: [warhammer] }
     choices:
       - name: Tool Proficiency
         description:
@@ -1576,10 +1576,10 @@ lists:
       statModifiers:
         - { type: ABILITY_SCORE, name: INT, modifier: 1 }
       proficiencies:
-        - { type: WEAPON, name: Longbow }
-        - { type: WEAPON, name: Longsword }
-        - { type: WEAPON, name: Shortbow }
-        - { type: WEAPON, name: Shortsword }
+        - { type: WEAPON, name: Longbows,     tags: [longbow] }
+        - { type: WEAPON, name: Longswords,   tags: [longsword] }
+        - { type: WEAPON, name: Shortbows,    tags: [shortbow] }
+        - { type: WEAPON, name: Shortswords,  tags: [shortsword] }
       choices:
         - name: Cantrip
           description:
@@ -1640,7 +1640,7 @@ lists:
             list: features
             tags: [tinker device]
       proficiencies:
-        - { type: TOOL, name: Tinker's Tools }
+        - { type: TOOL, name: Tinker's Tools, tags: [tinker] }
 
   gear:
     #default { weight: "0 lb", per: "1" }
@@ -1765,10 +1765,10 @@ lists:
     - { name: Undercommon,  typicalSpeakers: [underworld traders],  script: Elvish,     isExotic: true }
 
   proficiencies:
-    - { type: ARMOR,        name: Light }
-    - { type: ARMOR,        name: Medium }
-    - { type: ARMOR,        name: Heavy }
-    - { type: ARMOR,        name: Shield }
+    - { type: ARMOR,        name: Light Armor,                tags: [light] }
+    - { type: ARMOR,        name: Medium Armor,               tags: [medium] }
+    - { type: ARMOR,        name: Heavy Armor,                tags: [heavy] }
+    - { type: ARMOR,        name: Shield,                     tags: [shield] }
     - { type: LANGUAGE,     name: Abyssal }
     - { type: LANGUAGE,     name: Celestial }
     - { type: LANGUAGE,     name: Common }
@@ -1809,80 +1809,80 @@ lists:
     - { type: SKILL,        name: "Sleight of Hand" }
     - { type: SKILL,        name: "Stealth" }
     - { type: SKILL,        name: "Survival" }
-    - { type: TOOL,         name: "Alchemist's Supplies",     tags: [artisan's tools] }
-    - { type: TOOL,         name: "Brewer's Supplies",        tags: [artisan's tools] }
-    - { type: TOOL,         name: "Calligrapher's Supplies",  tags: [artisan's tools] }
-    - { type: TOOL,         name: "Carpenter's Tools",        tags: [artisan's tools] }
-    - { type: TOOL,         name: "Cartographer's Tools",     tags: [artisan's tools] }
-    - { type: TOOL,         name: "Cobbler's Tools",          tags: [artisan's tools] }
-    - { type: TOOL,         name: "Cook's Utensils",          tags: [artisan's tools] }
-    - { type: TOOL,         name: "Glassblower's Tools",      tags: [artisan's tools] }
-    - { type: TOOL,         name: "Jeweler's Tools",          tags: [artisan's tools] }
-    - { type: TOOL,         name: "Leatherworker's Tools",    tags: [artisan's tools] }
-    - { type: TOOL,         name: "Mason's Tools",            tags: [artisan's tools] }
-    - { type: TOOL,         name: "Painter's Supplies",       tags: [artisan's tools] }
-    - { type: TOOL,         name: "Potter's Tools",           tags: [artisan's tools] }
-    - { type: TOOL,         name: "Smith's Tools",            tags: [artisan's tools] }
-    - { type: TOOL,         name: "Tinker's Tools",           tags: [artisan's tools] }
-    - { type: TOOL,         name: "Weaver's Tools",           tags: [artisan's tools] }
-    - { type: TOOL,         name: "Woodcarver's Tools",       tags: [artisan's tools] }
-    - { type: TOOL,         name: "Disguise Kit",             tags: [artisan's tools] }
-    - { type: TOOL,         name: "Forgery Kit",              tags: [artisan's tools] }
-    - { type: TOOL,         name: "Dice Set",                 tags: [gaming set] }
-    - { type: TOOL,         name: "Playing Card Set",         tags: [gaming set] }
-    - { type: TOOL,         name: "Bagpipes",                 tags: [musical instrument] }
-    - { type: TOOL,         name: "Drum",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "Dulcimer",                 tags: [musical instrument] }
-    - { type: TOOL,         name: "Flute",                    tags: [musical instrument] }
-    - { type: TOOL,         name: "Lute",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "Lyre",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "Horn",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "Pan Flute",                tags: [musical instrument] }
-    - { type: TOOL,         name: "Shawm",                    tags: [musical instrument] }
-    - { type: TOOL,         name: "Viol",                     tags: [musical instrument] }
-    - { type: TOOL,         name: "Herbalism Kit" }
-    - { type: TOOL,         name: "Navigator's Tools" }
-    - { type: TOOL,         name: "Poisoner's Kit" }
-    - { type: TOOL,         name: "Thieves' Tools" }
-    - { type: TOOL,         name: "Vehicles (Land)" }
-    - { type: TOOL,         name: "Vehicles (Water)" }
-    - { type: WEAPON,       name: "Club",                     tags: [simple, melee] }
-    - { type: WEAPON,       name: "Dagger",                   tags: [simple, melee] }
-    - { type: WEAPON,       name: "Greatclub",                tags: [simple, melee] }
-    - { type: WEAPON,       name: "Handaxe",                  tags: [simple, melee] }
-    - { type: WEAPON,       name: "Javelin",                  tags: [simple, melee] }
-    - { type: WEAPON,       name: "Light Hammer",             tags: [simple, melee] }
-    - { type: WEAPON,       name: "Mace",                     tags: [simple, melee] }
-    - { type: WEAPON,       name: "Quarterstaff",             tags: [simple, melee] }
-    - { type: WEAPON,       name: "Sickle",                   tags: [simple, melee] }
-    - { type: WEAPON,       name: "Spear",                    tags: [simple, melee] }
-    - { type: WEAPON,       name: "Crossbow, Light",          tags: [simple, ranged] }
-    - { type: WEAPON,       name: "Dart",                     tags: [simple, ranged] }
-    - { type: WEAPON,       name: "Shortbow",                 tags: [simple, ranged] }
-    - { type: WEAPON,       name: "Sling",                    tags: [simple, ranged] }
-    - { type: WEAPON,       name: "Battleaxe",                tags: [martial, melee] }
-    - { type: WEAPON,       name: "Flail",                    tags: [martial, melee] }
-    - { type: WEAPON,       name: "Glaive",                   tags: [martial, melee] }
-    - { type: WEAPON,       name: "Greataxe",                 tags: [martial, melee] }
-    - { type: WEAPON,       name: "Greatsword",               tags: [martial, melee] }
-    - { type: WEAPON,       name: "Halberd",                  tags: [martial, melee] }
-    - { type: WEAPON,       name: "Lance",                    tags: [martial, melee] }
-    - { type: WEAPON,       name: "Longsword",                tags: [martial, melee] }
-    - { type: WEAPON,       name: "Maul",                     tags: [martial, melee] }
-    - { type: WEAPON,       name: "Morningstar",              tags: [martial, melee] }
-    - { type: WEAPON,       name: "Pike",                     tags: [martial, melee] }
-    - { type: WEAPON,       name: "Rapier",                   tags: [martial, melee] }
-    - { type: WEAPON,       name: "Scimitar",                 tags: [martial, melee] }
-    - { type: WEAPON,       name: "Shortsword",               tags: [martial, melee] }
-    - { type: WEAPON,       name: "Trident",                  tags: [martial, melee] }
-    - { type: WEAPON,       name: "War Pick",                 tags: [martial, melee] }
-    - { type: WEAPON,       name: "Warhammer",                tags: [martial, melee] }
-    - { type: WEAPON,       name: "Whip",                     tags: [martial, melee] }
-    - { type: WEAPON,       name: "Blowgun",                  tags: [martial, ranged] }
-    - { type: WEAPON,       name: "Crossbow, Hand",           tags: [martial, ranged] }
-    - { type: WEAPON,       name: "Crossbow, Heavy",          tags: [martial, ranged] }
-    - { type: WEAPON,       name: "Longbow",                  tags: [martial, ranged] }
-    - { type: WEAPON,       name: "Net",                      tags: [martial, ranged] }
+    - { type: TOOL,         name: "Alchemist's Supplies",     tags: [artisan's tools, alchemist] }
+    - { type: TOOL,         name: "Brewer's Supplies",        tags: [artisan's tools, brewer] }
+    - { type: TOOL,         name: "Calligrapher's Supplies",  tags: [artisan's tools, calligrapher] }
+    - { type: TOOL,         name: "Carpenter's Tools",        tags: [artisan's tools, carpenter] }
+    - { type: TOOL,         name: "Cartographer's Tools",     tags: [artisan's tools, cartographer] }
+    - { type: TOOL,         name: "Cobbler's Tools",          tags: [artisan's tools, cobbler] }
+    - { type: TOOL,         name: "Cook's Utensils",          tags: [artisan's tools, cook] }
+    - { type: TOOL,         name: "Glassblower's Tools",      tags: [artisan's tools, glassblower] }
+    - { type: TOOL,         name: "Jeweler's Tools",          tags: [artisan's tools, jeweler] }
+    - { type: TOOL,         name: "Leatherworker's Tools",    tags: [artisan's tools, leatherworker] }
+    - { type: TOOL,         name: "Mason's Tools",            tags: [artisan's tools, mason] }
+    - { type: TOOL,         name: "Painter's Supplies",       tags: [artisan's tools, painter] }
+    - { type: TOOL,         name: "Potter's Tools",           tags: [artisan's tools, potter] }
+    - { type: TOOL,         name: "Smith's Tools",            tags: [artisan's tools, smith] }
+    - { type: TOOL,         name: "Tinker's Tools",           tags: [artisan's tools, tinker] }
+    - { type: TOOL,         name: "Weaver's Tools",           tags: [artisan's tools, weaver] }
+    - { type: TOOL,         name: "Woodcarver's Tools",       tags: [artisan's tools, woodcarver] }
+    - { type: TOOL,         name: "Disguise Kit",             tags: [artisan's tools, disguise] }
+    - { type: TOOL,         name: "Forgery Kit",              tags: [artisan's tools, forgery] }
+    - { type: TOOL,         name: "Dice Set",                 tags: [gaming set, dice] }
+    - { type: TOOL,         name: "Playing Card Set",         tags: [gaming set, card] }
+    - { type: TOOL,         name: "Bagpipes",                 tags: [musical instrument, bagpipes] }
+    - { type: TOOL,         name: "Drum",                     tags: [musical instrument, drum] }
+    - { type: TOOL,         name: "Dulcimer",                 tags: [musical instrument, dulcimer] }
+    - { type: TOOL,         name: "Flute",                    tags: [musical instrument, flute] }
+    - { type: TOOL,         name: "Lute",                     tags: [musical instrument, lute] }
+    - { type: TOOL,         name: "Lyre",                     tags: [musical instrument, lyre] }
+    - { type: TOOL,         name: "Horn",                     tags: [musical instrument, horn] }
+    - { type: TOOL,         name: "Pan Flute",                tags: [musical instrument, pan flute] }
+    - { type: TOOL,         name: "Shawm",                    tags: [musical instrument, shawm] }
+    - { type: TOOL,         name: "Viol",                     tags: [musical instrument, viol] }
+    - { type: TOOL,         name: "Herbalism Kit",            tags: [herbalism] }
+    - { type: TOOL,         name: "Navigator's Tools",        tags: [navigator] }
+    - { type: TOOL,         name: "Poisoner's Kit",           tags: [poisoner] }
+    - { type: TOOL,         name: "Thieves' Tools",           tags: [thieves] }
+    - { type: TOOL,         name: "Vehicles (Land)",          tags: [land vehicle, vehicle] }
+    - { type: TOOL,         name: "Vehicles (Water)",         tags: [water vehicle, vehicle] }
+    - { type: WEAPON,       name: "Club",                     tags: [simple, melee, club] }
+    - { type: WEAPON,       name: "Dagger",                   tags: [simple, melee, dagger] }
+    - { type: WEAPON,       name: "Greatclub",                tags: [simple, melee, greatclub] }
+    - { type: WEAPON,       name: "Handaxe",                  tags: [simple, melee, handaxe, axe] }
+    - { type: WEAPON,       name: "Javelin",                  tags: [simple, melee, javelin] }
+    - { type: WEAPON,       name: "Light Hammer",             tags: [simple, melee, light hammer, hammer] }
+    - { type: WEAPON,       name: "Mace",                     tags: [simple, melee, mace] }
+    - { type: WEAPON,       name: "Quarterstaff",             tags: [simple, melee, quarterstaff, staff, polearm] }
+    - { type: WEAPON,       name: "Sickle",                   tags: [simple, melee, sickle] }
+    - { type: WEAPON,       name: "Spear",                    tags: [simple, melee, spear, polearm] }
+    - { type: WEAPON,       name: "Crossbow, Light",          tags: [simple, ranged, light crossbow, crossbow] }
+    - { type: WEAPON,       name: "Dart",                     tags: [simple, ranged, dart] }
+    - { type: WEAPON,       name: "Shortbow",                 tags: [simple, ranged, shortbow, bow] }
+    - { type: WEAPON,       name: "Sling",                    tags: [simple, ranged, sling] }
+    - { type: WEAPON,       name: "Battleaxe",                tags: [martial, melee, battleaxe, axe] }
+    - { type: WEAPON,       name: "Flail",                    tags: [martial, melee, flail] }
+    - { type: WEAPON,       name: "Glaive",                   tags: [martial, melee, glaive, polearm] }
+    - { type: WEAPON,       name: "Greataxe",                 tags: [martial, melee, greataxe, axe] }
+    - { type: WEAPON,       name: "Greatsword",               tags: [martial, melee, greatsword, sword] }
+    - { type: WEAPON,       name: "Halberd",                  tags: [martial, melee, halberd, polearm] }
+    - { type: WEAPON,       name: "Lance",                    tags: [martial, melee, lance] }
+    - { type: WEAPON,       name: "Longsword",                tags: [martial, melee, longsword, sword] }
+    - { type: WEAPON,       name: "Maul",                     tags: [martial, melee, maul] }
+    - { type: WEAPON,       name: "Morningstar",              tags: [martial, melee, morningstar] }
+    - { type: WEAPON,       name: "Pike",                     tags: [martial, melee, pike] }
+    - { type: WEAPON,       name: "Rapier",                   tags: [martial, melee, rapier, sword] }
+    - { type: WEAPON,       name: "Scimitar",                 tags: [martial, melee, scimitar, sword] }
+    - { type: WEAPON,       name: "Shortsword",               tags: [martial, melee, shortsword, sword] }
+    - { type: WEAPON,       name: "Trident",                  tags: [martial, melee, trident] }
+    - { type: WEAPON,       name: "War Pick",                 tags: [martial, melee, war pick] }
+    - { type: WEAPON,       name: "Warhammer",                tags: [martial, melee, warhammer, hammer] }
+    - { type: WEAPON,       name: "Whip",                     tags: [martial, melee, whip] }
+    - { type: WEAPON,       name: "Blowgun",                  tags: [martial, ranged, blowgun] }
+    - { type: WEAPON,       name: "Crossbow, Hand",           tags: [martial, ranged, hand crossbow, crossbow] }
+    - { type: WEAPON,       name: "Crossbow, Heavy",          tags: [martial, ranged, heavy crossbow, crossbow] }
+    - { type: WEAPON,       name: "Longbow",                  tags: [martial, ranged, longbow, bow] }
+    - { type: WEAPON,       name: "Net",                      tags: [martial, ranged, net] }
 
   spells:
     - { level: 0, name: Acid Splash,                    classes: [Sorcerer, Wizard] }
