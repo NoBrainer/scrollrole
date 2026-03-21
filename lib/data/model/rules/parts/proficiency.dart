@@ -31,18 +31,6 @@ class Proficiency extends Equatable implements Comparable<Proficiency> {
 
   String toJsonString() => jsonEncode(toJson());
 
-  String toDisplay() {
-    String display = name;
-    if (tags.isNotEmpty) {
-      if (tags.length == 1) {
-        display += ' (tag: ${tags.first})';
-      } else {
-        display += ' (tags: $tags)';
-      }
-    }
-    return display;
-  }
-
   @override
   int compareTo(other) => name.compareTo(other.name);
 }

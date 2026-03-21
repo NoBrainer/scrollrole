@@ -55,7 +55,7 @@ class _ProficiencyTypeSection extends StatelessWidget {
     String label = type.display;
 
     proficiencies.sort();
-    String listStr = proficiencies.map((p) => p.toDisplay()).join(', ');
+    String listStr = proficiencies.map((p) => p.name).join(', ');
 
     return Text('- $label: $listStr');
   }
