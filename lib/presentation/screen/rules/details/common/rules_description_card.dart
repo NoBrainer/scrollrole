@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scrollrole/presentation/common/basic_card.dart';
+import 'package:scrollrole/presentation/screen/rules/details/common/rules_paragraphs.dart';
 
 class RulesDescriptionCard extends StatelessWidget {
   final String abbreviation;
@@ -19,19 +20,10 @@ class RulesDescriptionCard extends StatelessWidget {
       return SizedBox.shrink();
     }
 
-    // Add space between each paragraph
-    List<Widget> paragraphWidgets = [];
-    for (var paragraph in paragraphs) {
-      if (paragraphWidgets.isNotEmpty) {
-        paragraphWidgets.add(SizedBox(height: 8));
-      }
-      paragraphWidgets.add(Text(paragraph));
-    }
-
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Description'),
-        BasicCardSection(children: paragraphWidgets),
+        BasicCardSection(children: [RulesParagraphs(paragraphs: paragraphs)]),
         if (hasAbbreviation) BasicCardTitle(text: 'Shorthand'),
         if (hasAbbreviation) BasicCardSection(children: [Text(abbreviation)]),
       ],
