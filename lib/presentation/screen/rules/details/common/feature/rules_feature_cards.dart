@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:scrollrole/data/model/rules/parts/feature.dart';
+import 'package:scrollrole/presentation/screen/rules/details/common/feature/rules_feature_title.dart';
+import 'package:scrollrole/presentation/screen/rules/details/common/feature/rules_feature_variables_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_choices_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_description_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_equipment_card.dart';
-import 'package:scrollrole/presentation/screen/rules/details/common/rules_feature_title.dart';
-import 'package:scrollrole/presentation/screen/rules/details/common/rules_feature_variables_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_proficiencies_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_speed_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_stat_modifiers_card.dart';

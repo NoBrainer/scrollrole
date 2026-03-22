@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:scrollrole/bloc/config/config_bloc.dart';
 import 'package:scrollrole/data/model/rules/background.dart';
-import 'package:scrollrole/presentation/screen/rules/details/common/rules_feature_cards.dart';
-import 'package:scrollrole/presentation/screen/rules/details/common/rules_feature_title.dart';
+import 'package:scrollrole/presentation/screen/rules/details/common/feature/rules_feature_cards.dart';
+import 'package:scrollrole/presentation/screen/rules/details/common/feature/rules_feature_title.dart';
 
 class RulesBackgroundBody extends StatelessWidget {
   final String name;

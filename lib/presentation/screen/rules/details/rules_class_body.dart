@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:scrollrole/bloc/config/config_bloc.dart';
 import 'package:scrollrole/data/model/rules/class.dart';
-import 'package:scrollrole/presentation/screen/rules/details/common/rules_feature_cards.dart';
-import 'package:scrollrole/presentation/screen/rules/details/common/rules_feature_title.dart';
+import 'package:scrollrole/presentation/screen/rules/details/common/feature/rules_feature_cards.dart';
+import 'package:scrollrole/presentation/screen/rules/details/common/feature/rules_feature_title.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_hit_points_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_proficiency_bonus_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_spell_casting_card.dart';
