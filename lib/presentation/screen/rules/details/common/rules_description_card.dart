@@ -20,11 +20,17 @@ class RulesDescriptionCard extends StatelessWidget {
       return SizedBox.shrink();
     }
 
+    final titleStyle = Theme.of(context).textTheme.bodyLarge?.copyWith();
+
     return BasicCard(
       children: [
         BasicCardTitle(text: 'Description'),
         BasicCardSection(children: [RulesParagraphs(paragraphs: paragraphs)]),
-        if (hasAbbreviation) BasicCardTitle(text: 'Shorthand'),
+        if (hasAbbreviation)
+          Padding(
+            padding: const EdgeInsets.only(left: BasicCard.paddingNum, top: 8),
+            child: Text('Shorthand', style: titleStyle),
+          ),
         if (hasAbbreviation) BasicCardSection(children: [Text(abbreviation)]),
       ],
     );
