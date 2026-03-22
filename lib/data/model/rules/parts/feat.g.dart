@@ -23,6 +23,11 @@ Feat _$FeatFromJson(Map<String, dynamic> json) => Feat(
           ?.map((e) => Condition.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  tags:
+      (json['tags'] as List<dynamic>?)
+          ?.map((e) => const StringTrimConverter().fromJson(e as String))
+          .toList() ??
+      const [],
 );
 
 Map<String, dynamic> _$FeatToJson(Feat instance) => <String, dynamic>{
@@ -34,4 +39,5 @@ Map<String, dynamic> _$FeatToJson(Feat instance) => <String, dynamic>{
   ),
   'name': const StringTrimConverter().toJson(instance.name),
   'prerequisites': instance.prerequisites.map((e) => e.toJson()).toList(),
+  'tags': instance.tags.map(const StringTrimConverter().toJson).toList(),
 };

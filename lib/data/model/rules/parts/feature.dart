@@ -23,6 +23,7 @@ class Feature extends Equatable implements Comparable<Feature> {
   final List<Proficiency> proficiencies;
   final int? speed;
   final List<StatModifier> statModifiers;
+  final List<String> tags;
   final List<Unlockable> unlockables;
   final List<FeatureVariable> variables;
 
@@ -36,6 +37,7 @@ class Feature extends Equatable implements Comparable<Feature> {
     this.proficiencies = const [],
     this.speed,
     this.statModifiers = const [],
+    this.tags = const [],
     this.unlockables = const [],
     this.variables = const [],
   });
@@ -51,6 +53,7 @@ class Feature extends Equatable implements Comparable<Feature> {
     proficiencies,
     speed,
     statModifiers,
+    tags,
     unlockables,
     variables,
   ];

@@ -44,6 +44,11 @@ Feature _$FeatureFromJson(Map<String, dynamic> json) => Feature(
           ?.map((e) => StatModifier.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  tags:
+      (json['tags'] as List<dynamic>?)
+          ?.map((e) => const StringTrimConverter().fromJson(e as String))
+          .toList() ??
+      const [],
   unlockables:
       (json['unlockables'] as List<dynamic>?)
           ?.map((e) => Unlockable.fromJson(e as Map<String, dynamic>))
@@ -70,6 +75,7 @@ Map<String, dynamic> _$FeatureToJson(Feature instance) => <String, dynamic>{
   'proficiencies': instance.proficiencies.map((e) => e.toJson()).toList(),
   'speed': instance.speed,
   'statModifiers': instance.statModifiers.map((e) => e.toJson()).toList(),
+  'tags': instance.tags.map(const StringTrimConverter().toJson).toList(),
   'unlockables': instance.unlockables.map((e) => e.toJson()).toList(),
   'variables': instance.variables.map((e) => e.toJson()).toList(),
 };

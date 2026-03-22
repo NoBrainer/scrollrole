@@ -11,11 +11,17 @@ class Spell extends Equatable implements Comparable<Spell> {
   final List<String> classes;
   final int level;
   final String name;
+  final List<String> tags;
 
-  const Spell({this.classes = const [], this.level = 1, required this.name});
+  const Spell({
+    this.classes = const [],
+    this.level = 1,
+    required this.name,
+    this.tags = const [],
+  });
 
   @override
-  List<Object?> get props => [classes, level, name];
+  List<Object?> get props => [classes, level, name, tags];
 
   factory Spell.fromJson(Map<String, dynamic> json) {
     return MapperUtil.jsonToObject('Spell', _$SpellFromJson, json) as Spell;

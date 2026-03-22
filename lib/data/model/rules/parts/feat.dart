@@ -13,12 +13,14 @@ class Feat extends Equatable implements Comparable<Feat> {
   final String descriptionShort;
   final String name;
   final List<Condition> prerequisites;
+  final List<String> tags;
 
   const Feat({
     this.description = const [],
     this.descriptionShort = '',
     required this.name,
     this.prerequisites = const [],
+    this.tags = const [],
   });
 
   @override
@@ -27,6 +29,7 @@ class Feat extends Equatable implements Comparable<Feat> {
     descriptionShort,
     name,
     prerequisites,
+    tags,
   ];
 
   factory Feat.fromJson(Map<String, dynamic> json) {
