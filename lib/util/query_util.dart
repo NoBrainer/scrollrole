@@ -15,7 +15,26 @@ import 'package:scrollrole/data/model/rules/query/list_option.dart';
 import 'package:scrollrole/data/model/rules/query/list_query.dart';
 
 class QueryUtil {
-  static List<ListOption> queryOptions(BuildContext context, ListQuery query) {
+  /// Determine options from a list of [ListOption]s and a [ListQuery].
+  static List<ListOption> buildListOptions({
+    required BuildContext context,
+    required ListQuery query,
+    List<ListOption> initialOptions = const [],
+  }) {
+    List<ListOption> options = [...initialOptions];
+
+    options.addAll(QueryUtil._queryListOptions(context, query));
+
+    // TODO: Figure out if we want to always sort
+    options.sort();
+
+    return options.toSet().toList();
+  }
+
+  static List<ListOption> _queryListOptions(
+    BuildContext context,
+    ListQuery query,
+  ) {
     // Used to determine type for proficiencies
     List<ListOptionType> types = query.types.toSet().toList();
 

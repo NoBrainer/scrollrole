@@ -5,6 +5,7 @@ import 'package:scrollrole/data/model/rules/query/list_option.dart';
 import 'package:scrollrole/data/model/rules/query/list_query.dart';
 import 'package:scrollrole/presentation/common/basic_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_paragraphs.dart';
+import 'package:scrollrole/util/query_util.dart';
 
 class RulesChoicesCard extends StatelessWidget {
   final List<Choice> choices;
@@ -55,7 +56,11 @@ class _ChoiceItem extends StatelessWidget {
     ListQuery? query = choice.query;
     List<ListOption> options = query == null
         ? [...choice.options]
-        : query.parseOptions(context: context, initialOptions: choice.options);
+        : QueryUtil.buildListOptions(
+            context: context,
+            query: query,
+            initialOptions: choice.options,
+          );
     List<ListOptionType> optionTypes = options
         .map((o) => o.type)
         .toSet()
