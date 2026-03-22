@@ -35,5 +35,6 @@ class ListOption extends Equatable implements Comparable<ListOption> {
   String toJsonString() => jsonEncode(toJson());
 
   @override
-  int compareTo(other) => name.compareTo(other.name);
+  int compareTo(other) =>
+      (1000 * type.compareTo(other.type)) + name.compareTo(other.name);
 }
