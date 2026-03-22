@@ -51,7 +51,7 @@ class _NestedFeaturesWrapper extends StatelessWidget {
     );
 
     return Padding(
-      padding: EdgeInsets.only(left: 6),
+      padding: EdgeInsets.only(left: 6, top: 8),
       child: Column(
         children: [
           ...features.map((f) {
