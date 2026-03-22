@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
+import 'package:scrollrole/data/model/rules/interface/taggable.dart';
 import 'package:scrollrole/data/model/rules/query/condition.dart';
 import 'package:scrollrole/util/config/default_json_serializable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
@@ -8,11 +9,12 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'feat.g.dart';
 
 @DefaultJsonSerializable()
-class Feat extends Equatable implements Comparable<Feat> {
+class Feat extends Equatable implements Comparable<Feat>, Taggable {
   final List<String> description;
   final String descriptionShort;
   final String name;
   final List<Condition> prerequisites;
+  @override
   final List<String> tags;
 
   const Feat({

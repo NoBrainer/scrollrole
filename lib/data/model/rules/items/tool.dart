@@ -1,15 +1,17 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
+import 'package:scrollrole/data/model/rules/interface/taggable.dart';
 import 'package:scrollrole/util/config/default_json_serializable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'tool.g.dart';
 
 @DefaultJsonSerializable()
-class Tool extends Equatable implements Comparable<Tool> {
+class Tool extends Equatable implements Comparable<Tool>, Taggable {
   final int cost;
   final String name;
+  @override
   final List<String> tags;
   final String weight;
 

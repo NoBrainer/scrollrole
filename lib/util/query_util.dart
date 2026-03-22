@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scrollrole/bloc/config/config_bloc.dart';
 import 'package:scrollrole/data/model/enum/list_option_type.dart';
+import 'package:scrollrole/data/model/rules/interface/taggable.dart';
 import 'package:scrollrole/data/model/rules/items/armor.dart';
 import 'package:scrollrole/data/model/rules/items/equipment_pack.dart';
 import 'package:scrollrole/data/model/rules/items/gear.dart';
@@ -75,16 +76,16 @@ class QueryUtil {
             .toList();
       case 'feats':
         return getAllFeats(context)
+            .where((Feat f) => hasAnyTags(f, tags))
+            .where((Feat f) => hasAllTags(f, requiredTags))
             .map(
               (Feat f) => ListOption(name: f.name, type: ListOptionType.feat),
             )
             .toList();
       case 'features':
         return getAllFeatures(context)
-            .where((Feature f) {
-              // TODO: filter by requiredTags, tags
-              return true;
-            })
+            .where((Feature f) => hasAnyTags(f, tags))
+            .where((Feature f) => hasAllTags(f, requiredTags))
             .map(
               (Feature f) => ListOption(
                 name: f.name,
@@ -106,13 +107,15 @@ class QueryUtil {
               (Language l) => ListOption(
                 name: l.name,
                 // TODO: May need a different type to distinguish between proficiency
+                // TODO: Or consolidate languages into language proficiency
                 type: ListOptionType.proficiencyLanguage,
               ),
             )
             .toList();
       case 'proficiencies':
         return getAllProficiencies(context)
-            // TODO: filter by requiredTags, tags
+            .where((Proficiency p) => hasAnyTags(p, tags))
+            .where((Proficiency p) => hasAllTags(p, requiredTags))
             .where((Proficiency p) => p.type.matchesOptionTypes(types))
             .map(
               (Proficiency p) =>
@@ -121,9 +124,16 @@ class QueryUtil {
             .toList();
       case 'spells':
         return getAllSpells(context)
+            .where((Spell s) => hasAnyTags(s, tags))
+            .where((Spell s) => hasAllTags(s, requiredTags))
             .where((Spell s) {
-              // TODO: filter by classNames, levels
-              return true;
+              return levels.isEmpty ? true : levels.contains(s.level);
+            })
+            .where((Spell s) {
+              if (classNames.isNotEmpty && s.classes.isEmpty) {
+                return false; // nothing to match filter
+              }
+              return hasAny(s.classes, classNames);
             })
             .map(
               (Spell s) => ListOption(name: s.name, type: ListOptionType.spell),
@@ -131,10 +141,8 @@ class QueryUtil {
             .toList();
       case 'tools':
         return getAllTools(context)
-            .where((Tool t) {
-              // TODO: filter by requiredTags, tags
-              return true;
-            })
+            .where((Tool t) => hasAnyTags(t, tags))
+            .where((Tool t) => hasAllTags(t, requiredTags))
             .map(
               (Tool t) =>
                   ListOption(name: t.name, type: ListOptionType.equipmentTool),
@@ -142,10 +150,8 @@ class QueryUtil {
             .toList();
       case 'weapons':
         return getAllWeapons(context)
-            .where((Weapon w) {
-              // TODO: filter by requiredTags, tags
-              return true;
-            })
+            .where((Weapon w) => hasAnyTags(w, tags))
+            .where((Weapon w) => hasAllTags(w, requiredTags))
             .map(
               (Weapon w) => ListOption(
                 name: w.name,
@@ -156,5 +162,35 @@ class QueryUtil {
       default:
         return [];
     }
+  }
+
+  /// True if [t] has all [required] tags.
+  static bool hasAllTags(Taggable t, List<String> required) {
+    return hasAll(t.tags, required);
+  }
+
+  /// True if [list] is a superset of [required].
+  static bool hasAll(List list, List required) {
+    if (required.isEmpty) {
+      return true;
+    }
+
+    List missing = list.where((s) => !required.contains(s)).toList();
+    return missing.isEmpty;
+  }
+
+  /// True if [t] has any tags matching [any].
+  static bool hasAnyTags(Taggable t, List<String> any) {
+    return hasAny(t.tags, any);
+  }
+
+  /// True if [list] contains any from [any].
+  static bool hasAny(List list, List any) {
+    if (any.isEmpty) {
+      return true;
+    }
+
+    List matching = list.where((s) => any.contains(s)).toList();
+    return matching.isNotEmpty;
   }
 }

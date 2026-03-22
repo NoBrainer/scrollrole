@@ -1,16 +1,18 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
+import 'package:scrollrole/data/model/rules/interface/taggable.dart';
 import 'package:scrollrole/util/config/default_json_serializable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'spell.g.dart';
 
 @DefaultJsonSerializable()
-class Spell extends Equatable implements Comparable<Spell> {
+class Spell extends Equatable implements Comparable<Spell>, Taggable {
   final List<String> classes;
   final int level;
   final String name;
+  @override
   final List<String> tags;
 
   const Spell({

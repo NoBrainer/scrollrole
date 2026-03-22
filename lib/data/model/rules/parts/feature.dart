@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
+import 'package:scrollrole/data/model/rules/interface/taggable.dart';
 import 'package:scrollrole/data/model/rules/items/equipment.dart';
 import 'package:scrollrole/data/model/rules/parts/feature_variable.dart';
 import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
@@ -13,7 +14,7 @@ import 'package:scrollrole/util/mapper_util.dart';
 part 'feature.g.dart';
 
 @DefaultJsonSerializable()
-class Feature extends Equatable implements Comparable<Feature> {
+class Feature extends Equatable implements Comparable<Feature>, Taggable {
   final List<Choice> choices;
   final List<String> description;
   final String descriptionShort;
@@ -23,6 +24,7 @@ class Feature extends Equatable implements Comparable<Feature> {
   final List<Proficiency> proficiencies;
   final int? speed;
   final List<StatModifier> statModifiers;
+  @override
   final List<String> tags;
   final List<Unlockable> unlockables;
   final List<FeatureVariable> variables;

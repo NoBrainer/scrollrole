@@ -1,13 +1,14 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
+import 'package:scrollrole/data/model/rules/interface/taggable.dart';
 import 'package:scrollrole/util/config/default_json_serializable.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
 part 'weapon.g.dart';
 
 @DefaultJsonSerializable()
-class Weapon extends Equatable implements Comparable<Weapon> {
+class Weapon extends Equatable implements Comparable<Weapon>, Taggable {
   final int cost;
   final String damage;
   final String damageType;
@@ -15,6 +16,7 @@ class Weapon extends Equatable implements Comparable<Weapon> {
   final int range;
   final String rangeUnits;
   final int rangeWithDisadvantage;
+  @override
   final List<String> tags;
   final String versatileDamage;
   final String weight;
