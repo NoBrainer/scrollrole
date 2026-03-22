@@ -1,3 +1,4 @@
+import 'package:scrollrole/data/model/enum/list_option_type.dart';
 import 'package:scrollrole/util/config/default_json_enum.dart';
 import 'package:scrollrole/util/mapper_util.dart';
 
@@ -30,4 +31,28 @@ enum ProficiencyType implements Comparable<ProficiencyType> {
 
   @override
   int compareTo(other) => display.compareTo(other.display);
+
+  ListOptionType toListOptionType() {
+    switch (this) {
+      case armor:
+        return ListOptionType.proficiencyArmor;
+      case language:
+        return ListOptionType.proficiencyLanguage;
+      case savingThrow:
+        return ListOptionType.proficiencySavingThrow;
+      case skill:
+        return ListOptionType.proficiencySkill;
+      case tool:
+        return ListOptionType.proficiencyTool;
+      case weapon:
+        return ListOptionType.proficiencyWeapon;
+    }
+  }
+
+  bool matchesOptionTypes(List<ListOptionType> types) {
+    if (types.isEmpty || types.contains(ListOptionType.proficiency)) {
+      return true;
+    }
+    return types.contains(toListOptionType());
+  }
 }

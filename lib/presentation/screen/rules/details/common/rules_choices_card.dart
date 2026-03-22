@@ -43,24 +43,6 @@ class _ChoiceItem extends StatelessWidget {
 
   const _ChoiceItem({required this.choice});
 
-  // TODO: Move this to a common area
-  List<ListOption> parseOptions({
-    List<ListOption> options = const [],
-    required ListQuery query,
-  }) {
-    List<ListOption> parsedOptions = [...options];
-
-    // TODO: Parse the query for more options
-    ListQuery? query = choice.query;
-    if (query != null) {
-      parsedOptions.add(
-        ListOption(name: 'UNPARSED_QUERY', type: ListOptionType.feature),
-      );
-    }
-
-    return parsedOptions;
-  }
-
   @override
   Widget build(BuildContext context) {
     String name = choice.name;
@@ -73,7 +55,7 @@ class _ChoiceItem extends StatelessWidget {
     ListQuery? query = choice.query;
     List<ListOption> options = query == null
         ? [...choice.options]
-        : parseOptions(query: query, options: choice.options);
+        : query.parseOptions(context: context, initialOptions: choice.options);
     List<ListOptionType> optionTypes = options
         .map((o) => o.type)
         .toSet()

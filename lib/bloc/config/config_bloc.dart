@@ -8,6 +8,16 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:scrollrole/data/model/rules/background.dart';
 import 'package:scrollrole/data/model/rules/class.dart';
+import 'package:scrollrole/data/model/rules/items/armor.dart';
+import 'package:scrollrole/data/model/rules/items/equipment_pack.dart';
+import 'package:scrollrole/data/model/rules/items/gear.dart';
+import 'package:scrollrole/data/model/rules/items/language.dart';
+import 'package:scrollrole/data/model/rules/items/tool.dart';
+import 'package:scrollrole/data/model/rules/items/weapon.dart';
+import 'package:scrollrole/data/model/rules/parts/feat.dart';
+import 'package:scrollrole/data/model/rules/parts/feature.dart';
+import 'package:scrollrole/data/model/rules/parts/proficiency.dart';
+import 'package:scrollrole/data/model/rules/parts/spell.dart';
 import 'package:scrollrole/data/model/rules/rules_config.dart';
 import 'package:scrollrole/data/model/rules/species.dart';
 import 'package:scrollrole/data/repository/config_repository.dart';
@@ -90,8 +100,7 @@ RulesConfig getRulesConfig(BuildContext context) {
 }
 
 List<Background> getBackgrounds(BuildContext context) {
-  var config = getRulesConfig(context);
-  return config.backgrounds;
+  return getRulesConfig(context).backgrounds;
 }
 
 Background? getBackgroundByName(BuildContext context, String name) {
@@ -104,8 +113,7 @@ Background? getBackgroundByName(BuildContext context, String name) {
 }
 
 List<Class> getClasses(BuildContext context) {
-  var config = getRulesConfig(context);
-  return config.classes;
+  return getRulesConfig(context).classes;
 }
 
 Class? getClassByName(BuildContext context, String name) {
@@ -118,8 +126,7 @@ Class? getClassByName(BuildContext context, String name) {
 }
 
 List<Species> getSpecies(BuildContext context) {
-  var config = getRulesConfig(context);
-  return config.species;
+  return getRulesConfig(context).species;
 }
 
 Species? getSpeciesByName(BuildContext context, String name) {
@@ -129,6 +136,50 @@ Species? getSpeciesByName(BuildContext context, String name) {
     }
   }
   return null;
+}
+
+List<Armor> getAllArmor(BuildContext context) {
+  return getRulesConfig(context).lists.armor;
+}
+
+List<Feature> getAllBackgroundFeatures(BuildContext context) {
+  return getRulesConfig(context).lists.backgroundFeatures;
+}
+
+List<EquipmentPack> getAllEquipmentPacks(BuildContext context) {
+  return getRulesConfig(context).lists.equipmentPacks;
+}
+
+List<Feat> getAllFeats(BuildContext context) {
+  return getRulesConfig(context).lists.feats;
+}
+
+List<Feature> getAllFeatures(BuildContext context) {
+  return getRulesConfig(context).lists.features;
+}
+
+List<Gear> getAllGear(BuildContext context) {
+  return getRulesConfig(context).lists.gear;
+}
+
+List<Language> getAllLanguages(BuildContext context) {
+  return getRulesConfig(context).lists.languages;
+}
+
+List<Proficiency> getAllProficiencies(BuildContext context) {
+  return getRulesConfig(context).lists.proficiencies;
+}
+
+List<Spell> getAllSpells(BuildContext context) {
+  return getRulesConfig(context).lists.spells;
+}
+
+List<Tool> getAllTools(BuildContext context) {
+  return getRulesConfig(context).lists.tools;
+}
+
+List<Weapon> getAllWeapons(BuildContext context) {
+  return getRulesConfig(context).lists.weapons;
 }
 
 void triggerForceReset(BuildContext context) {
