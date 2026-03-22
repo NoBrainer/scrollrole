@@ -43,4 +43,22 @@ enum ListOptionType implements Comparable<ListOptionType> {
 
   @override
   int compareTo(other) => display.compareTo(other.display);
+
+  String displayLongPlural() {
+    switch (this) {
+      case ListOptionType.proficiency:
+      case ListOptionType.proficiencyArmor:
+      case ListOptionType.proficiencyLanguage:
+      case ListOptionType.proficiencySavingThrow:
+      case ListOptionType.proficiencySkill:
+      case ListOptionType.proficiencyTool:
+      case ListOptionType.proficiencyWeapon:
+        return displayLong.replaceFirst('Proficiency', 'Proficiencies');
+      case ListOptionType.equipment:
+      case ListOptionType.equipmentArmor:
+        return displayLong;
+      default:
+        return '${displayLong}s';
+    }
+  }
 }

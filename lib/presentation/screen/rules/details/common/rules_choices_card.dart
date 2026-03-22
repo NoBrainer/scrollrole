@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:scrollrole/data/model/enum/list_option_type.dart';
 import 'package:scrollrole/data/model/rules/query/choice.dart';
+import 'package:scrollrole/data/model/rules/query/list_option.dart';
+import 'package:scrollrole/data/model/rules/query/list_query.dart';
 import 'package:scrollrole/presentation/common/basic_card.dart';
 import 'package:scrollrole/presentation/screen/rules/details/common/rules_paragraphs.dart';
 
@@ -40,6 +43,24 @@ class _ChoiceItem extends StatelessWidget {
 
   const _ChoiceItem({required this.choice});
 
+  // TODO: Move this to a common area
+  List<ListOption> parseOptions({
+    List<ListOption> options = const [],
+    required ListQuery query,
+  }) {
+    List<ListOption> parsedOptions = [...options];
+
+    // TODO: Parse the query for more options
+    ListQuery? query = choice.query;
+    if (query != null) {
+      parsedOptions.add(
+        ListOption(name: 'UNPARSED_QUERY', type: ListOptionType.feature),
+      );
+    }
+
+    return parsedOptions;
+  }
+
   @override
   Widget build(BuildContext context) {
     String name = choice.name;
@@ -49,14 +70,75 @@ class _ChoiceItem extends StatelessWidget {
 
     final titleStyle = Theme.of(context).textTheme.bodyLarge?.copyWith();
 
+    ListQuery? query = choice.query;
+    List<ListOption> options = query == null
+        ? [...choice.options]
+        : parseOptions(query: query, options: choice.options);
+    List<ListOptionType> optionTypes = options
+        .map((o) => o.type)
+        .toSet()
+        .toList();
+    bool hasSingleOptionType = optionTypes.length == 1;
+    bool hasFeatures = optionTypes.contains(ListOptionType.feature);
+
+    String optionsLabel =
+        'Pick $pick${allowDuplicate ? ' (duplicates allowed)' : ''} from:';
+    if (hasSingleOptionType && !hasFeatures) {
+      optionsLabel = optionsLabel.replaceFirst(
+        'from',
+        '${pick == 1 ? optionTypes.first.displayLong : optionTypes.first.displayLongPlural()} from',
+      );
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(name, style: titleStyle),
         RulesParagraphs(paragraphs: description),
         SizedBox(height: 8),
-        Text('Pick $pick ${allowDuplicate ? '(duplicates allowed)' : ''}'),
+        Text(optionsLabel),
+        _ChoiceOptions(options: options),
       ],
     );
+  }
+}
+
+class _ChoiceOptions extends StatelessWidget {
+  final List<ListOption> options;
+
+  const _ChoiceOptions({required this.options});
+
+  @override
+  Widget build(BuildContext context) {
+    List<ListOptionType> optionTypes = options
+        .map((o) => o.type)
+        .toSet()
+        .toList();
+    bool hasSingleOptionType = optionTypes.length == 1;
+    bool hasFeatures = optionTypes.contains(ListOptionType.feature);
+    bool showTypeLabel = !hasSingleOptionType || hasFeatures;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: options
+          .map((o) => _ChoiceOption(option: o, showTypeLabel: showTypeLabel))
+          .toList(),
+    );
+  }
+}
+
+class _ChoiceOption extends StatelessWidget {
+  final ListOption option;
+  final bool showTypeLabel;
+
+  const _ChoiceOption({required this.option, this.showTypeLabel = true});
+
+  @override
+  Widget build(BuildContext context) {
+    if (showTypeLabel) {
+      return Text('- ${option.type.displayLong}: ${option.name}');
+    } else {
+      return Text('- ${option.name}');
+    }
   }
 }
