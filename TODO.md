@@ -3,6 +3,7 @@
 # Task Priority
 
 1. Implement viewing the default rules config
+   - unlockables, spell casting, lists
 2. Implement switching between rules configs
 3. Implement modifying the default rules config
 4. Implement import/export rules config
