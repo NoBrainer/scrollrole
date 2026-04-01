@@ -15,6 +15,9 @@ class RulesParagraphs extends StatelessWidget {
       }
       paragraphWidgets.add(Text(paragraph));
     }
-    return Column(children: paragraphWidgets);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: paragraphWidgets,
+    );
   }
 }
