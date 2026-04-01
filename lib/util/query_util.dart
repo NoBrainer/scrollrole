@@ -175,7 +175,7 @@ class QueryUtil {
       return true;
     }
 
-    List missing = list.where((s) => !required.contains(s)).toList();
+    List missing = required.where((s) => !list.contains(s)).toList();
     return missing.isEmpty;
   }
 
